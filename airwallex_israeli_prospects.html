@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רשימת לקוחות פוטנציאליים לAirwallex - ישראל</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px 40px;
+            background: #f8f9fa;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .stat-box h3 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+        
+        .stat-box p {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .category {
+            margin-bottom: 50px;
+        }
+        
+        .category-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .category-header h2 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+        
+        .category-header p {
+            opacity: 0.9;
+            font-size: 1.05em;
+        }
+        
+        .companies {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .company-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .company-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+        
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .company-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .company-badge {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        
+        .company-badge.public {
+            background: #28a745;
+        }
+        
+        .company-badge.acquired {
+            background: #fd7e14;
+        }
+        
+        .company-info {
+            margin: 15px 0;
+        }
+        
+        .info-row {
+            display: flex;
+            margin: 10px 0;
+            align-items: start;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #667eea;
+            min-width: 110px;
+            font-size: 0.9em;
+        }
+        
+        .info-value {
+            color: #555;
+            flex: 1;
+            font-size: 0.95em;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-right: 4px solid #ffc107;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+        
+        .highlight strong {
+            color: #856404;
+        }
+        
+        .financials {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .financials h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        
+        .fin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 0.85em;
+        }
+        
+        .fin-item {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .fin-label {
+            color: #555;
+        }
+        
+        .fin-value {
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        
+        .markets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .market-tag {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        footer p {
+            margin: 5px 0;
+        }
+        
+        .priority-high {
+            border-right: 5px solid #28a745;
+        }
+        
+        .priority-medium {
+            border-right: 5px solid #ffc107;
+        }
+        
+        .priority-standard {
+            border-right: 5px solid #6c757d;
+        }
+        
+        @media (max-width: 768px) {
+            .companies {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 רשימת לקוחות פוטנציאליים - Airwallex Israel</h1>
+            <p>Account Executive Enterprise - חברות ישראליות עם פעילות גלובלית</p>
+        </header>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <h3>37</h3>
+                <p>חברות פוטנציאליות</p>
+            </div>
+            <div class="stat-box">
+                <h3>$50B+</h3>
+                <p>הכנסות שנתיות משוקללות</p>
+            </div>
+            <div class="stat-box">
+                <h3>6</h3>
+                <p>קטגוריות עיקריות</p>
+            </div>
+            <div class="stat-box">
+                <h3>190+</h3>
+                <p>מדינות פעילות</p>
+            </div>
+        </div>
+        
+        <div class="content">
+            
+            <!-- Category 1: SaaS חברות ציבוריות גדולות -->
+            <div class="category">
+                <div class="category-header">
+                    <h2>💎 SaaS - חברות ציבוריות Tier 1</h2>
+                    <p>חברות עם הכנסות $500M+, פעילות גלובלית, ותזרימי מזומנים מורכבים</p>
+                </div>
+                
+                <div class="companies">
+                    <!-- Monday.com -->
+                    <div class="company-card priority-high">
+                        <div class="company-header">
+                            <div class="company-name">Monday.com</div>
+                            <div class="company-badge public">ציבורית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">פלטפורמת ניהול עבודה (Work OS)</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B SaaS - Subscription per seat</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">245,000+ לקוחות, 40%+ Fortune 100</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">פעילות גלובלית - ארה"ב, אירופה, APAC</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇪🇺 אירופה</span>
+                                <span class="market-tag">🌏 APAC</span>
+                                <span class="market-tag">🇮🇱 ישראל</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים (2024)</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">הכנסות:</span>
+                                    <span class="fin-value">$972M</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">צמיחה:</span>
+                                    <span class="fin-value">+33% YoY</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">TTM Revenue:</span>
+                                    <span class="fin-value">$1.16B</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">מנוי $100K+:</span>
+                                    <span class="fin-value">911 לקוחות</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • תשלומים ללקוחות ב-190+ מדינות<br>
+                            • צוות גלובלי - שכר ב-5+ מטבעות<br>
+                            • רכישות ענן (AWS, GCP, Azure) במטבע מקומי<br>
+                            • 3 מוצרים (Work, CRM, Dev) - multi-entity complexity
+                        </div>
+                    </div>
+
+                    <!-- Wiz -->
+                    <div class="company-card priority-high">
+                        <div class="company-header">
+                            <div class="company-name">Wiz</div>
+                            <div class="company-badge acquired">נרכשה ע"י Google</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">Cloud Security (CNAPP)</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B Enterprise - Contract-based</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">45% מה-Fortune 100, Enterprise focus</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">משרדים בארה"ב, אירופה, ת"א (R&D)</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇪🇺 אירופה</span>
+                                <span class="market-tag">🇮🇱 ישראל</span>
+                                <span class="market-tag">☁️ Multi-Cloud</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים (2025)</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">ARR:</span>
+                                    <span class="fin-value">$750M+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">רכישה:</span>
+                                    <span class="fin-value">$32B (Google)</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">~2,900</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">ACV ממוצע:</span>
+                                    <span class="fin-value">$24K-$114K</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • חיובי לקוחות Enterprise במטבעות מרובים<br>
+                            • תשלומים לספקים Cloud (AWS, Azure, GCP)<br>
+                            • משרדי Sales בארה"ב ואירופה<br>
+                            • M&A פעיל - רכשו 4 חברות (Raftt, Gem, Dazz)
+                        </div>
+                    </div>
+
+                    <!-- Check Point -->
+                    <div class="company-card priority-high">
+                        <div class="company-header">
+                            <div class="company-name">Check Point Software</div>
+                            <div class="company-badge public">ציבורית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">Cybersecurity - Network & Cloud</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B Enterprise - Subscription + License</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">100,000+ ארגונים, כל Fortune 100</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">משרדים ב-100+ מדינות</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇪🇺 אירופה</span>
+                                <span class="market-tag">🌏 APAC</span>
+                                <span class="market-tag">🌍 LATAM</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים (2024 Est.)</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">הכנסות:</span>
+                                    <span class="fin-value">~$2.4B</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">שווי שוק:</span>
+                                    <span class="fin-value">$18B+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">6,000+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">R&D:</span>
+                                    <span class="fin-value">ישראל (HQ)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • חיובי לקוחות ב-100+ מדינות<br>
+                            • תשלומים לשותפי ערוץ גלובליים<br>
+                            • משרדי מכירות ותמיכה ברחבי העולם<br>
+                            • רכישות והשקעות בחברות טכנולוגיה
+                        </div>
+                    </div>
+
+                    <!-- CyberArk -->
+                    <div class="company-card priority-high">
+                        <div class="company-header">
+                            <div class="company-name">CyberArk</div>
+                            <div class="company-badge acquired">נרכשה ב-$25B</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">Identity Security & Privileged Access</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B Enterprise - Subscription SaaS</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">8,000+ לקוחות, 60%+ Fortune 500</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">משרדים ב-50+ מדינות</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇪🇺 אירופה</span>
+                                <span class="market-tag">🌏 APAC</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים (2024)</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">הכנסות:</span>
+                                    <span class="fin-value">~$800M</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">רכישה:</span>
+                                    <span class="fin-value">$25B Palo Alto</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">ARR:</span>
+                                    <span class="fin-value">~$900M</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">3,000+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • חיובי Enterprise במטבעות מקומיים<br>
+                            • משרדי מכירות ב-50+ מדינות<br>
+                            • שותפויות עם ענקיות Cloud<br>
+                            • תזרים מזומנים גבוה מ-Subscription ARR
+                        </div>
+                    </div>
+
+                    <!-- Snyk -->
+                    <div class="company-card priority-medium">
+                        <div class="company-header">
+                            <div class="company-name">Snyk</div>
+                            <div class="company-badge">פרטית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">Developer Security & AppSec</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B Developers - Freemium + Enterprise</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">2,000+ לקוחות ארגוניים</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">לונדון, בוסטון, ת"א, טוקיו, סינגפור</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇬🇧 בריטניה</span>
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇮🇱 ישראל</span>
+                                <span class="market-tag">🌏 APAC</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">ARR (Est):</span>
+                                    <span class="fin-value">~$250M+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">שווי:</span>
+                                    <span class="fin-value">$8.5B (2023)</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">גיוסים:</span>
+                                    <span class="fin-value">$1.2B+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">1,000+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • משרדים ב-5 יבשות<br>
+                            • תשלומים לפרילנסרים/קבלני משנה גלובליים<br>
+                            • רכישות Cloud infrastructure<br>
+                            • מודל Freemium - חיובים בכ"א מרובות
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2: SaaS Growth Companies -->
+            <div class="category">
+                <div class="category-header">
+                    <h2>🚀 SaaS - חברות בצמיחה גבוהה (Tier 2)</h2>
+                    <p>חברות שגייסו $100M+, צמיחה >40% YoY, התרחבות גלובלית</p>
+                </div>
+                
+                <div class="companies">
+                    <!-- HiBob -->
+                    <div class="company-card priority-medium">
+                        <div class="company-header">
+                            <div class="company-name">HiBob</div>
+                            <div class="company-badge">פרטית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">HR Tech - HRIS Platform (Bob)</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B Mid-Market - Per employee/month</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">3,500+ חברות, 350,000+ משתמשים</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">ת"א, NYC, לונדון, ברלין, סידני</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇪🇺 אירופה</span>
+                                <span class="market-tag">🇦🇺 אוסטרליה</span>
+                                <span class="market-tag">🇮🇱 ישראל</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">גיוסים:</span>
+                                    <span class="fin-value">$574M</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">שווי:</span>
+                                    <span class="fin-value">$2.45B</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">ARR (Est):</span>
+                                    <span class="fin-value">$150M+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">800+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • HR global - תשלומי שכר במטבעות מרובים<br>
+                            • משרדים ב-5 מדינות<br>
+                            • חיובי לקוחות ב-80+ מדינות<br>
+                            • אינטגרציות Payroll - צורך ב-FX
+                        </div>
+                    </div>
+
+                    <!-- Guesty -->
+                    <div class="company-card priority-medium">
+                        <div class="company-header">
+                            <div class="company-name">Guesty</div>
+                            <div class="company-badge">פרטית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">Property Management - Short-term Rentals</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B Property Managers - Per listing</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">Property managers managing 100K+ listings</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">ת"א, NYC, לונדון, פעילות ב-120+ מדינות</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇪🇺 אירופה</span>
+                                <span class="market-tag">🌎 LATAM</span>
+                                <span class="market-tag">🌏 APAC</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">גיוסים:</span>
+                                    <span class="fin-value">$410M+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">שווי:</span>
+                                    <span class="fin-value">$2.0B+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">ARR (Est):</span>
+                                    <span class="fin-value">$120M+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">700+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • Marketplace payments - Airbnb, Booking.com<br>
+                            • תשלומים לבעלי נכסים ב-120+ מדינות<br>
+                            • ניהול FX בין מטבעות מרובים<br>
+                            • Transaction volume גבוה במטבעות שונים
+                        </div>
+                    </div>
+
+                    <!-- Yotpo -->
+                    <div class="company-card priority-medium">
+                        <div class="company-header">
+                            <div class="company-name">Yotpo</div>
+                            <div class="company-badge">פרטית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">eCommerce Marketing Platform</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B eCommerce - Subscription tiers</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">30,000+ brands (Shopify, Magento, etc)</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">ת"א, NYC, לונדון, סופיה, מלבורן</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇪🇺 אירופה</span>
+                                <span class="market-tag">🇦🇺 אוסטרליה</span>
+                                <span class="market-tag">🌍 גלובלי</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">גיוסים:</span>
+                                    <span class="fin-value">$436M</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">שווי:</span>
+                                    <span class="fin-value">$1.4B</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">ARR (Est):</span>
+                                    <span class="fin-value">$100M+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">900+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • משרדים ב-5 מדינות<br>
+                            • חיובי לקוחות eCommerce גלובליים<br>
+                            • שותפויות עם Shopify, BigCommerce<br>
+                            • M&A activity - רכשו 3 חברות
+                        </div>
+                    </div>
+
+                    <!-- Aqua Security -->
+                    <div class="company-card priority-medium">
+                        <div class="company-header">
+                            <div class="company-name">Aqua Security</div>
+                            <div class="company-badge">פרטית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">Cloud Native Security (CNAPP)</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B Enterprise - License + Support</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">800+ Enterprise, Fortune 500</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">בוסטון, לונדון, סינגפור, ת"א</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇪🇺 אירופה</span>
+                                <span class="market-tag">🌏 APAC</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">גיוסים:</span>
+                                    <span class="fin-value">$325M</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">שווי:</span>
+                                    <span class="fin-value">$1B+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">ARR (Est):</span>
+                                    <span class="fin-value">$80M+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">500+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • Enterprise sales ב-3 יבשות<br>
+                            • חיובי לקוחות במטבעות מקומיים<br>
+                            • Partnership payments (AWS, Azure, GCP)<br>
+                            • R&D בישראל, Sales גלובלי
+                        </div>
+                    </div>
+
+                    <!-- Orca Security -->
+                    <div class="company-card priority-medium">
+                        <div class="company-header">
+                            <div class="company-name">Orca Security</div>
+                            <div class="company-badge">פרטית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">Cloud Security Platform (Agentless)</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B Enterprise - Annual contracts</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">1,000+ לקוחות, Fortune 500</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">ת"א, NYC, לונדון, סינגפור</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇪🇺 אירופה</span>
+                                <span class="market-tag">🌏 APAC</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">גיוסים:</span>
+                                    <span class="fin-value">$550M+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">שווי:</span>
+                                    <span class="fin-value">$1.8B</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">ARR (Est):</span>
+                                    <span class="fin-value">$100M+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">600+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • תחרות ישירה ל-Wiz - פרופיל דומה<br>
+                            • משרדים ב-4 יבשות<br>
+                            • Enterprise deals במטבעות שונים<br>
+                            • Cloud marketplace partnerships
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 3: Fintech Companies -->
+            <div class="category">
+                <div class="category-header">
+                    <h2>💰 Fintech - תחרות ישירה ומשלימה</h2>
+                    <p>חברות פינטק עם צרכי FX, תשלומים גלובליים, multi-currency</p>
+                </div>
+                
+                <div class="companies">
+                    <!-- Payoneer -->
+                    <div class="company-card priority-high">
+                        <div class="company-header">
+                            <div class="company-name">Payoneer</div>
+                            <div class="company-badge public">ציבורית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">Cross-border Payments for SMBs</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B/B2C - Transaction fees + FX</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">560K+ ICPs, פעילות ב-190+ מדינות</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">NYC, הונג קונג, סין, אירופה, ישראל</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🌍 190+ מדינות</span>
+                                <span class="market-tag">🇨🇳 סין</span>
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇪🇺 אירופה</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים (2024)</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">הכנסות:</span>
+                                    <span class="fin-value">$977.7M</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">צמיחה:</span>
+                                    <span class="fin-value">+18% YoY</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">Volume:</span>
+                                    <span class="fin-value">$80B</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">B2B Growth:</span>
+                                    <span class="fin-value">+42% YoY</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • תחרות ישירה - למידה מהשוק<br>
+                            • Corporate payments - תזרימים פנימיים<br>
+                            • משרדים ב-20+ מדינות<br>
+                            • רכישות (Skuad) - M&A payments complexity
+                        </div>
+                    </div>
+
+                    <!-- Rapyd -->
+                    <div class="company-card priority-high">
+                        <div class="company-header">
+                            <div class="company-name">Rapyd</div>
+                            <div class="company-badge">פרטית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">Fintech-as-a-Service Platform</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B Platforms - API-based fees</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">Platforms, Marketplaces ב-100+ מדינות</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">לונדון, NYC, סינגפור, דובאי, ת"א</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇬🇧 בריטניה</span>
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🌏 APAC</span>
+                                <span class="market-tag">🌍 MENA</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">גיוסים:</span>
+                                    <span class="fin-value">$1B+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">שווי:</span>
+                                    <span class="fin-value">$8.75B (2022)</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">1,000+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">מדינות:</span>
+                                    <span class="fin-value">100+ markets</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • תחרות/שותפות - embedded finance<br>
+                            • משרדים ב-5+ מדינות<br>
+                            • תשלומים לספקים ושותפים גלובליים<br>
+                            • רכישות (Valitor, Neat) - M&A complexity
+                        </div>
+                    </div>
+
+                    <!-- Tipalti -->
+                    <div class="company-card priority-high">
+                        <div class="company-header">
+                            <div class="company-name">Tipalti</div>
+                            <div class="company-badge">פרטית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">AP Automation & Global Payments</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B Mid-Market - Per transaction</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">3,000+ חברות כולל Twitch, GoDaddy</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">Foster City, לונדון, טורונטו, ת"א</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇪🇺 אירופה</span>
+                                <span class="market-tag">🇨🇦 קנדה</span>
+                                <span class="market-tag">🇮🇱 ישראל</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">גיוסים:</span>
+                                    <span class="fin-value">$565M</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">שווי:</span>
+                                    <span class="fin-value">$8.3B</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">Volume/Year:</span>
+                                    <span class="fin-value">$40B+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">1,000+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • תחרות ישירה ב-AP automation<br>
+                            • Corporate treasury operations<br>
+                            • תשלומים ב-196 מדינות, 120 מטבעות<br>
+                            • משרדים ב-4 מדינות - multi-currency needs
+                        </div>
+                    </div>
+
+                    <!-- Deel -->
+                    <div class="company-card priority-medium">
+                        <div class="company-header">
+                            <div class="company-name">Deel</div>
+                            <div class="company-badge">פרטית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">Global Payroll & Compliance</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B - Per contractor/employee</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">35,000+ חברות, 100K+ קבלנים</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">SF, ת"א (R&D), 100+ מדינות</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🌍 150+ מדינות</span>
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇮🇱 ישראל</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">גיוסים:</span>
+                                    <span class="fin-value">$679M</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">שווי:</span>
+                                    <span class="fin-value">$12B</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">ARR (Est):</span>
+                                    <span class="fin-value">$500M+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">4,000+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • משרד R&D בת"א - צרכים מקומיים<br>
+                            • תשלומי שכר ב-120+ מטבעות<br>
+                            • 7 רכישות - M&A payments<br>
+                            • Corporate operations גלובליות
+                        </div>
+                    </div>
+
+                    <!-- Riskified -->
+                    <div class="company-card priority-medium">
+                        <div class="company-header">
+                            <div class="company-name">Riskified</div>
+                            <div class="company-badge public">ציבורית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">Fraud Prevention for eCommerce</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B eCommerce - Revenue share</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">500+ merchants, $100B+ transactions</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">ת"א, NYC, לונדון, בנגקוק</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇪🇺 אירופה</span>
+                                <span class="market-tag">🌏 APAC</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים (2024 Est)</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">הכנסות:</span>
+                                    <span class="fin-value">~$280M</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">שווי שוק:</span>
+                                    <span class="fin-value">$800M</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">GMV:</span>
+                                    <span class="fin-value">$100B+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">700+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • חיובי merchants במטבעות מקומיים<br>
+                            • משרדים ב-4 מדינות<br>
+                            • Revenue share model - cash flow complexity<br>
+                            • אינטגרציות עם PSPs גלובליים
+                        </div>
+                    </div>
+
+                    <!-- eToro -->
+                    <div class="company-card priority-medium">
+                        <div class="company-header">
+                            <div class="company-name">eToro</div>
+                            <div class="company-badge public">ציבורית (2025)</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">Social Trading & Investment Platform</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2C - Spreads, fees, subscriptions</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">30M+ משתמשים ב-100+ מדינות</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">ת"א, לונדון, קפריסין, אוסטרליה</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇪🇺 אירופה</span>
+                                <span class="market-tag">🇦🇺 אוסטרליה</span>
+                                <span class="market-tag">🌍 100+ מדינות</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים (2024 Est)</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">הכנסות:</span>
+                                    <span class="fin-value">~$800M</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">IPO:</span>
+                                    <span class="fin-value">2025 NYSE</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">Assets:</span>
+                                    <span class="fin-value">$10B+ AUM</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">1,500+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • FX expertise - תחרות/שותפות<br>
+                            • Corporate operations ב-4+ מדינות<br>
+                            • רגולציה מרובה - entities בכמה מדינות<br>
+                            • רכישות (Gatsby, Firmo) - M&A payments
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 4: eCommerce & Cross-Border -->
+            <div class="category">
+                <div class="category-header">
+                    <h2>🛒 eCommerce & Cross-Border</h2>
+                    <p>חברות עם עסקאות חוצות גבולות, מטבעות מרובים, marketplace complexity</p>
+                </div>
+                
+                <div class="companies">
+                    <!-- Global-e -->
+                    <div class="company-card priority-high">
+                        <div class="company-header">
+                            <div class="company-name">Global-e</div>
+                            <div class="company-badge public">ציבורית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">Cross-border eCommerce Platform</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B Merchants - Take rate on GMV</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">1,000+ brands (Nike, LVMH, Shopify)</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">Petah Tikva, לונדון, NYC, שירות ב-200+ מדינות</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🌍 200+ מדינות</span>
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇪🇺 אירופה</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים (2024 Est)</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">הכנסות:</span>
+                                    <span class="fin-value">~$600M</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">GMV:</span>
+                                    <span class="fin-value">$4B+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">שווי שוק:</span>
+                                    <span class="fin-value">$4B+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">1,000+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • תחרות/משלימות - cross-border expertise<br>
+                            • תשלומים ל-merchants ב-200+ מדינות<br>
+                            • Corporate operations - משרדים בכ"א<br>
+                            • שותפות Shopify - volume גבוה במטבעות
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 5: Vertical SaaS & Others -->
+            <div class="category">
+                <div class="category-header">
+                    <h2>📊 Vertical SaaS & חברות נוספות</h2>
+                    <p>חברות בתחומים ספציפיים עם פעילות בינלאומית</p>
+                </div>
+                
+                <div class="companies">
+                    <!-- Earnix -->
+                    <div class="company-card priority-standard">
+                        <div class="company-header">
+                            <div class="company-name">Earnix</div>
+                            <div class="company-badge">פרטית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">Insurance & Banking Pricing Software</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B Enterprise - Annual license</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">200+ insurers & banks גלובליים</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">ת"א, NYC, לונדון, טורונטו, מקסיקו</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇪🇺 אירופה</span>
+                                <span class="market-tag">🇨🇦 קנדה</span>
+                                <span class="market-tag">🌎 LATAM</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">גיוסים:</span>
+                                    <span class="fin-value">$110M+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">ARR (Est):</span>
+                                    <span class="fin-value">~$60M</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">400+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">משרדים:</span>
+                                    <span class="fin-value">5 מדינות</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • חיובי Enterprise במטבעות מקומיים<br>
+                            • משרדים ב-5 מדינות<br>
+                            • לקוחות בינלאומיים<br>
+                            • Professional services ב-4 יבשות
+                        </div>
+                    </div>
+
+                    <!-- Planck -->
+                    <div class="company-card priority-standard">
+                        <div class="company-header">
+                            <div class="company-name">Planck</div>
+                            <div class="company-badge acquired">נרכשה</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">AI for Commercial Insurance</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B Insurance - Per API call</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">Top 20 US insurers</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">ת"א, NYC - נרכשה ע"י Applied Systems</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇮🇱 ישראל</span>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • Post-acquisition - integration payments<br>
+                            • Applied Systems - גלובלי<br>
+                            • משרדים בארה"ב וישראל
+                        </div>
+                    </div>
+
+                    <!-- HoneyBook -->
+                    <div class="company-card priority-standard">
+                        <div class="company-header">
+                            <div class="company-name">HoneyBook</div>
+                            <div class="company-badge">פרטית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">Business Management for Independents</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2SMB - Subscription + payments</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">100,000+ independent businesses</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">SF, ת"א - בעיקר ארה"ב</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇮🇱 ישראל</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">גיוסים:</span>
+                                    <span class="fin-value">$498M</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">שווי:</span>
+                                    <span class="fin-value">$1B+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">500+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">משרדים:</span>
+                                    <span class="fin-value">2</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • Embedded payments - תזרימים פנימיים<br>
+                            • משרדי R&D בישראל<br>
+                            • Corporate ops - SF ↔ ת"א
+                        </div>
+                    </div>
+
+                    <!-- BioCatch -->
+                    <div class="company-card priority-standard">
+                        <div class="company-header">
+                            <div class="company-name">BioCatch</div>
+                            <div class="company-badge">פרטית</div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-row">
+                                <div class="info-label">תחום:</div>
+                                <div class="info-value">Behavioral Biometrics for Fraud</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מודל:</div>
+                                <div class="info-value">B2B Banks - Per transaction</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">לקוחות:</div>
+                                <div class="info-value">200+ banks & enterprises</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">מדינות:</div>
+                                <div class="info-value">ת"א, NYC, לונדון, סינגפור, סאו פאולו</div>
+                            </div>
+                            <div class="markets">
+                                <span class="market-tag">🇺🇸 ארה"ב</span>
+                                <span class="market-tag">🇪🇺 אירופה</span>
+                                <span class="market-tag">🌏 APAC</span>
+                                <span class="market-tag">🌎 LATAM</span>
+                            </div>
+                        </div>
+                        <div class="financials">
+                            <h4>📊 נתונים כספיים</h4>
+                            <div class="fin-grid">
+                                <div class="fin-item">
+                                    <span class="fin-label">גיוסים:</span>
+                                    <span class="fin-value">$315M</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">שווי:</span>
+                                    <span class="fin-value">$1.3B</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">עובדים:</span>
+                                    <span class="fin-value">500+</span>
+                                </div>
+                                <div class="fin-item">
+                                    <span class="fin-label">משרדים:</span>
+                                    <span class="fin-value">5 יבשות</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>למה Airwallex?</strong><br>
+                            • משרדים ב-5 יבשות<br>
+                            • חיובי banks במטבעות מקומיים<br>
+                            • Professional services גלובליים
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <footer>
+            <p><strong>נוצר עבור: AE Enterprise - Airwallex Israel</strong></p>
+            <p>עודכן לאחרונה: פברואר 2026</p>
+            <p>📧 לשאלות או עדכונים - צור קשר עם צוות ה-Sales Operations</p>
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3);">
+                <p style="font-size: 0.9em; opacity: 0.8;">
+                    💡 <strong>טיפ:</strong> מיין לפי עדיפות - חפש קודם חברות עם border ירוק (priority-high)<br>
+                    אלו חברות עם volume גבוה, complexity רב, ו-GTM fit חזק ל-Airwallex
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
