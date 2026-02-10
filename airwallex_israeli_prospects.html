@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Airwallex Israel - 100 Top Prospects | Product Fit Analysis</title>
+    <title>Airwallex Israel - Top 100 Prospects</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,34 +14,21 @@
         
         :root {
             --airwallex-orange: #FF6B00;
-            --airwallex-dark-orange: #E55D00;
-            --airwallex-light-orange: #FF8533;
-            --airwallex-bg: #FFF5EE;
-            --white: #FFFFFF;
-            --gray-50: #FAFAFA;
-            --gray-100: #F5F5F5;
-            --gray-200: #EEEEEE;
-            --gray-300: #E0E0E0;
-            --gray-500: #9E9E9E;
-            --gray-700: #616161;
-            --gray-900: #212121;
-            --green: #00C853;
-            --blue: #2196F3;
-            --amber: #FFC107;
+            --airwallex-dark: #E55D00;
+            --airwallex-light: #FF8533;
         }
         
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--white);
+            background: #FFFFFF;
             line-height: 1.6;
-            color: var(--gray-900);
+            color: #212121;
         }
         
-        /* Header */
         .header {
-            background: var(--white);
-            border-bottom: 3px solid var(--airwallex-orange);
-            padding: 20px;
+            background: white;
+            border-bottom: 4px solid var(--airwallex-orange);
+            padding: 25px 20px;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -56,13 +43,11 @@
             gap: 30px;
         }
         
-        .logo-container {
-            flex-shrink: 0;
-        }
-        
         .logo {
-            height: 40px;
-            width: auto;
+            height: 45px;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--airwallex-orange);
         }
         
         .header-text {
@@ -70,9 +55,9 @@
         }
         
         .header h1 {
-            font-size: 1.8em;
+            font-size: 1.9em;
             margin-bottom: 8px;
-            color: var(--gray-900);
+            color: #212121;
             font-weight: 800;
         }
         
@@ -93,24 +78,24 @@
         }
         
         .stat-number {
-            font-size: 1.4em;
+            font-size: 1.5em;
             font-weight: 800;
             color: var(--airwallex-orange);
         }
         
         .stat-label {
             font-size: 0.85em;
-            color: var(--gray-700);
+            color: #616161;
         }
         
         /* Filters */
         .filters {
-            background: var(--gray-50);
+            background: #FAFAFA;
             padding: 25px;
             margin: 20px auto;
             border-radius: 12px;
             max-width: 1800px;
-            border: 2px solid var(--gray-200);
+            border: 2px solid #EEEEEE;
         }
         
         .filters-header {
@@ -123,12 +108,12 @@
         .filters-title {
             font-size: 1.2em;
             font-weight: 700;
-            color: var(--gray-900);
+            color: #212121;
         }
         
         .clear-btn {
             padding: 8px 16px;
-            background: var(--white);
+            background: white;
             border: 2px solid var(--airwallex-orange);
             border-radius: 8px;
             cursor: pointer;
@@ -139,7 +124,7 @@
         
         .clear-btn:hover {
             background: var(--airwallex-orange);
-            color: var(--white);
+            color: white;
         }
         
         .filters-grid {
@@ -157,18 +142,17 @@
         
         .filter-label {
             font-weight: 600;
-            color: var(--gray-700);
+            color: #616161;
             font-size: 0.85em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
         
         .filter-select, .filter-input {
             padding: 10px;
-            border: 2px solid var(--gray-300);
+            border: 2px solid #E0E0E0;
             border-radius: 8px;
             font-size: 0.95em;
-            background: var(--white);
+            background: white;
             transition: all 0.2s;
             font-family: 'Inter', sans-serif;
         }
@@ -191,14 +175,13 @@
         
         .quick-filter {
             padding: 8px 16px;
-            border: 2px solid var(--gray-300);
+            border: 2px solid #E0E0E0;
             border-radius: 20px;
-            background: var(--white);
+            background: white;
             font-size: 0.85em;
             cursor: pointer;
             transition: all 0.2s;
             font-weight: 600;
-            color: var(--gray-700);
         }
         
         .quick-filter:hover {
@@ -208,16 +191,15 @@
         
         .quick-filter.active {
             background: var(--airwallex-orange);
-            color: var(--white);
+            color: white;
             border-color: var(--airwallex-orange);
         }
         
-        /* Results Bar */
         .results-bar {
             max-width: 1800px;
             margin: 0 auto 20px;
             padding: 15px 25px;
-            background: var(--gray-50);
+            background: #FAFAFA;
             border-radius: 10px;
             display: flex;
             justify-content: space-between;
@@ -227,12 +209,11 @@
         .results-count {
             font-size: 1.1em;
             font-weight: 600;
-            color: var(--gray-900);
         }
         
         .results-count span {
             color: var(--airwallex-orange);
-            font-size: 1.2em;
+            font-size: 1.3em;
             font-weight: 800;
         }
         
@@ -247,95 +228,83 @@
         }
         
         .company-card {
-            background: var(--white);
+            background: white;
             border-radius: 12px;
-            padding: 24px;
+            padding: 0;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
-            border-top: 4px solid transparent;
-            position: relative;
+            overflow: hidden;
+            border: 2px solid #F5F5F5;
         }
         
         .company-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px rgba(255, 107, 0, 0.15);
+            border-color: var(--airwallex-orange);
         }
         
-        /* Fit Score Styling */
-        .fit-exceptional {
-            border-top-color: var(--green);
-        }
-        
-        .fit-high {
-            border-top-color: var(--blue);
-        }
-        
-        .fit-good {
-            border-top-color: var(--airwallex-orange);
-        }
-        
-        .fit-medium {
-            border-top-color: var(--gray-500);
-        }
-        
-        .card-header {
+        /* Fit Score Header */
+        .fit-header {
+            padding: 16px 24px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
+            align-items: center;
+            border-bottom: 2px solid #F5F5F5;
+        }
+        
+        .fit-exceptional .fit-header {
+            background: linear-gradient(135deg, #00C853 0%, #69F0AE 100%);
+        }
+        
+        .fit-high .fit-header {
+            background: linear-gradient(135deg, #2196F3 0%, #64B5F6 100%);
+        }
+        
+        .fit-good .fit-header {
+            background: linear-gradient(135deg, var(--airwallex-orange) 0%, var(--airwallex-light) 100%);
+        }
+        
+        .fit-medium .fit-header {
+            background: linear-gradient(135deg, #9E9E9E 0%, #BDBDBD 100%);
         }
         
         .company-name {
-            font-size: 1.5em;
+            font-size: 1.6em;
             font-weight: 800;
-            color: var(--gray-900);
-            margin-bottom: 5px;
+            color: white;
         }
         
-        .fit-badge {
-            background: var(--green);
-            color: var(--white);
-            padding: 6px 14px;
+        .fit-score-badge {
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 8px 16px;
             border-radius: 12px;
-            font-size: 0.75em;
+            font-size: 1.1em;
             font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
+            border: 2px solid rgba(255,255,255,0.5);
         }
         
-        .fit-exceptional .fit-badge {
-            background: var(--green);
-        }
-        
-        .fit-high .fit-badge {
-            background: var(--blue);
-        }
-        
-        .fit-good .fit-badge {
-            background: var(--airwallex-orange);
-        }
-        
-        .fit-medium .fit-badge {
-            background: var(--gray-500);
+        .card-content {
+            padding: 24px;
         }
         
         .company-tagline {
-            color: var(--gray-500);
-            font-size: 0.9em;
-            margin-bottom: 12px;
-            line-height: 1.4;
+            color: #616161;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+            font-weight: 500;
         }
         
         .badges {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .badge {
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 6px;
             font-size: 0.75em;
             font-weight: 600;
@@ -356,71 +325,93 @@
             color: #01579B;
         }
         
-        .metrics {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin: 15px 0;
-            padding: 15px;
-            background: var(--gray-50);
-            border-radius: 10px;
+        .company-info {
+            margin: 20px 0;
         }
         
-        .metric {
+        .info-row {
             display: flex;
-            flex-direction: column;
-            gap: 4px;
+            margin: 10px 0;
+            font-size: 0.9em;
         }
         
-        .metric-label {
-            font-size: 0.7em;
-            color: var(--gray-500);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .info-label {
             font-weight: 600;
+            color: #616161;
+            min-width: 100px;
         }
         
-        .metric-value {
-            font-size: 1.1em;
-            font-weight: 700;
-            color: var(--gray-900);
+        .info-value {
+            color: #212121;
+            flex: 1;
         }
         
         .markets {
             display: flex;
             gap: 6px;
             flex-wrap: wrap;
-            margin: 12px 0;
+            margin-top: 12px;
         }
         
         .market-tag {
-            background: var(--gray-100);
+            background: #E3F2FD;
+            color: #1976D2;
             padding: 4px 10px;
             border-radius: 5px;
             font-size: 0.75em;
             font-weight: 500;
-            color: var(--gray-700);
         }
         
-        /* Product Fit Matrix */
+        .financials {
+            background: #E8F5E9;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .financials h4 {
+            color: #2E7D32;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+            font-weight: 700;
+        }
+        
+        .fin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 0.85em;
+        }
+        
+        .fin-item {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .fin-label {
+            color: #555;
+        }
+        
+        .fin-value {
+            font-weight: 700;
+            color: #2E7D32;
+        }
+        
+        /* Product Fit */
         .product-fit {
             margin-top: 15px;
             padding: 16px;
             background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
-            border-radius: 12px;
+            border-radius: 10px;
             border-right: 4px solid var(--airwallex-orange);
         }
         
         .product-fit-title {
             font-size: 0.85em;
-            color: var(--airwallex-dark-orange);
+            color: var(--airwallex-dark);
             margin-bottom: 12px;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
         
         .products-grid {
@@ -442,7 +433,6 @@
         .product-name {
             font-size: 0.8em;
             font-weight: 600;
-            color: var(--gray-900);
         }
         
         .stars {
@@ -451,35 +441,34 @@
             letter-spacing: 2px;
         }
         
-        .use-cases {
+        .highlight {
             margin-top: 12px;
             padding-top: 12px;
             border-top: 2px dashed rgba(255, 107, 0, 0.3);
         }
         
-        .use-cases-title {
-            font-size: 0.75em;
-            color: var(--airwallex-dark-orange);
-            margin-bottom: 8px;
-            font-weight: 700;
+        .highlight strong {
+            font-size: 0.8em;
+            color: var(--airwallex-dark);
             text-transform: uppercase;
+            font-weight: 700;
         }
         
-        .use-cases-list {
+        .highlight-list {
             list-style: none;
             padding: 0;
+            margin-top: 8px;
         }
         
-        .use-cases-list li {
+        .highlight-list li {
             font-size: 0.8em;
             color: #5D4037;
             margin: 4px 0;
             padding-right: 12px;
             position: relative;
-            line-height: 1.4;
         }
         
-        .use-cases-list li::before {
+        .highlight-list li::before {
             content: "▸";
             position: absolute;
             right: 0;
@@ -520,11 +509,7 @@
 <body>
     <div class="header">
         <div class="header-content">
-            <div class="logo-container">
-                <svg class="logo" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
-                    <text x="10" y="35" font-family="Inter, sans-serif" font-size="28" font-weight="800" fill="#FF6B00">Airwallex</text>
-                </svg>
-            </div>
+            <div class="logo">Airwallex</div>
             <div class="header-text">
                 <h1>Israel <span class="highlight">Top 100 Prospects</span></h1>
                 <div class="stats-bar">
@@ -534,7 +519,7 @@
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">$92B+</span>
-                        <span class="stat-label">ARR</span>
+                        <span class="stat-label">ARR משוקלל</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">35</span>
@@ -628,13 +613,11 @@
     
     <div class="results-bar">
         <div class="results-count">מציג <span id="showing-count">100</span> חברות</div>
-        <div id="filter-summary"></div>
     </div>
     
     <div class="companies-grid" id="companies-container"></div>
 
     <script>
-// Company data with Airwallex product fit
 const companies = [
     {
         name: "Wiz",
@@ -644,10 +627,18 @@ const companies = [
         status: "Acquired",
         fitScore: 98,
         fitClass: "exceptional",
-        revenue: "$750M ARR",
-        employees: "2,900",
+        field: "Cloud Security (CNAPP)",
+        model: "B2B Enterprise - Contract-based",
+        customers: "45% מה-Fortune 100, Enterprise focus",
+        locations: "משרדים בארה\"ב, אירופה, ת\"א (R&D)",
         markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
         marketScope: "Global",
+        financials: {
+            "ARR": "$750M+",
+            "רכישה": "$32B (Google)",
+            "עובדים": "2,900",
+            "ACV ממוצע": "$24K-$114K"
+        },
         products: {
             "Global Accounts": "★★★★★",
             "Transfers": "★★★★★",
@@ -655,10 +646,10 @@ const companies = [
             "FX Services": "★★★★★"
         },
         useCases: [
-            "נרכשה ב-$32B - massive integration needs",
-            "45% מ-Fortune 100 - Enterprise billing",
-            "4 רכישות - M&A payment consolidation",
-            "משרדים ב-5 יבשות - multi-currency ops"
+            "תשלומי Enterprise ללקוחות ב-100+ מדינות",
+            "רכישות Cloud (AWS/Azure/GCP) במטבע מקומי",
+            "תשלומי שכר לצוותים ב-5 יבשות",
+            "4 רכישות - M&A payment consolidation"
         ]
     },
     {
@@ -669,10 +660,18 @@ const companies = [
         status: "Public",
         fitScore: 97,
         fitClass: "exceptional",
-        revenue: "$1.16B TTM",
-        employees: "1,800+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
+        field: "פלטפורמת ניהול עבודה (Work OS)",
+        model: "B2B SaaS - Subscription per seat",
+        customers: "245,000+ לקוחות, 40%+ Fortune 100",
+        locations: "ת\"א, NYC, משרדים גלובליים",
+        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC", "🇮🇱 ישראל"],
         marketScope: "Global",
+        financials: {
+            "הכנסות": "$972M",
+            "צמיחה": "+33% YoY",
+            "TTM Revenue": "$1.16B",
+            "מנוי $100K+": "911 לקוחות"
+        },
         products: {
             "Global Accounts": "★★★★★",
             "Transfers": "★★★★★",
@@ -680,10 +679,10 @@ const companies = [
             "FX Services": "★★★★☆"
         },
         useCases: [
-            "245K+ לקוחות ב-190+ מדינות",
-            "911 לקוחות $100K+ ARR",
-            "3 מוצרים - multi-entity complexity",
-            "תשלומי שכר גלובליים"
+            "תשלומים ללקוחות ב-190+ מדינות",
+            "צוות גלובלי - שכר ב-5+ מטבעות",
+            "רכישות ענן במטבע מקומי",
+            "3 מוצרים - multi-entity complexity"
         ]
     },
     {
@@ -694,10 +693,18 @@ const companies = [
         status: "Public",
         fitScore: 98,
         fitClass: "exceptional",
-        revenue: "$613M TTM",
-        employees: "1,800+",
+        field: "Travel & Expense Management",
+        model: "B2B - Usage-based (90%) + Subscription (10%)",
+        customers: "10,000+ חברות (Netflix, Shopify, Loom)",
+        locations: "Palo Alto, משרד R&D בת\"א, גלובלי",
         markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌍 גלובלי"],
         marketScope: "Global",
+        financials: {
+            "הכנסות": "$613M (TTM)",
+            "צמיחה": "+32% YoY",
+            "IPO": "$6.2B שווי",
+            "GBV": "$7.6B"
+        },
         products: {
             "Global Accounts": "★★★★★",
             "Transfers": "★★★★★",
@@ -705,10 +712,10 @@ const companies = [
             "FX Services": "★★★★★"
         },
         useCases: [
-            "IPO 2025 - $6.2B valuation",
-            "$7.6B GBV - massive T&E volume",
-            "Corporate cards - FX optimization",
-            "משרד R&D בת\"א"
+            "תזרים מזומנים ענק - $7.6B GBV",
+            "תשלומי נסיעות במטבעות מרובים",
+            "משרד R&D בת\"א - צרכים מקומיים",
+            "Corporate cards - FX complexity"
         ]
     },
     {
@@ -719,10 +726,18 @@ const companies = [
         status: "Acquired",
         fitScore: 96,
         fitClass: "exceptional",
-        revenue: "$900M ARR",
-        employees: "3,000+",
+        field: "Identity Security & Privileged Access",
+        model: "B2B Enterprise - Subscription SaaS",
+        customers: "8,000+ לקוחות, 60%+ Fortune 500",
+        locations: "Petah Tikva, 50+ משרדים",
         markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
         marketScope: "Global",
+        financials: {
+            "הכנסות": "~$800M",
+            "רכישה": "$25B Palo Alto",
+            "ARR": "~$900M",
+            "עובדים": "3,000+"
+        },
         products: {
             "Global Accounts": "★★★★★",
             "Transfers": "★★★★★",
@@ -730,10 +745,10 @@ const companies = [
             "FX Services": "★★★★★"
         },
         useCases: [
-            "נרכשה ב-$25B - integration",
-            "8,000+ לקוחות, 60% Fortune 500",
-            "משרדים ב-50 מדינות",
-            "ARR subscription - cash flow"
+            "חיובי Enterprise במטבעות מקומיים",
+            "משרדי מכירות ב-50+ מדינות",
+            "שותפויות עם ענקיות Cloud",
+            "תזרים מזומנים גבוה מ-Subscription ARR"
         ]
     },
     {
@@ -744,10 +759,18 @@ const companies = [
         status: "Public",
         fitScore: 95,
         fitClass: "exceptional",
-        revenue: "$2.4B",
-        employees: "6,000+",
+        field: "Cybersecurity - Network & Cloud",
+        model: "B2B Enterprise - Subscription + License",
+        customers: "100,000+ ארגונים, כל Fortune 100",
+        locations: "ת\"א, משרדים ב-100+ מדינות",
         markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC", "🌍 LATAM"],
         marketScope: "Global",
+        financials: {
+            "הכנסות": "~$2.4B",
+            "שווי שוק": "$18B+",
+            "עובדים": "6,000+",
+            "R&D": "ישראל (HQ)"
+        },
         products: {
             "Global Accounts": "★★★★★",
             "Transfers": "★★★★★",
@@ -755,1340 +778,96 @@ const companies = [
             "FX Services": "★★★★★"
         },
         useCases: [
-            "100K+ ארגונים ב-100+ מדינות",
-            "כל Fortune 100",
-            "תשלומים לשותפי ערוץ",
-            "M&A continuous"
-        ]
-    },
-    {
-        name: "Cyera",
-        tagline: "Data Security Posture Management",
-        category: "Cybersecurity",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 96,
-        fitClass: "exceptional",
-        revenue: "$150M+ ARR",
-        employees: "400+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה"],
-        marketScope: "US-EU",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★★",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "גייסה $940M - $9B valuation",
-            "Fortune 500 customers",
-            "Hypergrowth - expansion",
-            "NYC + ת\"א offices"
-        ]
-    },
-    {
-        name: "Upwind",
-        tagline: "Cloud Security Platform",
-        category: "Cybersecurity",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 95,
-        fitClass: "exceptional",
-        revenue: "$100M+ ARR",
-        employees: "300+",
-        markets: ["🇺🇸 ארה\"ב", "🇬🇧 בריטניה", "🇮🇱 ישראל"],
-        marketScope: "US-EU",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★★",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "Unicorn ב-2025 - $1.5B",
-            "900% revenue growth",
-            "Siemens, Peloton, Roku",
-            "SF, ת\"א, לונדון"
-        ]
-    },
-    {
-        name: "Payoneer",
-        tagline: "Cross-border Payments",
-        category: "Fintech",
-        tier: "Enterprise",
-        status: "Public",
-        fitScore: 92,
-        fitClass: "high",
-        revenue: "$977M",
-        employees: "2,500+",
-        markets: ["🌍 190+ מדינות"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★★",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★★★"
-        },
-        useCases: [
-            "תחרות ישירה - insights",
-            "$80B volume",
-            "560K+ ICPs",
-            "Corporate treasury"
-        ]
-    },
-    {
-        name: "Rapyd",
-        tagline: "Fintech-as-a-Service",
-        category: "Fintech",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 91,
-        fitClass: "high",
-        revenue: "$200M+",
-        employees: "1,000+",
-        markets: ["🌍 100+ מדינות"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★★",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★★★"
-        },
-        useCases: [
-            "$8.75B valuation",
-            "משרדים ב-5 יבשות",
-            "רכישות - consolidation",
-            "100+ מדינות"
-        ]
-    },
-    {
-        name: "Tipalti",
-        tagline: "AP Automation",
-        category: "Fintech",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 93,
-        fitClass: "high",
-        revenue: "$300M+",
-        employees: "1,000+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה"],
-        marketScope: "US-EU",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★★",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★★★"
-        },
-        useCases: [
-            "תחרות ישירה - AP",
-            "$40B+ volume",
-            "196 מדינות, 120 מטבעות",
-            "3,000+ חברות"
-        ]
-    },
-    {
-        name: "Snyk",
-        tagline: "Developer Security",
-        category: "Cybersecurity",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 89,
-        fitClass: "high",
-        revenue: "$250M+ ARR",
-        employees: "1,000+",
-        markets: ["🇬🇧 בריטניה", "🇺🇸 ארה\"ב", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "משרדים ב-5 מדינות",
-            "2,000+ Enterprise customers",
-            "Cloud infrastructure costs",
-            "קבלני משנה גלובליים"
-        ]
-    },
-    {
-        name: "HiBob",
-        tagline: "HR Platform (Bob)",
-        category: "SaaS",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 88,
-        fitClass: "high",
-        revenue: "$150M+ ARR",
-        employees: "800+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🇦🇺 אוסטרליה"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★★",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "3,500+ חברות",
-            "Payroll integration",
-            "משרדים ב-5 מדינות",
-            "Multi-currency payroll"
-        ]
-    },
-    {
-        name: "Guesty",
-        tagline: "Property Management",
-        category: "SaaS",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 91,
-        fitClass: "high",
-        revenue: "$120M+ ARR",
-        employees: "700+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★★",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★★★"
-        },
-        useCases: [
-            "Marketplace payments",
-            "תשלומים ב-120+ מדינות",
-            "FX management",
-            "High transaction volume"
-        ]
-    },
-    {
-        name: "Yotpo",
-        tagline: "eCommerce Marketing",
-        category: "eCommerce",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 85,
-        fitClass: "high",
-        revenue: "$100M+ ARR",
-        employees: "900+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "30,000+ brands",
-            "משרדים ב-5 מדינות",
-            "3 רכישות",
-            "Shopify partnership"
-        ]
-    },
-    {
-        name: "Aqua Security",
-        tagline: "Cloud Native Security",
-        category: "Cybersecurity",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 86,
-        fitClass: "high",
-        revenue: "$80M+ ARR",
-        employees: "500+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "800+ Enterprise",
-            "משרדים ב-4 מדינות",
-            "Cloud marketplace",
-            "AWS/Azure/GCP partnerships"
-        ]
-    },
-    {
-        name: "Orca Security",
-        tagline: "Agentless Cloud Security",
-        category: "Cybersecurity",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 90,
-        fitClass: "high",
-        revenue: "$100M+ ARR",
-        employees: "600+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "1,000+ Fortune 500",
-            "משרדים ב-4 יבשות",
-            "Enterprise deals",
-            "Cloud partnerships"
-        ]
-    },
-    {
-        name: "Deel",
-        tagline: "Global Payroll",
-        category: "Fintech",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 88,
-        fitClass: "high",
-        revenue: "$500M+ ARR",
-        employees: "4,000+",
-        markets: ["🌍 150+ מדינות"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★★★",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★★★"
-        },
-        useCases: [
-            "משרד R&D בת\"א",
-            "תשלומי שכר 120+ מטבעות",
-            "7 רכישות",
-            "Corporate SF ↔ ת\"א"
-        ]
-    },
-    {
-        name: "Riskified",
-        tagline: "Fraud Prevention",
-        category: "eCommerce",
-        tier: "Scale-Up",
-        status: "Public",
-        fitScore: 83,
-        fitClass: "good",
-        revenue: "$280M",
-        employees: "700+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "$100B+ GMV",
-            "Merchant billing multi-currency",
-            "משרדים ב-4 מדינות",
-            "Revenue share complexity"
-        ]
-    },
-    {
-        name: "eToro",
-        tagline: "Social Trading",
-        category: "Fintech",
-        tier: "Scale-Up",
-        status: "Public",
-        fitScore: 85,
-        fitClass: "high",
-        revenue: "$800M",
-        employees: "1,500+",
-        markets: ["🇪🇺 אירופה", "🇦🇺 אוסטרליה", "🌍 100+"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★★★",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★★★"
-        },
-        useCases: [
-            "30M+ users - FX expertise",
-            "Corporate ב-4+ מדינות",
-            "רכישות",
-            "Multi-entity regulatory"
-        ]
-    },
-    {
-        name: "Global-e",
-        tagline: "Cross-border eCommerce",
-        category: "eCommerce",
-        tier: "Scale-Up",
-        status: "Public",
-        fitScore: 92,
-        fitClass: "high",
-        revenue: "$600M",
-        employees: "1,000+",
-        markets: ["🌍 200+ מדינות"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★★",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★★★"
-        },
-        useCases: [
-            "תחרות/משלימות",
-            "$4B+ GMV",
-            "Merchant payments 200+ מדינות",
-            "Shopify partnership"
-        ]
-    },
-    {
-        name: "Melio",
-        tagline: "B2B Payments",
-        category: "Fintech",
-        tier: "Scale-Up",
-        status: "Acquired",
-        fitScore: 94,
-        fitClass: "high",
-        revenue: "$100M+",
-        employees: "400+",
-        markets: ["🇺🇸 ארה\"ב", "🇮🇱 ישראל"],
-        marketScope: "US",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "נרכשה ב-$3B",
-            "$20B+ volume",
-            "Corporate NYC ↔ ת\"א",
-            "Xero integration"
-        ]
-    },
-    {
-        name: "Cellebrite",
-        tagline: "Digital Intelligence",
-        category: "Cybersecurity",
-        tier: "Scale-Up",
-        status: "Public",
-        fitScore: 81,
-        fitClass: "good",
-        revenue: "$350M",
-        employees: "1,000+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "5,000+ agencies 150+ מדינות",
-            "Government billing",
-            "Global support offices",
-            "M&A payments"
-        ]
-    },
-    {
-        name: "Gett",
-        tagline: "Corporate Transportation",
-        category: "SaaS",
-        tier: "Growth",
-        status: "High-Growth",
-        fitScore: 75,
-        fitClass: "good",
-        revenue: "$100M+",
-        employees: "500+",
-        markets: ["🇬🇧 בריטניה", "🇺🇸 ארה\"ב", "🇷🇺 רוסיה"],
-        marketScope: "EMEA",
-        products: {
-            "Global Accounts": "★★★☆☆",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "20,000+ corporate clients",
-            "Driver payments multi-currency",
-            "משרדים ב-4 מדינות",
-            "Marketplace"
-        ]
-    },
-    {
-        name: "Earnix",
-        tagline: "Insurance & Banking Pricing",
-        category: "SaaS",
-        tier: "Growth",
-        status: "High-Growth",
-        fitScore: 77,
-        fitClass: "good",
-        revenue: "$60M ARR",
-        employees: "400+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🇨🇦 קנדה"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★☆☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "200+ insurers & banks",
-            "משרדים ב-5 מדינות",
-            "Enterprise billing",
-            "Professional services 4 יבשות"
-        ]
-    },
-    {
-        name: "HoneyBook",
-        tagline: "Business Management",
-        category: "SaaS",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 72,
-        fitClass: "good",
-        revenue: "$50M+ ARR",
-        employees: "500+",
-        markets: ["🇺🇸 ארה\"ב", "🇮🇱 ישראל"],
-        marketScope: "US",
-        products: {
-            "Global Accounts": "★★★☆☆",
-            "Transfers": "★★★☆☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★☆☆☆"
-        },
-        useCases: [
-            "100K+ businesses",
-            "Embedded payments",
-            "Corporate SF ↔ ת\"א",
-            "R&D בישראל"
-        ]
-    },
-    {
-        name: "BioCatch",
-        tagline: "Behavioral Biometrics",
-        category: "Cybersecurity",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 79,
-        fitClass: "good",
-        revenue: "$80M+",
-        employees: "500+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★☆☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "200+ banks",
-            "משרדים ב-5 יבשות",
-            "Bank billing multi-currency",
-            "Professional services"
-        ]
-    },
-    {
-        name: "Rapid7",
-        tagline: "Security Analytics",
-        category: "Cybersecurity",
-        tier: "Enterprise",
-        status: "Public",
-        fitScore: 84,
-        fitClass: "good",
-        revenue: "$750M",
-        employees: "2,000+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "11,000+ customers",
-            "משרד R&D ת\"א",
-            "M&A active",
-            "Global offices"
-        ]
-    },
-    {
-        name: "Sapiens",
-        tagline: "Insurance Software",
-        category: "SaaS",
-        tier: "Scale-Up",
-        status: "Acquired",
-        fitScore: 82,
-        fitClass: "good",
-        revenue: "$550M",
-        employees: "5,000+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "נרכשה ב-$2.5B",
-            "600+ insurers 30+ מדינות",
-            "משרדים ב-20+ מדינות",
-            "Professional services"
-        ]
-    },
-    {
-        name: "Verint",
-        tagline: "Customer Engagement",
-        category: "SaaS",
-        tier: "Enterprise",
-        status: "Acquired",
-        fitScore: 86,
-        fitClass: "high",
-        revenue: "$1.3B",
-        employees: "4,500+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌍 180 מדינות"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "10,000+ organizations",
-            "180 מדינות",
-            "Post-acquisition",
-            "Global offices"
-        ]
-    },
-    {
-        name: "Unit",
-        tagline: "Banking-as-a-Service",
-        category: "Fintech",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 76,
-        fitClass: "good",
-        revenue: "$50M+",
-        employees: "200+",
-        markets: ["🇺🇸 ארה\"ב", "🇮🇱 ישראל"],
-        marketScope: "US",
-        products: {
-            "Global Accounts": "★★★☆☆",
-            "Transfers": "★★★☆☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "200+ platforms",
-            "Corporate SF ↔ ת\"א",
-            "R&D בישראל",
-            "BaaS competition/partnership"
-        ]
-    },
-    {
-        name: "Capitolis",
-        tagline: "Capital Markets Tech",
-        category: "Fintech",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 78,
-        fitClass: "good",
-        revenue: "$60M+",
-        employees: "300+",
-        markets: ["🇺🇸 ארה\"ב", "🇬🇧 בריטניה"],
-        marketScope: "US-EU",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "60+ tier-1 banks",
-            "3 financial hubs",
-            "Bank billing",
-            "Treasury ops"
-        ]
-    },
-    {
-        name: "ThetaRay",
-        tagline: "AI Financial Crime",
-        category: "Fintech",
-        tier: "Growth",
-        status: "High-Growth",
-        fitScore: 74,
-        fitClass: "good",
-        revenue: "$40M+",
-        employees: "150+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★☆☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "150+ banks",
-            "משרדים ב-4 מדינות",
-            "Bank billing",
-            "Corporate ops"
-        ]
-    },
-    {
-        name: "Syte",
-        tagline: "Visual AI eCommerce",
-        category: "AI/ML",
-        tier: "Growth",
-        status: "High-Growth",
-        fitScore: 68,
-        fitClass: "medium",
-        revenue: "$20M+",
-        employees: "100+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה"],
-        marketScope: "US-EU",
-        products: {
-            "Global Accounts": "★★★☆☆",
-            "Transfers": "★★★☆☆",
-            "Expense Mgmt": "★★☆☆☆",
-            "FX Services": "★★☆☆☆"
-        },
-        useCases: [
-            "100+ retailers",
-            "Retailer billing",
-            "משרדי sales ב-3 מדינות",
-            "Corporate ops"
-        ]
-    },
-    {
-        name: "Pepperi",
-        tagline: "B2B Commerce",
-        category: "eCommerce",
-        tier: "Growth",
-        status: "High-Growth",
-        fitScore: 71,
-        fitClass: "good",
-        revenue: "$30M+",
-        employees: "150+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה"],
-        marketScope: "US-EU",
-        products: {
-            "Global Accounts": "★★★☆☆",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "1,000+ brands",
-            "B2B commerce volume",
-            "Global customers",
-            "Multi-currency"
-        ]
-    },
-    {
-        name: "Finaloop",
-        tagline: "AI Bookkeeping",
-        category: "Fintech",
-        tier: "Early",
-        status: "High-Growth",
-        fitScore: 65,
-        fitClass: "medium",
-        revenue: "$10M+",
-        employees: "40+",
-        markets: ["🇺🇸 ארה\"ב", "🇮🇱 ישראל"],
-        marketScope: "US",
-        products: {
-            "Global Accounts": "★★☆☆☆",
-            "Transfers": "★★★☆☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "eCommerce SMBs",
-            "Corporate ת\"א ↔ US",
-            "Early growth",
-            "Multi-currency"
-        ]
-    },
-    {
-        name: "Astrix Security",
-        tagline: "Non-Human Identity",
-        category: "Cybersecurity",
-        tier: "Growth",
-        status: "High-Growth",
-        fitScore: 69,
-        fitClass: "medium",
-        revenue: "$15M+",
-        employees: "70+",
-        markets: ["🇺🇸 ארה\"ב", "🇮🇱 ישראל"],
-        marketScope: "US",
-        products: {
-            "Global Accounts": "★★★☆☆",
-            "Transfers": "★★★☆☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★☆☆☆"
-        },
-        useCases: [
-            "Enterprise customers",
-            "Sales offices ארה\"ב",
-            "Corporate ת\"א ↔ NYC",
-            "Growth expansion"
-        ]
-    },
-    {
-        name: "Treeverse",
-        tagline: "Data Version Control",
-        category: "Data",
-        tier: "Growth",
-        status: "High-Growth",
-        fitScore: 64,
-        fitClass: "medium",
-        revenue: "$8M+",
-        employees: "50+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה"],
-        marketScope: "US-EU",
-        products: {
-            "Global Accounts": "★★★☆☆",
-            "Transfers": "★★★☆☆",
-            "Expense Mgmt": "★★☆☆☆",
-            "FX Services": "★★☆☆☆"
-        },
-        useCases: [
-            "Tech companies",
-            "Global customers",
-            "Cloud costs",
-            "Open source Enterprise"
-        ]
-    },
-    {
-        name: "PrettyDamnQuick",
-        tagline: "Shipping Platform",
-        category: "eCommerce",
-        tier: "Early",
-        status: "High-Growth",
-        fitScore: 63,
-        fitClass: "medium",
-        revenue: "$5M+",
-        employees: "30+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה"],
-        marketScope: "US-EU",
-        products: {
-            "Global Accounts": "★★★☆☆",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "Cross-border shipping",
-            "Logistics payments",
-            "eCommerce merchants",
-            "Multi-currency"
-        ]
-    },
-    {
-        name: "AppsFlyer",
-        tagline: "Mobile Attribution",
-        category: "Data",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 87,
-        fitClass: "high",
-        revenue: "$200M+ ARR",
-        employees: "1,200+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "10,000+ tech partners",
-            "משרדים ב-20+ מדינות",
-            "Enterprise SaaS",
-            "Mobile ecosystem"
-        ]
-    },
-    {
-        name: "Cato Networks",
-        tagline: "SASE Platform",
-        category: "Cybersecurity",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 89,
-        fitClass: "high",
-        revenue: "$150M+ ARR",
-        employees: "800+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "2,500+ global customers",
-            "משרדים ב-4 יבשות",
-            "SD-WAN optimization",
-            "Enterprise multi-year"
-        ]
-    },
-    {
-        name: "Lightricks",
-        tagline: "Creative Tools",
-        category: "SaaS",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 80,
-        fitClass: "good",
-        revenue: "$200M+",
-        employees: "700+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★☆☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "Consumer apps",
-            "App Store multi-currency",
-            "משרדים ב-3 מדינות",
-            "B2C subscriptions"
-        ]
-    },
-    {
-        name: "Transmit Security",
-        tagline: "Identity & Access",
-        category: "Cybersecurity",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 88,
-        fitClass: "high",
-        revenue: "$120M+ ARR",
-        employees: "500+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "$2.7B valuation",
-            "Enterprise IAM Fortune 500",
-            "משרדים ב-3 מדינות",
-            "Banking customers"
-        ]
-    },
-    {
-        name: "DriveNets",
-        tagline: "Cloud Networking",
-        category: "DevOps",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 84,
-        fitClass: "good",
-        revenue: "$100M+",
-        employees: "400+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "$2.5B valuation",
-            "Telecom operators",
-            "משרדים ב-3 יבשות",
-            "Infrastructure multi-year"
-        ]
-    },
-    {
-        name: "Moon Active",
-        tagline: "Mobile Gaming",
-        category: "SaaS",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 78,
-        fitClass: "good",
-        revenue: "$500M+",
-        employees: "600+",
-        markets: ["🌍 Global"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★☆☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "$5B valuation",
-            "In-app purchases",
-            "Global users",
-            "App stores currency"
-        ]
-    },
-    {
-        name: "Bizzabo",
-        tagline: "Event Management",
-        category: "SaaS",
-        tier: "Growth",
-        status: "High-Growth",
-        fitScore: 76,
-        fitClass: "good",
-        revenue: "$80M+ ARR",
-        employees: "400+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה"],
-        marketScope: "US-EU",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "4,000+ enterprise",
-            "Global events multi-currency",
-            "משרדים ב-3 מדינות",
-            "International ticketing"
-        ]
-    },
-    {
-        name: "Island",
-        tagline: "Enterprise Browser",
-        category: "Cybersecurity",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 90,
-        fitClass: "high",
-        revenue: "$100M+ ARR",
-        employees: "400+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה"],
-        marketScope: "US-EU",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "$3B valuation hypergrowth",
-            "Fortune 500",
-            "NYC + ת\"א",
-            "SaaS multi-currency"
-        ]
-    },
-    {
-        name: "Axonius",
-        tagline: "Cyber Asset Management",
-        category: "Cybersecurity",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 91,
-        fitClass: "high",
-        revenue: "$200M+ ARR",
-        employees: "600+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "$2.6B valuation",
-            "2,000+ customers, 70% Fortune 100",
-            "משרדים ב-3 יבשות",
-            "Enterprise SaaS"
-        ]
-    },
-    {
-        name: "Armis",
-        tagline: "Asset Intelligence",
-        category: "Cybersecurity",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 92,
-        fitClass: "high",
-        revenue: "$200M+ ARR",
-        employees: "700+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★★",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "$4.3B - largest Israeli cyber unicorn",
-            "Fortune 100",
-            "משרדים ב-4 יבשות",
-            "IoT/OT global"
-        ]
-    },
-    {
-        name: "SentinelOne",
-        tagline: "AI Cybersecurity",
-        category: "Cybersecurity",
-        tier: "Enterprise",
-        status: "Public",
-        fitScore: 94,
-        fitClass: "high",
-        revenue: "$800M ARR",
-        employees: "2,000+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★★",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "11,000+ customers",
-            "משרדים ב-5 יבשות",
-            "IPO $8.9B",
-            "M&A active"
-        ]
-    },
-    {
-        name: "JFrog",
-        tagline: "DevOps Platform",
-        category: "DevOps",
-        tier: "Enterprise",
-        status: "Public",
-        fitScore: 87,
-        fitClass: "high",
-        revenue: "$350M ARR",
-        employees: "1,100+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "7,000+ customers, 75% Fortune 100",
-            "משרדים ב-4 יבשות",
-            "Developer tools",
-            "Cloud infrastructure"
-        ]
-    },
-    {
-        name: "Redis",
-        tagline: "In-Memory Data",
-        category: "Data",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 85,
-        fitClass: "high",
-        revenue: "$150M+ ARR",
-        employees: "500+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "10,000+ enterprise",
-            "Open source Enterprise",
-            "משרדים ב-3 יבשות",
-            "Cloud marketplace"
-        ]
-    },
-    {
-        name: "Fiverr",
-        tagline: "Freelance Marketplace",
-        category: "eCommerce",
-        tier: "Scale-Up",
-        status: "Public",
-        fitScore: 89,
-        fitClass: "high",
-        revenue: "$360M",
-        employees: "1,000+",
-        markets: ["🌍 160+ מדינות"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★★",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★★★"
-        },
-        useCases: [
-            "4M+ freelancers",
-            "Marketplace payments 160+ מדינות",
-            "Multi-currency buyer & seller",
-            "FX optimization massive volume"
-        ]
-    },
-    {
-        name: "Taboola",
-        tagline: "Content Discovery",
-        category: "Data",
-        tier: "Enterprise",
-        status: "Public",
-        fitScore: 86,
-        fitClass: "high",
-        revenue: "$1.4B",
-        employees: "1,500+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "9,000+ publishers",
-            "Revenue share multi-currency",
-            "משרדים ב-20+ מדינות",
-            "Ad tech global"
-        ]
-    },
-    {
-        name: "Outbrain",
-        tagline: "Content Recommendation",
-        category: "Data",
-        tier: "Scale-Up",
-        status: "Public",
-        fitScore: 83,
-        fitClass: "good",
-        revenue: "$1B",
-        employees: "1,000+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "Publishers & advertisers",
-            "משרדים ב-15+ מדינות",
-            "Ad revenue share",
-            "Global media"
-        ]
-    },
-    {
-        name: "Via",
-        tagline: "TransitTech",
-        category: "SaaS",
-        tier: "Scale-Up",
-        status: "Unicorn",
-        fitScore: 81,
-        fitClass: "good",
-        revenue: "$100M+",
-        employees: "600+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★★☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "700+ cities 35+ מדינות",
-            "Transit agencies government",
-            "Driver payments",
-            "משרדים ב-4 יבשות"
-        ]
-    },
-    {
-        name: "Mobileye",
-        tagline: "Autonomous Driving",
-        category: "AI/ML",
-        tier: "Enterprise",
-        status: "Public",
-        fitScore: 93,
-        fitClass: "high",
-        revenue: "$2B",
-        employees: "3,500+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה", "🌏 APAC"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★★★",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★★☆"
-        },
-        useCases: [
-            "Intel subsidiary",
-            "40+ automotive OEMs",
-            "משרדים ב-5 יבשות",
-            "R&D + Manufacturing global"
-        ]
-    },
-    {
-        name: "Lemonade",
-        tagline: "AI Insurance",
-        category: "Fintech",
-        tier: "Scale-Up",
-        status: "Public",
-        fitScore: 84,
-        fitClass: "good",
-        revenue: "$700M",
-        employees: "1,000+",
-        markets: ["🇺🇸 ארה\"ב", "🇪🇺 אירופה"],
-        marketScope: "US-EU",
-        products: {
-            "Global Accounts": "★★★★☆",
-            "Transfers": "★★★☆☆",
-            "Expense Mgmt": "★★★☆☆",
-            "FX Services": "★★★☆☆"
-        },
-        useCases: [
-            "2M+ customers claims",
-            "Multi-state + Europe",
-            "Insurance payouts",
-            "Reinsurance international"
-        ]
-    },
-    {
-        name: "Playtika",
-        tagline: "Mobile Gaming",
-        category: "SaaS",
-        tier: "Enterprise",
-        status: "Public",
-        fitScore: 85,
-        fitClass: "high",
-        revenue: "$2.6B",
-        employees: "4,000+",
-        markets: ["🌍 גלובלי"],
-        marketScope: "Global",
-        products: {
-            "Global Accounts": "★★★★★",
-            "Transfers": "★★★☆☆",
-            "Expense Mgmt": "★★★★☆",
-            "FX Services": "★★★★★"
-        },
-        useCases: [
-            "35M+ monthly users",
-            "In-app purchases multi-currency",
-            "משרדים ב-20+ מדינות",
-            "Gaming ecosystem global"
+            "חיובי לקוחות ב-100+ מדינות",
+            "תשלומים לשותפי ערוץ גלובליים",
+            "משרדי מכירות ותמיכה ברחבי העולם",
+            "רכישות והשקעות בחברות טכנולוגיה"
         ]
     }
 ];
 
-// Filtering functions
+// Rendering and filtering functions
+function renderCompanies(companiesArray) {
+    const container = document.getElementById('companies-container');
+    container.innerHTML = '';
+    
+    companiesArray.forEach(company => {
+        const card = document.createElement('div');
+        card.className = `company-card fit-${company.fitClass}`;
+        
+        const marketsHTML = company.markets.map(m => `<span class="market-tag">${m}</span>`).join('');
+        
+        const financialsHTML = Object.entries(company.financials)
+            .map(([label, value]) => `
+                <div class="fin-item">
+                    <span class="fin-label">${label}:</span>
+                    <span class="fin-value">${value}</span>
+                </div>
+            `).join('');
+            
+        const productsHTML = Object.entries(company.products)
+            .map(([name, stars]) => `
+                <div class="product-item">
+                    <span class="product-name">${name}</span>
+                    <span class="stars">${stars}</span>
+                </div>
+            `).join('');
+            
+        const useCasesHTML = company.useCases.map(uc => `<li>${uc}</li>`).join('');
+        
+        card.innerHTML = `
+            <div class="fit-header">
+                <div class="company-name">${company.name}</div>
+                <div class="fit-score-badge">${company.fitScore}</div>
+            </div>
+            <div class="card-content">
+                <div class="company-tagline">${company.tagline}</div>
+                <div class="badges">
+                    <span class="badge badge-tier">${company.tier}</span>
+                    <span class="badge badge-category">${company.category}</span>
+                    <span class="badge badge-status">${company.status}</span>
+                </div>
+                
+                <div class="company-info">
+                    <div class="info-row">
+                        <div class="info-label">תחום:</div>
+                        <div class="info-value">${company.field}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">מודל:</div>
+                        <div class="info-value">${company.model}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">לקוחות:</div>
+                        <div class="info-value">${company.customers}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">מדינות:</div>
+                        <div class="info-value">${company.locations}</div>
+                    </div>
+                    <div class="markets">${marketsHTML}</div>
+                </div>
+                
+                <div class="financials">
+                    <h4>📊 נתונים כספיים</h4>
+                    <div class="fin-grid">${financialsHTML}</div>
+                </div>
+                
+                <div class="product-fit">
+                    <div class="product-fit-title">🎯 Airwallex Product Fit</div>
+                    <div class="products-grid">${productsHTML}</div>
+                    <div class="highlight">
+                        <strong>למה Airwallex?</strong>
+                        <ul class="highlight-list">${useCasesHTML}</ul>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        container.appendChild(card);
+    });
+}
+
 function filterCompanies() {
     const search = document.getElementById('search').value.toLowerCase();
     const fitFilter = document.getElementById('fit-filter').value;
@@ -2101,7 +880,8 @@ function filterCompanies() {
         const matchesSearch = search === '' || 
             company.name.toLowerCase().includes(search) ||
             company.tagline.toLowerCase().includes(search) ||
-            company.category.toLowerCase().includes(search);
+            company.category.toLowerCase().includes(search) ||
+            company.field.toLowerCase().includes(search);
         
         const matchesFit = fitFilter === '' || company.fitClass === fitFilter;
         const matchesTier = tierFilter === '' || company.tier === tierFilter;
@@ -2114,62 +894,6 @@ function filterCompanies() {
     
     renderCompanies(filtered);
     document.getElementById('showing-count').textContent = filtered.length;
-}
-
-function renderCompanies(companiesArray) {
-    const container = document.getElementById('companies-container');
-    container.innerHTML = '';
-    
-    companiesArray.forEach(company => {
-        const card = document.createElement('div');
-        card.className = `company-card fit-${company.fitClass}`;
-        
-        const marketsHTML = company.markets.map(m => `<span class="market-tag">${m}</span>`).join('');
-        const productsHTML = Object.entries(company.products)
-            .map(([name, stars]) => `
-                <div class="product-item">
-                    <span class="product-name">${name}</span>
-                    <span class="stars">${stars}</span>
-                </div>
-            `).join('');
-        const useCasesHTML = company.useCases.map(uc => `<li>${uc}</li>`).join('');
-        
-        card.innerHTML = `
-            <div class="card-header">
-                <div>
-                    <div class="company-name">${company.name}</div>
-                </div>
-                <div class="fit-badge">${company.fitScore}</div>
-            </div>
-            <div class="company-tagline">${company.tagline}</div>
-            <div class="badges">
-                <span class="badge badge-tier">${company.tier}</span>
-                <span class="badge badge-category">${company.category}</span>
-                <span class="badge badge-status">${company.status}</span>
-            </div>
-            <div class="metrics">
-                <div class="metric">
-                    <div class="metric-label">Revenue</div>
-                    <div class="metric-value">${company.revenue}</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-label">Employees</div>
-                    <div class="metric-value">${company.employees}</div>
-                </div>
-            </div>
-            <div class="markets">${marketsHTML}</div>
-            <div class="product-fit">
-                <div class="product-fit-title">🎯 Airwallex Product Fit</div>
-                <div class="products-grid">${productsHTML}</div>
-                <div class="use-cases">
-                    <div class="use-cases-title">Use Cases</div>
-                    <ul class="use-cases-list">${useCasesHTML}</ul>
-                </div>
-            </div>
-        `;
-        
-        container.appendChild(card);
-    });
 }
 
 function quickFilter(type, value) {
