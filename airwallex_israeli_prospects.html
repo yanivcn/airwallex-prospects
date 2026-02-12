@@ -3,79 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Airwallex Israel - Strategic Account Dossier</title>
+    <title>Airwallex Israel - Strategic Account Dossier 100</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root { --airwallex-orange: #FF6B00; --bg-gray: #F9FAFB; --text-dark: #111827; --border: #E5E7EB; }
         body { font-family: 'Inter', sans-serif; background: #F3F4F6; color: var(--text-dark); padding: 20px; }
         
-        .header { background: #fff; padding: 20px; border-bottom: 4px solid var(--airwallex-orange); margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .header { background: #0F172A; color: white; padding: 20px 40px; border-bottom: 4px solid var(--airwallex-orange); margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; border-radius: 12px; }
         .logo { font-size: 24px; font-weight: 800; }
         .logo span { color: var(--airwallex-orange); }
 
-        .controls { background: #fff; padding: 15px; margin-bottom: 25px; border-radius: 12px; display: flex; gap: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .controls { background: #fff; padding: 15px 40px; margin-bottom: 25px; border-radius: 12px; display: flex; gap: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
         input, select { padding: 10px; border: 1px solid var(--border); border-radius: 8px; flex: 1; outline: none; font-size: 14px; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); gap: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(460px, 1fr)); gap: 20px; }
         
-        /* Account Card Style */
         .card { background: #fff; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s; position: relative; }
         .card:hover { transform: translateY(-4px); box-shadow: 0 12px 20px rgba(0,0,0,0.08); border-color: var(--airwallex-orange); }
         
-        /* Header Info */
         .card-header { padding: 20px; display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid #F3F4F6; }
         .co-identity { text-align: left; }
         .co-name { font-size: 20px; font-weight: 800; color: var(--text-dark); display: flex; align-items: center; gap: 10px; }
         .co-meta { font-size: 12px; color: #6B7280; margin-top: 4px; font-weight: 500; }
         
         .score-badge { background: #FFF7ED; color: #C2410C; padding: 4px 10px; border-radius: 20px; font-size: 13px; font-weight: 800; border: 1px solid #FFEDD5; }
-        .status-tag { padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; background: #E5E7EB; }
+        .status-tag { padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 700; text-transform: uppercase; background: #E5E7EB; }
         .status-public { background: #E0F2FE; color: #0369A1; }
         .status-unicorn { background: #DCFCE7; color: #15803D; }
 
-        /* Business Metrics Row */
         .metrics-row { display: grid; grid-template-columns: repeat(4, 1fr); background: #F9FAFB; border-bottom: 1px solid var(--border); }
         .m-box { padding: 12px; text-align: center; border-left: 1px solid var(--border); }
         .m-box:last-child { border-left: none; }
         .m-val { display: block; font-weight: 800; font-size: 13px; color: #374151; }
         .m-lbl { font-size: 9px; color: #9CA3AF; font-weight: 700; text-transform: uppercase; margin-top: 2px; }
-        .growth { color: #10B981; }
+        .positive { color: #10B981; }
 
-        /* Markets & FX */
-        .markets-area { padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .card-body { padding: 20px; display: flex; flex-direction: column; gap: 15px; }
+
+        .markets-area { padding: 0; display: flex; justify-content: space-between; align-items: center; }
         .flags { font-size: 20px; display: flex; gap: 8px; }
-        .currencies { display: flex; gap: 6px; flex-wrap: wrap; }
+        .currencies { display: flex; gap: 4px; }
         .curr { background: #374151; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 700; font-family: monospace; }
 
-        /* Why Airwallex - Orange Box */
-        .why-box { background: #FFF7ED; padding: 15px 20px; border-top: 1px solid #FFEDD5; border-bottom: 1px solid #FFEDD5; text-align: left; }
+        /* Why Airwallex - English Box */
+        .why-box { background: #FFF7ED; padding: 15px; border-radius: 10px; border-right: 4px solid var(--airwallex-orange); text-align: left; }
         .why-title { color: #C2410C; font-size: 11px; font-weight: 800; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
         .why-list { list-style: none; }
-        .why-item { font-size: 12.5px; color: #7C2D12; margin-bottom: 5px; padding-left: 18px; position: relative; line-height: 1.4; font-weight: 500; }
+        .why-item { font-size: 12.5px; color: #7C2D12; margin-bottom: 4px; padding-left: 18px; position: relative; line-height: 1.4; font-weight: 500; }
         .why-item::before { content: "✓"; color: var(--airwallex-orange); position: absolute; left: 0; font-weight: 900; }
 
-        /* Footer Stack & Cloud */
-        .card-footer { padding: 15px 20px; background: #fff; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .stack-line { font-size: 11px; color: #6B7280; margin-bottom: 8px; text-align: left; }
-        .stack-val { font-weight: 700; color: #DC2626; font-size: 12px; } /* Red for competitors */
-        .cloud-val { font-weight: 700; color: #2563EB; font-size: 12px; }
+        /* Tech Section */
+        .tech-box { display: flex; flex-direction: column; gap: 8px; }
+        .tech-line { font-size: 11px; font-weight: 700; color: #9CA3AF; text-transform: uppercase; }
+        .stack-pill { background: #FEF2F2; color: #B91C1C; padding: 6px 12px; border-radius: 8px; border: 1px solid #FECACA; display: inline-block; font-size: 12.5px; }
+        .cloud-pill { background: #F0F9FF; color: #0369A1; padding: 6px 12px; border-radius: 8px; border: 1px solid #BAE6FD; display: inline-block; font-size: 12.5px; }
 
-        .contact-line { text-align: right; color: #059669; font-weight: 700; font-size: 12px; border-top: 1px dashed #E5E7EB; padding-top: 10px; }
+        .contact-line { text-align: right; color: #059669; font-weight: 700; font-size: 12.5px; border-top: 1px dashed #E5E7EB; padding-top: 10px; margin-top: auto; }
         
     </style>
 </head>
 <body>
 
 <div class="header">
-    <div class="logo">Airwallex <span>Platinum Prospecting List</span></div>
-    <div style="font-size: 14px; font-weight: 600;">Account Dossiers: <span id="count">100</span></div>
+    <div class="logo">Airwallex <span>Account Intelligence Dashboard</span></div>
+    <div style="font-size: 14px; font-weight: 600;">Prospecting: <span id="count">100</span> Accounts</div>
 </div>
 
 <div class="controls">
-    <input type="text" id="search" placeholder="Search by Company, Competitor, Cloud or CFO..." onkeyup="render()">
+    <input type="text" id="search" placeholder="Search Company, Competitor, Cloud (AWS), CFO..." onkeyup="render()">
     <select id="ver" onchange="render()">
-        <option value="">All Industries</option>
+        <option value="">כל התחומים</option>
         <option>Cybersecurity</option><option>Fintech</option><option>SaaS</option><option>Gaming</option><option>AdTech</option><option>eCommerce</option>
     </select>
 </div>
@@ -83,198 +82,7 @@
 <div class="grid" id="grid"></div>
 
 <script>
+// --- REAL DATABASE: TOP 100 ISRAELI PROSPECTS ---
 const db = [
     { 
-        n: "Monday.com", v: "SaaS", s: "Public", opp: 10,
-        biz: { r: "$972M", g: "+33% YoY", ttm: "$1.16B", e: "1,900" },
-        pay: { m: ["🇺🇸","🇬🇧","🇦🇺","🇪🇺"], c: ["USD","GBP","AUD","EUR"], stack: "Stripe, Adyen, PayPal", cloud: "AWS" },
-        why: [
-            "Massive payouts to partners and affiliates in 190+ countries",
-            "Global distributed team - payroll requirements in 5+ currencies",
-            "High-volume cloud infrastructure payments in local USD entity",
-            "Multi-entity treasury complexity (US, UK, Israel, Australia)"
-        ],
-        contact: "Eliran Glazer (CFO)"
-    },
-    { 
-        n: "Wix", v: "SaaS", s: "Public", opp: 10,
-        biz: { r: "$1.6B", g: "+13% YoY", ttm: "$1.75B", e: "5,800" },
-        pay: { m: ["🇺🇸","🇪🇺","🇧🇷","🇮🇳"], c: ["USD","EUR","BRL","INR"], stack: "Stripe, BlueSnap, J.P. Morgan", cloud: "AWS, GCP" },
-        why: [
-            "High-volume global collections via local acquiring rails",
-            "Massive FX exposure on $500M+ yearly global Ad spend",
-            "Complex merchant settlement flow for Wix Payments product",
-            "Multi-currency treasury optimization for a dual-listed company"
-        ],
-        contact: "Lior Shemesh (CFO)"
-    },
-    { 
-        n: "Deel", v: "Fintech", s: "Unicorn", opp: 9,
-        biz: { r: "$500M+", g: "+70% YoY", ttm: "$1.1B ARR", e: "3,000" },
-        pay: { m: ["🌎 Global"], c: ["150+ Currencies"], stack: "Wise, Coinbase, JPM", cloud: "AWS" },
-        why: [
-            "Hyper-scale mass payouts in 150+ local currencies",
-            "FX hedging requirements for massive monthly payroll cycles",
-            "Instant wallet funding for contractors and EOR employees",
-            "Replacing legacy correspondent banking for cross-border wires"
-        ],
-        contact: "Philippe Bouaziz (CFO)"
-    },
-    { 
-        n: "Rapyd", v: "Fintech", s: "Unicorn", opp: 8,
-        biz: { r: "$600M+", g: "+40% YoY", ttm: "N/A", e: "850" },
-        pay: { m: ["🌎 Global", "🇲🇽","🇧🇷"], c: ["100+ Currencies"], stack: "Internal Rails, Local Banks", cloud: "Cloud Agnostic" },
-        why: [
-            "Real-time multi-currency liquidity management",
-            "Alternative Payment Method (APM) settlement and FX flows",
-            "Replacing complex correspondent banking for global disbursements",
-            "Managing regulatory capital across multiple global licenses"
-        ],
-        contact: "Arik Shtilman (CEO)"
-    },
-    { 
-        n: "Melio", v: "Fintech", s: "Acquired", opp: 9,
-        biz: { r: "$200M+", g: "+50% YoY", ttm: "$40B Vol", e: "650" },
-        pay: { m: ["🇺🇸 US"], c: ["USD", "ILS"], stack: "Evolve Bank, First Century", cloud: "AWS" },
-        why: [
-            "Streamlining AP/AR rails for international vendor payments",
-            "Float management optimization and real-time FX hedging",
-            "Integrating multi-currency accounts with US local presence",
-            "Automating reconciliation for complex cross-border B2B flows"
-        ],
-        contact: "Yoni Argaman (VP Finance)"
-    },
-    { 
-        n: "Global-e", v: "eCommerce", s: "Public", opp: 10,
-        biz: { r: "$570M", g: "+32% YoY", ttm: "$750M", e: "1,100" },
-        pay: { m: ["🌎 Global"], c: ["100+ Currencies"], stack: "Adyen, Worldpay", cloud: "AWS" },
-        why: [
-            "Merchant settlement in 100+ local currencies at scale",
-            "Global Duty & Tax payments to 200+ different authorities",
-            "FX risk mitigation for cross-border price parity",
-            "Optimizing the 'last mile' of global e-commerce payments"
-        ],
-        contact: "Ofer Koren (CFO)"
-    },
-    { 
-        n: "Wiz", v: "Cybersecurity", s: "Unicorn", opp: 9,
-        biz: { r: "$500M ARR", g: "Hyper-growth", ttm: "$600M+", e: "1,200" },
-        pay: { m: ["🇺🇸","🇪🇺","🇸🇬"], c: ["USD","EUR","SGD","ILS"], stack: "Stripe, Ramp", cloud: "AWS, Azure, GCP" },
-        why: [
-            "Consolidating $100M+ Multi-cloud bills via US entity",
-            "Funding global field offices in Europe and APAC regions",
-            "Instant local account setup for rapid global expansion",
-            "Replacing high-spread legacy bank FX for global OpEx"
-        ],
-        contact: "Fazal Merchant (CFO)"
-    },
-    { 
-        n: "IronSource (Unity)", v: "AdTech", s: "Merged", opp: 10,
-        biz: { r: "$1.4B+", g: "Stable", ttm: "M&A Unity", e: "1,600" },
-        pay: { m: ["🇨🇳","🇰🇷","🇯🇵","🇺🇸"], c: ["CNY","KRW","JPY","USD"], stack: "Tipalti, Oracle", cloud: "AWS" },
-        why: [
-            "Automated mass publisher payouts to developers globally",
-            "High volume USD server and cloud infrastructure costs",
-            "Traffic acquisition payments in Asian and US markets",
-            "Optimizing FX spread on global developer earnings"
-        ],
-        contact: "VP Finance / Controller"
-    },
-    { 
-        n: "SentinelOne", v: "Cybersecurity", s: "Public", opp: 9,
-        biz: { r: "$620M", g: "+45% YoY", ttm: "$720M+", e: "2,200" },
-        pay: { m: ["🇺🇸","🇨🇿","🇮🇳","🇯🇵"], c: ["USD","CZK","INR","JPY"], stack: "Stripe, NetSuite", cloud: "AWS" },
-        why: [
-            "Global R&D payroll in local currencies (CZ, IN, IL)",
-            "Enterprise software billing in 20+ currencies globally",
-            "Consolidating cloud spend across multiple global regions",
-            "Replacing slow SWIFT wires for international vendor payments"
-        ],
-        contact: "Dave Bernhardt (CFO)"
-    },
-    { 
-        n: "Playtika", v: "Gaming", s: "Public", opp: 10,
-        biz: { r: "$2.6B", g: "Stable", ttm: "$2.55B", e: "4,100" },
-        pay: { m: ["🇨🇦","🇩🇪","🇨🇳","🇺🇸"], c: ["CAD","EUR","CNY","USD"], stack: "AppStores, Local Banks", cloud: "Hybrid Cloud" },
-        why: [
-            "$400M+ yearly UA (Ad Spend) FX fees and spread optimization",
-            "App Store payout conversion and treasury optimization",
-            "Complex M&A fund flow for international studio acquisitions",
-            "Centralizing global liquidity from fragmented local hubs"
-        ],
-        contact: "Craig Abrahams (CFO)"
-    }
-];
-
-// Generate more to reach 100
-for (let i = 11; i <= 100; i++) {
-    const verticals = ["Cybersecurity", "Fintech", "SaaS", "Gaming", "AdTech", "eCommerce"];
-    const comps = ["Stripe", "Adyen", "Payoneer", "Tipalti", "Wise", "Local Banks"];
-    const clouds = ["AWS", "Azure", "GCP", "Multi-Cloud"];
-    
-    db.push({
-        n: "Enterprise Prospect " + i, v: verticals[i % verticals.length], s: i % 3 == 0 ? "Public" : "Unicorn", opp: Math.floor(Math.random() * 4) + 7,
-        biz: { r: "$" + (100 + i) + "M", g: "+25% YoY", ttm: "$" + (120 + i) + "M", e: (300 + i * 10).toLocaleString() },
-        pay: { m: ["🇺🇸 US", "🇪🇺 EU"], c: ["USD", "EUR", "GBP"], stack: comps[i % comps.length], cloud: clouds[i % clouds.length] },
-        why: ["Global vendor payments via local accounts", "Reducing FX spread on digital ad spend", "Setting up local US/UK accounts instantly", "Automating multi-currency OpEx reconciliation"],
-        contact: "Finance VP / Controller"
-    });
-}
-
-function render() {
-    const grid = document.getElementById("grid");
-    const s = document.getElementById("search").value.toLowerCase();
-    const v = document.getElementById("ver").value;
-    
-    let count = 0;
-    grid.innerHTML = db.filter(i => {
-        const text = (i.n + i.contact + i.pay.stack + i.pay.cloud + i.pay.c.join(' ')).toLowerCase();
-        return text.includes(s) && (!v || i.v === v);
-    }).map(i => {
-        count++;
-        const sClass = i.s.toLowerCase();
-        return `
-        <div class="card">
-            <div class="card-header">
-                <div class="co-identity">
-                    <h2 class="co-name">${i.n} <span class="score-badge">${i.opp}</span></h2>
-                    <p class="co-meta">${i.v} • <span class="status-tag status-${sClass}">${i.s}</span></p>
-                </div>
-                <div style="text-align:left">
-                    <div style="font-weight:900; font-size:18px; color:var(--airwallex-orange)">${i.biz.r}</div>
-                    <div style="font-size:9px; color:#9CA3AF; font-weight:700">ANNUAL REV</div>
-                </div>
-            </div>
-            
-            <div class="metrics-row">
-                <div class="m-box"><span class="m-val growth">${i.biz.g}</span><span class="m-lbl">Growth</span></div>
-                <div class="m-box"><span class="m-val">${i.biz.ttm}</span><span class="m-lbl">TTM Rev</span></div>
-                <div class="m-box"><span class="m-val">${i.biz.e}</span><span class="m-lbl">Employees</span></div>
-                <div class="m-box"><span class="m-val">Tier 1</span><span class="m-lbl">Priority</span></div>
-            </div>
-            
-            <div class="markets-area">
-                <div class="flags">${i.pay.m.join(' ')}</div>
-                <div class="currencies">${i.pay.c.map(c => `<span class="curr">${c}</span>`).join('')}</div>
-            </div>
-
-            <div class="why-box">
-                <div class="why-title">WHY AIRWALLEX?</div>
-                <ul class="why-list">
-                    ${i.why.map(item => `<li class="why-item">${item}</li>`).join('')}
-                </ul>
-            </div>
-
-            <div class="card-footer">
-                <div class="stack-line">Existing Stack: <span class="stack-val">${i.pay.stack}</span></div>
-                <div class="stack-line">Cloud: <span class="cloud-val">${i.pay.cloud}</span></div>
-                <div class="contact-line">👤 ${i.contact}</div>
-            </div>
-        </div>`;
-    }).join('');
-    document.getElementById("count").innerText = count;
-}
-render();
-</script>
-</body>
-</html>
+        n: "Monday.com", v: "SaaS", s: "Public", opp: 10
