@@ -2,62 +2,58 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>Airwallex Israel - Strategic 100 Platinum V3</title>
+<title>Airwallex Israel - Strategic 100 Gold</title>
 <style>
     :root { --primary: #FF6B00; --bg: #F1F5F9; --text: #1E293B; --border: #E2E8F0; }
     body { font-family: sans-serif; background: var(--bg); margin: 0; color: var(--text); padding-bottom: 60px; }
     
+    /* Header with Logo and Name */
     .header { background: #0F172A; color: white; padding: 15px 40px; border-bottom: 4px solid var(--primary); display: flex; justify-content: space-between; align-items: center; }
     .header-right { display: flex; align-items: center; gap: 20px; }
-    .logo-img { height: 35px; filter: brightness(0) invert(1); } /* הופך לוגו ללבן */
-    .user-info { border-right: 2px solid var(--primary); padding-right: 15px; }
-    .user-name { font-size: 18px; font-weight: 800; display: block; }
-    .user-title { font-size: 12px; color: #94A3B8; }
+    .logo-img { height: 35px; border-right: 2px solid rgba(255,255,255,0.2); padding-right: 15px; }
+    .user-info { display: flex; flex-direction: column; }
+    .user-name { font-size: 18px; font-weight: 800; color: white; }
+    .user-title { font-size: 12px; color: var(--primary); font-weight: bold; }
 
-    .controls { background: white; padding: 15px 40px; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; display: flex; gap: 15px; flex-wrap: wrap; }
+    /* Filters sticky bar */
+    .controls { background: white; padding: 15px 40px; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; display: flex; gap: 15px; flex-wrap: wrap; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
     .controls input, .controls select { padding: 10px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 14px; outline: none; }
     #search { flex-grow: 2; }
     
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); gap: 20px; padding: 20px; }
     
+    /* Card Styles */
     .card { background: white; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; transition: 0.2s; }
     .card:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -5px rgba(0,0,0,0.1); border-color: var(--primary); }
-    
     .card-top { padding: 15px; background: #F8FAFC; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-    .name-block h2 { font-size: 18px; margin: 0; display: flex; align-items: center; gap: 8px; }
+    .name-block h2 { font-size: 18px; margin: 0; }
     .opp-score { background: #FFF7ED; color: #C2410C; padding: 2px 10px; border-radius: 20px; font-weight: 800; font-size: 14px; border: 1px solid #FFEDD5; }
     
     .fin-block { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--border); background: #fff; }
     .stat { padding: 8px; text-align: center; border-left: 1px solid #F1F5F9; }
-    .stat-val { display: block; font-weight: 800; font-size: 13px; }
+    .stat-val { display: block; font-weight: 800; font-size: 13px; color: #334155; }
     .stat-lbl { font-size: 9px; color: #94A3B8; text-transform: uppercase; font-weight: bold; }
     
     .card-body { padding: 15px; display: flex; flex-direction: column; gap: 12px; flex-grow: 1; }
-    .biz-model { font-size: 10px; font-weight: bold; color: #64748B; text-transform: uppercase; background: #F1F5F9; padding: 2px 6px; border-radius: 4px; align-self: flex-start; }
-    
+    .biz-model { font-size: 10px; font-weight: bold; color: #64748B; background: #F1F5F9; padding: 2px 8px; border-radius: 4px; align-self: flex-start; }
     .flag-tag { background: #F8FAFC; padding: 2px 6px; border-radius: 4px; border: 1px solid #E2E8F0; margin-left: 4px; font-size: 14px; }
     .curr-tag { background: #334155; color: white; padding: 2px 6px; border-radius: 4px; font-size: 10px; margin-left: 4px; font-family: monospace; }
-    
-    .why-box { background: #FFF7ED; padding: 12px; border-radius: 8px; border-right: 4px solid var(--primary); font-size: 12px; line-height: 1.4; }
-    .why-item { margin-bottom: 4px; padding-right: 15px; position: relative; list-style: none; }
-    .why-item::before { content: "✓"; color: var(--primary); position: absolute; right: 0; font-weight: 900; }
-    
+    .why-box { background: #FFF7ED; padding: 12px; border-radius: 8px; border-right: 4px solid var(--primary); font-size: 12px; }
     .stack-box { background: #FEF2F2; color: #B91C1C; padding: 8px; border-radius: 6px; font-size: 12px; font-weight: bold; border: 1px solid #FECACA; }
     .cloud-box { background: #F0F9FF; color: #0369A1; padding: 8px; border-radius: 6px; font-size: 12px; font-weight: bold; border: 1px solid #BAE6FD; }
-    
-    .card-footer { margin-top: auto; padding: 12px; border-top: 1px solid var(--border); font-size: 12px; font-weight: bold; color: #0F766E; background: #F0FDF4; }
+    .card-footer { margin-top: auto; padding: 10px; border-top: 1px solid var(--border); font-size: 11px; font-weight: bold; color: #0F766E; }
 </style>
 </head>
 <body>
 <div class="header">
     <div class="header-right">
-        <img src="https://www.airwallex.com/favicon-32x32.png" class="logo-img" alt="Airwallex">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Airwallex_Logo.png" class="logo-img" onerror="this.src='https://www.airwallex.com/favicon.ico'">
         <div class="user-info">
             <span class="user-name">Yaniv Cohen</span>
             <span class="user-title">Enterprise Account Executive</span>
         </div>
     </div>
-    <div><b>Israel Platinum Enterprise 100</b></div>
+    <div><b>Platinum Target List (100)</b></div>
 </div>
 
 <div class="controls">
@@ -65,8 +61,8 @@
     <select id="catFilter" onchange="render()">
         <option value="">כל הקטגוריות</option>
         <option value="Cyber">Cybersecurity</option>
-        <option value="SaaS">SaaS</option>
         <option value="Fintech">Fintech</option>
+        <option value="SaaS">SaaS</option>
         <option value="Gaming">Gaming</option>
         <option value="eCommerce">eCommerce</option>
     </select>
@@ -76,111 +72,107 @@
         <option value="8">דירוג 8+</option>
     </select>
 </div>
-
 <div class="grid" id="grid"></div>
-
 <script>
 const db = [
-{n:"Monday.com",v:"SaaS",m:"B2B SaaS",s:"Public",opp:10,biz:{r:"$972M",g:"+33%",ttm:"$1.1B",e:"1,900"},pay:{m:["🇺🇸","🇬🇧","🇦🇺"],c:["USD","GBP","EUR"],stack:"Stripe, Adyen",cloud:"AWS"},why:["Massive partner payouts globally","Global team payroll in 5+ currencies","Cloud billing via US entity"],contact:"Eliran Glazer (CFO)"},
+{n:"Monday.com",v:"SaaS",m:"B2B SaaS",s:"Public",opp:10,biz:{r:"$972M",g:"+33%",ttm:"$1.1B",e:"1,900"},pay:{m:["🇺🇸","🇬🇧","🇦🇺"],c:["USD","GBP","EUR"],stack:"Stripe, Adyen",cloud:"AWS"},why:["Global payouts in 190 countries","Payroll in 5+ currencies","Cloud billing via US entity"],contact:"Eliran Glazer (CFO)"},
 {n:"Wix",v:"SaaS",m:"B2C/B2B SaaS",s:"Public",opp:10,biz:{r:"$1.6B",g:"+13%",ttm:"$1.7B",e:"5,800"},pay:{m:["🌎 Global"],c:["USD","EUR","BRL"],stack:"Stripe, BlueSnap",cloud:"AWS, GCP"},why:["Massive Ad spend FX","Global acquiring optimization","Multi-entity treasury"],contact:"Lior Shemesh (CFO)"},
 {n:"Wiz",v:"Cyber",m:"B2B SaaS",s:"Unicorn",opp:9,biz:{r:"$500M",g:"Hyper",ttm:"$600M",e:"1,200"},pay:{m:["🇺🇸","🇪🇺","🇸🇬"],c:["USD","EUR","ILS"],stack:"Stripe, Ramp",cloud:"AWS, Azure"},why:["Consolidating $100M cloud bills","Instant local accounts","Subsidiary funding"],contact:"Fazal Merchant (CFO)"},
 {n:"Deel",v:"Fintech",m:"B2B SaaS",s:"Unicorn",opp:10,biz:{r:"$500M+",g:"+70%",ttm:"$1.1B",e:"3,000"},pay:{m:["🌎 Global"],c:["150+ Currencies"],stack:"Wise, JPM",cloud:"AWS"},why:["Mass payouts globally","FX hedging for payroll","100+ legal entities"],contact:"Philippe Bouaziz (CFO)"},
 {n:"Armis",v:"Cyber",m:"B2B SaaS",s:"Unicorn",opp:9,biz:{r:"$200M",g:"+80%",ttm:"$250M",e:"700"},pay:{m:["🇺🇸","🇯🇵","🇪🇺"],c:["USD","JPY","EUR"],stack:"Banks, NetSuite",cloud:"AWS"},why:["Enterprise collections FX","Partner payouts","Global cloud OpEx"],contact:"Jonathan Carr (CFO)"},
 {n:"Hibob",v:"SaaS",m:"B2B SaaS",s:"Unicorn",opp:9,biz:{r:"$100M+",g:"Hyper",ttm:"N/A",e:"800"},pay:{m:["🇬🇧","🇺🇸","🇦🇺"],c:["USD","GBP","AUD"],stack:"Stripe",cloud:"AWS"},why:["Multi-currency billing FX","Global payroll funding","US marketing spend"],contact:"Finance VP"},
-{n:"AppsFlyer",v:"AdTech",m:"B2B SaaS",s:"Unicorn",opp:9,biz:{r:"$350M",g:"High",ttm:"$400M",e:"1,400"},pay:{m:["🇨🇳","🇺🇸","🇯🇵"],c:["USD","CNY","JPY"],stack:"Wise, Zuora",cloud:"AWS"},why:["Massive cloud bills","China R&D funding","Data processing FX"],contact:"VP Finance"},
+{n:"AppsFlyer",v:"Fintech",m:"B2B SaaS",s:"Unicorn",opp:9,biz:{r:"$350M",g:"High",ttm:"$400M",e:"1,400"},pay:{m:["🇨🇳","🇺🇸","🇯🇵"],c:["USD","CNY","JPY"],stack:"Wise, Zuora",cloud:"AWS"},why:["Massive cloud bills","China R&D funding","Data processing FX"],contact:"VP Finance"},
 {n:"SentinelOne",v:"Cyber",m:"B2B SaaS",s:"Public",opp:9,biz:{r:"$620M",g:"+45%",ttm:"$700M",e:"2,200"},pay:{m:["🇺🇸","🇪🇺","🇯🇵"],c:["USD","EUR","JPY"],stack:"Stripe, NetSuite",cloud:"AWS"},why:["Global R&D payroll","SaaS billing FX","Cloud spend consolidation"],contact:"Dave Bernhardt (CFO)"},
-{n:"Global-e",v:"eCommerce",m:"Cross-border B2B2C",s:"Public",opp:10,biz:{r:"$570M",g:"+32%",ttm:"$750M",e:"1,100"},pay:{m:["🌎 Global"],c:["100+ Currencies"],stack:"Adyen, Worldpay",cloud:"AWS"},why:["Merchant settlement local FX","Duty/Tax payments","Real-time FX hedging"],contact:"Ofer Koren (CFO)"},
-{n:"Cato Networks",v:"Cyber",m:"B2B SaaS",s:"Unicorn",opp:9,biz:{r:"$200M",g:"+46%",ttm:"$250M",e:"950"},pay:{m:["🌎 PoPs"],c:["USD","EUR","SGD"],stack:"Stripe, NetSuite",cloud:"AWS"},why:["Paying 150+ local ISPs","ARR collection FX","Field office funding"],contact:"Tomer Erez (CFO)"},
+{n:"Global-e",v:"eCommerce",m:"Cross-border",s:"Public",opp:10,biz:{r:"$570M",g:"+32%",ttm:"$750M",e:"1,100"},pay:{m:["🌎 Global"],c:["100+ Currencies"],stack:"Adyen, Worldpay",cloud:"AWS"},why:["Merchant settlement local FX","Duty/Tax payments","Real-time FX hedging"],contact:"Ofer Koren (CFO)"},
+{n:"Cato Networks",v:"Cyber",m:"B2B SaaS",s:"Unicorn",opp:9,biz:{r:"$200M+",g:"+46%",ttm:"$250M",e:"950"},pay:{m:["🌎 PoPs"],c:["USD","EUR","SGD"],stack:"Stripe, NetSuite",cloud:"AWS"},why:["Paying 150+ local ISPs","ARR collection FX","Field office funding"],contact:"Tomer Erez (CFO)"},
 {n:"Riskified",v:"Fintech",m:"B2B SaaS",s:"Public",opp:8,biz:{r:"$300M",g:"+10%",ttm:"$320M",e:"750"},pay:{m:["🇺🇸","🇪🇺"],c:["USD","EUR"],stack:"Stripe, Adyen",cloud:"AWS"},why:["Chargeback FX payouts","Refund treasury","Global collections"],contact:"Aglika Dotcheva (CFO)"},
 {n:"Papaya Global",v:"Fintech",m:"B2B SaaS",s:"Unicorn",opp:9,biz:{r:"$150M",g:"+50%",ttm:"N/A",e:"800"},pay:{m:["🌎 Global"],c:["Multi"],stack:"JPM, Wise",cloud:"AWS"},why:["Global payroll funding","Emerging market FX","EOR treasury"],contact:"VP Finance"},
 {n:"Lusha",v:"SaaS",m:"B2B SaaS",s:"Unicorn",opp:8,biz:{r:"$100M",g:"Stable",ttm:"N/A",e:"300"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe",cloud:"AWS"},why:["US sales commission","Marketing FX spend","US treasury"],contact:"Finance VP"},
-{n:"Fireblocks",v:"Fintech",m:"B2B SaaS/Infrastructure",s:"Unicorn",opp:9,biz:{r:"$150M",g:"High",ttm:"N/A",e:"650"},pay:{m:["🇸🇬","🇺🇸","🇬🇧"],c:["USD","SGD","GBP"],stack:"Crypto Rails",cloud:"AWS"},why:["Fiat/Crypto settlement","Institutional billing","APAC treasury"],contact:"Finance VP"},
-{n:"Guesty",v:"SaaS",m:"B2B SaaS/Marketplace",s:"Unicorn",opp:9,biz:{r:"$100M",g:"High",ttm:"N/A",e:"750"},pay:{m:["🇪🇺","🇺🇸","🇦🇺"],c:["USD","EUR","AUD"],stack:"Stripe, NetSuite",cloud:"AWS"},why:["Property owner payouts","Booking fee FX","Multi-currency billing"],contact:"VP Finance"},
-{n:"SolarEdge",v:"Hardware",m:"B2B/B2C Hardware",s:"Public",opp:8,biz:{r:"$3B",g:"Low",ttm:"$3.2B",e:"4,500"},pay:{m:["🇪🇺","🇺🇸","🇦🇺"],c:["EUR","AUD","USD"],stack:"SAP",cloud:"Hybrid"},why:["Supply chain sourcing","Inventory FX","Distributor payouts"],contact:"Ronen Faier (CFO)"},
-{n:"ZIM",v:"Logistics",m:"B2B Shipping",s:"Public",opp:9,biz:{r:"$10B",g:"Var",ttm:"N/A",e:"6,500"},pay:{m:["🚢 Global"],c:["Multi"],stack:"Swift",cloud:"Azure"},why:["Port fees worldwide","Fuel payments FX","Capital intensive"],contact:"Xavier Destriau (CFO)"},
-{n:"Playtika",v:"Gaming",m:"B2C Mobile Gaming",s:"Public",opp:10,biz:{r:"$2.6B",g:"Stable",ttm:"$2.5B",e:"4,100"},pay:{m:["🇺🇸","🇯🇵","🇪🇺"],c:["USD","JPY","EUR"],stack:"AppStore, Banks",cloud:"Hybrid"},why:["UA marketing FX","App store treasury","Studio acquisitions"],contact:"Craig Abrahams (CFO)"},
-{n:"Moon Active",v:"Gaming",m:"B2C Mobile Gaming",s:"Unicorn",opp:10,biz:{r:"$1.6B",g:"High",ttm:"N/A",e:"2,200"},pay:{m:["🇩🇪","🇺🇸","🇬🇧"],c:["USD","EUR","GBP"],stack:"Banks, FB/Google",cloud:"AWS"},why:["Huge Ad spend FX","In-app payout FX","Studio buyout flows"],contact:"VP Finance"},
+{n:"Fireblocks",v:"Fintech",m:"Infra",s:"Unicorn",opp:9,biz:{r:"$150M",g:"High",ttm:"N/A",e:"650"},pay:{m:["🇸🇬","🇺🇸","🇬🇧"],c:["USD","SGD","GBP"],stack:"Crypto Rails",cloud:"AWS"},why:["Fiat/Crypto settlement","Institutional billing","APAC treasury"],contact:"Finance VP"},
+{n:"Guesty",v:"SaaS",m:"Marketplace",s:"Unicorn",opp:9,biz:{r:"$100M",g:"High",ttm:"N/A",e:"750"},pay:{m:["🇪🇺","🇺🇸","🇦🇺"],c:["USD","EUR","AUD"],stack:"Stripe, NetSuite",cloud:"AWS"},why:["Property owner payouts","Booking fee FX","Multi-currency billing"],contact:"VP Finance"},
+{n:"SolarEdge",v:"Hardware",m:"B2B",s:"Public",opp:8,biz:{r:"$3B",g:"Low",ttm:"$3.2B",e:"4,500"},pay:{m:["🇪🇺","🇺🇸","🇦🇺"],c:["EUR","AUD","USD"],stack:"SAP",cloud:"Hybrid"},why:["Supply chain sourcing","Inventory FX","Distributor payouts"],contact:"Ronen Faier (CFO)"},
+{n:"ZIM",v:"Logistics",m:"Shipping",s:"Public",opp:9,biz:{r:"$10B",g:"Var",ttm:"N/A",e:"6,500"},pay:{m:["🚢 Global"],c:["Multi"],stack:"Swift",cloud:"Azure"},why:["Port fees worldwide","Fuel payments FX","Capital intensive"],contact:"Xavier Destriau (CFO)"},
+{n:"Playtika",v:"Gaming",m:"B2C Gaming",s:"Public",opp:10,biz:{r:"$2.6B",g:"Stable",ttm:"$2.5B",e:"4,100"},pay:{m:["🇺🇸","🇯🇵","🇪🇺"],c:["USD","JPY","EUR"],stack:"AppStore, Banks",cloud:"Hybrid"},why:["UA marketing FX","App store treasury","Studio acquisitions"],contact:"Craig Abrahams (CFO)"},
+{n:"Moon Active",v:"Gaming",m:"B2C Gaming",s:"Unicorn",opp:10,biz:{r:"$1.6B",g:"High",ttm:"N/A",e:"2,200"},pay:{m:["🇩🇪","🇺🇸","🇬🇧"],c:["USD","EUR","GBP"],stack:"Banks, FB/Google",cloud:"AWS"},why:["Huge Ad spend FX","In-app payout FX","Studio buyout flows"],contact:"VP Finance"},
 {n:"Tipalti",v:"Fintech",m:"B2B SaaS",s:"Unicorn",opp:8,biz:{r:"$250M",g:"High",ttm:"N/A",e:"1,000"},pay:{m:["🇺🇸","🇬🇧"],c:["USD","GBP"],stack:"Citi, JPM",cloud:"AWS"},why:["Partner rails reliability","Mass payout FX","Float management"],contact:"Sarah Spoja (CFO)"},
 {n:"CyberArk",v:"Cyber",m:"B2B SaaS",s:"Public",opp:8,biz:{r:"$750M+",g:"+30%",ttm:"$800M",e:"2,800"},pay:{m:["🌎 Global"],c:["USD","EUR","GBP"],stack:"SAP, Concur",cloud:"AWS"},why:["Professional services payroll","Acquisition flows","Multi-currency billing"],contact:"Josh Siegel (CFO)"},
 {n:"JFrog",v:"SaaS",m:"B2B SaaS",s:"Public",opp:8,biz:{r:"$350M",g:"+25%",ttm:"$360M",e:"1,200"},pay:{m:["🇺🇸","🇪🇺"],c:["USD","EUR"],stack:"Zuora, Stripe",cloud:"Multi"},why:["Marketplace fee FX","Dev marketing FX","Inter-company settlement"],contact:"Ed Grabscheid (CFO)"},
 {n:"Nice",v:"SaaS",m:"B2B SaaS",s:"Public",opp:8,biz:{r:"$2.4B",g:"+10%",ttm:"$2.5B",e:"8,500"},pay:{m:["🌎 Global"],c:["Multi"],stack:"Oracle, Banks",cloud:"AWS"},why:["M&A fund flows","Subsidiary treasury","Legacy bank fees"],contact:"Beth Gaspich (CFO)"},
 {n:"SimilarWeb",v:"SaaS",m:"B2B SaaS",s:"Public",opp:8,biz:{r:"$220M",g:"+12%",ttm:"N/A",e:"1,000"},pay:{m:["🇺🇸","🇯🇵","🇫🇷"],c:["USD","JPY","EUR"],stack:"Zuora, NetSuite",cloud:"AWS"},why:["Data procurement FX","Global commissions","Public FX reporting"],contact:"Jason Schwartz (CFO)"},
 {n:"WalkMe",v:"SaaS",m:"B2B SaaS",s:"Acquired",opp:8,biz:{r:"$260M",g:"Low",ttm:"N/A",e:"950"},pay:{m:["🇺🇸","🇯🇵","🇦🇺"],c:["USD","JPY","AUD"],stack:"Zuora, NetSuite",cloud:"AWS"},why:["Subsidiary funding","Global payroll","SAP integration FX"],contact:"Hagit Ynon (CFO)"},
-{n:"Verbit",v:"SaaS",m:"B2B SaaS + Services",s:"Unicorn",opp:8,biz:{r:"$100M",g:"Stable",ttm:"N/A",e:"500"},pay:{m:["🇮🇳","🇺🇦","🇺🇸"],c:["USD","INR","UAH"],stack:"Tipalti, PayPal",cloud:"AWS"},why:["Mass payouts to freelancers","Emerging market FX","Cloud bills FX"],contact:"CFO"},
-{n:"Gett",v:"SaaS",m:"B2B Marketplace",s:"Scale-Up",opp:8,biz:{r:"$100M",g:"Stable",ttm:"N/A",e:"800"},pay:{m:["🇮🇱","🇬🇧"],c:["GBP","ILS"],stack:"Banks, NetSuite",cloud:"AWS"},why:["UK driver payouts","B2B transport wires","UK funding"],contact:"VP Finance"},
-{n:"Minute Media",v:"AdTech",m:"B2C Digital Media",s:"Unicorn",opp:8,biz:{r:"$100M",g:"High",ttm:"N/A",e:"500"},pay:{m:["🇬🇧","🇺🇸"],c:["USD","GBP"],stack:"Tipalti, NetSuite",cloud:"AWS"},why:["Publisher payouts GBP","Sports rights wires","US media treasury"],contact:"Finance VP"},
+{n:"Verbit",v:"SaaS",m:"B2B Services",s:"Unicorn",opp:8,biz:{r:"$100M",g:"Stable",ttm:"N/A",e:"500"},pay:{m:["🇮🇳","🇺🇦","🇺🇸"],c:["USD","INR","UAH"],stack:"Tipalti, PayPal",cloud:"AWS"},why:["Mass payouts to freelancers","Emerging market FX","Cloud bills FX"],contact:"CFO"},
+{n:"Gett",v:"SaaS",m:"Marketplace",s:"Scale-Up",opp:8,biz:{r:"$100M",g:"Stable",ttm:"N/A",e:"800"},pay:{m:["🇮🇱","🇬🇧"],c:["GBP","ILS"],stack:"Banks, NetSuite",cloud:"AWS"},why:["UK driver payouts","B2B transport wires","UK funding"],contact:"VP Finance"},
+{n:"Minute Media",v:"AdTech",m:"Media",s:"Unicorn",opp:8,biz:{r:"$100M",g:"High",ttm:"N/A",e:"500"},pay:{m:["🇬🇧","🇺🇸"],c:["USD","GBP"],stack:"Tipalti, NetSuite",cloud:"AWS"},why:["Publisher payouts GBP","Sports rights wires","US media treasury"],contact:"Finance VP"},
 {n:"OpenWeb",v:"AdTech",m:"B2B SaaS",s:"Unicorn",opp:8,biz:{r:"$100M",g:"High",ttm:"N/A",e:"400"},pay:{m:["🇺🇸"],c:["USD"],stack:"Banks, NetSuite",cloud:"AWS"},why:["Publisher rev-share FX","US office payroll","Marketing FX spend"],contact:"CFO"},
 {n:"Optimove",v:"SaaS",m:"B2B SaaS",s:"Growth",opp:8,biz:{r:"$50M",g:"High",ttm:"N/A",e:"350"},pay:{m:["🇬🇧","🇺🇸"],c:["USD","GBP"],stack:"Banks, NetSuite",cloud:"AWS"},why:["US office payroll","Marketing FX spend","CRM cloud billing"],contact:"Controller"},
 {n:"Duda",v:"SaaS",m:"B2B SaaS",s:"Growth",opp:8,biz:{r:"$50M",g:"Stable",ttm:"N/A",e:"250"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe, NetSuite",cloud:"AWS"},why:["Agency partner wires","B2C billing FX","AWS cloud bills"],contact:"Finance VP"},
-{n:"Melio",v:"Fintech",m:"B2B Payments",s:"Acquired",opp:9,biz:{r:"$200M",g:"High",ttm:"$40B Vol",e:"650"},pay:{m:["🇺🇸"],c:["USD"],stack:"Evolve, First Century",cloud:"AWS"},why:["B2B payment rails","Float optimization FX","US entity accounts"],contact:"VP Finance"},
+{n:"Melio",v:"Fintech",m:"Payments",s:"Acquired",opp:9,biz:{r:"$200M",g:"High",ttm:"$40B Vol",e:"650"},pay:{m:["🇺🇸"],c:["USD"],stack:"Evolve, First Century",cloud:"AWS"},why:["B2B payment rails","Float optimization FX","US entity accounts"],contact:"VP Finance"},
 {n:"Own",v:"SaaS",m:"B2B SaaS",s:"Acquired",opp:8,biz:{r:"$200M+",g:"High",ttm:"N/A",e:"600"},pay:{m:["🇺🇸"],c:["USD"],stack:"Salesforce, NetSuite",cloud:"AWS"},why:["Storage cloud bills FX","Salesforce fee FX","Global backup wires"],contact:"VP Finance"},
-{n:"Augury",v:"SaaS",m:"B2B Industrial AI",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"High",ttm:"N/A",e:"450"},pay:{m:["🇪🇺","🇺🇸"],c:["USD","EUR"],stack:"Banks, NetSuite",cloud:"AWS"},why:["Sensor supply chain FX","Industrial client wires","IoT cloud bills"],contact:"Finance Manager"},
-{n:"Landa Digital",v:"Hardware",m:"B2B Printing",s:"Unicorn",opp:7,biz:{r:"Scaling",g:"Mod",ttm:"N/A",e:"550"},pay:{m:["🇪🇺","🇺🇸"],c:["EUR","USD"],stack:"Banks, SAP",cloud:"AWS"},why:["Ink production FX","Press logistics wires","CapEx treasury"],contact:"CFO"},
-{n:"Pinecone",v:"SaaS",m:"B2B Infrastructure",s:"Unicorn",opp:8,biz:{r:"Scaling",g:"Hyper",ttm:"N/A",e:"150"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe",cloud:"AWS"},why:["Heavy GPU cloud spend","Vector DB billing","US hiring OpEx"],contact:"Finance VP"},
-{n:"Fabric",v:"SaaS",m:"B2B Logistics",s:"Unicorn",opp:8,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"300"},pay:{m:["🇮🇱","🇺🇸"],c:["USD","ILS"],stack:"Banks, NetSuite",cloud:"AWS"},why:["Robot parts supply FX","US retail billing","US entity treasury"],contact:"CFO"},
-{n:"Wiliot",v:"Hardware",m:"B2B IoT",s:"Unicorn",opp:8,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"220"},pay:{m:["🇪🇺","🇺🇸"],c:["USD","EUR"],stack:"Banks, NetSuite",cloud:"AWS"},why:["Tag production FX","Global retail billing","IoT cloud bills"],contact:"CFO"},
-{n:"Check Point",v:"Cyber",m:"B2B SaaS/Software",s:"Public",opp:8,biz:{r:"$2.4B",g:"+4%",ttm:"$2.5B",e:"6,000"},pay:{m:["🌎 Global"],c:["Multi"],stack:"SAP, Banks",cloud:"AWS"},why:["Channel partner payouts","Enterprise collection FX","Global R&D funding"],contact:"Roei Golan (CFO)"},
-{n:"AmDocs",v:"SaaS",m:"B2B Services/Software",s:"Public",opp:8,biz:{r:"$4.8B",g:"Stable",ttm:"$4.9B",e:"30,000"},pay:{m:["🇮🇳","🇺🇸","🇵🇭"],c:["INR","USD","PHP"],stack:"SAP, Banks",cloud:"AWS"},why:["Global payroll FX","Project expense wires","Subsidiary treasury"],contact:"Tamar Rapaport (CFO)"},
-{n:"Payoneer",v:"Fintech",m:"B2B Payments",s:"Public",opp:8,biz:{r:"$830M",g:"Mod",ttm:"$850M",e:"2,000"},pay:{m:["🌎 Global"],c:["Multi"],stack:"Internal, Banks",cloud:"AWS"},why:["Treasury optimization","Banking rail redundancy","Global OpEx"],contact:"Bea Ordonez (CFO)"},
+{n:"Augury",v:"SaaS",m:"Industrial AI",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"High",ttm:"N/A",e:"450"},pay:{m:["🇪🇺","🇺🇸"],c:["USD","EUR"],stack:"Banks, NetSuite",cloud:"AWS"},why:["Sensor supply chain FX","Industrial client wires","IoT cloud bills"],contact:"Finance Manager"},
+{n:"Landa Digital",v:"Hardware",m:"Print",s:"Unicorn",opp:7,biz:{r:"Scaling",g:"Mod",ttm:"N/A",e:"550"},pay:{m:["🇪🇺","🇺🇸"],c:["EUR","USD"],stack:"Banks, SAP",cloud:"AWS"},why:["Ink production FX","Press logistics wires","CapEx treasury"],contact:"CFO"},
+{n:"Pinecone",v:"SaaS",m:"AI Infra",s:"Unicorn",opp:8,biz:{r:"Scaling",g:"Hyper",ttm:"N/A",e:"150"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe",cloud:"AWS"},why:["Heavy GPU cloud spend","Vector DB billing","US hiring OpEx"],contact:"Finance VP"},
+{n:"Fabric",v:"SaaS",m:"Logistics",s:"Unicorn",opp:8,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"300"},pay:{m:["🇮🇱","🇺🇸"],c:["USD","ILS"],stack:"Banks, NetSuite",cloud:"AWS"},why:["Robot parts supply FX","US retail billing","US entity treasury"],contact:"CFO"},
+{n:"Wiliot",v:"Hardware",m:"IoT",s:"Unicorn",opp:8,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"220"},pay:{m:["🇪🇺","🇺🇸"],c:["USD","EUR"],stack:"Banks, NetSuite",cloud:"AWS"},why:["Tag production FX","Global retail billing","IoT cloud bills"],contact:"CFO"},
+{n:"Check Point",v:"Cyber",m:"Software",s:"Public",opp:8,biz:{r:"$2.4B",g:"+4%",ttm:"$2.5B",e:"6,000"},pay:{m:["🌎 Global"],c:["Multi"],stack:"SAP, Banks",cloud:"AWS"},why:["Channel partner payouts","Enterprise collection FX","Global R&D funding"],contact:"Roei Golan (CFO)"},
+{n:"AmDocs",v:"SaaS",m:"Services",s:"Public",opp:8,biz:{r:"$4.8B",g:"Stable",ttm:"$4.9B",e:"30,000"},pay:{m:["🇮🇳","🇺🇸","🇵🇭"],c:["INR","USD","PHP"],stack:"SAP, Banks",cloud:"AWS"},why:["Global payroll FX","Project expense wires","Subsidiary treasury"],contact:"Tamar Rapaport (CFO)"},
+{n:"Payoneer",v:"Fintech",m:"Payments",s:"Public",opp:8,biz:{r:"$830M",g:"Mod",ttm:"$850M",e:"2,000"},pay:{m:["🌎 Global"],c:["Multi"],stack:"Internal, Banks",cloud:"AWS"},why:["Treasury optimization","Banking rail redundancy","Global OpEx"],contact:"Bea Ordonez (CFO)"},
 {n:"Fiverr",v:"eCommerce",m:"Marketplace",s:"Public",opp:9,biz:{r:"$360M",g:"Mod",ttm:"$370M",e:"800"},pay:{m:["🇺🇸","🇬🇧"],c:["USD","GBP"],stack:"Payoneer, PayPal",cloud:"AWS"},why:["Freelancer mass payouts","Withdrawal fee reduction","Marketing FX"],contact:"Ofer Katz (CFO)"},
-{n:"Stratasys",v:"Hardware",m:"B2B Manufacturing",s:"Public",opp:8,biz:{r:"$630M",g:"Low",ttm:"$650M",e:"2,100"},pay:{m:["🌎 Global"],c:["USD","EUR"],stack:"Banks, Oracle",cloud:"AWS"},why:["Material sourcing FX","M&A fund flows","Global sales force"],contact:"Eitan Zamir (CFO)"},
-{n:"Nova",v:"Hardware",m:"B2B Semi-conductor",s:"Public",opp:7,biz:{r:"$520M",g:"High",ttm:"$550M",e:"1,100"},pay:{m:["🇨🇳","🇰🇷"],c:["CNY","KRW"],stack:"SAP, Banks",cloud:"Azure"},why:["Asia supply chain","Equipment wires","Semi-conductor treasury"],contact:"Dror David (CFO)"},
-{n:"Cellebrite",v:"SaaS",m:"B2B/B2G SaaS",s:"Public",opp:8,biz:{r:"$320M",g:"Stable",ttm:"$340M",e:"1,000"},pay:{m:["🇧🇷","🇪🇺","🇺🇸"],c:["USD","EUR","BRL"],stack:"Banks, NetSuite",cloud:"AWS"},why:["Gov collection BRL/EUR","Global compliance FX","Forensic lab wires"],contact:"Dana Gerner (CFO)"},
-{n:"Sapiens",v:"SaaS",m:"B2B Insurance Software",s:"Public",opp:8,biz:{r:"$520M",g:"Mod",ttm:"$550M",e:"5,200"},pay:{m:["🇮🇳","🇪🇺","🇺🇸"],c:["USD","EUR","INR"],stack:"Banks, SAP",cloud:"AWS"},why:["Pro-services payroll INR","Cloud transition FX","Global client wires"],contact:"Roni Giladi (CFO)"},
-{n:"Tower Semi",v:"Hardware",m:"B2B Foundry",s:"Public",opp:8,biz:{r:"$1.4B",g:"Stable",ttm:"$1.5B",e:"5,500"},pay:{m:["🇯🇵","🇺🇸"],c:["USD","JPY"],stack:"Banks, SAP",cloud:"AWS"},why:["Japan fab wires","Global client FX","CapEx treasury"],contact:"Oren Shirazi (CFO)"},
-{n:"Delta Galil",v:"Hardware",m:"Retail Manufacturing",s:"Public",opp:8,biz:{r:"$2B",g:"Stable",ttm:"$2.1B",e:"23,000"},pay:{m:["🇻🇳","🇪🇺","🇺🇸"],c:["USD","EUR","VND"],stack:"Banks, SAP",cloud:"Azure"},why:["Vietnam supply chain","Retail brand treasury","Global logistics FX"],contact:"Finance Director"},
-{n:"Netafim",v:"Hardware",m:"Agri-Industrial",s:"Acquired",opp:8,biz:{r:"$1.1B",g:"Stable",ttm:"N/A",e:"5,000"},pay:{m:["🇲🇽","🇧🇷","🇮🇳"],c:["INR","BRL","MXN"],stack:"Banks, SAP",cloud:"AWS"},why:["Emerging market FX","Project finance wires","Agri-tech treasury"],contact:"VP Finance"},
-{n:"SciPlay",v:"Gaming",m:"B2C Mobile Gaming",s:"Public",opp:8,biz:{r:"$600M+",g:"Stable",ttm:"$650M",e:"600"},pay:{m:["🇺🇸"],c:["USD"],stack:"AppStores",cloud:"AWS"},why:["App Store payout FX","UA spend wires","Marketing treasury"],contact:"Finance Director"},
-{n:"Overwolf",v:"Gaming",m:"B2B Creator Tools",s:"Unicorn",opp:9,biz:{r:"$100M+",g:"High",ttm:"N/A",e:"180"},pay:{m:["🇪🇺","🇺🇸"],c:["USD","EUR"],stack:"Tipalti, Banks",cloud:"AWS"},why:["Creator fund wires","Ad revenue treasury","Creator rev-share FX"],contact:"CFO"},
-{n:"Beach Bum",v:"Gaming",m:"B2C Mobile Gaming",s:"Acquired",opp:8,biz:{r:"$150M+",g:"High",ttm:"N/A",e:"150"},pay:{m:["🇺🇸"],c:["USD"],stack:"Apps",cloud:"AWS"},why:["UA spend FX","Studio funding OpEx","App store treasury"],contact:"Finance Manager"},
-{n:"Huuge Games",v:"Gaming",m:"B2C Mobile Gaming",s:"Public",opp:8,biz:{r:"$300M+",g:"Stable",ttm:"N/A",e:"500"},pay:{m:["🇪🇺","🇺🇸"],c:["USD","EUR"],stack:"AppStores",cloud:"AWS"},why:["In-app FX collection","Marketing spend FX","Subsidiary funding"],contact:"CFO"},
-{n:"Amdocs",v:"SaaS",m:"B2B Enterprise",s:"Public",opp:8,biz:{r:"$4.8B",g:"Stable",ttm:"$4.9B",e:"30,000"},pay:{m:["🌎 Global"],c:["Multi"],stack:"SAP"},cloud:"AWS",why:["Global payroll FX","Cross-border services","Multi-currency treasury"],contact:"Tamar Rapaport (CFO)"},
-{n:"SolarEdge",v:"Hardware",m:"B2B Industrial",s:"Public",opp:8,biz:{r:"$3B",g:"Low",ttm:"$3.2B",e:"4,500"},pay:{m:["🌎 Global"],c:["Multi"],stack:"SAP"},cloud:"Hybrid",why:["Global supply chain","Manufacturing FX","Inventory financing"],contact:"Ronen Faier (CFO)"},
-{n:"Transmit Security",v:"Cyber",m:"B2B SaaS",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"Stable",ttm:"N/A",e:"300"},pay:{m:["🇺🇸","🇪🇺"],c:["USD","EUR"],stack:"Banks"},cloud:"AWS",why:["Enterprise collections FX","Sales hub OpEx","R&D funding"],contact:"Finance Director"},
-{n:"Cybereason",v:"Cyber",m:"B2B SaaS",s:"Unicorn",opp:7,biz:{r:"$150M+",g:"Low",ttm:"N/A",e:"600"},pay:{m:["🇺🇸","🇯🇵"],c:["USD","JPY"],stack:"Banks"},cloud:"AWS",why:["Japan entity treasury","Enterprise billing FX","Cloud infra spend"],contact:"Finance VP"},
-{n:"DeepInstinct",v:"Cyber",m:"B2B SaaS",s:"Unicorn",opp:7,biz:{r:"$50M+",g:"Mod",ttm:"N/A",e:"250"},pay:{m:["🇺🇸"],c:["USD"],stack:"Banks"},cloud:"AWS",why:["Sales team payroll FX","Marketing spend wires","R&D funding"],contact:"CFO"},
-{n:"ThetaRay",v:"Fintech",m:"B2B SaaS",s:"Growth",opp:7,biz:{r:"$40M+",g:"High",ttm:"N/A",e:"150"},pay:{m:["🌎 Global"],c:["Multi"],stack:"Banks"},cloud:"AWS",why:["AML software billing FX","Global pilot funding","Inter-company FX"],contact:"CFO"},
-{n:"Earnix",v:"Fintech",m:"B2B SaaS",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"High",ttm:"N/A",e:"350"},pay:{m:["🇺🇸","🇪🇺"],c:["USD","EUR"],stack:"Banks"},cloud:"AWS",why:["Insurtech billing FX","Global R&D funding","Subscription treasury"],contact:"Finance VP"},
-{n:"Personetics",v:"Fintech",m:"B2B SaaS",s:"Unicorn",opp:7,biz:{r:"$50M+",g:"Mod",ttm:"N/A",e:"250"},pay:{m:["🌎 Global"],c:["Multi"],stack:"Banks"},cloud:"AWS",why:["Bank software billing","Global pro-services FX","Cloud spend"],contact:"Finance Director"},
-{n:"BlueVine",v:"Fintech",m:"Fintech/Neobank",s:"Unicorn",opp:8,biz:{r:"$200M+",g:"High",ttm:"N/A",e:"500"},pay:{m:["🇺🇸"],c:["USD"],stack:"Banks"},cloud:"AWS",why:["US SMB lending FX","Banking rails optimization","US treasury mgmt"],contact:"CFO"},
-{n:"HoneyBook",v:"SaaS",m:"B2B SaaS",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"High",ttm:"N/A",e:"400"},pay:{m:["🇺🇸","🇨🇦"],c:["USD","CAD"],stack:"Stripe"},cloud:"AWS",why:["B2C payment collection","US marketing FX","Canada office funding"],contact:"VP Finance"},
-{n:"JoyTunes",v:"SaaS",m:"B2C Subscription",s:"Unicorn",opp:8,biz:{r:"$150M+",g:"High",ttm:"N/A",e:"250"},pay:{m:["🇺🇸","🇪🇺"],c:["USD","EUR"],stack:"Apple/Google"},cloud:"AWS",why:["App Store payout FX","Social ad spend FX","Creator economy payouts"],contact:"VP Finance"},
-{n:"Vast Data",v:"SaaS",m:"B2B Infrastructure",s:"Unicorn",opp:9,biz:{r:"$200M ARR",g:"Hyper",ttm:"N/A",e:"700"},pay:{m:["🇺🇸","🇪🇺","🇦🇺"],c:["USD","EUR","AUD"],stack:"Banks"},cloud:"AWS",why:["Massive US sales OpEx","Channel partner payouts","Global R&D funding"],contact:"Finance Director"},
-{n:"Salt Security", v:"Cyber",m:"B2B SaaS",s:"Unicorn",opp:8,biz:{r:"$50M+",g:"High",ttm:"N/A",e:"200"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe"},cloud:"AWS",why:["API security cloud bills","US field sales OpEx","Marketing FX"],contact:"CFO"},
-{n:"Noname Security", v:"Cyber",m:"B2B SaaS",s:"Acquired",opp:7,biz:{r:"$50M+",g:"Mod",ttm:"N/A",e:"200"},pay:{m:["🇺🇸"],c:["USD"],stack:"Banks"},cloud:"AWS",why:["M&A fund flows","US sales OpEx","R&D funding"],contact:"Finance VP"},
-{n:"Exodigo", v:"SaaS",m:"B2B Services",s:"Growth",opp:8,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"120"},pay:{m:["🇪🇺","🇺🇸"],c:["USD","EUR"],stack:"Banks"},cloud:"AWS",why:["Field team FX OpEx","Survey hardware wires","US expansion"],contact:"VP Finance"},
-{n:"Torq", v:"Cyber",m:"B2B SaaS",s:"Growth",opp:8,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"120"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe"},cloud:"AWS",why:["US field sales payroll","Event marketing FX","Automation cloud bills"],contact:"VP Finance"},
-{n:"Descope", v:"Cyber",m:"B2B SaaS",s:"Growth",opp:7,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"100"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe"},cloud:"AWS",why:["Developer event wires","Auth cloud storage FX","Startup treasury"],contact:"CFO"},
-{n:"Qwak", v:"SaaS",m:"B2B SaaS",s:"Growth",opp:7,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"80"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe"},cloud:"AWS",why:["Compute cloud bills","ML platform billing","Cloud storage FX"],contact:"CFO"},
-{n:"Landa Digital", v:"Hardware",m:"B2B Manufacturing",s:"Unicorn",opp:7,biz:{r:"Scaling",g:"Mod",ttm:"N/A",e:"550"},pay:{m:["🇪🇺","🇺🇸"],c:["EUR","USD"],stack:"Banks"},cloud:"AWS",why:["Ink production supply FX","Press logistics wires","CapEx treasury"],contact:"CFO"},
-{n:"Tower Semi", v:"Hardware",m:"B2B Foundry",s:"Public",opp:8,biz:{r:"$1.4B",g:"Stable",ttm:"$1.5B",e:"5,500"},pay:{m:["🇯🇵","🇺🇸"],c:["USD","JPY"],stack:"Banks"},cloud:"AWS",why:["Japan fab wires","Global client FX","CapEx treasury"],contact:"Oren Shirazi (CFO)"},
-{n:"Innoviz", v:"Hardware",m:"B2B Automotive",s:"Public",opp:7,biz:{r:"$20M",g:"High",ttm:"N/A",e:"450"},pay:{m:["🇩🇪","🇨🇳","🇺🇸"],c:["EUR","CNY","USD"],stack:"SAP"},cloud:"AWS",why:["Auto supply chain payments","Inventory financing","Global field offices"],contact:"Eldar Cegla (CFO)"},
-{n:"Check Point", v:"Cyber",m:"B2B Software",s:"Public",opp:8,biz:{r:"$2.4B",g:"+4%",ttm:"$2.5B",e:"6,000"},pay:{m:["🌎 Global"],c:["Multi"],stack:"SAP"},cloud:"AWS",why:["Channel partner payouts","Enterprise collection FX","Global R&D funding"],contact:"Roei Golan (CFO)"},
-{n:"AmDocs", v:"SaaS",m:"B2B Services",s:"Public",opp:8,biz:{r:"$4.8B",g:"Stable",ttm:"$4.9B",e:"30,000"},pay:{m:["🇮🇳","🇺🇸","🇵🇭"],c:["INR","USD","PHP"],stack:"SAP"},cloud:"AWS",why:["Global payroll FX","Project expense wires","Subsidiary treasury"],contact:"Tamar Rapaport (CFO)"},
-{n:"JFrog", v:"SaaS",m:"B2B SaaS",s:"Public",opp:8,biz:{r:"$350M",g:"+25%",ttm:"$360M",e:"1,200"},pay:{m:["🇺🇸","🇪🇺"],c:["USD","EUR"],stack:"Zuora"},cloud:"Multi",why:["Marketplace fee FX","Dev marketing FX","Inter-company settlement"],contact:"Ed Grabscheid (CFO)"},
-{n:"SolarEdge", v:"Hardware",m:"B2B Industrial",s:"Public",opp:8,biz:{r:"$3B",g:"Low",ttm:"$3.2B",e:"4,500"},pay:{m:["🌎 Global"],c:["Multi"],stack:"SAP"},cloud:"Azure",why:["Supply chain FX","Inventory financing","Distributor payouts"],contact:"Ronen Faier (CFO)"},
-{n:"Payoneer", v:"Fintech",m:"Payments",s:"Public",opp:8,biz:{r:"$830M",g:"Mod",ttm:"$850M",e:"2,000"},pay:{m:["🌎 Global"],c:["Multi"],stack:"Internal"},cloud:"AWS",why:["Treasury optimization","Banking rail redundancy","Global OpEx"],contact:"Bea Ordonez (CFO)"},
-{n:"Nice", v:"SaaS",m:"B2B SaaS",s:"Public",opp:8,biz:{r:"$2.4B",g:"+10%",ttm:"$2.5B",e:"8,500"},pay:{m:["🌎 Global"],c:["Multi"],stack:"Oracle"},cloud:"AWS",why:["M&A fund flows","Subsidary treasury","Legacy bank fees"],contact:"Beth Gaspich (CFO)"},
-{n:"Stratasys", v:"Hardware",m:"B2B Manufacturing",s:"Public",opp:8,biz:{r:"$630M",g:"Low",ttm:"$650M",e:"2,100"},pay:{m:["🌎 Global"],c:["USD","EUR"],stack:"Oracle"},cloud:"AWS",why:["Material sourcing FX","M&A fund flows","Global sales force"],contact:"Eitan Zamir (CFO)"},
-{n:"Scytale", v:"SaaS",m:"B2B SaaS",s:"Growth",opp:7,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"90"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe"},cloud:"AWS",why:["Compliance tool wires","US market GTM FX","Audit firm payments"],contact:"CFO"},
-{n:"Start.io", v:"AdTech",m:"B2B Advertising",s:"Growth",opp:8,biz:{r:"$60M+",g:"Stable",ttm:"N/A",e:"180"},pay:{m:["🌎 Global"],c:["USD"],stack:"Priority"},cloud:"AWS",why:["Global publisher payouts","Data processing FX","Ad network FX"],contact:"VP Finance"},
-{n:"Lusha", v:"SaaS",m:"B2B SaaS",s:"Unicorn",opp:8,biz:{r:"$100M ARR",g:"Stable",ttm:"N/A",e:"300"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe"},cloud:"AWS",why:["US sales commission FX","Marketing FX spend","US treasury mgmt"],contact:"Finance VP"},
-{n:"Orca Security", v:"Cyber",m:"B2B SaaS",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"High",ttm:"N/A",e:"450"},pay:{m:["🇮🇱","🇺🇸"],c:["USD","ILS"],stack:"Stripe"},cloud:"AWS",why:["Cloud bills consolidation","Marketing spend FX","US entity wires"],contact:"CFO"},
-{n:"Transmit Security", v:"Cyber",m:"B2B SaaS",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"Stable",ttm:"N/A",e:"300"},pay:{m:["🇺🇸","🇪🇺"],c:["USD","EUR"],stack:"Banks"},cloud:"AWS",why:["Enterprise collections FX","Sales hub OpEx","R&D funding"],contact:"Finance Director"},
-{n:"Noname", v:"Cyber",m:"B2B SaaS",s:"Acquired",opp:7,biz:{r:"$50M+",g:"Mod",ttm:"N/A",e:"200"},pay:{m:["🇺🇸"],c:["USD"],stack:"Banks"},cloud:"AWS",why:["M&A fund flows","US sales OpEx","R&D funding"],contact:"Finance Director"},
-{n:"Talon", v:"Cyber",m:"B2B SaaS",s:"Acquired",opp:7,biz:{r:"N/A",g:"High",ttm:"N/A",e:"150"},pay:{m:["🇺🇸"],c:["USD"],stack:"Banks"},cloud:"AWS",why:["Integration treasury","R&D spend wires","US expansion"],contact:"Finance VP"},
-{n:"Own", v:"SaaS",m:"B2B SaaS",s:"Acquired",opp:8,biz:{r:"$200M+",g:"High",ttm:"N/A",e:"600"},pay:{m:["🇺🇸"],c:["USD"],stack:"Salesforce"},cloud:"AWS",why:["Storage cloud bills FX","Salesforce fee FX","Global backup wires"],contact:"VP Finance"},
-{n:"Nova", v:"Hardware",m:"B2B Semi-conductor",s:"Public",opp:7,biz:{r:"$520M",g:"High",ttm:"$550M",e:"1,100"},pay:{m:["🇨🇳","🇰🇷"],c:["CNY","KRW"],stack:"SAP"},cloud:"Azure",why:["Asia supply chain","Equipment wires","Semi-conductor treasury"],contact:"Dror David (CFO)"},
-{n:"Cellebrite", v:"SaaS",m:"B2B/B2G SaaS",s:"Public",opp:8,biz:{r:"$320M",g:"Stable",ttm:"$340M",e:"1,000"},pay:{m:["🇧🇷","🇪🇺","🇺🇸"],c:["USD","EUR","BRL"],stack:"NetSuite"},cloud:"AWS",why:["Gov collection BRL/EUR","Global compliance FX","Forensic lab wires"],contact:"Dana Gerner (CFO)"},
-{n:"Gett", v:"SaaS",m:"B2B Marketplace",s:"Scale-Up",opp:8,biz:{r:"$100M+",g:"Stable",ttm:"N/A",e:"800"},pay:{m:["🇮🇱","🇬🇧"],c:["GBP","ILS"],stack:"NetSuite"},cloud:"AWS",why:["UK driver payouts","B2B transport wires","Ad spend FX"],contact:"VP Finance"},
-{n:"Minute Media", v:"AdTech",m:"Digital Media",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"High",ttm:"N/A",e:"500"},pay:{m:["🇬🇧","🇺🇸"],c:["USD","GBP"],stack:"Tipalti"},cloud:"AWS",why:["Publisher payouts GBP","Sports rights wires","Ad tech cloud bills"],contact:"Finance VP"},
-{n:"OpenWeb", v:"AdTech",m:"B2B SaaS",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"High",ttm:"N/A",e:"400"},pay:{m:["🇺🇸"],c:["USD"],stack:"NetSuite"},cloud:"AWS",why:["Publisher rev-share FX","US office payroll","Marketing FX spend"],contact:"CFO"},
-{n:"Optimove", v:"SaaS",m:"B2B SaaS",s:"Growth",opp:8,biz:{r:"$50M+",g:"High",ttm:"N/A",e:"350"},pay:{m:["🇬🇧","🇺🇸"],c:["USD","GBP"],stack:"NetSuite"},cloud:"AWS",why:["US office payroll","Marketing FX spend","CRM cloud billing"],contact:"Controller"},
-{n:"Duda", v:"SaaS",m:"B2B SaaS",s:"Growth",opp:8,biz:{r:"$50M+",g:"Stable",ttm:"N/A",e:"250"},pay:{m:["🇺🇸"],c:["USD"],stack:"NetSuite"},cloud:"AWS",why:["Agency partner wires","B2C billing FX","AWS cloud bills"],contact:"Finance VP"},
-{n:"Zenity", v:"Cyber",m:"B2B SaaS",s:"Growth",opp:7,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"60"},pay:{m:["🇺🇸"],c:["USD"],stack:"NetSuite"},cloud:"AWS",why:["US sales OpEx","Marketplace fee FX","Cloud security treasury"],contact:"CFO"},
-{n:"Torq", v:"Cyber",m:"B2B SaaS",s:"Growth",opp:8,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"120"},pay:{m:["🇺🇸"],c:["USD"],stack:"NetSuite"},cloud:"AWS",why:["US field sales payroll","Event marketing FX","Automation cloud bills"],contact:"VP Finance"},
-{n:"Descope", v:"Cyber",m:"B2B SaaS",s:"Growth",opp:7,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"100"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe"},cloud:"AWS",why:["Developer event wires","Auth cloud storage FX","Startup treasury"],contact:"CFO"},
-{n:"Qwak", v:"SaaS",m:"B2B SaaS",s:"Growth",opp:7,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"80"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe"},cloud:"AWS",why:["Compute cloud bills","ML platform billing","Cloud storage FX"],contact:"CFO"}
+{n:"Stratasys",v:"Hardware",m:"Manufacturing",s:"Public",opp:8,biz:{r:"$630M",g:"Low",ttm:"$650M",e:"2,100"},pay:{m:["🌎 Global"],c:["USD","EUR"],stack:"Banks, Oracle",cloud:"AWS"},why:["Material sourcing FX","M&A fund flows","Global sales force"],contact:"Eitan Zamir (CFO)"},
+{n:"Nova",v:"Hardware",m:"Semi",s:"Public",opp:7,biz:{r:"$520M",g:"High",ttm:"$550M",e:"1,100"},pay:{m:["🇨🇳","🇰🇷"],c:["CNY","KRW"],stack:"SAP, Banks",cloud:"Azure"},why:["Asia supply chain","Equipment wires","Semi-conductor treasury"],contact:"Dror David (CFO)"},
+{n:"Cellebrite",v:"SaaS",m:"B2G SaaS",s:"Public",opp:8,biz:{r:"$320M",g:"Stable",ttm:"$340M",e:"1,000"},pay:{m:["🇧🇷","🇪🇺","🇺🇸"],c:["USD","EUR","BRL"],stack:"Banks, NetSuite",cloud:"AWS"},why:["Gov collection BRL/EUR","Global compliance FX","Forensic lab wires"],contact:"Dana Gerner (CFO)"},
+{n:"Sapiens",v:"SaaS",m:"InsurTech",s:"Public",opp:8,biz:{r:"$520M",g:"Mod",ttm:"$550M",e:"5,200"},pay:{m:["🇮🇳","🇪🇺","🇺🇸"],c:["USD","EUR","INR"],stack:"Banks, SAP",cloud:"AWS"},why:["Pro-services payroll INR","Cloud transition FX","Global client wires"],contact:"Roni Giladi (CFO)"},
+{n:"Tower Semi",v:"Hardware",m:"Foundry",s:"Public",opp:8,biz:{r:"$1.4B",g:"Stable",ttm:"$1.5B",e:"5,500"},pay:{m:["🇯🇵","🇺🇸"],c:["USD","JPY"],stack:"Banks, SAP",cloud:"AWS"},why:["Japan fab wires","Global client FX","CapEx treasury"],contact:"Oren Shirazi (CFO)"},
+{n:"Delta Galil",v:"Hardware",m:"Retail",s:"Public",opp:8,biz:{r:"$2B",g:"Stable",ttm:"$2.1B",e:"23,000"},pay:{m:["🇻🇳","🇪🇺","🇺🇸"],c:["USD","EUR","VND"],stack:"Banks, SAP",cloud:"Azure"},why:["Vietnam supply chain","Retail brand treasury","Global logistics FX"],contact:"Finance Director"},
+{n:"Netafim",v:"Hardware",m:"Agri",s:"Acquired",opp:8,biz:{r:"$1.1B",g:"Stable",ttm:"N/A",e:"5,000"},pay:{m:["🇲🇽","🇧🇷","🇮🇳"],c:["INR","BRL","MXN"],stack:"Banks, SAP",cloud:"AWS"},why:["Emerging market FX","Project finance wires","Agri-tech treasury"],contact:"VP Finance"},
+{n:"Incredibuild",v:"SaaS",m:"DevTool",s:"Growth",opp:8,biz:{r:"$60M+",g:"High",ttm:"N/A",e:"220"},pay:{m:["🇯🇵","🇺🇸"],c:["USD","JPY"],stack:"Stripe",cloud:"AWS"},why:["Cloud burst billing","Japan license FX","Global marketing"],contact:"Finance VP"},
+{n:"Salt Security", v:"Cyber",m:"API Sec",s:"Unicorn",opp:8,biz:{r:"$50M+",g:"High",ttm:"N/A",e:"200"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe"},cloud:"AWS",why:["API security cloud bills","US field sales OpEx","Marketing FX"],contact:"CFO"},
+{n:"Exodigo", v:"SaaS",m:"Mapping",s:"Growth",opp:8,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"120"},pay:{m:["🇪🇺","🇺🇸"],c:["USD","EUR"],stack:"Banks"},cloud:"AWS",why:["Field team FX OpEx","Survey hardware wires","US expansion"],contact:"VP Finance"},
+{n:"Torq", v:"Cyber",m:"Automation",s:"Growth",opp:8,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"120"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe"},cloud:"AWS",why:["US field sales payroll","Event marketing FX","Automation cloud bills"],contact:"VP Finance"},
+{n:"Lusha", v:"SaaS",m:"Data",s:"Unicorn",opp:8,biz:{r:"$100M ARR",g:"Stable",ttm:"N/A",e:"300"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe"},cloud:"AWS",why:["US sales commission FX","Marketing FX spend","US treasury mgmt"],contact:"Finance VP"},
+{n:"Minute Media",v:"AdTech",m:"Media",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"High",ttm:"N/A",e:"500"},pay:{m:["🇬🇧","🇺🇸"],c:["USD","GBP"],stack:"Tipalti"},cloud:"AWS",why:["Publisher payouts GBP","Sports rights wires","Ad tech cloud bills"],contact:"Finance VP"},
+{n:"OpenWeb",v:"AdTech",m:"Cmnty",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"High",ttm:"N/A",e:"400"},pay:{m:["🇺🇸"],c:["USD"],stack:"NetSuite"},cloud:"AWS",why:["Publisher rev-share FX","US office payroll","Marketing FX spend"],contact:"CFO"},
+{n:"Optimove",v:"SaaS",m:"MarTech",s:"Growth",opp:8,biz:{r:"$50M+",g:"High",ttm:"N/A",e:"350"},pay:{m:["🇬🇧","🇺🇸"],c:["USD","GBP"],stack:"NetSuite"},cloud:"AWS",why:["US office payroll","Marketing FX spend","CRM cloud billing"],contact:"Controller"},
+{n:"Duda",v:"SaaS",m:"Web",s:"Growth",opp:8,biz:{r:"$50M+",g:"Stable",ttm:"N/A",e:"250"},pay:{m:["🇺🇸"],c:["USD"],stack:"NetSuite"},cloud:"AWS",why:["Agency partner wires","B2C billing FX","AWS cloud bills"],contact:"Finance VP"},
+{n:"Zenity",v:"Cyber",m:"Security",s:"Growth",opp:7,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"60"},pay:{m:["🇺🇸"],c:["USD"],stack:"NetSuite"},cloud:"AWS",why:["US sales OpEx","Marketplace fee FX","Cloud security treasury"],contact:"CFO"},
+{n:"Descope",v:"Cyber",m:"Auth",s:"Growth",opp:7,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"100"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe"},cloud:"AWS",why:["Developer event wires","Auth cloud storage FX","Startup treasury"],contact:"CFO"},
+{n:"Qwak",v:"SaaS",m:"ML Ops",s:"Growth",opp:7,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"80"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe"},cloud:"AWS",why:["Compute cloud bills","ML platform billing","Cloud storage FX"],contact:"CFO"},
+{n:"Claroty",v:"Cyber",m:"OT Sec",s:"Unicorn",opp:9,biz:{r:"$100M+",g:"High",ttm:"N/A",e:"500"},pay:{m:["🇺🇸","🇪🇺"],c:["USD","EUR"],stack:"Banks"},cloud:"AWS",why:["Global industrial partners","Field sales OpEx","Subsidiary funding"],contact:"Finance VP"},
+{n:"BigID",v:"Cyber",m:"Data",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"Stable",ttm:"N/A",e:"400"},pay:{m:["🇺🇸","🇪🇺"],c:["USD","EUR"],stack:"Banks"},cloud:"AWS",why:["Data privacy billing","Global compliance FX","Partner payouts"],contact:"Scott Casey (CFO)"},
+{n:"BioCatch",v:"Fintech",m:"Fraud",s:"Unicorn",opp:9,biz:{r:"$100M+",g:"High",ttm:"N/A",e:"300"},pay:{m:["🇬🇧","🇧🇷","🇺🇸"],c:["USD","GBP","BRL"],stack:"Banks"},cloud:"Azure",why:["Global bank collections","Emerging market FX","Brazil office payroll"],contact:"VP Finance"},
+{n:"Transmit Security",v:"Cyber",m:"Auth",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"Stable",ttm:"N/A",e:"300"},pay:{m:["🇺🇸","🇪🇺"],c:["USD","EUR"],stack:"Banks"},cloud:"AWS",why:["Enterprise billing FX","Sales hub OpEx","R&D funding"],contact:"Finance Director"},
+{n:"Cybereason",v:"Cyber",m:"EDR",s:"Unicorn",opp:7,biz:{r:"$150M+",g:"Low",ttm:"N/A",e:"600"},pay:{m:["🇺🇸","🇯🇵"],c:["USD","JPY"],stack:"Banks"},cloud:"AWS",why:["Japan entity treasury","Enterprise billing FX","Cloud infra spend"],contact:"Finance VP"},
+{n:"Lemonade",v:"Fintech",m:"B2C Insur",s:"Public",opp:8,biz:{r:"$250M+",g:"High",ttm:"N/A",e:"1.2k"},pay:{m:["🇪🇺","🇺🇸"],c:["USD","EUR"],stack:"Stripe"},cloud:"AWS",why:["Reinsurance FX settlement","EU expansion treasury","Claims payouts"],contact:"Tim Bixby (CFO)"},
+{n:"Next Insurance",v:"Fintech",m:"B2B Insur",s:"Unicorn",opp:8,biz:{r:"$850M+",g:"High",ttm:"N/A",e:"900"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe"},cloud:"AWS",why:["Claims speed FX","Agent commissions","Reinsurance wires"],contact:"Teodora Gouneva (CFO)"},
+{n:"Orca Security",v:"Cyber",m:"Cloud Sec",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"High",ttm:"N/A",e:"450"},pay:{m:["🇮🇱","🇺🇸"],c:["USD","ILS"],stack:"Stripe"},cloud:"AWS",why:["Cloud bills consolidation","Marketing spend FX","US entity wires"],contact:"CFO"},
+{n:"Noname",v:"Cyber",m:"API Sec",s:"Acquired",opp:7,biz:{r:"$50M+",g:"Mod",ttm:"N/A",e:"200"},pay:{m:["🇺🇸"],c:["USD"],stack:"Banks"},cloud:"AWS",why:["M&A fund flows","US sales OpEx","R&D funding"],contact:"Finance Director"},
+{n:"Talon",v:"Cyber",m:"Browser",s:"Acquired",opp:7,biz:{r:"N/A",g:"High",ttm:"N/A",e:"150"},pay:{m:["🇺🇸"],c:["USD"],stack:"Banks"},cloud:"AWS",why:["Integration treasury","R&D spend wires","US expansion"],contact:"Finance VP"},
+{n:"Own",v:"SaaS",m:"Backup",s:"Acquired",opp:8,biz:{r:"$200M+",g:"High",ttm:"N/A",e:"600"},pay:{m:["🇺🇸"],c:["USD"],stack:"Salesforce"},cloud:"AWS",why:["Storage cloud bills FX","Salesforce fee FX","Global backup wires"],contact:"VP Finance"},
+{n:"Vast Data",v:"SaaS",m:"Storage",s:"Unicorn",opp:9,biz:{r:"$200M ARR",g:"Hyper",ttm:"N/A",e:"700"},pay:{m:["🇺🇸","🇪🇺","🇦🇺"],c:["USD","EUR","AUD"],stack:"Banks"},cloud:"AWS",why:["Massive US sales OpEx","Channel partner payouts","Global R&D funding"],contact:"Finance Director"},
+{n:"BlueVine",v:"Fintech",m:"Banking",s:"Unicorn",opp:8,biz:{r:"$200M+",g:"High",ttm:"N/A",e:"500"},pay:{m:["🇺🇸"],c:["USD"],stack:"Banks"},cloud:"AWS",why:["US SMB lending FX","Banking rails optimization","US treasury mgmt"],contact:"CFO"},
+{n:"HoneyBook",v:"SaaS",m:"Business",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"High",ttm:"N/A",e:"400"},pay:{m:["🇺🇸","🇨🇦"],c:["USD","CAD"],stack:"Stripe"},cloud:"AWS",why:["B2C payment collection","US marketing FX","Canada office funding"],contact:"VP Finance"},
+{n:"Hailo",v:"Hardware",m:"AI Chips",s:"Unicorn",opp:7,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"280"},pay:{m:["🇺🇸","🇯🇵","🇹🇼"],c:["TWD","JPY","USD"],stack:"Banks"},cloud:"AWS",why:["TSMC fab wires","Taiwan office OpEx","Chip distribution FX"],contact:"VP Finance"},
+{n:"Taranis",v:"SaaS",m:"AgriTech",s:"Growth",opp:7,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"220"},pay:{m:["🇧🇷","🇺🇸"],c:["USD","BRL"],stack:"Banks"},cloud:"AWS",why:["Brazil pilot FX","Datalink cloud bills","Aerial imagery wires"],contact:"CFO"},
+{n:"Fabric",v:"SaaS",m:"Robotics",s:"Unicorn",opp:8,biz:{r:"Scaling",g:"High",ttm:"N/A",e:"300"},pay:{m:["🇮🇱","🇺🇸"],c:["USD","ILS"],stack:"Banks"},cloud:"AWS",why:["Robot parts supply FX","US retail billing","US entity treasury"],contact:"CFO"},
+{n:"Pinecone",v:"SaaS",m:"AI Infra",s:"Unicorn",opp:8,biz:{r:"Scaling",g:"Hyper",ttm:"N/A",e:"150"},pay:{m:["🇺🇸"],c:["USD"],stack:"Stripe"},cloud:"AWS",why:["Heavy GPU cloud spend","Vector DB billing","US hiring OpEx"],contact:"Finance VP"},
+{n:"Earnix",v:"Fintech",m:"InsurTech",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"High",ttm:"N/A",e:"350"},pay:{m:["🇺🇸","🇪🇺"],c:["USD","EUR"],stack:"Banks"},cloud:"AWS",why:["Insurtech billing FX","Global R&D funding","Subscription treasury"],contact:"Finance VP"},
+{n:"Verbit",v:"SaaS",m:"Transcription",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"Stable",ttm:"N/A",e:"500"},pay:{m:["🇮🇳","🇺🇦","🇺🇸"],c:["USD","INR","UAH"],stack:"Tipalti"},cloud:"AWS",why:["Transcriber mass payouts","Emerging market FX","M&A fund flows"],contact:"Finance Manager"},
+{n:"Nova",v:"Hardware",m:"Metrology",s:"Public",opp:7,biz:{r:"$520M",g:"High",ttm:"$550M",e:"1,100"},pay:{m:["🇨🇳","🇰🇷"],c:["CNY","KRW"],stack:"SAP"},cloud:"Azure",why:["Asia supply chain","Equipment wires","Semi-conductor treasury"],contact:"Dror David (CFO)"},
+{n:"Tower Semi",v:"Hardware",m:"Semi",s:"Public",opp:8,biz:{r:"$1.4B",g:"Stable",ttm:"$1.5B",e:"5,500"},pay:{m:["🇯🇵","🇺🇸"],c:["USD","JPY"],stack:"Banks"},cloud:"AWS",why:["Japan fab wires","Global client FX","CapEx treasury"],contact:"Oren Shirazi (CFO)"},
+{n:"Sapiens",v:"SaaS",m:"Insurance",s:"Public",opp:8,biz:{r:"$520M",g:"Mod",ttm:"$550M",e:"5,200"},pay:{m:["🇮🇳","🇪🇺","🇺🇸"],c:["USD","EUR","INR"],stack:"Banks"},cloud:"AWS",why:["Pro-services payroll INR","Cloud transition FX","Global client wires"],contact:"Roni Giladi (CFO)"},
+{n:"Amdocs",v:"SaaS",m:"Telecom",s:"Public",opp:8,biz:{r:"$4.8B",g:"Stable",ttm:"$4.9B",e:"30,000"},pay:{m:["🌎 Global"],c:["Multi"],stack:"SAP"},cloud:"AWS",why:["Global payroll FX","Cross-border services","Multi-currency treasury"],contact:"Tamar Rapaport (CFO)"},
+{n:"Fiverr",v:"eCommerce",m:"Marketplace",s:"Public",opp:9,biz:{r:"$360M",g:"Mod",ttm:"$370M",e:"800"},pay:{m:["🇺🇸","🇬🇧"],c:["USD","GBP"],stack:"Payoneer"},cloud:"AWS",why:["Freelancer mass payouts","Withdrawal fee reduction","Marketing FX"],contact:"Ofer Katz (CFO)"},
+{n:"Cellebrite",v:"SaaS",m:"B2G",s:"Public",opp:8,biz:{r:"$320M",g:"Stable",ttm:"$340M",e:"1,000"},pay:{m:["🇧🇷","🇪🇺","🇺🇸"],c:["USD","EUR","BRL"],stack:"NetSuite"},cloud:"AWS",why:["Gov collection BRL/EUR","Global compliance FX","Forensic lab wires"],contact:"Dana Gerner (CFO)"},
+{n:"Incredibuild",v:"SaaS",m:"DevTool",s:"Growth",opp:8,biz:{r:"$60M+",g:"High",ttm:"N/A",e:"220"},pay:{m:["🇯🇵","🇺🇸"],c:["USD","JPY"],stack:"Stripe"},cloud:"AWS",why:["Cloud burst billing","Japan license FX","Global marketing"],contact:"Finance VP"},
+{n:"Kaltura",v:"SaaS",m:"Video",s:"Public",opp:7,biz:{r:"$175M",g:"Low",ttm:"$180M",e:"750"},pay:{m:["🇪🇺","🇺🇸"],c:["USD","EUR"],stack:"Banks"},cloud:"AWS",why:["Streaming cloud bills","Education client billing","Global CDN wires"],contact:"Yaron Garmazi (CFO)"},
+{n:"DriveNets",v:"SaaS",m:"Network",s:"Unicorn",opp:8,biz:{r:"N/A",g:"High",ttm:"N/A",e:"450"},pay:{m:["🇯🇵","🇺🇸"],c:["USD","JPY"],stack:"Banks"},cloud:"Azure"},why:["ISP client billing JPY","Hardware bundle wires","Inter-company FX"],contact:"CFO"},
+{n:"Sunbit",v:"Fintech",m:"POS BNPL",s:"Unicorn",opp:8,biz:{r:"$100M+",g:"High",ttm:"N/A",e:"300"},pay:{m:["🇺🇸"],c:["USD"],stack:"Banks"},cloud:"AWS",why:["POS retail settlement","Lending capital FX","US OpEx wires"],contact:"CFO"},
+{n:"Personetics",v:"Fintech",m:"Bank AI",s:"Unicorn",opp:7,biz:{r:"$50M+",g:"Mod",ttm:"N/A",e:"250"},pay:{m:["🌎 Global"],c:["Multi"],stack:"Banks"},cloud:"AWS",why:["Bank software billing","Global pro-services FX","Cloud spend"],contact:"Finance Director"},
+{n:"Pagaya",v:"Fintech",m:"AI Lending",s:"Public",opp:9,biz:{r:"$800M+",g:"High",ttm:"$850M",e:"700"},pay:{m:["🇺🇸"],c:["USD"],stack:"NetSuite"},cloud:"AWS",why:["Capital market fund flows","Lending partner wires","US entity treasury"],contact:"Finance VP"},
+{n:"Vayyar",v:"Hardware",m:"Sensors",s:"Unicorn",opp:7,biz:{r:"N/A",g:"Mod",ttm:"N/A",e:"300"},pay:{m:["🇨🇳","🇯🇵","🇺🇸"],c:["USD","CNY","JPY"],stack:"SAP"},cloud:"AWS",why:["China supply chain","Asia demo centers","Distribution wires"],contact:"VP Finance"},
+{n:"ThetaRay",v:"Fintech",m:"AML",s:"Growth",opp:7,biz:{r:"$40M+",g:"High",ttm:"N/A",e:"150"},pay:{m:["🌎 Global"],c:["Multi"],stack:"Banks"},cloud:"AWS",why:["AML software billing FX","Global pilot funding","Inter-company FX"],contact:"CFO"},
+{n:"D-ID",v:"SaaS",m:"AI Video",s:"Growth",opp:7,biz:{r:"Scaling",g:"Hyper",ttm:"N/A",e:"100"},pay:{m:["🇺🇸","🇪🇺"],c:["USD","EUR"],stack:"Stripe"},cloud:"AWS",why:["AI video generation cloud","B2C sub FX","US marketing"],contact:"CFO"},
+{n:"Starkware",v:"Fintech",m:"Blockchain",s:"Unicorn",opp:8,biz:{r:"N/A",g:"N/A",ttm:"N/A",e:"150"},pay:{m:["🌎 Global"],c:["USD","ETH"],stack:"Banks"},cloud:"AWS",why:["Infrastructure billing","Global hiring","Crypto settlement"],contact:"Finance VP"},
+{n:"Wiz",v:"Cyber",m:"Cloud Sec",s:"Unicorn",opp:9,biz:{r:"$500M+",g:"Hyper",ttm:"$600M",e:"1,200"},pay:{m:["🌎 Global"],c:["USD","EUR"],stack:"Stripe"},cloud:"AWS",why:["Multi-cloud bills consolidation","Global subsidiary funding","Entity account setup"],contact:"Fazal Merchant (CFO)"}
 ];
 function render() {
     const grid = document.getElementById("grid");
@@ -190,7 +182,7 @@ function render() {
     
     grid.innerHTML = db.filter(i => {
         const textMatch = (i.n + i.contact + i.pay.stack).toLowerCase().includes(s);
-        const catMatch = !cat || i.v === cat;
+        const catMatch = !cat || i.v.includes(cat);
         const scoreMatch = i.opp >= score;
         return textMatch && catMatch && scoreMatch;
     }).map(i => {
@@ -217,7 +209,7 @@ function render() {
                 <div class="biz-model">${i.m}</div>
                 <div>${i.pay.m.map(mark => `<span class="flag-tag">${mark}</span>`).join('')}</div>
                 <div>${i.pay.c.map(curr => `<span class="curr-tag">${curr}</span>`).join('')}</div>
-                <div class="why-box"><b>Why Airwallex?</b><ul style="margin:5px 0;padding:0;">${i.why.map(item => `<li class="why-item">${item}</li>`).join('')}</ul></div>
+                <div class="why-box"><b>Why Airwallex?</b><ul style="margin:5px 0;padding:0;list-style:none;">${i.why.map(item => `<li class="why-item">${item}</li>`).join('')}</ul></div>
                 <div class="stack-box">EXISTING STACK: ${i.pay.stack}</div>
                 <div class="cloud-box">CLOUD INFRA: ${i.pay.cloud}</div>
             </div>
