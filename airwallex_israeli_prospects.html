@@ -3,315 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Airwallex Israel - Enterprise Gold Prospects</title>
+    <title>Airwallex Israel - Enterprise Gold 100</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #FF6B00;
-            --primary-dark: #E65100;
-            --bg: #F4F7FE;
-            --card-bg: #FFFFFF;
-            --text-main: #2B3674;
-            --text-secondary: #707EAE;
-            --success: #05CD99;
-            --warning: #FFB547;
-            --danger: #EE5D50;
-        }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-main); margin: 0; padding: 0; }
-        .header { background: white; padding: 20px 40px; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; border-bottom: 3px solid var(--primary); }
-        .header-content { max-width: 1600px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 28px; font-weight: 900; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
+        :root { --primary: #FF6B00; --bg: #F0F2F5; --text: #1A1A1A; --card-bg: #FFFFFF; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; color: var(--text); padding-bottom: 50px; }
+        
+        /* Header */
+        .header { background: #111; color: white; padding: 20px 40px; position: sticky; top: 0; z-index: 100; border-bottom: 4px solid var(--primary); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .logo { font-size: 24px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
         .logo i { color: var(--primary); }
-        .kpi-bar { display: flex; gap: 30px; }
-        .kpi-item { text-align: center; }
-        .kpi-value { font-size: 24px; font-weight: 800; color: var(--text-main); display: block; }
-        .kpi-label { font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; }
-        .controls { max-width: 1600px; margin: 25px auto; padding: 0 20px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 15px; }
-        input, select { padding: 12px 16px; border-radius: 12px; border: 1px solid #E0E5F2; font-family: inherit; font-size: 14px; outline: none; transition: 0.2s; }
-        input:focus, select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(480px, 1fr)); gap: 25px; max-width: 1600px; margin: 0 auto 50px; padding: 0 20px; }
-        .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.04); transition: transform 0.2s; border: 1px solid transparent; display: flex; flex-direction: column; }
-        .card:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(255, 107, 0, 0.15); }
-        .card-header { padding: 20px; background: linear-gradient(to right, #ffffff, #fcfcfc); border-bottom: 1px solid #F0F0F0; display: flex; justify-content: space-between; align-items: start; }
-        .company-id h2 { font-size: 20px; margin: 0; color: var(--text-main); }
-        .company-id p { margin: 5px 0 0; color: var(--text-secondary); font-size: 13px; display: flex; gap: 10px; align-items: center; }
-        .status-badge { padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
-        .status-public { background: #E6F7FF; color: #0095FF; }
-        .status-unicorn { background: #F6FFED; color: #389E0D; }
-        .status-acquired { background: #FFF7E6; color: #FA8C16; }
-        .score-box { text-align: center; background: var(--bg); padding: 8px 12px; border-radius: 10px; }
-        .score-val { font-size: 18px; font-weight: 800; color: var(--primary); display: block; line-height: 1; }
-        .score-lbl { font-size: 9px; color: var(--text-secondary); font-weight: 600; }
-        .metrics-strip { display: flex; border-bottom: 1px solid #F0F0F0; padding: 15px 20px; background: #FAFAFA; justify-content: space-between; font-size: 13px; }
-        .metric { display: flex; flex-direction: column; gap: 2px; }
-        .metric span:first-child { color: var(--text-secondary); font-size: 11px; font-weight: 600; }
-        .metric span:last-child { font-weight: 700; color: var(--text-main); }
-        .tabs { display: flex; padding: 0 20px; border-bottom: 1px solid #F0F0F0; margin-top: 10px; }
-        .tab { padding: 10px 15px; font-size: 13px; font-weight: 600; color: var(--text-secondary); cursor: pointer; border-bottom: 2px solid transparent; transition: 0.2s; }
-        .tab.active { color: var(--primary); border-bottom-color: var(--primary); }
-        .card-body { padding: 20px; flex: 1; font-size: 13px; line-height: 1.6; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.3s; }
-        .info-group { margin-bottom: 15px; }
-        .info-label { font-weight: 700; color: var(--text-main); display: block; margin-bottom: 4px; font-size: 12px; text-transform: uppercase; }
-        .info-value { color: #4A5568; }
-        .spend-bar { height: 6px; background: #E0E5F2; border-radius: 3px; overflow: hidden; margin-top: 5px; width: 100px; }
-        .spend-fill { height: 100%; background: var(--primary); }
-        .spend-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-        .pain-point { display: flex; gap: 8px; align-items: start; margin-bottom: 8px; }
-        .pain-point i { color: var(--danger); margin-top: 3px; }
-        .tech-tag { display: inline-block; background: #EDF2F7; padding: 3px 8px; border-radius: 4px; font-size: 11px; margin-right: 5px; color: #2D3748; font-family: monospace; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @media (max-width: 768px) { .header-content { flex-direction: column; gap: 15px; } .controls { grid-template-columns: 1fr; } .kpi-bar { display: none; } }
+        .stats { display: flex; gap: 30px; }
+        .stat-box { text-align: center; }
+        .stat-val { font-size: 20px; font-weight: 700; color: var(--primary); display: block; }
+        .stat-lbl { font-size: 11px; opacity: 0.7; text-transform: uppercase; }
+
+        /* Controls */
+        .controls { background: white; padding: 15px 40px; display: flex; gap: 15px; border-bottom: 1px solid #ddd; position: sticky; top: 80px; z-index: 90; }
+        input, select { padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; flex: 1; outline: none; }
+        input:focus, select:focus { border-color: var(--primary); }
+
+        /* Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); gap: 20px; padding: 30px 40px; max-width: 1920px; margin: 0 auto; }
+        
+        /* Rich Card */
+        .card { background: var(--card-bg); border-radius: 12px; overflow: hidden; border: 1px solid #E5E7EB; box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        
+        .card-top { padding: 15px 20px; background: linear-gradient(to bottom, #fff, #f9fafb); border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: flex-start; }
+        .co-name { font-size: 18px; font-weight: 800; color: #111; margin: 0; }
+        .co-meta { font-size: 12px; color: #666; display: flex; gap: 8px; align-items: center; margin-top: 4px; }
+        .badge { padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+        .badge.public { background: #E0F2FE; color: #0369A1; }
+        .badge.unicorn { background: #DCFCE7; color: #15803D; }
+        
+        .score-badge { background: #FFF7ED; color: #C2410C; border: 1px solid #FFEDD5; padding: 5px 10px; border-radius: 8px; text-align: center; }
+        .score-num { font-size: 16px; font-weight: 800; display: block; line-height: 1; }
+        .score-txt { font-size: 9px; text-transform: uppercase; font-weight: 600; }
+
+        .metrics-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid #eee; background: #fafafa; }
+        .metric { padding: 10px 15px; border-left: 1px solid #eee; text-align: center; }
+        .metric:last-child { border-left: none; }
+        .m-val { font-size: 13px; font-weight: 700; color: #374151; display: block; }
+        .m-lbl { font-size: 10px; color: #6B7280; text-transform: uppercase; }
+
+        .card-body { padding: 15px 20px; font-size: 13px; display: grid; gap: 12px; }
+        
+        .section-title { font-size: 10px; font-weight: 700; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+        
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 5px; }
+        .tag { background: #F3F4F6; padding: 3px 8px; border-radius: 4px; color: #374151; font-family: monospace; font-size: 11px; border: 1px solid #E5E7EB; }
+        
+        .pain-list { list-style: none; padding: 0; margin: 0; }
+        .pain-item { padding-right: 18px; position: relative; color: #4B5563; margin-bottom: 4px; line-height: 1.4; }
+        .pain-item::before { content: "•"; color: var(--primary); position: absolute; right: 5px; font-weight: bold; }
+
+        .contact-box { background: #F0FDFA; border: 1px solid #CCFBF1; padding: 8px 12px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; margin-top: 5px; }
+        .contact-role { font-weight: 700; color: #0F766E; }
+        .contact-name { color: #134E4A; }
+
+        /* Spend Bars */
+        .spend-row { display: flex; align-items: center; justify-content: space-between; font-size: 11px; margin-bottom: 3px; }
+        .bar-bg { width: 60px; height: 4px; background: #E5E7EB; border-radius: 2px; overflow: hidden; }
+        .bar-fill { height: 100%; background: var(--primary); }
+
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-content">
-            <div class="logo"><i class="fa-brands fa-space-awesome"></i>Airwallex Israel <span style="font-weight: 400; font-size: 18px; margin-right: 10px; opacity: 0.7;">| Enterprise Gold List</span></div>
-            <div class="kpi-bar">
-                <div class="kpi-item"><span class="kpi-value" id="count-total">0</span><span class="kpi-label">חברות</span></div>
-                <div class="kpi-item"><span class="kpi-value" id="count-potential">$50B+</span><span class="kpi-label">פוטנציאל סליקה</span></div>
-            </div>
-        </div>
+
+<div class="header">
+    <div class="logo"><i class="fa-solid fa-layer-group"></i> Airwallex Israel Enterprise 100</div>
+    <div class="stats">
+        <div class="stat-box"><span class="stat-val" id="total-count">0</span><span class="stat-lbl">Prospects</span></div>
+        <div class="stat-box"><span class="stat-val">$60B+</span><span class="stat-lbl">Market Cap</span></div>
+        <div class="stat-box"><span class="stat-val">High</span><span class="stat-lbl">FX Intensity</span></div>
     </div>
-    <div class="controls">
-        <input type="text" id="search" placeholder="חיפוש חברה, CFO, או טכנולוגיה..." onkeyup="filterData()">
-        <select id="vertical-filter" onchange="filterData()">
-            <option value="">כל הוורטיקלים</option>
-            <option value="Fintech">💳 Fintech</option>
-            <option value="Cybersecurity">🔒 Cybersecurity</option>
-            <option value="AdTech">📢 AdTech</option>
-            <option value="eCommerce">🛒 eCommerce</option>
-            <option value="SaaS">☁️ B2B SaaS</option>
-            <option value="Gaming">🎮 Gaming</option>
-        </select>
-        <select id="spend-filter" onchange="filterData()">
-            <option value="">כל רמות ההוצאה</option>
-            <option value="high_media">🔥 High Media Spend</option>
-            <option value="high_cloud">☁️ High Cloud Spend</option>
-        </select>
-        <select id="status-filter" onchange="filterData()">
-            <option value="">כל הסטטוסים</option>
-            <option value="Public">🏛️ ציבורית</option>
-            <option value="Unicorn">🦄 יוניקורן</option>
-        </select>
-    </div>
-    <div class="grid" id="grid"></div>
+</div>
+
+<div class="controls">
+    <input type="text" id="search" placeholder="Type to search companies, technologies, or roles..." onkeyup="render()">
+    <select id="vertical" onchange="render()"><option value="">All Verticals</option><option>Fintech</option><option>Cybersecurity</option><option>SaaS</option><option>AdTech</option><option>Gaming</option><option>eCommerce</option></select>
+    <select id="erp" onchange="render()"><option value="">All ERPs</option><option>NetSuite</option><option>SAP</option><option>Oracle</option></select>
+</div>
+
+<div class="grid" id="grid"></div>
+
 <script>
+// --- GOLD DATASET PART 1 ---
 const db = [
-    // --- TIER 1: Strategic Giants ---
-    { name: "Wix", vertical: "SaaS", status: "Public", desc: "Leading global web creation platform.", financials: { rev: "$1.6B", employees: "5,000+", growth: "Stable" }, scores: { media: 10, cloud: 9, fx: 10 }, tech: { erp: "Oracle", payments: "Wix Payments", platforms: "AWS/GCP" }, pain: ["ניהול תשלומים ממיליוני משתמשים ב-190 מדינות", "הוצאות שיווק אדירות (Ad Spend) במטבעות שונים", "ניהול Treasury מורכב לחברה דואלית"], contact: "CFO: Lior Shemesh" },
-    { name: "Monday.com", vertical: "SaaS", status: "Public", desc: "Work OS platform.", financials: { rev: "$900M+", employees: "2,000+", growth: "High" }, scores: { media: 10, cloud: 8, fx: 9 }, tech: { erp: "SAP", payments: "Stripe", platforms: "AWS" }, pain: ["גביית תשלומים מ-200k+ לקוחות עסקיים", "הוצאות Performance Marketing גבוהות", "התרחבות גלובלית מהירה"], contact: "CFO: Eliran Glazer" },
-    { name: "Rapyd", vertical: "Fintech", status: "Unicorn", desc: "Fintech-as-a-Service.", financials: { rev: "N/A", employees: "800+", growth: "High" }, scores: { media: 6, cloud: 8, fx: 10 }, tech: { erp: "NetSuite", payments: "Core", platforms: "Cloud Agnostic" }, pain: ["ניהול נזילות (Liquidity) ב-100+ מטבעות", "תשלומים חוצי גבולות (Cross-border)", "רכישות ומיזוגים (M&A) גלובליים"], contact: "CEO: Arik Shtilman" },
-    { name: "Melio", vertical: "Fintech", status: "Acquired", desc: "B2B payments for SMBs.", financials: { rev: "$200M+", employees: "600+", growth: "High" }, scores: { media: 5, cloud: 7, fx: 9 }, tech: { erp: "NetSuite", payments: "ACH/Card", platforms: "AWS" }, pain: ["תשלומים לספקים בינלאומיים", "ניהול Float והמרות מטבע", "אינטגרציה חשבונאית"], contact: "VP Finance" },
-    { name: "Wiz", vertical: "Cybersecurity", status: "Unicorn", desc: "Cloud security (CNAPP).", financials: { rev: "$500M ARR", employees: "1,200+", growth: "Hyper" }, scores: { media: 6, cloud: 10, fx: 8 }, tech: { erp: "NetSuite", payments: "Stripe", platforms: "Multi-Cloud" }, pain: ["חשבוניות ענן (Cloud Bills) עצומות", "גבייה מאנטרפרייז גלובלי", "פתיחת ישויות חדשות בעולם"], contact: "CFO: Fazal Merchant" },
-    { name: "eToro", vertical: "Fintech", status: "Unicorn", desc: "Social trading platform.", financials: { rev: "$630M", employees: "1,700+", growth: "Stable" }, scores: { media: 9, cloud: 7, fx: 10 }, tech: { erp: "NetSuite", payments: "Internal", platforms: "Azure" }, pain: ["הפקדות ומשיכות משתמשים ב-100 מדינות", "ניהול סיכוני מטבע (Hedging)", "הוצאות שיווק וספורט (Sponsorships)"], contact: "CFO: Meron Shani" },
-    { name: "Playtika", vertical: "Gaming", status: "Public", desc: "Mobile gaming giant.", financials: { rev: "$2.5B", employees: "4,000+", growth: "Stable" }, scores: { media: 10, cloud: 9, fx: 9 }, tech: { erp: "Oracle", payments: "App Stores", platforms: "Hybrid" }, pain: ["תקציבי UA (רכישת משתמשים) של מאות מיליונים", "המרה ממטבעות App Store לשקלים/דולרים", "רכישת סטודיואים בחו״ל"], contact: "CFO: Craig Abrahams" },
-    { name: "Global-e", vertical: "eCommerce", status: "Public", desc: "Cross-border e-commerce enabler.", financials: { rev: "$570M", employees: "1,000+", growth: "High" }, scores: { media: 4, cloud: 6, fx: 10 }, tech: { erp: "NetSuite", payments: "Multi", platforms: "Cloud" }, pain: ["ליבת העסק היא FX והמרות", "התחשבנות עם אלפי סוחרים (Merchants)", "תשלומי מיסים ומכסים גלובליים"], contact: "CFO: Ofer Koren" },
-    { name: "Deel", vertical: "Fintech", status: "Unicorn", desc: "Global payroll & compliance.", financials: { rev: "$500M+", employees: "3,000+", growth: "Hyper" }, scores: { media: 7, cloud: 8, fx: 10 }, tech: { erp: "NetSuite", payments: "Internal", platforms: "AWS" }, pain: ["תשלום משכורות ב-150 מטבעות", "ניהול מאות ישויות משפטיות", "גידור חשיפות מטבע"], contact: "CFO: Philippe Bouaziz" },
-    { name: "ZIM", vertical: "Logistics", status: "Public", desc: "Global container liner shipping.", financials: { rev: "$10B+", employees: "6,000+", growth: "Cyclical" }, scores: { media: 2, cloud: 5, fx: 10 }, tech: { erp: "SAP", payments: "Swift", platforms: "Hybrid" }, pain: ["תשלום אגרות נמל ודלק בכל העולם", "ניהול תזרים מזומנים מורכב (Capital Intensive)", "רכש גלובלי"], contact: "CFO: Xavier Destriau" },
-    { name: "ICL Group", vertical: "Industrial", status: "Public", desc: "Global minerals and chemicals.", financials: { rev: "$7B+", employees: "12,000+", growth: "Stable" }, scores: { media: 1, cloud: 4, fx: 10 }, tech: { erp: "SAP", payments: "Banking", platforms: "On-Prem/Cloud" }, pain: ["סחר בסחורות (Commodities) גלובלי", "שרשרת אספקה ותשלומים לספקים", "פעילות ייצור ב-3 יבשות"], contact: "CFO: Aviram Lahav" },
-    { name: "Check Point", vertical: "Cybersecurity", status: "Public", desc: "Cyber security solutions.", financials: { rev: "$2.4B", employees: "6,000+", growth: "Low" }, scores: { media: 4, cloud: 6, fx: 8 }, tech: { erp: "SAP", payments: "Billing", platforms: "Hybrid" }, pain: ["גבייה מלקוחות Enterprise", "תשלום למפיצים ושותפים (Channel Partners)", "מיזוגים ורכישות"], contact: "CFO: Roei Golan" },
-    { name: "AmDocs", vertical: "SaaS", status: "Public", desc: "Software for telecom & media.", financials: { rev: "$4.8B", employees: "30,000+", growth: "Stable" }, scores: { media: 2, cloud: 7, fx: 8 }, tech: { erp: "SAP", payments: "Billing", platforms: "Cloud" }, pain: ["פרויקטים גלובליים ארוכי טווח", "שינוע עובדים (Relocation) ותשלומים", "פעילות במטבעות אקזוטיים"], contact: "CFO: Tamar Rapaport-Dagim" },
-    { name: "Payoneer", vertical: "Fintech", status: "Public", desc: "Global payments platform.", financials: { rev: "$830M", employees: "2,000+", growth: "Moderate" }, scores: { media: 6, cloud: 8, fx: 10 }, tech: { erp: "SAP", payments: "Internal", platforms: "AWS" }, pain: ["ניהול Treasury ו-Float", "תשלומים למיליוני פרילנסרים", "רגולציה בנקאית"], contact: "CFO: Bea Ordonez" },
-    { name: "IronSource", vertical: "AdTech", status: "Merged", desc: "App monetization (Unity).", financials: { rev: "$1B+", employees: "1,500+", growth: "Stable" }, scores: { media: 10, cloud: 9, fx: 9 }, tech: { erp: "Oracle", payments: "Tipalti/Internal", platforms: "AWS" }, pain: ["תשלום למפתחי אפליקציות (Publishers) בכל העולם", "הוצאות שרתים (High Scale)", "רכישת טראפיק"], contact: "Finance Director" },
-    
-    // --- TIER 2: High Growth & Unicorns ---
-    { name: "Cato Networks", vertical: "Cybersecurity", status: "Pre-IPO", desc: "SASE platform.", financials: { rev: "$200M+", growth: "High" }, scores: { media: 3, cloud: 9, fx: 8 }, tech: { erp: "NetSuite" }, pain: ["תשלום לספקי אינטרנט (ISP) ב-150 מדינות", "גבייה גלובלית"], contact: "CFO: Tomer Erez" },
-    { name: "Via", vertical: "SaaS", status: "Pre-IPO", desc: "TransitTech.", financials: { rev: "$300M+", growth: "High" }, scores: { media: 3, cloud: 8, fx: 9 }, tech: { erp: "NetSuite" }, pain: ["מימון חברות בנות", "תשלום לנהגים (Gig Economy)"], contact: "CFO: Eyal Greidinger" },
-    { name: "Riskified", vertical: "Fintech", status: "Public", desc: "Fraud prevention.", financials: { rev: "$300M", growth: "Moderate" }, scores: { media: 4, cloud: 8, fx: 7 }, tech: { erp: "NetSuite" }, pain: ["החזרי Chargebacks במטבעות שונים", "עלויות תשתיות דאטה"], contact: "CFO: Aglika Dotcheva" },
-    { name: "AppsFlyer", vertical: "AdTech", status: "Unicorn", desc: "Marketing analytics.", financials: { rev: "$300M+ ARR", growth: "High" }, scores: { media: 5, cloud: 10, fx: 7 }, tech: { erp: "NetSuite" }, pain: ["עלויות ענן (Big Data)", "משרדים גלובליים"], contact: "CFO" },
-    { name: "Taboola", vertical: "AdTech", status: "Public", desc: "Content discovery.", financials: { rev: "$1.4B", growth: "Stable" }, scores: { media: 9, cloud: 9, fx: 9 }, tech: { erp: "Oracle" }, pain: ["תשלומים לאתרי תוכן (Publishers)", "רכישת טראפיק"], contact: "CFO: Steve Walker" },
-    { name: "Outbrain", vertical: "AdTech", status: "Public", desc: "Web recommendation.", financials: { rev: "$1B", growth: "Stable" }, scores: { media: 9, cloud: 9, fx: 9 }, tech: { erp: "Oracle" }, pain: ["תשלומי Publisher במטבע מקומי", "אופטימיזציית מרווחים"], contact: "CFO: Jason Kiviat" },
-    { name: "Fiverr", vertical: "eCommerce", status: "Public", desc: "Freelance marketplace.", financials: { rev: "$360M", growth: "Low" }, scores: { media: 8, cloud: 7, fx: 9 }, tech: { erp: "NetSuite" }, pain: ["תשלום לפרילנסרים ב-160 מדינות", "הוצאות שיווק"], contact: "CFO: Ofer Katz" },
-    { name: "Yotpo", vertical: "SaaS", status: "Unicorn", desc: "E-com marketing.", financials: { rev: "$150M+ ARR", growth: "High" }, scores: { media: 6, cloud: 7, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["שותפויות עם פלטפורמות (Shopify)", "משרדים בארה״ב ובריטניה"], contact: "CFO: Sarit Firon" },
-    { name: "Tipalti", vertical: "Fintech", status: "Unicorn", desc: "Payables automation.", financials: { rev: "$200M+", growth: "High" }, scores: { media: 4, cloud: 6, fx: 10 }, tech: { erp: "NetSuite" }, pain: ["העברות כספים (Money Transmitter)", "תשלומים לשותפים"], contact: "CFO: Sarah Spoja" },
-    { name: "Gong", vertical: "SaaS", status: "Unicorn", desc: "Revenue intelligence.", financials: { rev: "$300M ARR", growth: "High" }, scores: { media: 5, cloud: 9, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["עלויות AI Compute", "צוותי מכירות בארה״ב"], contact: "CFO: Tim Riitters" },
-    { name: "Navan", vertical: "SaaS", status: "Pre-IPO", desc: "Travel & expense.", financials: { rev: "$600M+", growth: "High" }, scores: { media: 6, cloud: 8, fx: 9 }, tech: { erp: "NetSuite" }, pain: ["סליקת נסיעות גלובלית", "הנפקת כרטיסי אשראי"], contact: "CFO" },
-    { name: "Bringg", vertical: "SaaS", status: "Unicorn", desc: "Delivery logistics.", financials: { rev: "$100M", growth: "Stable" }, scores: { media: 3, cloud: 6, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["לקוחות Enterprise גלובליים", "תשלומים בשרשרת אספקה"], contact: "CFO: Doron Dinstein" },
-    { name: "Verbit", vertical: "SaaS", status: "Unicorn", desc: "AI transcription.", financials: { rev: "$100M+", growth: "Low" }, scores: { media: 3, cloud: 6, fx: 8 }, tech: { erp: "NetSuite" }, pain: ["תשלום למתמללים (Gig workers)", "מיזוגים ורכישות"], contact: "CFO" },
-    { name: "SentinelOne", vertical: "Cybersecurity", status: "Public", desc: "Endpoint security.", financials: { rev: "$600M", growth: "High" }, scores: { media: 5, cloud: 9, fx: 7 }, tech: { erp: "NetSuite" }, pain: ["הוצאות ענן משמעותיות", "שכר גלובלי (R&D)"], contact: "CFO: Dave Bernhardt" },
-    { name: "CyberArk", vertical: "Cybersecurity", status: "Public", desc: "Identity security.", financials: { rev: "$900M", growth: "High" }, scores: { media: 5, cloud: 7, fx: 7 }, tech: { erp: "SAP" }, pain: ["מעבר למודל SaaS", "עמלות מכירה (Commissions)"], contact: "CFO: Josh Siegel" },
-    { name: "JFrog", vertical: "SaaS", status: "Public", desc: "DevOps platform.", financials: { rev: "$350M", growth: "High" }, scores: { media: 4, cloud: 9, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["עלויות תעבורת דאטה בענן", "שיווק למפתחים"], contact: "CFO: Ed Grabscheid" },
-    { name: "Nice", vertical: "SaaS", status: "Public", desc: "CX & Cloud.", financials: { rev: "$2.3B", growth: "Moderate" }, scores: { media: 4, cloud: 8, fx: 7 }, tech: { erp: "Oracle" }, pain: ["אינטגרציה של רכישות", "פעילות ב-30+ מדינות"], contact: "CFO: Beth Gaspich" },
-    { name: "SimilarWeb", vertical: "SaaS", status: "Public", desc: "Digital intelligence.", financials: { rev: "$220M", growth: "Moderate" }, scores: { media: 6, cloud: 9, fx: 7 }, tech: { erp: "NetSuite" }, pain: ["רכישת דאטה מספקים", "צוותי מכירות גלובליים"], contact: "CFO: Jason Schwartz" },
-    { name: "WalkMe", vertical: "SaaS", status: "Acquired", desc: "Digital adoption.", financials: { rev: "$260M", growth: "Low" }, scores: { media: 5, cloud: 7, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["אינטגרציה עם SAP", "חברות בנות"], contact: "CFO: Hagit Ynon" },
-    { name: "HiBob", vertical: "SaaS", status: "Unicorn", desc: "HR platform.", financials: { rev: "$100M+ ARR", growth: "High" }, scores: { media: 6, cloud: 7, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["גבייה במטבעות שונים", "שיווק גלובלי"], contact: "CFO" },
-    { name: "Moon Active", vertical: "Gaming", status: "Unicorn", desc: "Mobile games.", financials: { rev: "$1.5B+", growth: "High" }, scores: { media: 10, cloud: 9, fx: 8 }, tech: { erp: "Oracle" }, pain: ["הוצאות שיווק בפייסבוק/גוגל", "רכישות In-app"], contact: "CFO" },
-    { name: "Lightricks", vertical: "SaaS", status: "Unicorn", desc: "Content creation apps.", financials: { rev: "$200M+", growth: "Moderate" }, scores: { media: 9, cloud: 8, fx: 7 }, tech: { erp: "NetSuite" }, pain: ["תשלום ליוצרי תוכן", "שיווק ברשתות חברתיות"], contact: "CFO: Shaul Meridor" },
-    { name: "Next Insurance", vertical: "Fintech", status: "Unicorn", desc: "SMB Insurance.", financials: { rev: "$800M GWP", growth: "High" }, scores: { media: 8, cloud: 6, fx: 5 }, tech: { erp: "NetSuite" }, pain: ["תשלומי תביעות (Claims)", "עמלות סוכנים"], contact: "CFO: Teodora Gouneva" },
-    { name: "Lemonade", vertical: "Fintech", status: "Public", desc: "Digital insurance.", financials: { rev: "$250M+", growth: "High" }, scores: { media: 9, cloud: 7, fx: 6 }, tech: { erp: "Internal" }, pain: ["תשלומי ביטוח משנה (Reinsurance)", "התרחבות לאירופה"], contact: "CFO: Tim Bixby" },
-    { name: "Plarium", vertical: "Gaming", status: "Acquired", desc: "Strategy games.", financials: { rev: "$600M+", growth: "Stable" }, scores: { media: 10, cloud: 8, fx: 8 }, tech: { erp: "Oracle" }, pain: ["תקציבי שיווק", "שרתים"], contact: "Finance VP" },
-    { name: "CrazyLabs", vertical: "Gaming", status: "Acquired", desc: "Hyper-casual games.", financials: { rev: "High", growth: "Stable" }, scores: { media: 9, cloud: 7, fx: 9 }, tech: { erp: "NetSuite" }, pain: ["תשלום למפתחים חיצוניים", "מונטיזציה מפרסומות"], contact: "VP Finance" },
-    { name: "Supersonic", vertical: "Gaming", status: "Merged", desc: "Game publishing.", financials: { rev: "High", growth: "Stable" }, scores: { media: 9, cloud: 7, fx: 9 }, tech: { erp: "NetSuite" }, pain: ["העברות למפתחי משחקים", "UA Spend"], contact: "Finance Team" },
-    { name: "888 Holdings", vertical: "Gaming", status: "Public", desc: "Online betting.", financials: { rev: "$1.7B", growth: "Low" }, scores: { media: 9, cloud: 7, fx: 9 }, tech: { erp: "SAP" }, pain: ["תשלומי רגולציה ומיסים", "משיכות שחקנים"], contact: "CFO: Yariv Dafna" },
-    { name: "Imperva", vertical: "Cybersecurity", status: "Acquired", desc: "Data security.", financials: { rev: "$500M+", growth: "Low" }, scores: { media: 4, cloud: 8, fx: 6 }, tech: { erp: "Oracle" }, pain: ["עלויות Data Centers", "אינטגרציה עם Thales"], contact: "Finance VP" },
-    { name: "Redis", vertical: "SaaS", status: "Pre-IPO", desc: "Database platform.", financials: { rev: "$200M+", growth: "High" }, scores: { media: 4, cloud: 8, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["עמלות Cloud Marketplace", "מערך מכירות גלובלי"], contact: "CFO" },
-    { name: "OwnCompany", vertical: "SaaS", status: "Acquired", desc: "SaaS backup.", financials: { rev: "$200M+", growth: "High" }, scores: { media: 3, cloud: 9, fx: 5 }, tech: { erp: "NetSuite" }, pain: ["עלויות אחסון (Storage)", "שותפות עם Salesforce"], contact: "CFO" },
-    { name: "Sisense", vertical: "SaaS", status: "Unicorn", desc: "BI analytics.", financials: { rev: "$150M", growth: "Slow" }, scores: { media: 4, cloud: 7, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["התייעלות תפעולית", "עלויות ענן"], contact: "CFO" },
-    { name: "Vayyar", vertical: "Hardware", status: "Unicorn", desc: "4D imaging sensors.", financials: { rev: "N/A", growth: "Moderate" }, scores: { media: 2, cloud: 4, fx: 8 }, tech: { erp: "SAP" }, pain: ["תשלום ליצרנים וקבלני משנה", "הפצה גלובלית"], contact: "CFO" },
-    { name: "Innoviz", vertical: "Hardware", status: "Public", desc: "LiDAR sensors.", financials: { rev: "$20M", growth: "High" }, scores: { media: 2, cloud: 5, fx: 8 }, tech: { erp: "SAP" }, pain: ["שרשרת אספקה (Automotive)", "מלאי"], contact: "CFO: Eldar Cegla" },
-    { name: "SolarEdge", vertical: "Hardware", status: "Public", desc: "Solar energy.", financials: { rev: "$3B", growth: "Low" }, scores: { media: 3, cloud: 4, fx: 9 }, tech: { erp: "SAP" }, pain: ["רכש רכיבים גלובלי", "לוגיסטיקה ומלאי"], contact: "CFO: Ronen Faier" },
-    { name: "Kornit Digital", vertical: "Hardware", status: "Public", desc: "Textile printing.", financials: { rev: "$250M", growth: "Low" }, scores: { media: 3, cloud: 4, fx: 8 }, tech: { erp: "Priority" }, pain: ["לוגיסטיקה של דיו (Ink)", "מפיצים גלובליים"], contact: "CFO: Lauri Hanover" },
-    { name: "Stratasys", vertical: "Hardware", status: "Public", desc: "3D printing.", financials: { rev: "$600M", growth: "Low" }, scores: { media: 3, cloud: 4, fx: 8 }, tech: { erp: "Oracle" }, pain: ["רכש חומרי גלם", "מיזוגים ורכישות"], contact: "CFO: Eitan Zamir" },
-    { name: "Talon Cyber", vertical: "Cybersecurity", status: "Acquired", desc: "Secure browser.", financials: { rev: "N/A", growth: "High" }, scores: { media: 4, cloud: 6, fx: 5 }, tech: { erp: "NetSuite" }, pain: ["אינטגרציה עם Palo Alto", "R&D Spend"], contact: "Finance VP" },
-    { name: "Island", vertical: "Cybersecurity", status: "Unicorn", desc: "Enterprise browser.", financials: { rev: "$100M+ ARR", growth: "Hyper" }, scores: { media: 5, cloud: 7, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["התרחבות מהירה בארה״ב", "גיוס כוח אדם"], contact: "CFO" },
-    { name: "Pentera", vertical: "Cybersecurity", status: "Unicorn", desc: "Auto security validation.", financials: { rev: "$100M ARR", growth: "High" }, scores: { media: 4, cloud: 6, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["צוותי מכירות שטח", "כנסים ושיווק"], contact: "CFO" },
-    { name: "Aqua Security", vertical: "Cybersecurity", status: "Unicorn", desc: "Cloud native security.", financials: { rev: "$150M ARR", growth: "High" }, scores: { media: 4, cloud: 8, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["צריכת ענן", "שותפים גלובליים"], contact: "CFO: Dror Davidoff" },
-    { name: "Orca Security", vertical: "Cybersecurity", status: "Unicorn", desc: "Agentless cloud security.", financials: { rev: "$100M+ ARR", growth: "High" }, scores: { media: 4, cloud: 9, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["עלויות ענן", "יעילות מכירות"], contact: "CFO" },
-    { name: "BigID", vertical: "Cybersecurity", status: "Unicorn", desc: "Data intelligence.", financials: { rev: "$100M ARR", growth: "High" }, scores: { media: 4, cloud: 8, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["עיבוד דאטה", "תהליכי מכירה Enterprise"], contact: "CFO: Scott Casey" },
-    { name: "Axonius", vertical: "Cybersecurity", status: "Unicorn", desc: "Asset management.", financials: { rev: "$100M+ ARR", growth: "High" }, scores: { media: 4, cloud: 7, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["התרחבות גלובלית", "שיווק"], contact: "CFO: Jerry Raphael" },
-    { name: "Claroty", vertical: "Cybersecurity", status: "Unicorn", desc: "Cyber-physical systems.", financials: { rev: "$100M+ ARR", growth: "High" }, scores: { media: 4, cloud: 6, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["שותפויות תעשייתיות", "מכירות שטח"], contact: "CFO" },
-    { name: "Cheq", vertical: "Cybersecurity", status: "Unicorn", desc: "Go-to-Market security.", financials: { rev: "N/A", growth: "High" }, scores: { media: 6, cloud: 8, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["אינטגרציה עם פלטפורמות פרסום", "אבטחת שיווק"], contact: "CFO" },
-    { name: "BioCatch", vertical: "Fintech", status: "Unicorn", desc: "Behavioral biometrics.", financials: { rev: "$100M+ ARR", growth: "High" }, scores: { media: 3, cloud: 9, fx: 7 }, tech: { erp: "NetSuite" }, pain: ["לקוחות בנקאיים גלובליים", "עיבוד נתונים"], contact: "CFO" },
-    { name: "Forter", vertical: "Fintech", status: "Unicorn", desc: "E-commerce fraud.", financials: { rev: "$300M ARR", growth: "High" }, scores: { media: 4, cloud: 9, fx: 6 }, tech: { erp: "NetSuite" }, pain: ["עלויות החלטה בזמן אמת", "לקוחות גלובליים"], contact: "CFO" },
-    { name: "Pagaya", vertical: "Fintech", status: "Public", desc: "AI lending network.", financials: { rev: "$800M", growth: "High" }, scores: { media: 3, cloud: 8, fx: 9 }, tech: { erp: "NetSuite" }, pain: ["העברות הון (Capital Markets)", "שותפויות הלוואה"], contact: "CFO: Michael Kurlander" },
-    { name: "Fundbox", vertical: "Fintech", status: "Unicorn", desc: "B2B credit.", financials: { rev: "$100M+", growth: "Stable" }, scores: { media: 6, cloud: 7, fx: 5 }, tech: { erp: "NetSuite" }, pain: ["קווי אשראי", "פעילות SMB בארה״ב"], contact: "CFO" },
-    { name: "Sunbit", vertical: "Fintech", status: "Unicorn", desc: "BNPL for services.", financials: { rev: "N/A", growth: "High" }, scores: { media: 5, cloud: 6, fx: 5 }, tech: { erp: "NetSuite" }, pain: ["שותפויות בנקודות מכירה", "הון להלוואות"], contact: "CFO" },
-    // --- TIER 4: Giants & Growth (Supplement) ---
-    { name: "Plus500", vertical: "Fintech", status: "Public", desc: "Trading platform.", financials: { rev: "$830M", employees: "500+", growth: "High" }, scores: { media: 9, cloud: 6, fx: 10 }, tech: { erp: "Internal", payments: "Cards/APMs", platforms: "Hybrid" }, pain: ["רגולציה גלובלית", "הוצאות שיווק דיגיטלי", "ניהול הון עצמי"], contact: "CFO: Elad Even-Chen" },
-    { name: "Snyk", vertical: "Cybersecurity", status: "Unicorn", desc: "Developer security.", financials: { rev: "$200M+ ARR", employees: "1,000+", growth: "High" }, scores: { media: 5, cloud: 9, fx: 7 }, tech: { erp: "NetSuite", payments: "Stripe", platforms: "AWS" }, pain: ["התרחבות גלובלית", "עמלות Cloud Marketplace", "שיווק למפתחים"], contact: "CFO: Ken MacAskill" },
-    { name: "Fireblocks", vertical: "Fintech", status: "Unicorn", desc: "Crypto infrastructure.", financials: { rev: "$100M+ ARR", employees: "600+", growth: "High" }, scores: { media: 4, cloud: 8, fx: 9 }, tech: { erp: "NetSuite", payments: "Crypto", platforms: "AWS" }, pain: ["המרות קריפטו-פיאט", "לקוחות מוסדיים גלובליים", "ניהול מפתחות"], contact: "CFO: Madan Nagaldinne" },
-    { name: "Guesty", vertical: "SaaS", status: "Unicorn", desc: "Property management.", financials: { rev: "$100M+ ARR", employees: "700+", growth: "High" }, scores: { media: 5, cloud: 7, fx: 10 }, tech: { erp: "NetSuite", payments: "Stripe", platforms: "AWS" }, pain: ["תשלום לבעלי נכסים", "עמלות הזמנה", "ריבוי מטבעות"], contact: "CFO" },
-    { name: "Perion", vertical: "AdTech", status: "Public", desc: "Digital advertising.", financials: { rev: "$700M+", employees: "500+", growth: "Moderate" }, scores: { media: 9, cloud: 7, fx: 8 }, tech: { erp: "Priority", payments: "Banks", platforms: "Azure" }, pain: ["רכישת טראפיק (Bing/Google)", "רכש מדיה חוצה גבולות"], contact: "CFO: Maoz Sigron" },
-    { name: "Nayax", vertical: "Fintech", status: "Public", desc: "Cashless payments.", financials: { rev: "$230M", employees: "800+", growth: "High" }, scores: { media: 3, cloud: 6, fx: 9 }, tech: { erp: "SAP", payments: "Core", platforms: "Hybrid" }, pain: ["סליקה גלובלית", "שרשרת אספקה לחומרה", "מיזוגים"], contact: "CFO: Sagit Manor" },
-    { name: "StreamElements", vertical: "SaaS", status: "Unicorn", desc: "Livestreaming tools.", financials: { rev: "N/A", employees: "200+", growth: "High" }, scores: { media: 6, cloud: 8, fx: 10 }, tech: { erp: "NetSuite", payments: "PayPal/Tipalti", platforms: "GCP" }, pain: ["תשלום ליוצרים (Tips)", "עיבוד תרומות גלובלי"], contact: "CFO" },
-    { name: "Overwolf", vertical: "Gaming", status: "Unicorn", desc: "In-game apps.", financials: { rev: "$100M+", employees: "150+", growth: "High" }, scores: { media: 5, cloud: 8, fx: 9 }, tech: { erp: "NetSuite", payments: "Tipalti", platforms: "AWS" }, pain: ["חלוקת רווחים ליוצרים", "הכנסות מפרסום"], contact: "CFO" },
-    { name: "K Health", vertical: "SaaS", status: "Unicorn", desc: "AI healthcare.", financials: { rev: "$100M+", employees: "300+", growth: "High" }, scores: { media: 7, cloud: 7, fx: 5 }, tech: { erp: "NetSuite", payments: "Stripe", platforms: "AWS" }, pain: ["תשלום לרופאים בארה״ב", "עלויות מחשוב AI"], contact: "CFO" },
-    { name: "AI21 Labs", vertical: "SaaS", status: "Unicorn", desc: "Generative AI.", financials: { rev: "Scaling", employees: "200+", growth: "Hyper" }, scores: { media: 3, cloud: 10, fx: 6 }, tech: { erp: "NetSuite", payments: "Stripe", platforms: "AWS" }, pain: ["עלויות GPU/Cloud מסיביות", "חוזים עם Enterprise"], contact: "CFO" },
-    { name: "Pinecone", vertical: "SaaS", status: "Unicorn", desc: "Vector database.", financials: { rev: "Scaling", employees: "150+", growth: "Hyper" }, scores: { media: 3, cloud: 9, fx: 5 }, tech: { erp: "NetSuite", payments: "Stripe", platforms: "AWS" }, pain: ["חשבוניות תשתית ענן", "התרחבות GTM בארה״ב"], contact: "VP Finance" },
-    { name: "DriveNets", vertical: "SaaS", status: "Unicorn", desc: "Cloud native networking.", financials: { rev: "N/A", employees: "400+", growth: "High" }, scores: { media: 2, cloud: 6, fx: 7 }, tech: { erp: "NetSuite", payments: "Wire", platforms: "Azure" }, pain: ["לקוחות ISP גלובליים", "באנדלינג חומרה/תוכנה"], contact: "CFO" },
-    { name: "WSC Sports", vertical: "SaaS", status: "Growth", desc: "AI sports video.", financials: { rev: "$100M ARR", employees: "300+", growth: "High" }, scores: { media: 4, cloud: 9, fx: 6 }, tech: { erp: "NetSuite", payments: "Wire", platforms: "Azure" }, pain: ["עיבוד וידאו בענן", "חוזים עם ליגות ספורט"], contact: "CFO" },
-    { name: "Cellebrite", vertical: "SaaS", status: "Public", desc: "Digital intelligence.", financials: { rev: "$300M+", employees: "1,000+", growth: "Stable" }, scores: { media: 3, cloud: 6, fx: 7 }, tech: { erp: "NetSuite", payments: "Wire", platforms: "AWS" }, pain: ["גבייה מלקוחות ממשלתיים", "ציות (Compliance) גלובלי"], contact: "CFO: Dana Gerner" },
-    { name: "Kaltura", vertical: "SaaS", status: "Public", desc: "Video platform.", financials: { rev: "$170M", employees: "700+", growth: "Low" }, scores: { media: 4, cloud: 8, fx: 6 }, tech: { erp: "NetSuite", payments: "Wire", platforms: "AWS" }, pain: ["עלויות אחסון וסטרימינג", "לקוחות חינוך גלובליים"], contact: "CFO: Yaron Garmazi" },
-    { name: "Incredibuild", vertical: "SaaS", status: "Growth", desc: "Dev acceleration.", financials: { rev: "$60M+", employees: "200+", growth: "High" }, scores: { media: 3, cloud: 6, fx: 6 }, tech: { erp: "NetSuite", payments: "Stripe", platforms: "AWS" }, pain: ["מכירת רשיונות גלובלית", "עלויות Cloud Burst"], contact: "CFO" },
-    { name: "Priority", vertical: "SaaS", status: "PE Backed", desc: "ERP software.", financials: { rev: "$100M+", employees: "500+", growth: "Stable" }, scores: { media: 3, cloud: 5, fx: 7 }, tech: { erp: "Internal", payments: "Internal", platforms: "Cloud" }, pain: ["רשת שותפים גלובלית", "אסטרטגיית רכישות"], contact: "CFO" },
-    { name: "Sapiens", vertical: "SaaS", status: "Public", desc: "Insurance software.", financials: { rev: "$500M+", employees: "5,000+", growth: "Moderate" }, scores: { media: 3, cloud: 6, fx: 7 }, tech: { erp: "SAP", payments: "Wire", platforms: "Hybrid" }, pain: ["שירותים מקצועיים גלובליים", "מיגרציה לענן"], contact: "CFO: Roni Giladi" },
-    { name: "Delta Galil", vertical: "Industrial", status: "Public", desc: "Textile & fashion.", financials: { rev: "$2B", employees: "20,000+", growth: "Stable" }, scores: { media: 4, cloud: 4, fx: 9 }, tech: { erp: "SAP", payments: "Trade Finance", platforms: "N/A" }, pain: ["שרשרת אספקה ייצור", "מותגים קמעונאיים גלובליים"], contact: "CFO" },
-    { name: "Netafim", vertical: "Industrial", status: "Acquired", desc: "Irrigation solutions.", financials: { rev: "$1B+", employees: "5,000+", growth: "Stable" }, scores: { media: 3, cloud: 4, fx: 9 }, tech: { erp: "SAP", payments: "Trade Finance", platforms: "N/A" }, pain: ["מימון פרויקטים", "מטבעות בשווקים מתעוררים"], contact: "CFO" },
-    { name: "AudioCodes", vertical: "Telecom", status: "Public", desc: "Voice networking.", financials: { rev: "$250M", employees: "800+", growth: "Low" }, scores: { media: 3, cloud: 5, fx: 7 }, tech: { erp: "Oracle", payments: "Wire", platforms: "Hybrid" }, pain: ["ייצור חומרה", "שירותי VoIP גלובליים"], contact: "CFO: Niran Baruch" },
-    { name: "Radware", vertical: "Cybersecurity", status: "Public", desc: "App delivery & security.", financials: { rev: "$260M", employees: "1,000+", growth: "Low" }, scores: { media: 3, cloud: 7, fx: 6 }, tech: { erp: "Oracle", payments: "Wire", platforms: "Private Cloud" }, pain: ["עלויות מרכזי DDoS", "תמיכה גלובלית"], contact: "CFO: Guy Avidan" },
-    { name: "Nova", vertical: "Hardware", status: "Public", desc: "Metrology solutions.", financials: { rev: "$500M+", employees: "1,000+", growth: "High" }, scores: { media: 2, cloud: 5, fx: 8 }, tech: { erp: "SAP", payments: "Wire", platforms: "N/A" }, pain: ["שילוח ציוד למזרח", "מטבעות אסייתיים"], contact: "CFO: Dror David" },
-    { name: "Camtek", vertical: "Hardware", status: "Public", desc: "Inspection equipment.", financials: { rev: "$300M+", employees: "500+", growth: "High" }, scores: { media: 2, cloud: 5, fx: 8 }, tech: { erp: "Priority", payments: "Wire", platforms: "N/A" }, pain: ["תשלומים בסין", "שרשרת אספקה"], contact: "CFO: Moshe Eisenberg" },
-    { name: "Tower Semi", vertical: "Hardware", status: "Public", desc: "Semiconductor foundry.", financials: { rev: "$1.4B", employees: "5,000+", growth: "Stable" }, scores: { media: 1, cloud: 4, fx: 9 }, tech: { erp: "SAP", payments: "Wire", platforms: "N/A" }, pain: ["השקעות ציוד (CapEx)", "לקוחות גלובליים"], contact: "CFO: Oren Shirazi" },
-    { name: "Mobileye", vertical: "Auto/AI", status: "Public", desc: "Autonomous driving.", financials: { rev: "$2B", employees: "3,000+", growth: "Moderate" }, scores: { media: 3, cloud: 8, fx: 7 }, tech: { erp: "Oracle", payments: "Wire", platforms: "AWS" }, pain: ["ניהול צי רכבים גלובלי", "תשלום לתיוג דאטה"], contact: "CFO: Anat Heller" },
-    { name: "Exodigo", vertical: "SaaS", status: "Growth", desc: "Subsurface mapping.", financials: { rev: "Scaling", employees: "100+", growth: "High" }, scores: { media: 3, cloud: 6, fx: 6 }, tech: { erp: "NetSuite", payments: "Wire", platforms: "Cloud" }, pain: ["פרויקטי מיפוי בעולם", "צוותי שטח"], contact: "CFO" },
-    { name: "Run:ai", vertical: "SaaS", status: "Acquired", desc: "AI compute orchestration.", financials: { rev: "Scaling", employees: "150+", growth: "High" }, scores: { media: 3, cloud: 8, fx: 6 }, tech: { erp: "NetSuite", payments: "Wire", platforms: "Cloud" }, pain: ["עלויות תשתית AI", "שותפות עם Nvidia"], contact: "CFO" },
-    { name: "Augury", vertical: "SaaS", status: "Unicorn", desc: "Machine health AI.", financials: { rev: "$100M+ Est", employees: "400+", growth: "High" }, scores: { media: 3, cloud: 7, fx: 6 }, tech: { erp: "NetSuite", payments: "Wire", platforms: "AWS" }, pain: ["ייצור סנסורים", "שותפויות ביטוח גלובליות"], contact: "CFO" },
-    { name: "Fabric", vertical: "Logistics", status: "Unicorn", desc: "Robotic fulfillment.", financials: { rev: "Scaling", employees: "300+", growth: "High" }, scores: { media: 2, cloud: 6, fx: 7 }, tech: { erp: "NetSuite", payments: "Wire", platforms: "Cloud" }, pain: ["שרשרת אספקה רובוטית", "התחשבנות עם קמעונאים"], contact: "CFO" },
-    { name: "Landa", vertical: "Hardware", status: "Unicorn", desc: "Nanographic printing.", financials: { rev: "Scaling", employees: "500+", growth: "Moderate" }, scores: { media: 2, cloud: 4, fx: 8 }, tech: { erp: "SAP", payments: "Wire", platforms: "N/A" }, pain: ["ייצור דיו", "לוגיסטיקה של מכונות ענק"], contact: "CFO" },
-    { name: "Team8", vertical: "VC/Foundry", status: "Fund", desc: "Company building.", financials: { rev: "N/A", employees: "100+", growth: "N/A" }, scores: { media: 5, cloud: 6, fx: 9 }, tech: { erp: "NetSuite", payments: "Wire", platforms: "Cloud" }, pain: ["מימון חברות פורטפוליו", "אופרציה גלובלית"], contact: "Finance Team" },
-    { name: "MyHeritage", vertical: "SaaS", status: "Acquired", desc: "Family history.", financials: { rev: "$250M+", employees: "500+", growth: "Stable" }, scores: { media: 8, cloud: 7, fx: 8 }, tech: { erp: "NetSuite", payments: "BlueSnap", platforms: "AWS" }, pain: ["משלוח ערכות DNA", "מינויים B2C במט"ח"], contact: "CFO" }
+    { name: "Wix", vertical: "SaaS", status: "Public", desc: "Global web creation platform.", financials: { rev: "$1.6B", emp: "5,000+", growth: "Stable" }, scores: { media: 10, cloud: 9 }, tech: ["Oracle", "AWS", "GCP"], pain: ["Payouts to users in 190 countries", "Massive Ad Spend (FX fees)", "Dual listing treasury"], contact: "Lior Shemesh (CFO)" },
+    { name: "Monday.com", vertical: "SaaS", status: "Public", desc: "Work OS platform.", financials: { rev: "$900M+", emp: "2,000+", growth: "High" }, scores: { media: 10, cloud: 8 }, tech: ["SAP", "Stripe", "AWS"], pain: ["Collecting from 200k customers", "Performance Marketing FX", "Global expansion"], contact: "Eliran Glazer (CFO)" },
+    { name: "Rapyd", vertical: "Fintech", status: "Unicorn", desc: "Fintech-as-a-Service.", financials: { rev: "$500M+", emp: "800+", growth: "High" }, scores: { media: 6, cloud: 8 }, tech: ["NetSuite", "Core", "Cloud"], pain: ["Liquidity in 100+ currencies", "Cross-border M&A", "Real-time payouts"], contact: "Arik Shtilman (CEO)" },
+    { name: "Melio", vertical: "Fintech", status: "Acquired", desc: "B2B payments for SMBs.", financials: { rev: "$200M+", emp: "600+", growth: "High" }, scores: { media: 5, cloud: 7 }, tech: ["NetSuite", "ACH", "AWS"], pain: ["Vendor payments (AP)", "Float management", "Xero integration"], contact: "VP Finance" },
+    { name: "Wiz", vertical: "Cybersecurity", status: "Unicorn", desc: "Cloud security (CNAPP).", financials: { rev: "$500M ARR", emp: "1,200+", growth: "Hyper" }, scores: { media: 6, cloud: 10 }, tech: ["NetSuite", "Stripe", "Multi-Cloud"], pain: ["Cloud bills consolidation", "Global collections", "New entity setup"], contact: "Fazal Merchant (CFO)" },
+    { name: "eToro", vertical: "Fintech", status: "Unicorn", desc: "Social trading.", financials: { rev: "$630M", emp: "1,700+", growth: "Stable" }, scores: { media: 9, cloud: 7 }, tech: ["NetSuite", "Internal", "Azure"], pain: ["User deposits/withdrawals", "FX Hedging", "Sponsorship payments"], contact: "Meron Shani (CFO)" },
+    { name: "Playtika", vertical: "Gaming", status: "Public", desc: "Mobile gaming.", financials: { rev: "$2.5B", emp: "4,000+", growth: "Stable" }, scores: { media: 10, cloud: 9 }, tech: ["Oracle", "AppStores", "Hybrid"], pain: ["UA Spend (Millions/mo)", "App Store FX conversion", "M&A payments"], contact: "Craig Abrahams (CFO)" },
+    { name: "Global-e", vertical: "eCommerce", status: "Public", desc: "Cross-border e-com.", financials: { rev: "$570M", emp: "1,000+", growth: "High" }, scores: { media: 4, cloud: 6 }, tech: ["NetSuite", "Multi", "Cloud"], pain: ["FX conversion at scale", "Merchant settlements", "Tax/Duty payments"], contact: "Ofer Koren (CFO)" },
+    { name: "Deel", vertical: "Fintech", status: "Unicorn", desc: "Global payroll.", financials: { rev: "$500M+", emp: "3,000+", growth: "Hyper" }, scores: { media: 7, cloud: 8 }, tech: ["NetSuite", "Internal", "AWS"], pain: ["Payroll in 150 currencies", "Entity management", "FX exposure"], contact: "Philippe Bouaziz (CFO)" },
+    { name: "ZIM", vertical: "Logistics", status: "Public", desc: "Global shipping.", financials: { rev: "$10B+", emp: "6,000+", growth: "Cyclical" }, scores: { media: 2, cloud: 5 }, tech: ["SAP", "Swift", "Hybrid"], pain: ["Port fees worldwide", "Fuel payments", "Capital intensive"], contact: "Xavier Destriau (CFO)" },
+    { name: "ICL Group", vertical: "Industrial", status: "Public", desc: "Minerals & chemicals.", financials: { rev: "$7B+", emp: "12,000+", growth: "Stable" }, scores: { media: 1, cloud: 4 }, tech: ["SAP", "Banks", "Hybrid"], pain: ["Commodity trading FX", "Supply chain payments", "Global operations"], contact: "Aviram Lahav (CFO)" },
+    { name: "Check Point", vertical: "Cybersecurity", status: "Public", desc: "Cyber security.", financials: { rev: "$2.4B", emp: "6,000+", growth: "Low" }, scores: { media: 4, cloud: 6 }, tech: ["SAP", "Billing", "Hybrid"], pain: ["Enterprise collections", "Channel partner payouts", "M&A integration"], contact: "Roei Golan (CFO)" },
+    { name: "AmDocs", vertical: "SaaS", status: "Public", desc: "Telecom software.", financials: { rev: "$4.8B", emp: "30,000+", growth: "Stable" }, scores: { media: 2, cloud: 7 }, tech: ["SAP", "Billing", "Cloud"], pain: ["Long-term project FX", "Relocation payments", "Exotic currencies"], contact: "Tamar Rapaport (CFO)" },
+    { name: "Payoneer", vertical: "Fintech", status: "Public", desc: "Payments platform.", financials: { rev: "$830M", emp: "2,000+", growth: "Moderate" }, scores: { media: 6, cloud: 8 }, tech: ["SAP", "Internal", "AWS"], pain: ["Treasury management", "Freelancer payouts", "Banking regulation"], contact: "Bea Ordonez (CFO)" },
+    { name: "IronSource", vertical: "AdTech", status: "Merged", desc: "App monetization.", financials: { rev: "$1B+", emp: "1,500+", growth: "Stable" }, scores: { media: 10, cloud: 9 }, tech: ["Oracle", "Tipalti", "AWS"], pain: ["Publisher payouts", "High scale server costs", "Traffic acquisition"], contact: "Finance Director" },
+    { name: "Cato Networks", vertical: "Cybersecurity", status: "Pre-IPO", desc: "SASE platform.", financials: { rev: "$200M+", emp: "900+", growth: "High" }, scores: { media: 3, cloud: 9 }, tech: ["NetSuite", "Stripe", "AWS"], pain: ["ISP payments in 150 countries", "Global collections", "IPO readiness"], contact: "Tomer Erez (CFO)" },
+    { name: "Via", vertical: "SaaS", status: "Pre-IPO", desc: "TransitTech.", financials: { rev: "$300M+", emp: "1,000+", growth: "High" }, scores: { media: 3, cloud: 8 }, tech: ["NetSuite", "Braintree", "AWS"], pain: ["Subsidiary funding", "Driver payouts (Gig)", "Gov collections"], contact: "Eyal Greidinger (CFO)" },
+    { name: "Riskified", vertical: "Fintech", status: "Public", desc: "Fraud prevention.", financials: { rev: "$300M", emp: "700+", growth: "Moderate" }, scores: { media: 4, cloud: 8 }, tech: ["NetSuite", "Internal", "AWS"], pain: ["Chargeback refunds FX", "Data infra costs", "Global merchants"], contact: "Aglika Dotcheva (CFO)" },
+    { name: "AppsFlyer", vertical: "AdTech", status: "Unicorn", desc: "Marketing analytics.", financials: { rev: "$300M+", emp: "1,400+", growth: "High" }, scores: { media: 5, cloud: 10 }, tech: ["NetSuite", "Zuora", "AWS"], pain: ["Massive cloud bills", "Global offices", "Data processing fees"], contact: "CFO" },
+    { name: "Taboola", vertical: "AdTech", status: "Public", desc: "Content discovery.", financials: { rev: "$1.4B", emp: "1,800+", growth: "Stable" }, scores: { media: 9, cloud: 9 }, tech: ["Oracle", "Internal", "Data Centers"], pain: ["Publisher TAC payouts", "Local currency payouts", "Traffic acquisition"], contact: "Steve Walker (CFO)" },
+    { name: "Outbrain", vertical: "AdTech", status: "Public", desc: "Web recommendation.", financials: { rev: "$1B", emp: "1,000+", growth: "Stable" }, scores: { media: 9, cloud: 9 }, tech: ["Oracle", "Internal", "Hybrid"], pain: ["Publisher payouts", "Margin FX impact", "Global entities"], contact: "Jason Kiviat (CFO)" },
+    { name: "Fiverr", vertical: "eCommerce", status: "Public", desc: "Freelance market.", financials: { rev: "$360M", emp: "800+", growth: "Low" }, scores: { media: 8, cloud: 7 }, tech: ["NetSuite", "Payoneer", "AWS"], pain: ["Payouts to 160 countries", "Marketing spend", "Currency conversion"], contact: "Ofer Katz (CFO)" },
+    { name: "Yotpo", vertical: "SaaS", status: "Unicorn", desc: "E-com marketing.", financials: { rev: "$150M+", emp: "800+", growth: "High" }, scores: { media: 6, cloud: 7 }, tech: ["NetSuite", "Shopify", "AWS"], pain: ["Partner payments", "US Marketing spend", "Global sales"], contact: "Sarit Firon (CFO)" },
+    { name: "Tipalti", vertical: "Fintech", status: "Unicorn", desc: "Payables automation.", financials: { rev: "$200M+", emp: "1,000+", growth: "High" }, scores: { media: 4, cloud: 6 }, tech: ["NetSuite", "Core", "AWS"], pain: ["Money transmission", "Partner payments", "Float management"], contact: "Sarah Spoja (CFO)" },
+    { name: "Gong", vertical: "SaaS", status: "Unicorn", desc: "Revenue intel.", financials: { rev: "$300M", emp: "1,200+", growth: "High" }, scores: { media: 5, cloud: 9 }, tech: ["NetSuite", "Stripe", "AWS"], pain: ["AI Compute costs", "US Sales expansion", "Data storage"], contact: "Tim Riitters (CFO)" },
+    { name: "Navan", vertical: "SaaS", status: "Pre-IPO", desc: "Travel & expense.", financials: { rev: "$600M+", emp: "2,500+", growth: "High" }, scores: { media: 6, cloud: 8 }, tech: ["NetSuite", "Stripe", "AWS"], pain: ["Global travel clearing", "Card issuance", "Reconciliation"], contact: "CFO" },
+    { name: "Bringg", vertical: "SaaS", status: "Unicorn", desc: "Delivery logistics.", financials: { rev: "$100M", emp: "500+", growth: "Stable" }, scores: { media: 3, cloud: 6 }, tech: ["NetSuite", "Braintree", "GCP"], pain: ["Enterprise clients", "Supply chain payments", "Global support"], contact: "Doron Dinstein (CFO)" },
+    { name: "Verbit", vertical: "SaaS", status: "Unicorn", desc: "AI transcription.", financials: { rev: "$100M+", emp: "500+", growth: "Low" }, scores: { media: 3, cloud: 6 }, tech: ["NetSuite", "PayPal", "AWS"], pain: ["Payouts to transcribers", "M&A", "Cost efficiency"], contact: "CFO" },
+    { name: "SentinelOne", vertical: "Cybersecurity", status: "Public", desc: "Endpoint security.", financials: { rev: "$600M", emp: "2,000+", growth: "High" }, scores: { media: 5, cloud: 9 }, tech: ["NetSuite", "Stripe", "AWS"], pain: ["Cloud infra spend", "Global R&D payroll", "Sales commissions"], contact: "Dave Bernhardt (CFO)" },
+    { name: "CyberArk", vertical: "Cybersecurity", status: "Public", desc: "Identity security.", financials: { rev: "$900M", emp: "2,500+", growth: "High" }, scores: { media: 5, cloud: 7 }, tech: ["SAP", "Salesforce", "AWS"], pain: ["SaaS transition", "Global sales comms", "Entity funding"], contact: "Josh Siegel (CFO)" },
+    { name: "JFrog", vertical: "SaaS", status: "Public", desc: "DevOps platform.", financials: { rev: "$350M", emp: "1,000+", growth: "High" }, scores: { media: 4, cloud: 9 }, tech: ["NetSuite", "Zuora", "Multi-Cloud"], pain: ["Data transfer costs", "Developer marketing", "US expansion"], contact: "Ed Grabscheid (CFO)" },
+    { name: "Nice", vertical: "SaaS", status: "Public", desc: "CX & Cloud.", financials: { rev: "$2.3B", emp: "8,000+", growth: "Moderate" }, scores: { media: 4, cloud: 8 }, tech: ["Oracle", "Internal", "AWS"], pain: ["Acquisition integration", "Global 30+ countries", "Cloud shift"], contact: "Beth Gaspich (CFO)" },
+    { name: "SimilarWeb", vertical: "SaaS", status: "Public", desc: "Digital intel.", financials: { rev: "$220M", emp: "1,000+", growth: "Moderate" }, scores: { media: 6, cloud: 9 }, tech: ["NetSuite", "Zuora", "AWS"], pain: ["Data acquisition costs", "Global sales teams", "Public reporting"], contact: "Jason Schwartz (CFO)" },
+    { name: "WalkMe", vertical: "SaaS", status: "Acquired", desc: "Digital adoption.", financials: { rev: "$260M", emp: "900+", growth: "Low" }, scores: { media: 5, cloud: 7 }, tech: ["NetSuite", "Zuora", "AWS"], pain: ["SAP integration", "Subsidiary mgmt", "Global payroll"], contact: "Hagit Ynon (CFO)" },
+    { name: "HiBob", vertical: "SaaS", status: "Unicorn", desc: "HR platform.", financials: { rev: "$100M+", emp: "800+", growth: "High" }, scores: { media: 6, cloud: 7 }, tech: ["NetSuite", "Stripe", "AWS"], pain: ["Global HR payments", "Marketing spend", "US/UK/AU entities"], contact: "CFO" },
+    { name: "Moon Active", vertical: "Gaming", status: "Unicorn", desc: "Mobile games.", financials: { rev: "$1.5B+", emp: "2,000+", growth: "High" }, scores: { media: 10, cloud: 9 }, tech: ["Oracle", "Apps", "Cloud"], pain: ["Huge Ad Spend", "In-app FX", "M&A"], contact: "CFO" },
+    { name: "Lightricks", vertical: "SaaS", status: "Unicorn", desc: "Content apps.", financials: { rev: "$200M+", emp: "600+", growth: "Moderate" }, scores: { media: 9, cloud: 8 }, tech: ["NetSuite", "Apple", "GCP"], pain: ["Creator payouts", "Social Ad spend", "US expansion"], contact: "Shaul Meridor (CFO)" },
+    { name: "Next Insurance", vertical: "Fintech", status: "Unicorn", desc: "SMB Insurance.", financials: { rev: "$800M", emp: "800+", growth: "High" }, scores: { media: 8, cloud: 6 }, tech: ["NetSuite", "Guidewire", "AWS"], pain: ["Claims payouts", "Agent commissions", "Reinsurance"], contact: "Teodora Gouneva (CFO)" },
+    { name: "Lemonade", vertical: "Fintech", status: "Public", desc: "Digital insurance.", financials: { rev: "$250M+", emp: "1,000+", growth: "High" }, scores: { media: 9, cloud: 7 }, tech: ["Internal", "Stripe", "AWS"], pain: ["Reinsurance FX", "EU expansion", "Claims"], contact: "Tim Bixby (CFO)" },
+    { name: "Plarium", vertical: "Gaming", status: "Acquired", desc: "Strategy games.", financials: { rev: "$600M+", emp: "1,500+", growth: "Stable" }, scores: { media: 10, cloud: 8 }, tech: ["Oracle", "Apps", "Hybrid"], pain: ["UA Spend", "Server costs", "Global studios"], contact: "Finance VP" },
+    { name: "CrazyLabs", vertical: "Gaming", status: "Acquired", desc: "Casual games.", financials: { rev: "High", emp: "300+", growth: "Stable" }, scores: { media: 9, cloud: 7 }, tech: ["NetSuite", "Apps", "Cloud"], pain: ["Developer payouts", "Ad monetization", "Global reach"], contact: "VP Finance" },
+    { name: "Supersonic", vertical: "Gaming", status: "Merged", desc: "Game publishing.", financials: { rev: "High", emp: "200+", growth: "Stable" }, scores: { media: 9, cloud: 7 }, tech: ["NetSuite", "Tipalti", "AWS"], pain: ["Developer transfers", "UA Spend", "Integration"], contact: "Finance Team" },
+    { name: "888 Holdings", vertical: "Gaming", status: "Public", desc: "Online betting.", financials: { rev: "$1.7B", emp: "10,000+", growth: "Low" }, scores: { media: 9, cloud: 7 }, tech: ["SAP", "Worldpay", "Hybrid"], pain: ["Regulation fees", "Player withdrawals", "Licensing"], contact: "Yariv Dafna (CFO)" },
+    { name: "Imperva", vertical: "Cybersecurity", status: "Acquired", desc: "Data security.", financials: { rev: "$500M+", emp: "1,000+", growth: "Low" }, scores: { media: 4, cloud: 8 }, tech: ["Oracle", "N/A", "Hybrid"], pain: ["Data center costs", "Thales integration", "Global Ops"], contact: "Finance VP" },
+    { name: "Redis", vertical: "SaaS", status: "Pre-IPO", desc: "Database platform.", financials: { rev: "$200M+", emp: "700+", growth: "High" }, scores: { media: 4, cloud: 8 }, tech: ["NetSuite", "Zuora", "Cloud"], pain: ["Marketplace fees", "Global sales", "Cloud infra"], contact: "CFO" },
+    { name: "OwnCompany", vertical: "SaaS", status: "Acquired", desc: "SaaS backup.", financials: { rev: "$200M+", emp: "600+", growth: "High" }, scores: { media: 3, cloud: 9 }, tech: ["NetSuite", "Salesforce", "AWS"], pain: ["Storage costs", "Salesforce fees", "Global teams"], contact: "CFO" },
+    { name: "Sisense", vertical: "SaaS", status: "Unicorn", desc: "BI analytics.", financials: { rev: "$150M", emp: "600+", growth: "Slow" }, scores: { media: 4, cloud: 7 }, tech: ["NetSuite", "Zuora", "AWS"], pain: ["Efficiency", "Cloud costs", "US Ops"], contact: "CFO" },
+    { name: "Vayyar", vertical: "Hardware", status: "Unicorn", desc: "4D imaging.", financials: { rev: "N/A", emp: "300+", growth: "Moderate" }, scores: { media: 2, cloud: 4 }, tech: ["SAP", "Wire", "N/A"], pain: ["Manufacturing payments", "Global distribution", "Supply chain"], contact: "CFO" },
+    { name: "Innoviz", vertical: "Hardware", status: "Public", desc: "LiDAR sensors.", financials: { rev: "$20M", emp: "400+", growth: "High" }, scores: { media: 2, cloud: 5 }, tech: ["SAP", "Wire", "N/A"], pain: ["Automotive supply chain", "Inventory", "Global offices"], contact: "Eldar Cegla (CFO)" },
+    { name: "SolarEdge", vertical: "Hardware", status: "Public", desc: "Solar energy.", financials: { rev: "$3B", emp: "4,000+", growth: "Low" }, scores: { media: 3, cloud: 4 }, tech: ["SAP", "Banks", "Hybrid"], pain: ["Global supply chain", "Inventory FX", "Distributor payments"], contact: "Ronen Faier (CFO)" },
+{ name: "Kornit", vertical: "Hardware", status: "Public", desc: "Textile printing.", financials: { rev: "$250M", emp: "800+", growth: "Low" }, scores: { media: 3, cloud: 4 }, tech: ["Priority", "Wire", "N/A"], pain: ["Ink logistics", "Global distributors", "Manufacturing"], contact: "Lauri Hanover (CFO)" },
+    { name: "Stratasys", vertical: "Hardware", status: "Public", desc: "3D printing.", financials: { rev: "$600M", emp: "2,000+", growth: "Low" }, scores: { media: 3, cloud: 4 }, tech: ["Oracle", "Wire", "Hybrid"], pain: ["Materials sourcing", "M&A", "Global sales"], contact: "Eitan Zamir (CFO)" },
+    { name: "Talon Cyber", vertical: "Cybersecurity", status: "Acquired", desc: "Secure browser.", financials: { rev: "N/A", emp: "150+", growth: "High" }, scores: { media: 4, cloud: 6 }, tech: ["NetSuite", "N/A", "AWS"], pain: ["Integration", "R&D spend", "US expansion"], contact: "Finance VP" },
+    { name: "Island", vertical: "Cybersecurity", status: "Unicorn", desc: "Ent. browser.", financials: { rev: "$100M+", emp: "300+", growth: "Hyper" }, scores: { media: 5, cloud: 7 }, tech: ["NetSuite", "N/A", "AWS"], pain: ["Rapid US expansion", "Hiring costs", "Marketing"], contact: "CFO" },
+    { name: "Pentera", vertical: "Cybersecurity", status: "Unicorn", desc: "Security validation.", financials: { rev: "$100M ARR", emp: "350+", growth: "High" }, scores: { media: 4, cloud: 6 }, tech: ["NetSuite", "N/A", "AWS"], pain: ["Field sales expenses", "Global events", "Marketing"], contact: "CFO" },
+    { name: "Aqua Security", vertical: "Cybersecurity", status: "Unicorn", desc: "Cloud native sec.", financials: { rev: "$150M ARR", emp: "500+", growth: "High" }, scores: { media: 4, cloud: 8 }, tech: ["NetSuite", "Stripe", "Cloud"], pain: ["Cloud consumption", "Global partners", "US Sales"], contact: "Dror Davidoff (CFO)" },
+    { name: "Orca Security", vertical: "Cybersecurity", status: "Unicorn", desc: "Cloud security.", financials: { rev: "$100M+", emp: "400+", growth: "High" }, scores: { media: 4, cloud: 9 }, tech: ["NetSuite", "Stripe", "AWS"], pain: ["Cloud costs", "Sales efficiency", "Global teams"], contact: "CFO" },
+    { name: "BigID", vertical: "Cybersecurity", status: "Unicorn", desc: "Data intel.", financials: { rev: "$100M ARR", emp: "400+", growth: "High" }, scores: { media: 4, cloud: 8 }, tech: ["NetSuite", "N/A", "AWS"], pain: ["Data processing", "Enterprise sales", "Partners"], contact: "Scott Casey (CFO)" },
+    { name: "Axonius", vertical: "Cybersecurity", status: "Unicorn", desc: "Asset mgmt.", financials: { rev: "$100M+", emp: "500+", growth: "High" }, scores: { media: 4, cloud: 7 }, tech: ["NetSuite", "N/A", "AWS"], pain: ["Global expansion", "Marketing", "US Ops"], contact: "Jerry Raphael (CFO)" },
+    { name: "Claroty", vertical: "Cybersecurity", status: "Unicorn", desc: "Cyber-physical.", financials: { rev: "$100M+", emp: "400+", growth: "High" }, scores: { media: 4, cloud: 6 }, tech: ["NetSuite", "N/A", "AWS"], pain: ["Industrial partners", "Field sales", "Global offices"], contact: "CFO" },
+    { name: "Cheq", vertical: "Cybersecurity", status: "Unicorn", desc: "GTM security.", financials: { rev: "N/A", emp: "200+", growth: "High" }, scores: { media: 6, cloud: 8 }, tech: ["NetSuite", "AdPlatforms", "AWS"], pain: ["Ad platform integration", "Marketing security", "US Sales"], contact: "CFO" },
+    { name: "BioCatch", vertical: "Fintech", status: "Unicorn", desc: "Behavioral bio.", financials: { rev: "$100M+", emp: "250+", growth: "High" }, scores: { media: 3, cloud: 9 }, tech: ["NetSuite", "N/A", "Azure"], pain: ["Global banking clients", "Data processing", "Compliance"], contact: "CFO" },
+    { name: "Forter", vertical: "Fintech", status: "Unicorn", desc: "E-com fraud.", financials: { rev: "$300M", emp: "500+", growth: "High" }, scores: { media: 4, cloud: 9 }, tech: ["NetSuite", "N/A", "AWS"], pain: ["Real-time decision costs", "Global merchants", "Data infra"], contact: "CFO" },
+    { name: "Pagaya", vertical: "Fintech", status: "Public", desc: "AI lending.", financials: { rev: "$800M", emp: "600+", growth: "High" }, scores: { media: 3, cloud: 8 }, tech: ["NetSuite", "N/A", "AWS"], pain: ["Capital markets flow", "Lending partners", "US Operations"], contact: "Michael Kurlander (CFO)" },
+    { name: "Fundbox", vertical: "Fintech", status: "Unicorn", desc: "B2B credit.", financials: { rev: "$100M+", emp: "300+", growth: "Stable" }, scores: { media: 6, cloud: 7 }, tech: ["NetSuite", "ACH", "AWS"], pain: ["Credit facilities", "US SMB focus", "Risk mgmt"], contact: "CFO" },
+    { name: "Sunbit", vertical: "Fintech", status: "Unicorn", desc: "BNPL services.", financials: { rev: "N/A", emp: "300+", growth: "High" }, scores: { media: 5, cloud: 6 }, tech: ["NetSuite", "POS", "AWS"], pain: ["POS partnerships", "Lending capital", "US Retail"], contact: "CFO" },
+    { name: "Plus500", vertical: "Fintech", status: "Public", desc: "Trading platform.", financials: { rev: "$830M", emp: "500+", growth: "High" }, scores: { media: 9, cloud: 6 }, tech: ["Internal", "Cards", "Hybrid"], pain: ["Global regulation", "Digital marketing", "Capital mgmt"], contact: "Elad Even-Chen (CFO)" },
+    { name: "Snyk", vertical: "Cybersecurity", status: "Unicorn", desc: "Dev security.", financials: { rev: "$200M+", emp: "1,000+", growth: "High" }, scores: { media: 5, cloud: 9 }, tech: ["NetSuite", "Stripe", "AWS"], pain: ["Global expansion", "Cloud marketplace fees", "Dev marketing"], contact: "Ken MacAskill (CFO)" },
+    { name: "Fireblocks", vertical: "Fintech", status: "Unicorn", desc: "Crypto infra.", financials: { rev: "$100M+", emp: "600+", growth: "High" }, scores: { media: 4, cloud: 8 }, tech: ["NetSuite", "Crypto", "AWS"], pain: ["Crypto-Fiat ramps", "Institutional clients", "Key mgmt"], contact: "Madan Nagaldinne (CFO)" },
+    { name: "Guesty", vertical: "SaaS", status: "Unicorn", desc: "Property mgmt.", financials: { rev: "$100M+", emp: "700+", growth: "High" }, scores: { media: 5, cloud: 7 }, tech: ["NetSuite", "Stripe", "AWS"], pain: ["Property owner payouts", "Booking fees", "Multi-currency"], contact: "CFO" },
+    { name: "Perion", vertical: "AdTech", status: "Public", desc: "Digital ads.", financials: { rev: "$700M+", emp: "500+", growth: "Moderate" }, scores: { media: 9, cloud: 7 }, tech: ["Priority", "Banks", "Azure"], pain: ["Traffic acquisition", "Cross-border media", "Search ads"], contact: "Maoz Sigron (CFO)" },
+    { name: "Nayax", vertical: "Fintech", status: "Public", desc: "Cashless payments.", financials: { rev: "$230M", emp: "800+", growth: "High" }, scores: { media: 3, cloud: 6 }, tech: ["SAP", "Core", "Hybrid"], pain: ["Global clearing", "Supply chain", "M&A"], contact: "Sagit Manor (CFO)" },
+    { name: "StreamElements", vertical: "SaaS", status: "Unicorn", desc: "Live streaming.", financials: { rev: "N/A", emp: "200+", growth: "High" }, scores: { media: 6, cloud: 8 }, tech: ["NetSuite", "PayPal", "GCP"], pain: ["Creator payouts", "Donation processing", "Global tipping"], contact: "CFO" },
+    { name: "Overwolf", vertical: "Gaming", status: "Unicorn", desc: "In-game apps.", financials: { rev: "$100M+", emp: "150+", growth: "High" }, scores: { media: 5, cloud: 8 }, tech: ["NetSuite", "Tipalti", "AWS"], pain: ["Creator rev-share", "Ad revenue", "Community fund"], contact: "CFO" },
+    { name: "K Health", vertical: "SaaS", status: "Unicorn", desc: "AI healthcare.", financials: { rev: "$100M+", emp: "300+", growth: "High" }, scores: { media: 7, cloud: 7 }, tech: ["NetSuite", "Stripe", "AWS"], pain: ["Clinician payouts", "AI compute", "US Healthcare"], contact: "CFO" },
+    { name: "AI21 Labs", vertical: "SaaS", status: "Unicorn", desc: "Generative AI.", financials: { rev: "Scaling", emp: "200+", growth: "Hyper" }, scores: { media: 3, cloud: 10 }, tech: ["NetSuite", "Stripe", "AWS"], pain: ["Massive GPU spend", "Enterprise contracts", "R&D costs"], contact: "CFO" },
+    { name: "Pinecone", vertical: "SaaS", status: "Unicorn", desc: "Vector DB.", financials: { rev: "Scaling", emp: "150+", growth: "Hyper" }, scores: { media: 3, cloud: 9 }, tech: ["NetSuite", "Stripe", "AWS"], pain: ["Cloud infra bills", "US GTM", "Hiring"], contact: "VP Finance" },
+    { name: "DriveNets", vertical: "SaaS", status: "Unicorn", desc: "Cloud networking.", financials: { rev: "N/A", emp: "400+", growth: "High" }, scores: { media: 2, cloud: 6 }, tech: ["NetSuite", "Wire", "Azure"], pain: ["Global ISP clients", "Hardware bundles", "Global sales"], contact: "CFO" },
+    { name: "WSC Sports", vertical: "SaaS", status: "Growth", desc: "AI sports video.", financials: { rev: "$100M", emp: "300+", growth: "High" }, scores: { media: 4, cloud: 9 }, tech: ["NetSuite", "Wire", "Azure"], pain: ["Video processing", "League contracts", "Rights mgmt"], contact: "CFO" },
+    { name: "Cellebrite", vertical: "SaaS", status: "Public", desc: "Digital intel.", financials: { rev: "$300M+", emp: "1,000+", growth: "Stable" }, scores: { media: 3, cloud: 6 }, tech: ["NetSuite", "Wire", "AWS"], pain: ["Gov collections", "Global compliance", "Forensics"], contact: "Dana Gerner (CFO)" },
+    { name: "Kaltura", vertical: "SaaS", status: "Public", desc: "Video platform.", financials: { rev: "$170M", emp: "700+", growth: "Low" }, scores: { media: 4, cloud: 8 }, tech: ["NetSuite", "Wire", "AWS"], pain: ["Hosting costs", "Education clients", "Streaming"], contact: "Yaron Garmazi (CFO)" },
+    { name: "Incredibuild", vertical: "SaaS", status: "Growth", desc: "Dev acceleration.", financials: { rev: "$60M+", emp: "200+", growth: "High" }, scores: { media: 3, cloud: 6 }, tech: ["NetSuite", "Stripe", "AWS"], pain: ["Global licenses", "Cloud burst", "Developer sales"], contact: "CFO" },
+    { name: "Priority", vertical: "SaaS", status: "PE Backed", desc: "ERP software.", financials: { rev: "$100M+", emp: "500+", growth: "Stable" }, scores: { media: 3, cloud: 5 }, tech: ["Internal", "Internal", "Cloud"], pain: ["Global partners", "Acquisition strategy", "Cloud migration"], contact: "CFO" },
+    { name: "Sapiens", vertical: "SaaS", status: "Public", desc: "InsurTech.", financials: { rev: "$500M+", emp: "5,000+", growth: "Moderate" }, scores: { media: 3, cloud: 6 }, tech: ["SAP", "Wire", "Hybrid"], pain: ["Pro-services", "Cloud migration", "Global clients"], contact: "Roni Giladi (CFO)" },
+    { name: "Delta Galil", vertical: "Industrial", status: "Public", desc: "Textile & fashion.", financials: { rev: "$2B", emp: "20k+", growth: "Stable" }, scores: { media: 4, cloud: 4 }, tech: ["SAP", "Trade", "N/A"], pain: ["Manufacturing supply", "Retail brands", "Global logistics"], contact: "CFO" },
+    { name: "Netafim", vertical: "Industrial", status: "Acquired", desc: "Irrigation.", financials: { rev: "$1B+", emp: "5,000+", growth: "Stable" }, scores: { media: 3, cloud: 4 }, tech: ["SAP", "Trade", "N/A"], pain: ["Project finance", "Emerging market FX", "Agriculture"], contact: "CFO" },
+    { name: "AudioCodes", vertical: "Telecom", status: "Public", desc: "Voice network.", financials: { rev: "$250M", emp: "800+", growth: "Low" }, scores: { media: 3, cloud: 5 }, tech: ["Oracle", "Wire", "Hybrid"], pain: ["Manufacturing", "Global VoIP", "Hardware"], contact: "Niran Baruch (CFO)" },
+    { name: "Radware", vertical: "Cybersecurity", status: "Public", desc: "App security.", financials: { rev: "$260M", emp: "1,000+", growth: "Low" }, scores: { media: 3, cloud: 7 }, tech: ["Oracle", "Wire", "Private"], pain: ["DDoS centers", "Global support", "Scrubbing costs"], contact: "Guy Avidan (CFO)" },
+    { name: "Nova", vertical: "Hardware", status: "Public", desc: "Metrology.", financials: { rev: "$500M+", emp: "1,000+", growth: "High" }, scores: { media: 2, cloud: 5 }, tech: ["SAP", "Wire", "N/A"], pain: ["Equipment shipping", "Asian market FX", "Supply chain"], contact: "Dror David (CFO)" },
+    { name: "Camtek", vertical: "Hardware", status: "Public", desc: "Inspection.", financials: { rev: "$300M+", emp: "500+", growth: "High" }, scores: { media: 2, cloud: 5 }, tech: ["Priority", "Wire", "N/A"], pain: ["Payments in China", "Supply chain", "Logistics"], contact: "Moshe Eisenberg (CFO)" },
+    { name: "Tower Semi", vertical: "Hardware", status: "Public", desc: "Foundry.", financials: { rev: "$1.4B", emp: "5,000+", growth: "Stable" }, scores: { media: 1, cloud: 4 }, tech: ["SAP", "Wire", "N/A"], pain: ["CapEx", "Global clients", "Foundry ops"], contact: "Oren Shirazi (CFO)" },
+    { name: "Mobileye", vertical: "Auto/AI", status: "Public", desc: "Autonomous driving.", financials: { rev: "$2B", emp: "3,000+", growth: "Moderate" }, scores: { media: 3, cloud: 8 }, tech: ["Oracle", "Wire", "AWS"], pain: ["Fleet mgmt", "Data annotation", "R&D costs"], contact: "Anat Heller (CFO)" },
+    { name: "Exodigo", vertical: "SaaS", status: "Growth", desc: "Subsurface mapping.", financials: { rev: "Scaling", emp: "100+", growth: "High" }, scores: { media: 3, cloud: 6 }, tech: ["NetSuite", "Wire", "Cloud"], pain: ["Mapping projects", "Field teams", "Global Ops"], contact: "CFO" },
+    { name: "Run:ai", vertical: "SaaS", status: "Acquired", desc: "AI compute.", financials: { rev: "Scaling", emp: "150+", growth: "High" }, scores: { media: 3, cloud: 8 }, tech: ["NetSuite", "Wire", "Cloud"], pain: ["AI infra costs", "Nvidia partnership", "R&D"], contact: "CFO" },
+    { name: "Augury", vertical: "SaaS", status: "Unicorn", desc: "Machine health.", financials: { rev: "$100M+ Est", emp: "400+", growth: "High" }, scores: { media: 3, cloud: 7 }, tech: ["NetSuite", "Wire", "AWS"], pain: ["Sensor production", "Insurance partners", "IoT Data"], contact: "CFO" },
+    { name: "Fabric", vertical: "Logistics", status: "Unicorn", desc: "Robotic fulfillment.", financials: { rev: "Scaling", emp: "300+", growth: "High" }, scores: { media: 2, cloud: 6 }, tech: ["NetSuite", "Wire", "Cloud"], pain: ["Robotics supply", "Retailer settlements", "US Ops"], contact: "CFO" },
+    { name: "Landa", vertical: "Hardware", status: "Unicorn", desc: "Nanographic print.", financials: { rev: "Scaling", emp: "500+", growth: "Moderate" }, scores: { media: 2, cloud: 4 }, tech: ["SAP", "Wire", "N/A"], pain: ["Ink production", "Press logistics", "CapEx"], contact: "CFO" },
+    { name: "Team8", vertical: "VC", status: "Fund", desc: "Company builder.", financials: { rev: "N/A", emp: "100+", growth: "N/A" }, scores: { media: 5, cloud: 6 }, tech: ["NetSuite", "Wire", "Cloud"], pain: ["Portfolio funding", "Global ops", "Ventures"], contact: "Finance Team" },
+    { name: "MyHeritage", vertical: "SaaS", status: "Acquired", desc: "Family history.", financials: { rev: "$250M+", emp: "500+", growth: "Stable" }, scores: { media: 8, cloud: 7 }, tech: ["NetSuite", "BlueSnap", "AWS"], pain: ["DNA kit shipping", "B2C subscriptions", "Global marketing"], contact: "CFO" },
+    { name: "Taranis", vertical: "AgriTech", status: "Growth", desc: "Crop intelligence.", financials: { rev: "Scaling", emp: "200+", growth: "High" }, scores: { media: 2, cloud: 7 }, tech: ["NetSuite", "Wire", "AWS"], pain: ["Aerial imagery", "Global pilots", "Data processing"], contact: "CFO" },
+    { name: "Trigo", vertical: "Retail", status: "Growth", desc: "Frictionless checkout.", financials: { rev: "Scaling", emp: "200+", growth: "High" }, scores: { media: 2, cloud: 7 }, tech: ["NetSuite", "Wire", "Cloud"], pain: ["Retailer integration", "Computer vision compute", "Hardware"], contact: "CFO" },
+    { name: "Hailo", vertical: "Hardware", status: "Unicorn", desc: "AI chips.", financials: { rev: "Scaling", emp: "250+", growth: "High" }, scores: { media: 2, cloud: 5 }, tech: ["SAP", "Wire", "N/A"], pain: ["Chip manufacturing", "Supply chain", "Global sales"], contact: "CFO" },
+    { name: "Wiliot", vertical: "IoT", status: "Unicorn", desc: "IoT Pixels.", financials: { rev: "Scaling", emp: "200+", growth: "High" }, scores: { media: 3, cloud: 8 }, tech: ["NetSuite", "Wire", "Cloud"], pain: ["Tag production", "Cloud data", "Supply chain"], contact: "CFO" },
+    { name: "Gett", vertical: "SaaS", status: "Scale-Up", desc: "Corp transport.", financials: { rev: "$100M+", emp: "800+", growth: "Stable" }, scores: { media: 4, cloud: 6 }, tech: ["NetSuite", "Wire", "AWS"], pain: ["B2B payouts", "Driver network", "Global clients"], contact: "CFO" },
+    { name: "Minute Media", vertical: "AdTech", status: "Unicorn", desc: "Sports content.", financials: { rev: "$100M+", emp: "500+", growth: "High" }, scores: { media: 8, cloud: 7 }, tech: ["NetSuite", "Tipalti", "Cloud"], pain: ["Publisher payouts", "Content acquisition", "Ad revenue"], contact: "CFO" },
+    { name: "OpenWeb", vertical: "AdTech", status: "Unicorn", desc: "Community engagement.", financials: { rev: "$100M+", emp: "400+", growth: "High" }, scores: { media: 6, cloud: 7 }, tech: ["NetSuite", "Wire", "AWS"], pain: ["Publisher rev-share", "US expansion", "Traffic"], contact: "CFO" },
+    { name: "Optimove", vertical: "SaaS", status: "Growth", desc: "CRM marketing.", financials: { rev: "$50M+", emp: "300+", growth: "High" }, scores: { media: 4, cloud: 6 }, tech: ["NetSuite", "Wire", "Cloud"], pain: ["Client integration", "US Marketing", "M&A"], contact: "CFO" },
+    { name: "Duda", vertical: "SaaS", status: "Growth", desc: "Web design.", financials: { rev: "$50M+", emp: "200+", growth: "Stable" }, scores: { media: 5, cloud: 6 }, tech: ["NetSuite", "Stripe", "AWS"], pain: ["Agency partners", "Subscription billing", "US focus"], contact: "CFO" },
+    { name: "Redis", vertical: "SaaS", status: "Pre-IPO", desc: "Database.", financials: { rev: "$100M+", emp: "600+", growth: "High" }, scores: { media: 4, cloud: 8 }, tech: ["NetSuite", "Zuora", "Cloud"], pain: ["Marketplace fees", "Global sales", "Data"], contact: "CFO" },
+    { name: "Start.io", vertical: "AdTech", status: "Growth", desc: "Mobile data.", financials: { rev: "$50M+", emp: "150+", growth: "Stable" }, scores: { media: 7, cloud: 8 }, tech: ["Priority", "Wire", "AWS"], pain: ["Data processing", "Publisher payments", "Global reach"], contact: "CFO" }
 ];
 
-function createCard(company) {
-    const publicBadge = company.status === 'Public' ? '<span class="status-badge status-public">Public</span>' : '';
-    const unicornBadge = company.status === 'Unicorn' ? '<span class="status-badge status-unicorn">Unicorn</span>' : '';
-    const acqBadge = company.status.includes('Acquired') || company.status === 'Merged' ? '<span class="status-badge status-acquired">' + company.status + '</span>' : '';
-    const status = publicBadge + unicornBadge + acqBadge;
+function render() {
+    const grid = document.getElementById('grid');
+    const search = document.getElementById('search').value.toLowerCase();
+    const vertical = document.getElementById('vertical').value;
+    const erp = document.getElementById('erp').value;
     
-    // Spend Bars
-    const mediaWidth = company.scores.media * 10;
-    const cloudWidth = company.scores.cloud * 10;
-    
-    // Pain points
-    let painPoints = company.pain.map(p => `<div class="pain-point"><i class="fa-solid fa-circle-exclamation"></i><span>${p}</span></div>`).join('');
-    
-    return `
-    <div class="card" data-vertical="${company.vertical}" data-spend="${company.scores.media > 7 ? 'high_media' : (company.scores.cloud > 8 ? 'high_cloud' : '')}" data-status="${company.status}">
-        <div class="card-header">
-            <div class="company-id">
-                <h2>${company.name}</h2>
-                <p>${company.vertical} | ${status}</p>
-            </div>
-            <div class="score-box">
-                <span class="score-val">${company.scores.fx}/10</span>
-                <span class="score-lbl">FX Need</span>
-            </div>
-        </div>
-        <div class="metrics-strip">
-            <div class="metric"><span>Revenue</span><span>${company.financials.rev}</span></div>
-            <div class="metric"><span>Growth</span><span>${company.financials.growth}</span></div>
-            <div class="metric"><span>Employees</span><span>${company.financials.employees}</span></div>
-        </div>
-        <div class="tabs">
-            <div class="tab active" onclick="switchTab(this, 'profile-${company.name.replace(/\s+/g, '')}')">פרופיל</div>
-            <div class="tab" onclick="switchTab(this, 'tech-${company.name.replace(/\s+/g, '')}')">טכנולוגיה</div>
-            <div class="tab" onclick="switchTab(this, 'pain-${company.name.replace(/\s+/g, '')}')">הזדמנויות</div>
-        </div>
-        <div class="card-body">
-            <div id="profile-${company.name.replace(/\s+/g, '')}" class="tab-content active">
-                <div class="info-group">
-                    <span class="info-label">תיאור</span>
-                    <span class="info-value">${company.desc}</span>
+    let count = 0;
+    grid.innerHTML = db.filter(c => {
+        const matchesSearch = c.name.toLowerCase().includes(search) || c.contact.toLowerCase().includes(search) || c.tech.some(t => t.toLowerCase().includes(search));
+        const matchesVertical = !vertical || c.vertical === vertical;
+        const matchesErp = !erp || c.tech.includes(erp);
+        return matchesSearch && matchesVertical && matchesErp;
+    }).map(c => {
+        count++;
+        // Badges
+        let badges = `<span class="badge ${c.status === 'Public' ? 'public' : c.status === 'Unicorn' ? 'unicorn' : ''}">${c.status}</span>`;
+        // Spend
+        const mediaW = c.scores.media * 10;
+        const cloudW = c.scores.cloud * 10;
+        
+        return `
+        <div class="card">
+            <div class="card-top">
+                <div>
+                    <h3 class="co-name">${c.name}</h3>
+                    <div class="co-meta">${c.vertical} ${badges}</div>
                 </div>
-                <div class="info-group">
-                    <span class="info-label">דמות מפתח</span>
-                    <span class="info-value" style="font-weight:600; color:var(--text-main);">${company.contact || 'N/A'}</span>
+                <div class="score-badge">
+                    <span class="score-num">${c.scores.media > 7 || c.scores.cloud > 8 ? 'HIGH' : 'MED'}</span>
+                    <span class="score-txt">Potential</span>
                 </div>
             </div>
-            <div id="tech-${company.name.replace(/\s+/g, '')}" class="tab-content">
-                <div class="info-group">
-                    <span class="info-label">Spend Estimates</span>
-                    <div class="spend-row"><span>Media</span><div class="spend-bar"><div class="spend-fill" style="width:${mediaWidth}%"></div></div></div>
-                    <div class="spend-row"><span>Cloud</span><div class="spend-bar"><div class="spend-fill" style="width:${cloudWidth}%"></div></div></div>
-                </div>
-                <div class="info-group">
-                    <span class="info-label">Tech Stack</span>
-                    <div style="margin-top:5px;">
-                        <span class="tech-tag">${company.tech.erp}</span>
-                        <span class="tech-tag">${company.tech.payments}</span>
-                        <span class="tech-tag">${company.tech.platforms}</span>
+            <div class="metrics-grid">
+                <div class="metric"><span class="m-val">${c.financials.rev}</span><span class="m-lbl">Rev</span></div>
+                <div class="metric"><span class="m-val">${c.financials.emp}</span><span class="m-lbl">Emp</span></div>
+                <div class="metric"><span class="m-val">${c.financials.growth}</span><span class="m-lbl">Growth</span></div>
+            </div>
+            <div class="card-body">
+                <div><div class="section-title">Focus</div>${c.desc}</div>
+                
+                <div>
+                    <div class="section-title">Tech & Spend</div>
+                    <div class="tech-stack">${c.tech.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                    <div style="margin-top:6px;">
+                        <div class="spend-row"><span>Media Spend</span><div class="bar-bg"><div class="bar-fill" style="width:${mediaW}%"></div></div></div>
+                        <div class="spend-row"><span>Cloud Spend</span><div class="bar-bg"><div class="bar-fill" style="width:${cloudW}%"></div></div></div>
                     </div>
                 </div>
-            </div>
-            <div id="pain-${company.name.replace(/\s+/g, '')}" class="tab-content">
-                <div class="info-group">
-                    <span class="info-label" style="color:var(--danger)">Pain Points & Triggers</span>
-                    <div style="margin-top:8px;">${painPoints}</div>
+                
+                <div>
+                    <div class="section-title" style="color:#DC2626;">Pain Points</div>
+                    <ul class="pain-list">${c.pain.map(p => `<li class="pain-item">${p}</li>`).join('')}</ul>
+                </div>
+                
+                <div class="contact-box">
+                    <span class="contact-role">Contact</span>
+                    <span class="contact-name">${c.contact}</span>
                 </div>
             </div>
-        </div>
-    </div>`;
+        </div>`;
+    }).join('');
+    
+    document.getElementById('total-count').innerText = count;
 }
-
-function renderCards(data) {
-    const grid = document.getElementById('grid');
-    grid.innerHTML = data.map(createCard).join('');
-    document.getElementById('count-total').innerText = data.length;
-}
-
-function switchTab(el, id) {
-    const card = el.closest('.card');
-    card.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    card.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-    el.classList.add('active');
-    document.getElementById(id).classList.add('active');
-}
-
-function filterData() {
-    const search = document.getElementById('search').value.toLowerCase();
-    const vertical = document.getElementById('vertical-filter').value;
-    const spend = document.getElementById('spend-filter').value;
-    const status = document.getElementById('status-filter').value;
-
-    const filtered = db.filter(item => {
-        const matchesSearch = item.name.toLowerCase().includes(search) || 
-                              (item.contact && item.contact.toLowerCase().includes(search)) ||
-                              (item.tech.erp && item.tech.erp.toLowerCase().includes(search));
-        const matchesVertical = vertical === "" || item.vertical === vertical;
-        const matchesStatus = status === "" || item.status.includes(status);
-        let matchesSpend = true;
-        if (spend === "high_media") matchesSpend = item.scores.media >= 8;
-        if (spend === "high_cloud") matchesSpend = item.scores.cloud >= 8;
-        return matchesSearch && matchesVertical && matchesSpend && matchesStatus;
-    });
-    renderCards(filtered);
-}
-
-renderCards(db);
+render();
 </script>
 </body>
 </html>
