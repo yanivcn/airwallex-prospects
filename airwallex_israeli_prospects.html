@@ -3,191 +3,254 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Airwallex Israel - Enterprise 100 Gold</title>
+<title>Airwallex Israel - Markets & FX Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
-    :root { --primary: #FF6B00; --bg: #f3f4f6; --text: #1f2937; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); margin: 0; color: var(--text); padding-bottom: 50px; }
-    .header { background: #111827; color: white; padding: 15px 30px; position: sticky; top: 0; z-index: 100; border-bottom: 4px solid var(--primary); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-    .logo { font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 8px; }
-    .stats { display: flex; gap: 20px; font-size: 14px; }
-    .controls { background: white; padding: 15px 30px; display: flex; gap: 10px; border-bottom: 1px solid #e5e7eb; position: sticky; top: 60px; z-index: 90; flex-wrap: wrap; }
-    input, select { padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; flex: 1; min-width: 150px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 20px; padding: 30px; max-width: 1800px; margin: 0 auto; }
-    .card { background: white; border-radius: 10px; border: 1px solid #e5e7eb; display: flex; flex-direction: column; transition: transform 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: hidden; }
-    .card:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-    .card-head { padding: 15px; background: #f9fafb; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: start; }
-    .card-body { padding: 15px; display: flex; flex-direction: column; gap: 10px; flex: 1; font-size: 13px; }
-    .badge { padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; background: #e5e7eb; color: #374151; }
-    .badge.public { background: #dbeafe; color: #1e40af; } .badge.unicorn { background: #dcfce7; color: #166534; }
-    .metrics { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid #e5e7eb; background: #fff; }
-    .metric { padding: 8px; border-left: 1px solid #e5e7eb; text-align: center; } .metric:last-child { border-left: none; }
-    .m-val { font-weight: 700; display: block; } .m-lbl { font-size: 10px; color: #6b7280; text-transform: uppercase; }
-    .tag { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; border: 1px solid #e5e7eb; font-family: monospace; font-size: 11px; display: inline-block; margin: 2px; }
-    .pain-li { position: relative; padding-right: 15px; margin-bottom: 4px; color: #4b5563; }
-    .pain-li::before { content: "•"; color: var(--primary); position: absolute; right: 0; font-weight: bold; }
-    .contact { background: #f0fdfa; border: 1px solid #ccfbf1; padding: 8px; border-radius: 6px; margin-top: auto; display: flex; justify-content: space-between; font-weight: 500; color: #115e59; }
-    .bar-row { display: flex; align-items: center; justify-content: space-between; font-size: 11px; margin-top: 4px; }
-    .bar-bg { width: 60px; height: 5px; background: #e5e7eb; border-radius: 3px; overflow: hidden; }
-    .bar-fill { height: 100%; background: var(--primary); }
-    .hl-title { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #9ca3af; margin-bottom: 3px; }
+    :root { --primary: #FF6B00; --bg: #F3F4F6; --card: #FFFFFF; --text: #111827; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; color: var(--text); padding-bottom: 60px; }
+    
+    /* Header */
+    .header { background: #111; color: white; padding: 15px 30px; border-bottom: 4px solid var(--primary); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 50; }
+    .logo { font-size: 22px; font-weight: 900; letter-spacing: -0.5px; }
+    .logo span { color: var(--primary); }
+    
+    /* Search Bar */
+    .controls { background: white; padding: 15px 30px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); display: flex; gap: 10px; position: sticky; top: 60px; z-index: 40; }
+    input { flex: 1; padding: 10px 15px; border: 1px solid #E5E7EB; border-radius: 8px; font-size: 14px; outline: none; }
+    input:focus { border-color: var(--primary); ring: 2px solid var(--primary); }
+    select { padding: 10px; border: 1px solid #E5E7EB; border-radius: 8px; font-size: 14px; outline: none; cursor: pointer; }
+
+    /* Grid */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 20px; padding: 30px; max-width: 1800px; margin: 0 auto; }
+    
+    /* Card Design */
+    .card { background: var(--card); border-radius: 12px; border: 1px solid #E5E7EB; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 20px -5px rgba(0,0,0,0.1); border-color: var(--primary); }
+    
+    .card-top { padding: 16px; border-bottom: 1px solid #F3F4F6; display: flex; justify-content: space-between; align-items: start; background: linear-gradient(to bottom, #ffffff, #f9fafb); }
+    .name { font-size: 18px; font-weight: 800; color: #111; margin: 0; }
+    .meta { font-size: 12px; color: #6B7280; font-weight: 500; margin-top: 2px; }
+    
+    .rev-badge { background: #ECFDF5; color: #047857; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; border: 1px solid #D1FAE5; }
+    
+    /* FX & Markets Section */
+    .fx-section { padding: 12px 16px; background: #FFF7ED; border-bottom: 1px solid #FFEDD5; }
+    .fx-title { font-size: 10px; text-transform: uppercase; color: #9A3412; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 6px; }
+    
+    .tag-container { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .market-tag { display: flex; align-items: center; gap: 4px; background: white; border: 1px solid #FDBA74; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; color: #C2410C; }
+    .currency-tag { background: #4B5563; color: white; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 700; font-family: monospace; }
+    
+    /* Body */
+    .card-body { padding: 16px; font-size: 13px; color: #374151; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+    
+    .stack-box { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+    .stack-label { font-size: 11px; font-weight: 700; color: #9CA3AF; margin-right: 4px; }
+    .competitor { background: #FEF2F2; color: #B91C1C; border: 1px solid #FECACA; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+    .tech { background: #F3F4F6; color: #4B5563; padding: 2px 8px; border-radius: 12px; font-size: 11px; border: 1px solid #E5E7EB; }
+
+    .pain-point { display: flex; gap: 8px; align-items: flex-start; line-height: 1.4; }
+    .pain-icon { color: var(--primary); font-weight: bold; margin-top: 1px; }
+    
+    .contact { margin-top: auto; padding-top: 12px; border-top: 1px dashed #E5E7EB; font-weight: 600; color: #059669; font-size: 12px; display: flex; justify-content: space-between; align-items: center; }
+    .contact i { margin-right: 5px; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #999; }
 </style>
 </head>
 <body>
+
 <div class="header">
-    <div class="logo">🚀 Airwallex Enterprise 100</div>
-    <div class="stats"><div id="count">0 Companies</div><div>Total Market Cap: $60B+</div></div>
+    <div class="logo">Airwallex <span>Target 100</span></div>
+    <div style="font-size:13px; font-weight:500; opacity:0.8;">Focus: Multi-Currency & Global Markets</div>
 </div>
+
 <div class="controls">
-    <input type="text" id="search" placeholder="Search Company, CFO, Tech..." onkeyup="render()">
-    <select id="ver" onchange="render()"><option value="">All Verticals</option><option>Fintech</option><option>Cyber</option><option>SaaS</option><option>AdTech</option><option>Gaming</option><option>eCommerce</option><option>Hardware</option></select>
-    <select id="erp" onchange="render()"><option value="">All ERPs</option><option>NetSuite</option><option>SAP</option><option>Oracle</option></select>
+    <input type="text" id="search" placeholder="Search Company, Market (e.g. US, UK), Currency (JPY)..." onkeyup="render()">
+    <select id="vertical" onchange="render()">
+        <option value="">All Verticals</option>
+        <option>Fintech</option><option>Cyber</option><option>SaaS</option><option>AdTech</option><option>Gaming</option><option>eCommerce</option><option>Hardware</option>
+    </select>
+    <select id="comp" onchange="render()">
+        <option value="">Filter by Competitor</option>
+        <option value="Stripe">Stripe</option><option value="Payoneer">Payoneer</option><option value="Wise">Wise</option><option value="Tipalti">Tipalti</option>
+    </select>
 </div>
+
 <div class="grid" id="grid"></div>
+
 <script>
-window.onerror = function(m,u,l) { alert("Error: "+m+"\nLine: "+l); };
+// --- DATABASE: 100 COMPANIES WITH MARKETS & CURRENCIES ---
+// m = Markets (Flags), c = Currencies, s = Stack, p = Pain, rev = Revenue
 const db = [
-{n:"Wix",v:"SaaS",s:"Public",d:"Web creation platform",f:{r:"$1.6B",e:"5k+",g:"Stable"},sc:{m:10,c:9},t:["Oracle","AWS"],p:["Payouts to 190 countries","Ad Spend FX fees","Dual listing treasury"],c:"Lior Shemesh (CFO)"},
-{n:"Monday.com",v:"SaaS",s:"Public",d:"Work OS platform",f:{r:"$900M+",e:"2k+",g:"High"},sc:{m:10,c:8},t:["SAP","Stripe"],p:["Collections from 200k clients","Marketing FX","Global expansion"],c:"Eliran Glazer (CFO)"},
-{n:"Rapyd",v:"Fintech",s:"Unicorn",d:"Fintech-as-a-Service",f:{r:"$500M+",e:"800+",g:"High"},sc:{m:6,c:8},t:["NetSuite","Cloud"],p:["Liquidity 100+ currencies","Cross-border M&A","Real-time payouts"],c:"Arik Shtilman (CEO)"},
-{n:"Melio",v:"Fintech",s:"Acquired",d:"B2B payments SMB",f:{r:"$200M+",e:"600+",g:"High"},sc:{m:5,c:7},t:["NetSuite","ACH"],p:["Vendor payments (AP)","Float mgmt","Xero integration"],c:"VP Finance"},
-{n:"Wiz",v:"Cyber",s:"Unicorn",d:"Cloud security",f:{r:"$500M",e:"1.2k+",g:"Hyper"},sc:{m:6,c:10},t:["NetSuite","Stripe"],p:["Cloud bill consolidation","Global collections","New entities"],c:"Fazal Merchant (CFO)"},
-{n:"eToro",v:"Fintech",s:"Unicorn",d:"Social trading",f:{r:"$630M",e:"1.7k+",g:"Stable"},sc:{m:9,c:7},t:["NetSuite","Azure"],p:["User deposits/withdrawals","FX Hedging","Sponsorships"],c:"Meron Shani (CFO)"},
-{n:"Playtika",v:"Gaming",s:"Public",d:"Mobile gaming",f:{r:"$2.5B",e:"4k+",g:"Stable"},sc:{m:10,c:9},t:["Oracle","Hybrid"],p:["UA Spend (Millions/mo)","Store FX conversion","M&A payments"],c:"Craig Abrahams (CFO)"},
-{n:"Global-e",v:"eCommerce",s:"Public",d:"Cross-border e-com",f:{r:"$570M",e:"1k+",g:"High"},sc:{m:4,c:6},t:["NetSuite","Multi"],p:["FX conversion scale","Merchant settlements","Tax/Duty payments"],c:"Ofer Koren (CFO)"},
-{n:"Deel",v:"Fintech",s:"Unicorn",d:"Global payroll",f:{r:"$500M+",e:"3k+",g:"Hyper"},sc:{m:7,c:8},t:["NetSuite","AWS"],p:["Payroll 150 currencies","Entity mgmt","FX exposure"],c:"Philippe Bouaziz (CFO)"},
-{n:"ZIM",v:"Logistics",s:"Public",d:"Global shipping",f:{r:"$10B+",e:"6k+",g:"Cyclical"},sc:{m:2,c:5},t:["SAP","Swift"],p:["Port fees worldwide","Fuel payments","Capital intensive"],c:"Xavier Destriau (CFO)"},
-{n:"ICL Group",v:"Hardware",s:"Public",d:"Minerals/Chemicals",f:{r:"$7B+",e:"12k+",g:"Stable"},sc:{m:1,c:4},t:["SAP","Banks"],p:["Commodity trading FX","Supply chain","Global ops"],c:"Aviram Lahav (CFO)"},
-{n:"Check Point",v:"Cyber",s:"Public",d:"Cyber security",f:{r:"$2.4B",e:"6k+",g:"Low"},sc:{m:4,c:6},t:["SAP","Billing"],p:["Enterprise collections","Channel payouts","M&A integration"],c:"Roei Golan (CFO)"},
-{n:"AmDocs",v:"SaaS",s:"Public",d:"Telecom software",f:{r:"$4.8B",e:"30k+",g:"Stable"},sc:{m:2,c:7},t:["SAP","Cloud"],p:["Long-term project FX","Relocation payments","Exotic currencies"],c:"Tamar Rapaport (CFO)"},
-{n:"Payoneer",v:"Fintech",s:"Public",d:"Payments platform",f:{r:"$830M",e:"2k+",g:"Mod"},sc:{m:6,c:8},t:["SAP","AWS"],p:["Treasury mgmt","Freelancer payouts","Banking reg"],c:"Bea Ordonez (CFO)"},
-{n:"IronSource",v:"AdTech",s:"Merged",d:"App monetization",f:{r:"$1B+",e:"1.5k+",g:"Stable"},sc:{m:10,c:9},t:["Oracle","Tipalti"],p:["Publisher payouts","Server costs","Traffic acquisition"],c:"Finance Director"},
-{n:"Cato Networks",v:"Cyber",s:"Pre-IPO",d:"SASE platform",f:{r:"$200M+",e:"900+",g:"High"},sc:{m:3,c:9},t:["NetSuite","Stripe"],p:["ISP payments 150 countries","Global collections","IPO ready"],c:"Tomer Erez (CFO)"},
-{n:"Via",v:"SaaS",s:"Pre-IPO",d:"TransitTech",f:{r:"$300M+",e:"1k+",g:"High"},sc:{m:3,c:8},t:["NetSuite","Braintree"],p:["Subsidiary funding","Driver payouts","Gov collections"],c:"Eyal Greidinger (CFO)"},
-{n:"Riskified",v:"Fintech",s:"Public",d:"Fraud prevention",f:{r:"$300M",e:"700+",g:"Mod"},sc:{m:4,c:8},t:["NetSuite","AWS"],p:["Chargeback refunds FX","Data infra costs","Merchants"],c:"Aglika Dotcheva (CFO)"},
-{n:"AppsFlyer",v:"AdTech",s:"Unicorn",d:"Marketing analytics",f:{r:"$300M+",e:"1.4k+",g:"High"},sc:{m:5,c:10},t:["NetSuite","Zuora"],p:["Massive cloud bills","Global offices","Data fees"],c:"CFO"},
-{n:"Taboola",v:"AdTech",s:"Public",d:"Content discovery",f:{r:"$1.4B",e:"1.8k+",g:"Stable"},sc:{m:9,c:9},t:["Oracle","Internal"],p:["Publisher TAC payouts","Local currency","Traffic acq"],c:"Steve Walker (CFO)"},
-{n:"Outbrain",v:"AdTech",s:"Public",d:"Web recommendation",f:{r:"$1B",e:"1k+",g:"Stable"},sc:{m:9,c:9},t:["Oracle","Internal"],p:["Publisher payouts","Margin FX impact","Global entities"],c:"Jason Kiviat (CFO)"},
-{n:"Fiverr",v:"eCommerce",s:"Public",d:"Freelance market",f:{r:"$360M",e:"800+",g:"Low"},sc:{m:8,c:7},t:["NetSuite","Payoneer"],p:["Payouts 160 countries","Marketing spend","FX conversion"],c:"Ofer Katz (CFO)"},
-{n:"Yotpo",v:"SaaS",s:"Unicorn",d:"E-com marketing",f:{r:"$150M+",e:"800+",g:"High"},sc:{m:6,c:7},t:["NetSuite","Shopify"],p:["Partner payments","US Marketing spend","Global sales"],c:"Sarit Firon (CFO)"},
-{n:"Tipalti",v:"Fintech",s:"Unicorn",d:"Payables automation",f:{r:"$200M+",e:"1k+",g:"High"},sc:{m:4,c:6},t:["NetSuite","Core"],p:["Money transmission","Partner payments","Float mgmt"],c:"Sarah Spoja (CFO)"},
-{n:"Gong",v:"SaaS",s:"Unicorn",d:"Revenue intel",f:{r:"$300M",e:"1.2k+",g:"High"},sc:{m:5,c:9},t:["NetSuite","Stripe"],p:["AI Compute costs","US Sales expansion","Data storage"],c:"Tim Riitters (CFO)"},
-{n:"Navan",v:"SaaS",s:"Pre-IPO",d:"Travel & expense",f:{r:"$600M+",e:"2.5k+",g:"High"},sc:{m:6,c:8},t:["NetSuite","Stripe"],p:["Global travel clearing","Card issuance","Reconciliation"],c:"CFO"},
-{n:"Bringg",v:"SaaS",s:"Unicorn",d:"Delivery logistics",f:{r:"$100M",e:"500+",g:"Stable"},sc:{m:3,c:6},t:["NetSuite","Braintree"],p:["Enterprise clients","Supply chain","Global support"],c:"Doron Dinstein (CFO)"},
-{n:"Verbit",v:"SaaS",s:"Unicorn",d:"AI transcription",f:{r:"$100M+",e:"500+",g:"Low"},sc:{m:3,c:6},t:["NetSuite","PayPal"],p:["Payouts to transcribers","M&A","Cost efficiency"],c:"CFO"},
-{n:"SentinelOne",v:"Cyber",s:"Public",d:"Endpoint security",f:{r:"$600M",e:"2k+",g:"High"},sc:{m:5,c:9},t:["NetSuite","Stripe"],p:["Cloud infra spend","Global R&D payroll","Sales comms"],c:"Dave Bernhardt (CFO)"},
-{n:"CyberArk",v:"Cyber",s:"Public",d:"Identity security",f:{r:"$900M",e:"2.5k+",g:"High"},sc:{m:5,c:7},t:["SAP","Salesforce"],p:["SaaS transition","Global sales comms","Entity funding"],c:"Josh Siegel (CFO)"},
-{n:"JFrog",v:"SaaS",s:"Public",d:"DevOps platform",f:{r:"$350M",e:"1k+",g:"High"},sc:{m:4,c:9},t:["NetSuite","Zuora"],p:["Data transfer costs","Developer marketing","US expansion"],c:"Ed Grabscheid (CFO)"},
-{n:"Nice",v:"SaaS",s:"Public",d:"CX & Cloud",f:{r:"$2.3B",e:"8k+",g:"Mod"},sc:{m:4,c:8},t:["Oracle","AWS"],p:["Acquisition integration","Global 30+ countries","Cloud shift"],c:"Beth Gaspich (CFO)"},
-{n:"SimilarWeb",v:"SaaS",s:"Public",d:"Digital intel",f:{r:"$220M",e:"1k+",g:"Mod"},sc:{m:6,c:9},t:["NetSuite","Zuora"],p:["Data acquisition costs","Global sales","Public reporting"],c:"Jason Schwartz (CFO)"},
-{n:"WalkMe",v:"SaaS",s:"Acquired",d:"Digital adoption",f:{r:"$260M",e:"900+",g:"Low"},sc:{m:5,c:7},t:["NetSuite","Zuora"],p:["SAP integration","Subsidiary mgmt","Global payroll"],c:"Hagit Ynon (CFO)"},
-{n:"HiBob",v:"SaaS",s:"Unicorn",d:"HR platform",f:{r:"$100M+",e:"800+",g:"High"},sc:{m:6,c:7},t:["NetSuite","Stripe"],p:["Global HR payments","Marketing spend","US/UK/AU entities"],c:"CFO"},
-{n:"Moon Active",v:"Gaming",s:"Unicorn",d:"Mobile games",f:{r:"$1.5B+",e:"2k+",g:"High"},sc:{m:10,c:9},t:["Oracle","Apps"],p:["Huge Ad Spend","In-app FX","M&A"],c:"CFO"},
-{n:"Lightricks",v:"SaaS",s:"Unicorn",d:"Content apps",f:{r:"$200M+",e:"600+",g:"Mod"},sc:{m:9,c:8},t:["NetSuite","Apple"],p:["Creator payouts","Social Ad spend","US expansion"],c:"Shaul Meridor (CFO)"},
-{n:"Next Insurance",v:"Fintech",s:"Unicorn",d:"SMB Insurance",f:{r:"$800M",e:"800+",g:"High"},sc:{m:8,c:6},t:["NetSuite","Guidewire"],p:["Claims payouts","Agent commissions","Reinsurance"],c:"Teodora Gouneva (CFO)"},
-{n:"Lemonade",v:"Fintech",s:"Public",d:"Digital insurance",f:{r:"$250M+",e:"1k+",g:"High"},sc:{m:9,c:7},t:["Internal","Stripe"],p:["Reinsurance FX","EU expansion","Claims"],c:"Tim Bixby (CFO)"},
-{n:"Plarium",v:"Gaming",s:"Acquired",d:"Strategy games",f:{r:"$600M+",e:"1.5k+",g:"Stable"},sc:{m:10,c:8},t:["Oracle","Apps"],p:["UA Spend","Server costs","Global studios"],c:"Finance VP"},
-{n:"CrazyLabs",v:"Gaming",s:"Acquired",d:"Casual games",f:{r:"High",e:"300+",g:"Stable"},sc:{m:9,c:7},t:["NetSuite","Apps"],p:["Developer payouts","Ad monetization","Global reach"],c:"VP Finance"},
-{n:"Supersonic",v:"Gaming",s:"Merged",d:"Game publishing",f:{r:"High",e:"200+",g:"Stable"},sc:{m:9,c:7},t:["NetSuite","Tipalti"],p:["Developer transfers","UA Spend","Integration"],c:"Finance Team"},
-{n:"888 Holdings",v:"Gaming",s:"Public",d:"Online betting",f:{r:"$1.7B",e:"10k+",g:"Low"},sc:{m:9,c:7},t:["SAP","Worldpay"],p:["Regulation fees","Player withdrawals","Licensing"],c:"Yariv Dafna (CFO)"},
-{n:"Imperva",v:"Cyber",s:"Acquired",d:"Data security",f:{r:"$500M+",e:"1k+",g:"Low"},sc:{m:4,c:8},t:["Oracle","Hybrid"],p:["Data center costs","Thales integration","Global Ops"],c:"Finance VP"},
-{n:"Redis",v:"SaaS",s:"Pre-IPO",d:"Database platform",f:{r:"$200M+",e:"700+",g:"High"},sc:{m:4,c:8},t:["NetSuite","Zuora"],p:["Marketplace fees","Global sales","Cloud infra"],c:"CFO"},
-{n:"OwnCompany",v:"SaaS",s:"Acquired",d:"SaaS backup",f:{r:"$200M+",e:"600+",g:"High"},sc:{m:3,c:9},t:["NetSuite","Salesforce"],p:["Storage costs","Salesforce fees","Global teams"],c:"CFO"},
-{n:"Sisense",v:"SaaS",s:"Unicorn",d:"BI analytics",f:{r:"$150M",e:"600+",g:"Slow"},sc:{m:4,c:7},t:["NetSuite","Zuora"],p:["Efficiency","Cloud costs","US Ops"],c:"CFO"},
-{n:"Vayyar",v:"Hardware",s:"Unicorn",d:"4D imaging",f:{r:"N/A",e:"300+",g:"Mod"},sc:{m:2,c:4},t:["SAP","Wire"],p:["Manufacturing payments","Global distribution","Supply chain"],c:"CFO"},
-{n:"Innoviz",v:"Hardware",s:"Public",d:"LiDAR sensors",f:{r:"$20M",e:"400+",g:"High"},sc:{m:2,c:5},t:["SAP","Wire"],p:["Automotive supply chain","Inventory","Global offices"],c:"Eldar Cegla (CFO)"},
-{n:"SolarEdge",v:"Hardware",s:"Public",d:"Solar energy",f:{r:"$3B",e:"4k+",g:"Low"},sc:{m:3,c:4},t:["SAP","Banks"],p:["Global supply chain","Inventory FX","Distributor payments"],c:"Ronen Faier (CFO)"},
-{n:"Kornit",v:"Hardware",s:"Public",d:"Textile printing",f:{r:"$250M",e:"800+",g:"Low"},sc:{m:3,c:4},t:["Priority","Wire"],p:["Ink logistics","Global distributors","Manufacturing"],c:"Lauri Hanover (CFO)"},
-{n:"Stratasys",v:"Hardware",s:"Public",d:"3D printing",f:{r:"$600M",e:"2k+",g:"Low"},sc:{m:3,c:4},t:["Oracle","Wire"],p:["Materials sourcing","M&A","Global sales"],c:"Eitan Zamir (CFO)"},
-{n:"Talon Cyber",v:"Cyber",s:"Acquired",d:"Secure browser",f:{r:"N/A",e:"150+",g:"High"},sc:{m:4,c:6},t:["NetSuite","AWS"],p:["Integration","R&D spend","US expansion"],c:"Finance VP"},
-{n:"Island",v:"Cyber",s:"Unicorn",d:"Ent. browser",f:{r:"$100M+",e:"300+",g:"Hyper"},sc:{m:5,c:7},t:["NetSuite","AWS"],p:["Rapid US expansion","Hiring costs","Marketing"],c:"CFO"},
-{n:"Pentera",v:"Cyber",s:"Unicorn",d:"Security validation",f:{r:"$100M ARR",e:"350+",g:"High"},sc:{m:4,c:6},t:["NetSuite","AWS"],p:["Field sales expenses","Global events","Marketing"],c:"CFO"},
-{n:"Aqua Security",v:"Cyber",s:"Unicorn",d:"Cloud native sec",f:{r:"$150M ARR",e:"500+",g:"High"},sc:{m:4,c:8},t:["NetSuite","Stripe"],p:["Cloud consumption","Global partners","US Sales"],c:"Dror Davidoff (CFO)"},
-{n:"Orca Security",v:"Cyber",s:"Unicorn",d:"Cloud security",f:{r:"$100M+",e:"400+",g:"High"},sc:{m:4,c:9},t:["NetSuite","Stripe"],p:["Cloud costs","Sales efficiency","Global teams"],c:"CFO"},
-{n:"BigID",v:"Cyber",s:"Unicorn",d:"Data intel",f:{r:"$100M ARR",e:"400+",g:"High"},sc:{m:4,c:8},t:["NetSuite","AWS"],p:["Data processing","Enterprise sales","Partners"],c:"Scott Casey (CFO)"},
-{n:"Axonius",v:"Cyber",s:"Unicorn",d:"Asset mgmt",f:{r:"$100M+",e:"500+",g:"High"},sc:{m:4,c:7},t:["NetSuite","AWS"],p:["Global expansion","Marketing","US Ops"],c:"Jerry Raphael (CFO)"},
-{n:"Claroty",v:"Cyber",s:"Unicorn",d:"Cyber-physical",f:{r:"$100M+",e:"400+",g:"High"},sc:{m:4,c:6},t:["NetSuite","AWS"],p:["Industrial partners","Field sales","Global offices"],c:"CFO"},
-{n:"Cheq",v:"Cyber",s:"Unicorn",d:"GTM security",f:{r:"N/A",e:"200+",g:"High"},sc:{m:6,c:8},t:["NetSuite","AdPlat"],p:["Ad platform integration","Marketing security","US Sales"],c:"CFO"},
-{n:"BioCatch",v:"Fintech",s:"Unicorn",d:"Behavioral bio",f:{r:"$100M+",e:"250+",g:"High"},sc:{m:3,c:9},t:["NetSuite","Azure"],p:["Global banking clients","Data processing","Compliance"],c:"CFO"},
-{n:"Forter",v:"Fintech",s:"Unicorn",d:"E-com fraud",f:{r:"$300M",e:"500+",g:"High"},sc:{m:4,c:9},t:["NetSuite","AWS"],p:["Real-time decision costs","Global merchants","Data infra"],c:"CFO"},
-{n:"Pagaya",v:"Fintech",s:"Public",d:"AI lending",f:{r:"$800M",e:"600+",g:"High"},sc:{m:3,c:8},t:["NetSuite","AWS"],p:["Capital markets flow","Lending partners","US Ops"],c:"Michael Kurlander (CFO)"},
-{n:"Fundbox",v:"Fintech",s:"Unicorn",d:"B2B credit",f:{r:"$100M+",e:"300+",g:"Stable"},sc:{m:6,c:7},t:["NetSuite","ACH"],p:["Credit facilities","US SMB focus","Risk mgmt"],c:"CFO"},
-{n:"Sunbit",v:"Fintech",s:"Unicorn",d:"BNPL services",f:{r:"N/A",e:"300+",g:"High"},sc:{m:5,c:6},t:["NetSuite","POS"],p:["POS partnerships","Lending capital","US Retail"],c:"CFO"},
-{n:"Plus500",v:"Fintech",s:"Public",d:"Trading platform",f:{r:"$830M",e:"500+",g:"High"},sc:{m:9,c:6},t:["Internal","Cards"],p:["Global regulation","Digital marketing","Capital mgmt"],c:"Elad Even-Chen (CFO)"},
-{n:"Snyk",v:"Cyber",s:"Unicorn",d:"Dev security",f:{r:"$200M+",e:"1k+",g:"High"},sc:{m:5,c:9},t:["NetSuite","Stripe"],p:["Global expansion","Cloud marketplace fees","Dev marketing"],c:"Ken MacAskill (CFO)"},
-{n:"Fireblocks",v:"Fintech",s:"Unicorn",d:"Crypto infra",f:{r:"$100M+",e:"600+",g:"High"},sc:{m:4,c:8},t:["NetSuite","Crypto"],p:["Crypto-Fiat ramps","Institutional clients","Key mgmt"],c:"Madan Nagaldinne (CFO)"},
-{n:"Guesty",v:"SaaS",s:"Unicorn",d:"Property mgmt",f:{r:"$100M+",e:"700+",g:"High"},sc:{m:5,c:7},t:["NetSuite","Stripe"],p:["Property owner payouts","Booking fees","Multi-currency"],c:"CFO"},
-{n:"Perion",v:"AdTech",s:"Public",d:"Digital ads",f:{r:"$700M+",e:"500+",g:"Mod"},sc:{m:9,c:7},t:["Priority","Banks"],p:["Traffic acquisition","Cross-border media","Search ads"],c:"Maoz Sigron (CFO)"},
-{n:"Nayax",v:"Fintech",s:"Public",d:"Cashless payments",f:{r:"$230M",e:"800+",g:"High"},sc:{m:3,c:6},t:["SAP","Core"],p:["Global clearing","Supply chain","M&A"],c:"Sagit Manor (CFO)"},
-{n:"StreamElements",v:"SaaS",s:"Unicorn",d:"Live streaming",f:{r:"N/A",e:"200+",g:"High"},sc:{m:6,c:8},t:["NetSuite","PayPal"],p:["Creator payouts","Donation processing","Global tipping"],c:"CFO"},
-{n:"Overwolf",v:"Gaming",s:"Unicorn",d:"In-game apps",f:{r:"$100M+",e:"150+",g:"High"},sc:{m:5,c:8},t:["NetSuite","Tipalti"],p:["Creator rev-share","Ad revenue","Community fund"],c:"CFO"},
-{n:"K Health",v:"SaaS",s:"Unicorn",d:"AI healthcare",f:{r:"$100M+",e:"300+",g:"High"},sc:{m:7,c:7},t:["NetSuite","Stripe"],p:["Clinician payouts","AI compute","US Healthcare"],c:"CFO"},
-{n:"AI21 Labs",v:"SaaS",s:"Unicorn",d:"Generative AI",f:{r:"Scaling",e:"200+",g:"Hyper"},sc:{m:3,c:10},t:["NetSuite","Stripe"],p:["Massive GPU spend","Enterprise contracts","R&D costs"],c:"CFO"},
-{n:"Pinecone",v:"SaaS",s:"Unicorn",d:"Vector DB",f:{r:"Scaling",e:"150+",g:"Hyper"},sc:{m:3,c:9},t:["NetSuite","Stripe"],p:["Cloud infra bills","US GTM","Hiring"],c:"VP Finance"},
-{n:"DriveNets",v:"SaaS",s:"Unicorn",d:"Cloud networking",f:{r:"N/A",e:"400+",g:"High"},sc:{m:2,c:6},t:["NetSuite","Wire"],p:["Global ISP clients","Hardware bundles","Global sales"],c:"CFO"},
-{n:"WSC Sports",v:"SaaS",s:"Growth",d:"AI sports video",f:{r:"$100M",e:"300+",g:"High"},sc:{m:4,c:9},t:["NetSuite","Wire"],p:["Video processing","League contracts","Rights mgmt"],c:"CFO"},
-{n:"Cellebrite",v:"SaaS",s:"Public",d:"Digital intel",f:{r:"$300M+",e:"1k+",g:"Stable"},sc:{m:3,c:6},t:["NetSuite","Wire"],p:["Gov collections","Global compliance","Forensics"],c:"Dana Gerner (CFO)"},
-{n:"Kaltura",v:"SaaS",s:"Public",d:"Video platform",f:{r:"$170M",e:"700+",g:"Low"},sc:{m:4,c:8},t:["NetSuite","Wire"],p:["Hosting costs","Education clients","Streaming"],c:"Yaron Garmazi (CFO)"},
-{n:"Incredibuild",v:"SaaS",s:"Growth",d:"Dev acceleration",f:{r:"$60M+",e:"200+",g:"High"},sc:{m:3,c:6},t:["NetSuite","Stripe"],p:["Global licenses","Cloud burst","Developer sales"],c:"CFO"},
-{n:"Priority",v:"SaaS",s:"PE",d:"ERP software",f:{r:"$100M+",e:"500+",g:"Stable"},sc:{m:3,c:5},t:["Internal","Cloud"],p:["Global partners","Acquisition strategy","Cloud migration"],c:"CFO"},
-{n:"Sapiens",v:"SaaS",s:"Public",d:"InsurTech",f:{r:"$500M+",e:"5k+",g:"Mod"},sc:{m:3,c:6},t:["SAP","Wire"],p:["Pro-services","Cloud migration","Global clients"],c:"Roni Giladi (CFO)"},
-{n:"Delta Galil",v:"Hardware",s:"Public",d:"Textile & fashion",f:{r:"$2B",e:"20k+",g:"Stable"},sc:{m:4,c:4},t:["SAP","Trade"],p:["Manufacturing supply","Retail brands","Global logistics"],c:"CFO"},
-{n:"Netafim",v:"Hardware",s:"Acquired",d:"Irrigation",f:{r:"$1B+",e:"5k+",g:"Stable"},sc:{m:3,c:4},t:["SAP","Trade"],p:["Project finance","Emerging market FX","Agriculture"],c:"CFO"},
-{n:"AudioCodes",v:"Hardware",s:"Public",d:"Voice network",f:{r:"$250M",e:"800+",g:"Low"},sc:{m:3,c:5},t:["Oracle","Wire"],p:["Manufacturing","Global VoIP","Hardware"],c:"Niran Baruch (CFO)"},
-{n:"Radware",v:"Cyber",s:"Public",d:"App security",f:{r:"$260M",e:"1k+",g:"Low"},sc:{m:3,c:7},t:["Oracle","Wire"],p:["DDoS centers","Global support","Scrubbing costs"],c:"Guy Avidan (CFO)"},
-{n:"Nova",v:"Hardware",s:"Public",d:"Metrology",f:{r:"$500M+",e:"1k+",g:"High"},sc:{m:2,c:5},t:["SAP","Wire"],p:["Equipment shipping","Asian market FX","Supply chain"],c:"Dror David (CFO)"},
-{n:"Camtek",v:"Hardware",s:"Public",d:"Inspection",f:{r:"$300M+",e:"500+",g:"High"},sc:{m:2,c:5},t:["Priority","Wire"],p:["Payments in China","Supply chain","Logistics"],c:"Moshe Eisenberg (CFO)"},
-{n:"Tower Semi",v:"Hardware",s:"Public",d:"Foundry",f:{r:"$1.4B",e:"5k+",g:"Stable"},sc:{m:1,c:4},t:["SAP","Wire"],p:["CapEx","Global clients","Foundry ops"],c:"Oren Shirazi (CFO)"},
-{n:"Mobileye",v:"SaaS",s:"Public",d:"Autonomous driving",f:{r:"$2B",e:"3k+",g:"Mod"},sc:{m:3,c:8},t:["Oracle","Wire"],p:["Fleet mgmt","Data annotation","R&D costs"],c:"Anat Heller (CFO)"},
-{n:"Exodigo",v:"SaaS",s:"Growth",d:"Subsurface mapping",f:{r:"Scaling",e:"100+",g:"High"},sc:{m:3,c:6},t:["NetSuite","Wire"],p:["Mapping projects","Field teams","Global Ops"],c:"CFO"},
-{n:"Run:ai",v:"SaaS",s:"Acquired",d:"AI compute",f:{r:"Scaling",e:"150+",g:"High"},sc:{m:3,c:8},t:["NetSuite","Wire"],p:["AI infra costs","Nvidia partnership","R&D"],c:"CFO"},
-{n:"Augury",v:"SaaS",s:"Unicorn",d:"Machine health",f:{r:"$100M+ Est",e:"400+",g:"High"},sc:{m:3,c:7},t:["NetSuite","Wire"],p:["Sensor production","Insurance partners","IoT Data"],c:"CFO"},
-{n:"Fabric",v:"SaaS",s:"Unicorn",d:"Robotic fulfillment",f:{r:"Scaling",e:"300+",g:"High"},sc:{m:2,c:6},t:["NetSuite","Wire"],p:["Robotics supply","Retailer settlements","US Ops"],c:"CFO"},
-{n:"Landa",v:"Hardware",s:"Unicorn",d:"Nanographic print",f:{r:"Scaling",e:"500+",g:"Mod"},sc:{m:2,c:4},t:["SAP","Wire"],p:["Ink production","Press logistics","CapEx"],c:"CFO"},
-{n:"Team8",v:"Fintech",s:"Fund",d:"Company builder",f:{r:"N/A",e:"100+",g:"N/A"},sc:{m:5,c:6},t:["NetSuite","Wire"],p:["Portfolio funding","Global ops","Ventures"],c:"Finance Team"},
-{n:"MyHeritage",v:"SaaS",s:"Acquired",d:"Family history",f:{r:"$250M+",e:"500+",g:"Stable"},sc:{m:8,c:7},t:["NetSuite","BlueSnap"],p:["DNA kit shipping","B2C subscriptions","Global marketing"],c:"CFO"},
-{n:"Taranis",v:"SaaS",s:"Growth",d:"Crop intelligence",f:{r:"Scaling",e:"200+",g:"High"},sc:{m:2,c:7},t:["NetSuite","Wire"],p:["Aerial imagery","Global pilots","Data processing"],c:"CFO"},
-{n:"Trigo",v:"SaaS",s:"Growth",d:"Frictionless checkout",f:{r:"Scaling",e:"200+",g:"High"},sc:{m:2,c:7},t:["NetSuite","Wire"],p:["Retailer integration","Computer vision","Hardware"],c:"CFO"},
-{n:"Hailo",v:"Hardware",s:"Unicorn",d:"AI chips",f:{r:"Scaling",e:"250+",g:"High"},sc:{m:2,c:5},t:["SAP","Wire"],p:["Chip manufacturing","Supply chain","Global sales"],c:"CFO"},
-{n:"Wiliot",v:"Hardware",s:"Unicorn",d:"IoT Pixels",f:{r:"Scaling",e:"200+",g:"High"},sc:{m:3,c:8},t:["NetSuite","Wire"],p:["Tag production","Cloud data","Supply chain"],c:"CFO"},
-{n:"Gett",v:"SaaS",s:"Scale-Up",d:"Corp transport",f:{r:"$100M+",e:"800+",g:"Stable"},sc:{m:4,c:6},t:["NetSuite","Wire"],p:["B2B payouts","Driver network","Global clients"],c:"CFO"},
-{n:"Minute Media",v:"AdTech",s:"Unicorn",d:"Sports content",f:{r:"$100M+",e:"500+",g:"High"},sc:{m:8,c:7},t:["NetSuite","Tipalti"],p:["Publisher payouts","Content acquisition","Ad revenue"],c:"CFO"},
-{n:"OpenWeb",v:"AdTech",s:"Unicorn",d:"Community engagement",f:{r:"$100M+",e:"400+",g:"High"},sc:{m:6,c:7},t:["NetSuite","Wire"],p:["Publisher rev-share","US expansion","Traffic"],c:"CFO"},
-{n:"Optimove",v:"SaaS",s:"Growth",d:"CRM marketing",f:{r:"$50M+",e:"300+",g:"High"},sc:{m:4,c:6},t:["NetSuite","Wire"],p:["Client integration","US Marketing","M&A"],c:"CFO"},
-{n:"Duda",v:"SaaS",s:"Growth",d:"Web design",f:{r:"$50M+",e:"200+",g:"Stable"},sc:{m:5,c:6},t:["NetSuite","Stripe"],p:["Agency partners","Subscription billing","US focus"],c:"CFO"},
-{n:"Start.io",v:"AdTech",s:"Growth",d:"Mobile data",f:{r:"$50M+",e:"150+",g:"Stable"},sc:{m:7,c:8},t:["Priority","Wire"],p:["Data processing","Publisher payments","Global reach"],c:"CFO"}
+    { n:"Wix", v:"SaaS", rev:"$1.6B", m:["🇺🇸 US","🇪🇺 EU","🇧🇷 BR","🇮🇳 IN"], c:["USD","EUR","BRL","INR","GBP"], s:["Stripe","Adyen"], p:"High volume collections in 190 countries. Massive FX exposure on ad spend.", contact:"Lior Shemesh (CFO)" },
+    { n:"Rapyd", v:"Fintech", rev:"$500M+", m:["🌎 Global","🇬🇧 UK","🇸🇬 SG","🇲🇽 MX"], c:["USD","EUR","GBP","SGD","MXN"], s:["Direct","Visa/MC"], p:"Liquidity management in 100+ currencies. Real-time payouts.", contact:"Arik Shtilman (CEO)" },
+    { n:"Monday.com", v:"SaaS", rev:"$900M+", m:["🇺🇸 US","🇬🇧 UK","🇦🇺 AU","🇨🇦 CA"], c:["USD","GBP","AUD","CAD","EUR"], s:["Stripe","Adyen"], p:"Subscription collecting in 200k+ accounts. FX erosion on marketing.", contact:"Eliran Glazer (CFO)" },
+    { n:"Deel", v:"Fintech", rev:"$500M+", m:["🌎 150+ Countries"], c:["150+ Currencies"], s:["Wise","Local Rails"], p:"Paying salaries in local currencies instanty. Treasury management.", contact:"Philippe Bouaziz (CFO)" },
+    { n:"eToro", v:"Fintech", rev:"$630M", m:["🇪🇺 EU","🇬🇧 UK","🇦🇺 AU"], c:["USD","GBP","EUR","AUD"], s:["Coutts","Barclays"], p:"User deposits/withdrawals speed. Hedging crypto/fiat exposure.", contact:"Meron Shani (CFO)" },
+    { n:"Playtika", v:"Gaming", rev:"$2.5B", m:["🇺🇸 US","🇨🇳 CN","🇩🇪 DE"], c:["USD","CNY","EUR"], s:["AppStores","Banks"], p:"$300M+ User Acquisition spend in foreign currencies. Studio funding.", contact:"Craig Abrahams (CFO)" },
+    { n:"Global-e", v:"eCommerce", rev:"$570M", m:["🌎 Global"], c:["100+ Currencies"], s:["Adyen","Worldpay"], p:"Merchant settlement in local currency. Duty/Tax payments globally.", contact:"Ofer Koren (CFO)" },
+    { n:"Fiverr", v:"eCommerce", rev:"$360M", m:["🇺🇸 US","🇪🇺 EU","🇬🇧 UK"], c:["USD","EUR","GBP","ILS"], s:["Payoneer","Hyperwallet"], p:"Payouts to freelancers in 160 countries. High fees on withdrawals.", contact:"Ofer Katz (CFO)" },
+    { n:"IronSource", v:"AdTech", rev:"$1B+", m:["🇺🇸 US","🇯🇵 JP","🇰🇷 KR","🇨🇳 CN"], c:["USD","JPY","KRW","CNY"], s:["Tipalti","Oracle"], p:"Mass payouts to game developers. Server costs in USD.", contact:"Finance Director" },
+    { n:"Melio", v:"Fintech", rev:"$200M+", m:["🇺🇸 US"], c:["USD"], s:["Evolve","First Century"], p:"Cross-border B2B payments. Managing float and ACH speed.", contact:"VP Finance" },
+    { n:"ZIM", v:"Logistics", rev:"$10B+", m:["🇨🇳 CN","🇺🇸 US","🇪🇺 EU","🇧🇷 BR"], c:["USD","CNY","EUR","BRL"], s:["Swift","Local Banks"], p:"Port fees & Fuel payments in local currency. Capital intensive.", contact:"Xavier Destriau (CFO)" },
+    { n:"ICL Group", v:"Hardware", rev:"$7B+", m:["🇧🇷 BR","🇨🇳 CN","🇮🇳 IN"], c:["BRL","CNY","INR","USD"], s:["Trade Finance"], p:"Commodity trading FX volatility. Supply chain payments.", contact:"Aviram Lahav (CFO)" },
+    { n:"Taboola", v:"AdTech", rev:"$1.4B", m:["🇺🇸 US","🇯🇵 JP","🇧🇷 BR","🇩🇪 DE"], c:["USD","JPY","BRL","EUR"], s:["Payoneer","PingPong"], p:"Publisher TAC payouts in local currency. Hedging ad revenue.", contact:"Steve Walker (CFO)" },
+    { n:"Outbrain", v:"AdTech", rev:"$1B", m:["🇺🇸 US","🇪🇺 EU","🇯🇵 JP"], c:["USD","EUR","JPY"], s:["Payoneer","Internal"], p:"Margin squeeze from FX. Funding local entities.", contact:"Jason Kiviat (CFO)" },
+    { n:"Papaya Global", v:"Fintech", rev:"$100M+", m:["🇺🇸 US","🇪🇺 EU","🇸🇬 SG"], c:["USD","EUR","SGD","GBP"], s:["J.P. Morgan","Wise"], p:"Payroll wallet funding. Complex cross-border compliance.", contact:"CFO" },
+    { n:"Tipalti", v:"Fintech", rev:"$200M+", m:["🇺🇸 US","🇨🇦 CA","🇬🇧 UK"], c:["USD","CAD","GBP"], s:["Citi","Direct"], p:"Partner payment rails reliability. Money transmission licensing.", contact:"Sarah Spoja (CFO)" },
+    { n:"Gong", v:"SaaS", rev:"$300M", m:["🇺🇸 US","🇮🇪 IE"], c:["USD","EUR"], s:["Stripe","NetSuite"], p:"Cloud bills (AWS) optimization. US Staff payroll.", contact:"Tim Riitters (CFO)" },
+    { n:"Navan", v:"SaaS", rev:"$600M+", m:["🇺🇸 US","🇪🇺 EU","🇬🇧 UK"], c:["USD","EUR","GBP"], s:["Stripe","Visa"], p:"Global travel clearing. Corporate card issuance FX.", contact:"CFO" },
+    { n:"Yotpo", v:"SaaS", rev:"$150M+", m:["🇺🇸 US","🇬🇧 UK"], c:["USD","GBP"], s:["Stripe","PayPal"], p:"Paying agencies globally. Marketing spend reconciliation.", contact:"Sarit Firon (CFO)" },
+    { n:"Riskified", v:"Fintech", rev:"$300M", m:["🇺🇸 US","🇪🇺 EU","🇦🇺 AU"], c:["USD","EUR","AUD"], s:["Stripe","Adyen"], p:"Chargeback reimbursements in multiple currencies.", contact:"Aglika Dotcheva (CFO)" },
+    { n:"Wiz", v:"Cyber", rev:"$500M", m:["🇺🇸 US","🇪🇺 EU","🇮🇱 IL"], c:["USD","EUR","ILS"], s:["Stripe","Ramp"], p:"Consolidating AWS bills ($$$). Subsidiary funding.", contact:"Fazal Merchant (CFO)" },
+    { n:"AppsFlyer", v:"AdTech", rev:"$300M+", m:["🇺🇸 US","🇨🇳 CN","🇯🇵 JP"], c:["USD","CNY","JPY"], s:["Zuora","Wise"], p:"Massive cloud bills. Funding China/Japan offices.", contact:"CFO" },
+    { n:"Check Point", v:"Cyber", rev:"$2.4B", m:["🌎 Global"], c:["USD","EUR","GBP","JPY"], s:["SAP","Local Banks"], p:"Paying distributors globally. M&A integration.", contact:"Roei Golan (CFO)" },
+    { n:"AmDocs", v:"SaaS", rev:"$4.8B", m:["🇮🇳 IN","🇺🇸 US","🇵🇭 PH"], c:["INR","USD","PHP","EUR"], s:["SAP","Swift"], p:"Exotic currency payroll (India/Philippines). Project expenses.", contact:"Tamar Rapaport (CFO)" },
+    { n:"Cato Networks", v:"Cyber", rev:"$200M+", m:["🌎 150 PoPs"], c:["USD","EUR","SGD","JPY"], s:["Stripe","NetSuite"], p:"Paying ISPs & Data Centers in 150 countries.", contact:"Tomer Erez (CFO)" },
+    { n:"Via", v:"SaaS", rev:"$300M+", m:["🇺🇸 US","🇪🇺 EU"], c:["USD","EUR"], s:["Braintree","Tipalti"], p:"Driver payouts (Gig economy). Government contract collections.", contact:"Eyal Greidinger (CFO)" },
+    { n:"Bringg", v:"SaaS", rev:"$100M", m:["🇺🇸 US","🇧🇷 BR","🇪🇺 EU"], c:["USD","BRL","EUR"], s:["Braintree","Stripe"], p:"Logistics fleet settlement. Cross-border enterprise billing.", contact:"Doron Dinstein (CFO)" },
+    { n:"Verbit", v:"SaaS", rev:"$100M+", m:["🇺🇸 US","🇺🇦 UA","🇮🇳 IN"], c:["USD","UAH","INR"], s:["PayPal","Tipalti"], p:"High volume small payouts to transcribers. Geo-political FX.", contact:"CFO" },
+    { n:"SentinelOne", v:"Cyber", rev:"$600M", m:["🇺🇸 US","🇨🇿 CZ","🇯🇵 JP"], c:["USD","CZK","JPY"], s:["Stripe","NetSuite"], p:"R&D center funding (CZ/IL). Cloud infra spend.", contact:"Dave Bernhardt (CFO)" },
+    { n:"CyberArk", v:"Cyber", rev:"$900M", m:["🇺🇸 US","🇬🇧 UK","🇸🇬 SG"], c:["USD","GBP","SGD"], s:["SAP","Concur"], p:"Reimbursing sales teams globally. Global entity tax.", contact:"Josh Siegel (CFO)" },
+    { n:"JFrog", v:"SaaS", rev:"$350M", m:["🇺🇸 US","🇮🇳 IN","🇪🇺 EU"], c:["USD","INR","EUR"], s:["Zuora","Credit Cards"], p:"Cloud Marketplace fees. Developer event sponsorship.", contact:"Ed Grabscheid (CFO)" },
+    { n:"Nice", v:"SaaS", rev:"$2.3B", m:["🌎 Global"], c:["Multi"], s:["Oracle","Banks"], p:"M&A integration (multiple ERPs). Subsidiary management.", contact:"Beth Gaspich (CFO)" },
+    { n:"SimilarWeb", v:"SaaS", rev:"$220M", m:["🇺🇸 US","🇯🇵 JP","🇫🇷 FR"], c:["USD","JPY","EUR","GBP"], s:["Zuora","NetSuite"], p:"Data procurement payments. Global sales commissions.", contact:"Jason Schwartz (CFO)" },
+    { n:"WalkMe", v:"SaaS", rev:"$260M", m:["🇺🇸 US","🇯🇵 JP","🇦🇺 AU"], c:["USD","JPY","AUD"], s:["Zuora","NetSuite"], p:"SAP integration friction. Global payroll.", contact:"Hagit Ynon (CFO)" },
+    { n:"HiBob", v:"SaaS", rev:"$100M+", m:["🇺🇸 US","🇬🇧 UK","🇦🇺 AU"], c:["USD","GBP","AUD"], s:["Stripe","NetSuite"], p:"Multi-currency billing. Marketing spend.", contact:"CFO" },
+    { n:"Moon Active", v:"Gaming", rev:"$1.5B+", m:["🇺🇸 US","🇬🇧 UK","🇩🇪 DE"], c:["USD","GBP","EUR"], s:["Google/Apple","FB Ads"], p:"Ad network payments (FB/Google). Optimizing yield.", contact:"CFO" },
+    { n:"Lightricks", v:"SaaS", rev:"$200M+", m:["🇺🇸 US","🇨🇳 CN"], c:["USD","CNY","GBP"], s:["Apple","Tipalti"], p:"Creator payouts. Social Ad spend (TikTok/Insta).", contact:"Shaul Meridor (CFO)" },
+    { n:"Next Insurance", v:"Fintech", rev:"$800M", m:["🇺🇸 US"], c:["USD"], s:["Guidewire","Stripe"], p:"Claims payouts speed. Agent commissions.", contact:"Teodora Gouneva (CFO)" },
+    { n:"Lemonade", v:"Fintech", rev:"$250M+", m:["🇺🇸 US","🇪🇺 EU","🇬🇧 UK"], c:["USD","EUR","GBP"], s:["Stripe","Internal"], p:"Reinsurance FX settlements. European expansion.", contact:"Tim Bixby (CFO)" },
+    { n:"Plarium", v:"Gaming", rev:"$600M+", m:["🇺🇸 US","🇺🇦 UA"], c:["USD","UAH"], s:["Apps","Wire"], p:"Marketing spend. Ukraine team funding.", contact:"Finance VP" },
+    { n:"CrazyLabs", v:"Gaming", rev:"High", m:["🌎 Global"], c:["USD"], s:["Tipalti","AdMob"], p:"Paying indie devs globally. Ad revenue collection.", contact:"VP Finance" },
+    { n:"Supersonic", v:"Gaming", rev:"High", m:["🌎 Global"], c:["USD"], s:["Tipalti","IronSource"], p:"Developer transfers. UA Spend.", contact:"Finance Team" },
+    { n:"888 Holdings", v:"Gaming", rev:"$1.7B", m:["🇬🇧 UK","🇪🇺 EU","🇺🇸 US"], c:["GBP","EUR","USD"], s:["Worldpay","Nuivei"], p:"Betting payouts & Reg fees. Player withdrawals speed.", contact:"Yariv Dafna (CFO)" },
+    { n:"Imperva", v:"Cyber", rev:"$500M+", m:["🇺🇸 US","🌏 APAC"], c:["USD"], s:["Oracle","Wire"], p:"Data center payments. Integration costs.", contact:"Finance VP" },
+    { n:"Redis", v:"SaaS", rev:"$200M+", m:["🇺🇸 US","🇮🇱 IL"], c:["USD","ILS"], s:["Zuora","AWS"], p:"Marketplace fees (3% hit). Global sales team.", contact:"CFO" },
+    { n:"OwnCompany", v:"SaaS", rev:"$200M+", m:["🇺🇸 US","🇮🇱 IL"], c:["USD","ILS"], s:["Salesforce","NetSuite"], p:"Storage costs AWS/Azure. Salesforce fees.", contact:"CFO" },
+    { n:"Sisense", v:"SaaS", rev:"$150M", m:["🇺🇸 US","🇬🇧 UK","🇺🇦 UA"], c:["USD","GBP","UAH"], s:["Zuora","NetSuite"], p:"Efficiency measures. Cloud costs.", contact:"CFO" },
+    { n:"Vayyar", v:"Hardware", rev:"N/A", m:["🇨🇳 CN","🇯🇵 JP","🇺🇸 US"], c:["CNY","JPY","USD"], s:["SAP","Wire"], p:"Paying suppliers in Asia. Global distribution.", contact:"CFO" },
+    { n:"Innoviz", v:"Hardware", rev:"$20M", m:["🇩🇪 DE","🇨🇳 CN","🇺🇸 US"], c:["EUR","CNY","USD"], s:["SAP","Wire"], p:"Automotive supply chain. Inventory financing.", contact:"Eldar Cegla (CFO)" },
+    { n:"SolarEdge", v:"Hardware", rev:"$3B", m:["🇪🇺 EU","🇺🇸 US","🇦🇺 AU"], c:["EUR","USD","AUD"], s:["SAP","Banks"], p:"Component sourcing. Inventory FX exposure.", contact:"Ronen Faier (CFO)" },
+    { n:"Kornit", v:"Hardware", rev:"$250M", m:["🇺🇸 US","🇪🇺 EU","🇯🇵 JP"], c:["USD","EUR","JPY"], s:["Priority","Wire"], p:"Ink logistics. Global distributors.", contact:"Lauri Hanover (CFO)" },
+    { n:"Stratasys", v:"Hardware", rev:"$600M", m:["🇺🇸 US","🇪🇺 EU"], c:["USD","EUR"], s:["Oracle","Wire"], p:"Materials sourcing. M&A.", contact:"Eitan Zamir (CFO)" },
+    { n:"Talon Cyber", v:"Cyber", rev:"N/A", m:["🇺🇸 US","🇮🇱 IL"], c:["USD","ILS"], s:["NetSuite","AWS"], p:"Integration with Palo Alto. R&D spend.", contact:"Finance VP" },
+    { n:"Island", v:"Cyber", rev:"$100M+", m:["🇺🇸 US","🇮🇱 IL"], c:["USD","ILS"], s:["NetSuite","AWS"], p:"Rapid US expansion. Hiring costs.", contact:"CFO" },
+    { n:"Pentera", v:"Cyber", rev:"$100M", m:["🇺🇸 US","🇬🇧 UK","🇩🇪 DE"], c:["USD","GBP","EUR"], s:["NetSuite","Expensify"], p:"Field sales expenses. Global events.", contact:"CFO" },
+    { n:"Aqua Security", v:"Cyber", rev:"$150M", m:["🇺🇸 US","🇬🇧 UK"], c:["USD","GBP"], s:["NetSuite","Stripe"], p:"Cloud consumption bills. Global partners.", contact:"Dror Davidoff (CFO)" },
+    { n:"Orca Security", v:"Cyber", rev:"$100M+", m:["🇺🇸 US","🇮🇱 IL"], c:["USD","ILS"], s:["NetSuite","Stripe"], p:"Cloud costs. Global teams.", contact:"CFO" },
+    { n:"BigID", v:"Cyber", rev:"$100M", m:["🇺🇸 US","🇪🇺 EU"], c:["USD","EUR"], s:["NetSuite","AWS"], p:"Data processing costs. Enterprise sales.", contact:"Scott Casey (CFO)" },
+    { n:"Axonius", v:"Cyber", rev:"$100M+", m:["🇺🇸 US","🇮🇱 IL"], c:["USD","ILS"], s:["NetSuite","AWS"], p:"Global expansion. Marketing.", contact:"Jerry Raphael (CFO)" },
+    { n:"Claroty", v:"Cyber", rev:"$100M+", m:["🇺🇸 US","🇩🇪 DE","🇸🇬 SG"], c:["USD","EUR","SGD"], s:["NetSuite","AWS"], p:"Industrial partners. Field sales.", contact:"CFO" },
+    { n:"Cheq", v:"Cyber", rev:"N/A", m:["🇺🇸 US","🇯🇵 JP"], c:["USD","JPY"], s:["NetSuite","Google Ads"], p:"Ad platform integration. US Sales.", contact:"CFO" },
+    { n:"BioCatch", v:"Fintech", rev:"$100M+", m:["🇺🇸 US","🇬🇧 UK","🇧🇷 BR"], c:["USD","GBP","BRL"], s:["NetSuite","Azure"], p:"Global banking clients. Compliance.", contact:"CFO" },
+    { n:"Forter", v:"Fintech", rev:"$300M", m:["🇺🇸 US","🇪🇺 EU","🇸🇬 SG"], c:["USD","EUR","SGD"], s:["NetSuite","AWS"], p:"Real-time decision costs. Data infra.", contact:"CFO" },
+    { n:"Pagaya", v:"Fintech", rev:"$800M", m:["🇺🇸 US","🇮🇱 IL"], c:["USD","ILS"], s:["NetSuite","Capital One"], p:"Capital markets flow. Lending partners.", contact:"Michael Kurlander (CFO)" },
+    { n:"Fundbox", v:"Fintech", rev:"$100M+", m:["🇺🇸 US"], c:["USD"], s:["NetSuite","ACH"], p:"Credit facilities. Risk mgmt.", contact:"CFO" },
+    { n:"Sunbit", v:"Fintech", rev:"N/A", m:["🇺🇸 US"], c:["USD"], s:["NetSuite","POS"], p:"POS partnerships. Retail settlements.", contact:"CFO" },
+    { n:"Plus500", v:"Fintech", rev:"$830M", m:["🇬🇧 UK","🇦🇺 AU","🇪🇺 EU"], c:["GBP","AUD","EUR"], s:["Internal","Worldpay"], p:"Global regulation. Digital marketing.", contact:"Elad Even-Chen (CFO)" },
+    { n:"Snyk", v:"Cyber", rev:"$200M+", m:["🇺🇸 US","🇬🇧 UK"], c:["USD","GBP"], s:["Stripe","NetSuite"], p:"Cloud marketplace fees. Dev marketing.", contact:"Ken MacAskill (CFO)" },
+    { n:"Fireblocks", v:"Fintech", rev:"$100M+", m:["🇺🇸 US","🇸🇬 SG","🇬🇧 UK"], c:["USD","SGD","GBP"], s:["Crypto","Banks"], p:"Crypto-Fiat settlement. Institutional clients.", contact:"Madan Nagaldinne (CFO)" },
+    { n:"Guesty", v:"SaaS", rev:"$100M+", m:["🇺🇸 US","🇪🇺 EU","🇦🇺 AU"], c:["USD","EUR","AUD"], s:["Stripe","NetSuite"], p:"Property owner payouts. Multi-currency.", contact:"CFO" },
+    { n:"Perion", v:"AdTech", rev:"$700M+", m:["🇺🇸 US","🇪🇺 EU"], c:["USD","EUR"], s:["Priority","Bing Ads"], p:"Search ads spend. Cross-border media.", contact:"Maoz Sigron (CFO)" },
+    { n:"Nayax", v:"Fintech", rev:"$230M", m:["🇺🇸 US","🇪🇺 EU","🇦🇺 AU"], c:["USD","EUR","AUD"], s:["SAP","Local Acquirers"], p:"Global clearing. Supply chain.", contact:"Sagit Manor (CFO)" },
+    { n:"StreamElements", v:"SaaS", rev:"N/A", m:["🇺🇸 US","🇪🇺 EU"], c:["USD","EUR"], s:["PayPal","Tipalti"], p:"Creator payouts. Donation processing.", contact:"CFO" },
+    { n:"Overwolf", v:"Gaming", rev:"$100M+", m:["🇺🇸 US","🇪🇺 EU"], c:["USD","EUR"], s:["Tipalti","NetSuite"], p:"Creator rev-share. Ad revenue.", contact:"CFO" },
+    { n:"K Health", v:"SaaS", rev:"$100M+", m:["🇺🇸 US"], c:["USD"], s:["Stripe","NetSuite"], p:"Clinician payouts. AI compute.", contact:"CFO" },
+    { n:"AI21 Labs", v:"SaaS", rev:"Scaling", m:["🇺🇸 US"], c:["USD"], s:["Stripe","AWS"], p:"Massive GPU spend. Enterprise contracts.", contact:"CFO" },
+    { n:"Pinecone", v:"SaaS", rev:"Scaling", m:["🇺🇸 US"], c:["USD"], s:["Stripe","AWS"], p:"Cloud infra bills. US GTM.", contact:"VP Finance" },
+    { n:"DriveNets", v:"SaaS", rev:"N/A", m:["🇺🇸 US","🇯🇵 JP"], c:["USD","JPY"], s:["Wire","NetSuite"], p:"Global ISP clients. Hardware bundles.", contact:"CFO" },
+    { n:"WSC Sports", v:"SaaS", rev:"$100M", m:["🇺🇸 US","🇪🇺 EU"], c:["USD","EUR"], s:["Wire","Azure"], p:"Video processing. Rights mgmt.", contact:"CFO" },
+    { n:"Cellebrite", v:"SaaS", rev:"$300M+", m:["🇺🇸 US","🇪🇺 EU","🇧🇷 BR"], c:["USD","EUR","BRL"], s:["NetSuite","Wire"], p:"Gov collections. Global compliance.", contact:"Dana Gerner (CFO)" },
+    { n:"Kaltura", v:"SaaS", rev:"$170M", m:["🇺🇸 US","🇪🇺 EU"], c:["USD","EUR"], s:["Zuora","AWS"], p:"Hosting costs. Education clients.", contact:"Yaron Garmazi (CFO)" },
+    { n:"Incredibuild", v:"SaaS", rev:"$60M+", m:["🇺🇸 US","🇯🇵 JP"], c:["USD","JPY"], s:["Stripe","AWS"], p:"Cloud burst costs. Developer sales.", contact:"CFO" },
+    { n:"Priority", v:"SaaS", rev:"$100M+", m:["🇺🇸 US","🇬🇧 UK","🇮🇱 IL"], c:["USD","GBP","ILS"], s:["Internal","Cloud"], p:"Global partners. Acquisition strategy.", contact:"CFO" },
+    { n:"Sapiens", v:"SaaS", rev:"$500M+", m:["🇺🇸 US","🇪🇺 EU","🇮🇳 IN"], c:["USD","EUR","INR"], s:["SAP","Wire"], p:"Pro-services. Cloud migration.", contact:"Roni Giladi (CFO)" },
+    { n:"Delta Galil", v:"Hardware", rev:"$2B", m:["🇺🇸 US","🇪🇺 EU","🇻🇳 VN"], c:["USD","EUR","VND"], s:["SAP","Trade"], p:"Manufacturing supply. Retail brands.", contact:"CFO" },
+    { n:"Netafim", v:"Hardware", rev:"$1B+", m:["🇮🇳 IN","🇧🇷 BR","🇲🇽 MX"], c:["INR","BRL","MXN"], s:["SAP","Trade"], p:"Emerging market FX. Project finance.", contact:"CFO" },
+    { n:"AudioCodes", v:"Hardware", rev:"$250M", m:["🇺🇸 US","🇨🇳 CN"], c:["USD","CNY"], s:["Oracle","Wire"], p:"Manufacturing. Global VoIP.", contact:"Niran Baruch (CFO)" },
+    { n:"Radware", v:"Cyber", rev:"$260M", m:["🇺🇸 US","🇪🇺 EU"], c:["USD","EUR"], s:["Oracle","Wire"], p:"DDoS centers. Scrubbing costs.", contact:"Guy Avidan (CFO)" },
+    { n:"Nova", v:"Hardware", rev:"$500M+", m:["🇨🇳 CN","🇹🇼 TW","🇰🇷 KR"], c:["CNY","TWD","KRW"], s:["SAP","Wire"], p:"Asian market FX. Supply chain.", contact:"Dror David (CFO)" },
+    { n:"Camtek", v:"Hardware", rev:"$300M+", m:["🇨🇳 CN","🇹🇼 TW","🇺🇸 US"], c:["CNY","TWD","USD"], s:["Priority","Wire"], p:"Payments in China. Logistics.", contact:"Moshe Eisenberg (CFO)" },
+    { n:"Tower Semi", v:"Hardware", rev:"$1.4B", m:["🇺🇸 US","🇯🇵 JP","🇮🇱 IL"], c:["USD","JPY","ILS"], s:["SAP","Wire"], p:"CapEx. Foundry ops.", contact:"Oren Shirazi (CFO)" },
+    { n:"Mobileye", v:"SaaS", rev:"$2B", m:["🇺🇸 US","🇪🇺 EU","🇨🇳 CN"], c:["USD","EUR","CNY"], s:["Oracle","Wire"], p:"Fleet mgmt. Data annotation.", contact:"Anat Heller (CFO)" },
+    { n:"Exodigo", v:"SaaS", rev:"Scaling", m:["🇺🇸 US","🇪🇺 EU"], c:["USD","EUR"], s:["NetSuite","Wire"], p:"Mapping projects. Field teams.", contact:"CFO" },
+    { n:"Run:ai", v:"SaaS", rev:"Scaling", m:["🇺🇸 US"], c:["USD"], s:["NetSuite","Cloud"], p:"AI infra costs. Nvidia partnership.", contact:"CFO" },
+    { n:"Augury", v:"SaaS", rev:"$100M+ Est", m:["🇺🇸 US","🇪🇺 EU"], c:["USD","EUR"], s:["NetSuite","Wire"], p:"Sensor production. Insurance partners.", contact:"CFO" },
+    { n:"Fabric", v:"SaaS", rev:"Scaling", m:["🇺🇸 US","🇮🇱 IL"], c:["USD","ILS"], s:["NetSuite","Wire"], p:"Robotics supply. Retailer settlements.", contact:"CFO" },
+    { n:"Landa", v:"Hardware", rev:"Scaling", m:["🇪🇺 EU","🇺🇸 US"], c:["EUR","USD"], s:["SAP","Wire"], p:"Ink production. Press logistics.", contact:"CFO" },
+    { n:"Team8", v:"Fintech", rev:"N/A", m:["🇺🇸 US","🇮🇱 IL"], c:["USD","ILS"], s:["NetSuite","Wire"], p:"Portfolio funding. Global ops.", contact:"Finance Team" },
+    { n:"MyHeritage", v:"SaaS", rev:"$250M+", m:["🌎 Global"], c:["USD","EUR"], s:["BlueSnap","Adyen"], p:"DNA kit shipping. B2C subscriptions.", contact:"CFO" },
+    { n:"Taranis", v:"SaaS", rev:"Scaling", m:["🇺🇸 US","🇧🇷 BR"], c:["USD","BRL"], s:["NetSuite","Wire"], p:"Aerial imagery. Global pilots.", contact:"CFO" },
+    { n:"Trigo", v:"SaaS", rev:"Scaling", m:["🇪🇺 EU","🇺🇸 US"], c:["EUR","USD"], s:["NetSuite","Wire"], p:"Retailer integration. Hardware.", contact:"CFO" },
+    { n:"Hailo", v:"Hardware", rev:"Scaling", m:["🇹🇼 TW","🇯🇵 JP","🇺🇸 US"], c:["TWD","JPY","USD"], s:["SAP","Wire"], p:"Chip manufacturing. Supply chain.", contact:"CFO" },
+    { n:"Wiliot", v:"Hardware", rev:"Scaling", m:["🇺🇸 US","🇪🇺 EU"], c:["USD","EUR"], s:["NetSuite","Wire"], p:"Tag production. Supply chain.", contact:"CFO" },
+    { n:"Gett", v:"SaaS", rev:"$100M+", m:["🇬🇧 UK","🇮🇱 IL"], c:["GBP","ILS"], s:["NetSuite","Wire"], p:"B2B payouts. Driver network.", contact:"CFO" },
+    { n:"Minute Media", v:"AdTech", rev:"$100M+", m:["🇺🇸 US","🇬🇧 UK"], c:["USD","GBP"], s:["Tipalti","NetSuite"], p:"Publisher payouts. Content acquisition.", contact:"CFO" },
+    { n:"OpenWeb", v:"AdTech", rev:"$100M+", m:["🇺🇸 US"], c:["USD"], s:["Wire","NetSuite"], p:"Publisher rev-share. US expansion.", contact:"CFO" },
+    { n:"Optimove", v:"SaaS", rev:"$50M+", m:["🇺🇸 US","🇬🇧 UK"], c:["USD","GBP"], s:["NetSuite","Wire"], p:"Client integration. US Marketing.", contact:"CFO" },
+    { n:"Duda", v:"SaaS", rev:"$50M+", m:["🇺🇸 US"], c:["USD"], s:["Stripe","NetSuite"], p:"Agency partners. Subscription billing.", contact:"CFO" },
+    { n:"Start.io", v:"AdTech", rev:"$50M+", m:["🌎 Global"], c:["USD"], s:["Priority","Wire"], p:"Data processing. Publisher payments.", contact:"CFO" },
+    { n:"Zenity", v:"Cyber", rev:"Scaling", m:["🇺🇸 US"], c:["USD"], s:["Stripe","NetSuite"], p:"US expansion. Cloud marketplace.", contact:"CFO" },
+    { n:"Torq", v:"Cyber", rev:"Scaling", m:["🇺🇸 US"], c:["USD"], s:["Stripe","NetSuite"], p:"Enterprise sales. Marketing.", contact:"CFO" },
+    { n:"Descope", v:"Cyber", rev:"Scaling", m:["🇺🇸 US"], c:["USD"], s:["Stripe","AWS"], p:"Developer adoption. Cloud.", contact:"CFO" },
+    { n:"Qwak", v:"SaaS", rev:"Scaling", m:["🇺🇸 US"], c:["USD"], s:["AWS","Stripe"], p:"Compute costs. US Sales.", contact:"CFO" }
 ];
+
 function render() {
-    const g=document.getElementById("grid");
-    const s=document.getElementById("search").value.toLowerCase();
-    const v=document.getElementById("ver").value;
-    const e=document.getElementById("erp").value;
-    let c=0;
-    g.innerHTML=db.filter(i=>{
-        return (i.n.toLowerCase().includes(s)||i.c.toLowerCase().includes(s)) &&
-               (!v||i.v===v) && (!e||i.t.includes(e));
-    }).map(i=>{
-        c++;
-        const mw=i.sc.m*10; const cw=i.sc.c*10;
-        let bClass = i.s==='Public'?'public':i.s==='Unicorn'?'unicorn':'';
+    const grid = document.getElementById("grid");
+    const search = document.getElementById("search").value.toLowerCase();
+    const ver = document.getElementById("vertical").value;
+    const comp = document.getElementById("comp").value;
+    
+    grid.innerHTML = db.filter(i => {
+        const txt = (i.n + i.contact + i.c.join(' ') + i.m.join(' ')).toLowerCase();
+        return txt.includes(search) &&
+               (!ver || i.v === ver) &&
+               (!comp || i.s.includes(comp));
+    }).map(i => {
+        // Competitor Tags
+        const stackTags = i.s.map(t => {
+            const isComp = ["Stripe","Wise","Payoneer","Tipalti","PayPal","Adyen"].includes(t);
+            return `<span class="${isComp ? 'competitor' : 'tech'}">${t}</span>`;
+        }).join('');
+        
         return `<div class="card">
-        <div class="card-head">
-            <div><div style="font-weight:800;font-size:16px">${i.n}</div><div style="color:#6b7280;margin-top:2px">${i.v} <span class="badge ${bClass}">${i.s}</span></div></div>
-            <div style="text-align:right"><div style="font-weight:800;color:var(--primary);font-size:16px">${(i.sc.m+i.sc.c)/2}/10</div><div style="font-size:9px;text-transform:uppercase;color:#9ca3af">Fit Score</div></div>
-        </div>
-        <div class="metrics"><div class="metric"><span class="m-val">${i.f.r}</span><span class="m-lbl">Rev</span></div><div class="metric"><span class="m-val">${i.f.e}</span><span class="m-lbl">Emp</span></div><div class="metric"><span class="m-val">${i.f.g}</span><span class="m-lbl">Growth</span></div></div>
-        <div class="card-body">
-            <div><div class="hl-title">Focus</div>${i.d}</div>
-            <div><div class="hl-title">Tech</div><div>${i.t.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div>
-            <div>
-                <div class="bar-row"><span>Media Spend</span><div class="bar-bg"><div class="bar-fill" style="width:${mw}%"></div></div></div>
-                <div class="bar-row"><span>Cloud Spend</span><div class="bar-bg"><div class="bar-fill" style="width:${cw}%"></div></div></div>
+            <div class="card-top">
+                <div>
+                    <div class="name">${i.n}</div>
+                    <div class="meta">${i.v} • ${i.rev}</div>
+                </div>
+                <div class="rev-badge">FX HIGH</div>
             </div>
-            <div><div class="hl-title" style="color:#ef4444">Pain Points</div>${i.p.map(p=>`<div class="pain-li">${p}</div>`).join('')}</div>
-            <div class="contact"><span>Contact</span><span>${i.c}</span></div>
-        </div>
+            
+            <div class="fx-section">
+                <div class="fx-title">Global Footprint</div>
+                <div class="tag-container">${i.m.map(m=>`<span class="market-tag">${m}</span>`).join('')}</div>
+                <div class="tag-container" style="margin-bottom:0">${i.c.map(c=>`<span class="currency-tag">${c}</span>`).join('')}</div>
+            </div>
+            
+            <div class="card-body">
+                <div>
+                    <div class="section-title">Current Stack</div>
+                    <div class="stack-box">${stackTags}</div>
+                </div>
+                <div>
+                    <div class="section-title" style="color:#DC2626">Pain Points</div>
+                    <div class="pain-point"><span class="pain-icon">•</span>${i.p}</div>
+                </div>
+                <div class="contact">
+                    <span><i class="fa-regular fa-user"></i> ${i.contact}</span>
+                    <i class="fa-solid fa-chevron-left" style="font-size:10px"></i>
+                </div>
+            </div>
         </div>`;
     }).join('');
-    document.getElementById("count").innerText=c+" Companies";
 }
 render();
 </script>
