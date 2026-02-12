@@ -7,7 +7,6 @@
         :root { --orange: #FF6B00; --dark: #0F172A; --bg: #F1F5F9; }
         body { font-family: sans-serif; background: var(--bg); margin: 0; direction: ltr; }
         
-        /* עיצוב הכותרת הנוכחי שאהבת */
         .header { background: var(--dark); color: white; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--orange); }
         .header-left { display: flex; align-items: center; gap: 15px; text-align: left; }
         .logo-img { height: 30px; border-right: 1px solid #334155; padding-right: 15px; }
@@ -18,7 +17,6 @@
         input, select { padding: 12px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 14px; outline: none; }
         #search { flex-grow: 1; }
         
-        /* עיצוב הכרטיסיות העשיר */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 20px; padding: 20px; direction: rtl; }
         .card { background: white; border-radius: 12px; border: 1px solid #E2E8F0; overflow: hidden; text-align: right; display: flex; flex-direction: column; transition: 0.3s; }
         .card:hover { transform: translateY(-5px); border-color: var(--orange); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
@@ -28,13 +26,16 @@
         .rev-text { color: var(--orange); font-weight: 800; font-size: 16px; }
         .rev-label { font-size: 9px; color: #64748B; font-weight: bold; }
         
-        /* גריד נתונים עם 4 עמודות (כולל עובדים ו-TTM) */
         .metrics { display: grid; grid-template-columns: repeat(4, 1fr); background: #fff; border-bottom: 1px solid #E2E8F0; }
         .stat { padding: 10px; text-align: center; border-left: 1px solid #F1F5F9; }
         .stat b { display: block; font-size: 12px; color: #1E293B; }
         .stat span { font-size: 8px; color: #94A3B8; text-transform: uppercase; font-weight: bold; }
         
         .body { padding: 15px; font-size: 13px; flex-grow: 1; display: flex; flex-direction: column; gap: 12px; }
+        
+        /* עיצוב המטבעות/מדינות */
+        .currencies { font-size: 12px; background: #F1F5F9; padding: 8px; border-radius: 6px; color: #334155; font-weight: bold; border: 1px dashed #CBD5E1; }
+        
         .why-box { background: #FFF7ED; padding: 10px; border-radius: 6px; border-right: 4px solid var(--orange); font-size: 12px; line-height: 1.4; }
         .stack-box { background: #FEF2F2; color: #B91C1C; padding: 8px; border-radius: 6px; font-weight: bold; border: 1px solid #FECACA; font-size: 11px; text-align: center; }
         .footer { padding: 10px; background: #F8FAFC; font-size: 11px; font-weight: bold; color: #0F766E; border-top: 1px solid #E2E8F0; }
@@ -53,7 +54,7 @@
     </div>
 
     <div class="controls">
-        <input type="text" id="search" placeholder="Search Company, Stack, Contact..." onkeyup="render()">
+        <input type="text" id="search" placeholder="Search Company..." onkeyup="render()">
         <select id="catFilter" onchange="render()">
             <option value="">All Industries</option>
             <option value="Cyber">Cybersecurity</option>
@@ -63,7 +64,7 @@
         </select>
         <select id="tierFilter" onchange="render()">
             <option value="">All Tiers</option>
-            <option value="Tier 1">Tier 1 (Top)</option>
+            <option value="Tier 1">Tier 1</option>
             <option value="Tier 2">Tier 2</option>
             <option value="Tier 3">Tier 3</option>
         </select>
@@ -71,106 +72,106 @@
     <div class="grid" id="grid"></div>
     <script>
     const db = [
-        {n:"Monday.com",v:"SaaS",t:"Tier 1",r:"$970M",g:"+33%",ttm:"$1.1B",e:"1.9k",s:"Stripe, Adyen",w:["Global payroll 5+ currencies","Massive partner payouts","US cloud billing"],c:"Eliran Glazer (CFO)"},
-    {n:"Wix",v:"SaaS",t:"Tier 1",r:"$1.6B",g:"+13%",ttm:"$1.7B",e:"5.8k",s:"Stripe, BlueSnap",w:["Marketing FX spend","High-volume collections","Treasury flows"],c:"Lior Shemesh (CFO)"},
-    {n:"Wiz",v:"Cyber",t:"Tier 1",r:"$500M",g:"Hyper",ttm:"$600M",e:"1.2k",s:"Stripe, Ramp",w:["Cloud bills consolidation","Global sales hubs","Instant accounts"],c:"Fazal Merchant (CFO)"},
-    {n:"Deel",v:"Fintech",t:"Tier 1",r:"$500M+",g:"+70%",ttm:"$1.1B",e:"3k",s:"Wise, JPM",w:["Mass payouts globally","Payroll FX hedging","100+ entities"],c:"Philippe Bouaziz (CFO)"},
-    {n:"Armis",v:"Cyber",t:"Tier 2",r:"$200M",g:"+80%",ttm:"$250M",e:"700",s:"Local Banks",w:["Enterprise collections","Partner payouts","Global OpEx"],c:"Jonathan Carr (CFO)"},
-    {n:"Hibob",v:"SaaS",t:"Tier 2",r:"$100M+",g:"Hyper",ttm:"N/A",e:"800",s:"Stripe, NetSuite",w:["Multi-currency billing","Marketing FX","Payroll funding"],c:"Finance VP"},
-    {n:"SentinelOne",v:"Cyber",t:"Tier 2",r:"$620M",g:"+45%",ttm:"$700M",e:"2.2k",s:"NetSuite, Banks",w:["R&D payroll FX","SaaS billing FX","Cloud spend"],c:"Dave Bernhardt (CFO)"},
-    {n:"Global-e",v:"Fintech",t:"Tier 1",r:"$570M",g:"+32%",ttm:"$750M",e:"1.1k",s:"Adyen, JPM",w:["Merchant settlement","Duty/Tax payments","Real-time FX hedging"],c:"Ofer Koren (CFO)"},
-    {n:"Cato Networks",v:"Cyber",t:"Tier 2",r:"$200M+",g:"+46%",ttm:"N/A",e:"950",s:"Stripe, Banks",w:["Paying local ISPs","ARR collection FX","Office funding"],c:"Tomer Erez (CFO)"},
-    {n:"Papaya Global",v:"Fintech",t:"Tier 2",r:"$150M+",g:"+50%",ttm:"N/A",e:"800",s:"JPM, Citi",w:["Payroll funding","Emerging markets","Compliance FX"],c:"CFO"},
-    {n:"Riskified",v:"Fintech",t:"Tier 3",r:"$300M",g:"+10%",ttm:"$320M",e:"750",s:"Stripe, Adyen",w:["Chargeback payouts","Refund treasury","Global collections"],c:"Aglika Dotcheva (CFO)"},
-    {n:"Tipalti",v:"Fintech",t:"Tier 3",r:"$250M",g:"High",ttm:"N/A",e:"1k",s:"Citi, JPM",w:["Partner rails reliability","Mass payout FX","Float management"],c:"Sarah Spoja (CFO)"},
-    {n:"Nice",v:"SaaS",t:"Tier 3",r:"$2.4B",g:"+10%",ttm:"$2.5B",e:"8k",s:"Oracle, Banks",w:["Global OpEx","Subsidiary funding","Treasury"],c:"CFO"},
-    {n:"JFrog",v:"SaaS",t:"Tier 3",r:"$350M",g:"+25%",ttm:"$400M",e:"1.2k",s:"Zuora, Stripe",w:["SaaS subscription FX","Global payroll","Cloud spend"],c:"CFO"},
-    {n:"Amdocs",v:"SaaS",t:"Tier 3",r:"$4.8B",g:"Stable",ttm:"$5B",e:"30k",s:"SAP, Global Banks",w:["Complex FX hedging","Massive global OpEx","BPO payments"],c:"CFO"},
-    {n:"SolarEdge",v:"SaaS",t:"Tier 3",r:"$3B",g:"Low",ttm:"N/A",e:"4.5k",s:"SAP, Local Banks",w:["Global supply chain FX","Entity funding","Marketing spend"],c:"CFO"},
-    {n:"Fiverr",v:"Fintech",t:"Tier 2",r:"$360M",g:"Mod",ttm:"$380M",e:"800",s:"Payoneer, Stripe",w:["Freelancer payouts","FX conversion optimization","Global collections"],c:"CFO"},
-    {n:"Payoneer",v:"Fintech",t:"Tier 2",r:"$830M",g:"High",ttm:"$900M",e:"2k",s:"Internal System",w:["Banking rails partnership","Liquidity management","FX hedging"],c:"CFO"},
-    {n:"AppsFlyer",v:"SaaS",t:"Tier 2",r:"$350M",g:"High",ttm:"N/A",e:"1.4k",s:"Zuora, Banks",w:["Cloud billing","Marketing FX","Global payroll"],c:"VP Finance"},
-    {n:"Playtika",v:"Gaming",t:"Tier 1",r:"$2.6B",g:"Stable",ttm:"$2.7B",e:"4k",s:"Global Banks",w:["User payouts","Marketing spend FX","Treasury optimization"],c:"CFO"},
-    {n:"Moon Active",v:"Gaming",t:"Tier 1",r:"$1.5B",g:"High",ttm:"N/A",e:"2k",s:"Local Banks",w:["Global marketing spend","Provider payments","FX hedging"],c:"VP Finance"},
-    {n:"Check Point",v:"Cyber",t:"Tier 3",r:"$2.4B",g:"Stable",ttm:"$2.5B",e:"6k",s:"SAP, Oracle",w:["Enterprise treasury","Global office funding","OpEx"],c:"CFO"},
-    {n:"CyberArk",v:"Cyber",t:"Tier 3",r:"$750M",g:"+30%",ttm:"$800M",e:"2.8k",s:"SAP, Banks",w:["Global payroll","Marketing spend","FX hedging"],c:"CFO"},
-    {n:"Vast Data",v:"SaaS",t:"Tier 2",r:"$200M",g:"Hyper",ttm:"N/A",e:"700",s:"Local Banks",w:["Hyper-growth OpEx","Global sales entity funding"],c:"Director Finance"},
-    {n:"Claroty",v:"Cyber",t:"Tier 2",r:"$100M",g:"High",ttm:"N/A",e:"500",s:"Local Banks",w:["Global expansion funding","Marketing FX"],c:"VP Finance"},
-    {n:"Lemonade",v:"Fintech",t:"Tier 3",r:"$250M",g:"High",ttm:"$300M",e:"1k",s:"Stripe, Banks",w:["Claims payouts","Reinsurance FX","Global OpEx"],c:"CFO"},
-    {n:"Pagaya",v:"Fintech",t:"Tier 2",r:"$800M",g:"High",ttm:"$900M",e:"700",s:"NetSuite, Banks",w:["Capital flows FX","Global entity management"],c:"VP Finance"},
-    {n:"BioCatch",v:"Fintech",t:"Tier 2",r:"$100M",g:"High",ttm:"N/A",e:"300",s:"Global Banks",w:["Enterprise billing FX","Global payroll"],c:"VP Finance"},
-    {n:"Verbit",v:"SaaS",t:"Tier 3",r:"$100M",g:"Stable",ttm:"N/A",e:"500",s:"Tipalti, Stripe",w:["Contractor payouts","Global billing"],c:"Finance Manager"},
-    {n:"Rapyd",v:"Fintech",t:"Tier 1",r:"$500M",g:"High",ttm:"N/A",e:"800",s:"Internal System",w:["Global settlement rails","FX liquidity"],c:"CFO"},
-    {n:"eToro",v:"Fintech",t:"Tier 2",r:"$600M",g:"Stable",ttm:"N/A",e:"1.5k",s:"Checkout.com",w:["User withdrawals","Marketing FX","Treasury"],c:"CFO"},
-    {n:"Pinecone",v:"SaaS",t:"Tier 2",r:"Scaling",g:"Hyper",ttm:"N/A",e:"150",s:"Stripe, Banks",w:["Cloud spend","US entity funding"],c:"VP Finance"},
-    {n:"Orca Security",v:"Cyber",t:"Tier 3",r:"$100M",g:"High",ttm:"N/A",e:"400",s:"Stripe, Banks",w:["Global payroll","Marketing FX"],c:"CFO"},
-    {n:"Torq",v:"Cyber",t:"Tier 3",r:"Scaling",g:"High",ttm:"N/A",e:"150",s:"Stripe, NetSuite",w:["Global sales hubs funding"],c:"VP Finance"},
-    {n:"Transmit Security",v:"Cyber",t:"Tier 2",r:"$100M",g:"Stable",ttm:"N/A",e:"300",s:"Global Banks",w:["Enterprise billing","Global OpEx"],c:"Director"},
-    {n:"Navan",v:"Fintech",t:"Tier 1",r:"$600M",g:"High",ttm:"N/A",e:"2.5k",s:"Stripe, Reed",w:["Travel spend FX","Card program funding"],c:"CFO"},
-    {n:"Lusha",v:"SaaS",t:"Tier 3",r:"$100M",g:"Stable",ttm:"N/A",e:"300",s:"Stripe, Banks",w:["Marketing FX","Global payroll"],c:"VP Finance"},
-    {n:"BigID",v:"Cyber",t:"Tier 3",r:"$100M",g:"Stable",ttm:"N/A",e:"400",s:"Local Banks",w:["Global entity funding"],c:"CFO"},
-    {n:"Aqua Security",v:"Cyber",t:"Tier 3",r:"$100M",g:"High",ttm:"N/A",e:"500",s:"Banks",w:["Global sales payroll","OpEx"],c:"CFO"},
-    {n:"Silverfort",v:"Cyber",t:"Tier 3",r:"$50M",g:"High",ttm:"N/A",e:"200",s:"Local Banks",w:["Global expansion"],c:"CFO"},
-    {n:"JoyTunes",v:"SaaS",t:"Tier 3",r:"$150M",g:"High",ttm:"N/A",e:"250",s:"Apple, Stripe",w:["App store FX treasury"],c:"CFO"},
-    {n:"Cellebrite",v:"SaaS",t:"Tier 3",r:"$300M",g:"Stable",ttm:"$350M",e:"1k",s:"NetSuite",w:["Global collections","OpEx"],c:"CFO"},
-    {n:"Sapiens",v:"SaaS",t:"Tier 3",r:"$500M",g:"Mod",ttm:"$520M",e:"5.2k",s:"Global Banks",w:["Complex global payroll","FX hedging"],c:"CFO"},
-    {n:"WalkMe",v:"SaaS",t:"Tier 3",r:"$260M",g:"Low",ttm:"$280M",e:"900",s:"NetSuite, Zuora",w:["Global entity funding"],c:"CFO"},
-    {n:"HoneyBook",v:"Fintech",t:"Tier 2",r:"$100M",g:"High",ttm:"N/A",e:"400",s:"Stripe",w:["Merchant settlement"],c:"VP Finance"},
-    {n:"SciPlay",v:"Gaming",t:"Tier 3",r:"$600M",g:"Stable",ttm:"N/A",e:"800",s:"Banks",w:["Global payouts"],c:"CFO"},
-    {n:"Overwolf",v:"Gaming",t:"Tier 3",r:"$50M+",g:"High",ttm:"N/A",e:"150",s:"PayPal, Stripe",w:["Creator payouts FX"],c:"CFO"},
-    {n:"ThetaRay",v:"Fintech",t:"Tier 3",r:"$40M",g:"High",ttm:"N/A",e:"150",s:"Banks",w:["Global expansion"],c:"CFO"},
-    {n:"D-ID",v:"SaaS",t:"Tier 3",r:"Scaling",g:"Hyper",ttm:"N/A",e:"100",s:"Stripe",w:["Cloud spend FX"],c:"CFO"},
-    {n:"Melio",v:"Fintech",t:"Tier 2",r:"$200M",g:"High",ttm:"N/A",e:"600",s:"Banks",w:["B2B payment flows"],c:"CFO"},
-        {n:"Own Data",v:"SaaS",t:"Tier 3",r:"$200M",g:"High",ttm:"N/A",e:"600",s:"Salesforce",w:["Backup storage FX","Global payroll"],c:"VP Finance"},
-    {n:"BlueVine",v:"Fintech",t:"Tier 3",r:"$200M",g:"High",ttm:"N/A",e:"500",s:"Banks",w:["Banking partner FX"],c:"CFO"},
-    {n:"Zenity",v:"Cyber",t:"Tier 3",r:"Scaling",g:"High",ttm:"N/A",e:"60",s:"NetSuite",w:["SaaS security billing"],c:"CFO"},
-    {n:"Salt Security",v:"Cyber",t:"Tier 3",r:"$50M",g:"High",ttm:"N/A",e:"200",s:"Stripe",w:["Global sales hubs"],c:"CFO"},
-    {n:"Nova Ltd",v:"Cyber",t:"Tier 3",r:"$500M",g:"High",ttm:"N/A",e:"1.1k",s:"SAP",w:["Precision FX hedging"],c:"CFO"},
-    {n:"Tower Semi",v:"Cyber",t:"Tier 3",r:"$1.4B",g:"Stable",ttm:"N/A",e:"5k",s:"Banks",w:["Global manufacturing FX"],c:"CFO"},
-    {n:"Delta Galil",v:"Fintech",t:"Tier 3",r:"$2B",g:"Stable",ttm:"N/A",e:"20k",s:"SAP",w:["Supply chain FX"],c:"CFO"},
-    {n:"Netafim",v:"Fintech",t:"Tier 3",r:"$1B",g:"Stable",ttm:"N/A",e:"5k",s:"SAP",w:["Global irrigation projects"],c:"CFO"},
-    {n:"Sysdig",v:"Cyber",t:"Tier 3",r:"$100M",g:"High",ttm:"N/A",e:"700",s:"Stripe",w:["Cloud spend FX"],c:"CFO"},
-    {n:"Coro",v:"Cyber",t:"Tier 3",r:"$50M",g:"Hyper",ttm:"N/A",e:"300",s:"Stripe",w:["SMB global billing"],c:"CFO"},
-    {n:"Pentera",v:"Cyber",t:"Tier 3",r:"$50M",g:"High",ttm:"N/A",e:"300",s:"Banks",w:["Global sales payroll"],c:"CFO"},
-    {n:"Exodigo",v:"SaaS",t:"Tier 3",r:"Scaling",g:"High",ttm:"N/A",e:"120",s:"Banks",w:["Global expansion OpEx"],c:"VP Finance"},
-    {n:"Taranis",v:"SaaS",t:"Tier 3",r:"Scaling",g:"High",ttm:"N/A",e:"220",s:"Banks",w:["AgTech global FX"],c:"CFO"},
-    {n:"Starkware",v:"Fintech",t:"Tier 3",r:"Scaling",g:"High",ttm:"N/A",e:"150",s:"Banks",w:["Blockchain liquidity FX"],c:"VP Finance"},
-    {n:"Sunbit",v:"Fintech",t:"Tier 3",r:"$100M",g:"High",ttm:"N/A",e:"300",s:"Banks",w:["US retail flows"],c:"CFO"},
-    {n:"Personetics",v:"Fintech",t:"Tier 3",r:"$50M",g:"Mod",ttm:"N/A",e:"250",s:"Banks",w:["Global banking clients FX"],c:"CFO"},
-    {n:"August",v:"SaaS",t:"Tier 3",r:"$10M",g:"High",ttm:"N/A",e:"100",s:"Banks",w:["Marketing FX"],c:"Growth"},
-    {n:"DeepInstinct",v:"Cyber",t:"Tier 3",r:"$50M",g:"Mod",ttm:"N/A",e:"250",s:"Banks",w:["US entity funding"],c:"CFO"},
-    {n:"Gett",v:"SaaS",t:"Tier 3",r:"$100M",g:"Stable",ttm:"N/A",e:"800",s:"Banks",w:["Global driver payouts"],c:"VP Finance"},
-    {n:"Kaltura",v:"SaaS",t:"Tier 3",r:"$170M",g:"Mod",ttm:"N/A",e:"700",s:"Banks",w:["Global media FX"],c:"Public"},
-    {n:"BigID",v:"Cyber",t:"Tier 3",r:"$100M",g:"Stable",ttm:"N/A",e:"400",s:"Banks",w:["Global expansion"],c:"CFO"},
-    {n:"Incredibuild",v:"SaaS",t:"Tier 3",r:"$60M",g:"High",ttm:"N/A",e:"200",s:"Stripe",w:["Global developer tools billing"],c:"VP Finance"},
-    {n:"Fabric",v:"SaaS",t:"Tier 3",r:"Scaling",g:"High",ttm:"N/A",e:"300",s:"Banks",w:["Global logistics FX"],c:"CFO"},
-    {n:"Hailo",v:"SaaS",t:"Tier 3",r:"$50M",g:"High",ttm:"N/A",e:"250",s:"Banks",w:["Chip manufacturing FX"],c:"CFO"},
-    {n:"Next Ins.",v:"Fintech",t:"Tier 3",r:"$800M",g:"High",ttm:"N/A",e:"900",s:"Stripe",w:["Claims payouts FX"],c:"CFO"},
-    {n:"Beach Bum",v:"Gaming",t:"Tier 3",r:"$100M",g:"Stable",ttm:"N/A",e:"150",s:"Banks",w:["User payouts"],c:"CFO"},
-    {n:"Huuge Games",v:"Gaming",t:"Tier 3",r:"$300M",g:"Stable",ttm:"N/A",e:"600",s:"Banks",w:["Global user acquisition FX"],c:"Public"},
-    {n:"Noname",v:"Cyber",t:"Tier 3",r:"$50M",g:"Mod",ttm:"N/A",e:"200",s:"Banks",w:["US sales hub"],c:"Director"},
-    {n:"Talon",v:"Cyber",t:"Tier 3",r:"N/A",g:"High",ttm:"N/A",e:"150",s:"Banks",w:["Global payroll"],c:"VP Finance"},
-    {n:"Cybereason",v:"Cyber",t:"Tier 3",r:"$150M",g:"Low",ttm:"N/A",e:"600",s:"Banks",w:["Global office funding"],c:"VP Finance"},
-    {n:"SimilarWeb",v:"SaaS",t:"Tier 3",r:"$220M",g:"Mod",ttm:"$240M",e:"1k",s:"Zuora",w:["Global SaaS billing FX"],c:"CFO"},
-    {n:"IronSource",v:"SaaS",t:"Tier 1",r:"$1B+",g:"High",ttm:"N/A",e:"1.5k",s:"Tipalti",w:["Complex publisher payouts"],c:"Merged"},
-    {n:"ZIM",v:"Fintech",t:"Tier 3",r:"$10B",g:"Var",ttm:"N/A",e:"6k",s:"Banks",w:["Global port fees FX"],c:"Public"},
-    {n:"D-ID",v:"SaaS",t:"Tier 3",r:"Scaling",g:"Hyper",ttm:"N/A",e:"100",s:"Stripe",w:["Cloud spend FX"],c:"CFO"},
-    {n:"ThetaRay",v:"Fintech",t:"Tier 3",r:"$40M",g:"High",ttm:"N/A",e:"150",s:"Banks",w:["Global sales expansion"],c:"CFO"},
-    {n:"Own",v:"SaaS",t:"Tier 3",r:"$200M",g:"High",ttm:"N/A",e:"600",s:"Salesforce",w:["Treasury optimization"],c:"VP Finance"},
-    {n:"AppsFlyer Ltd",v:"SaaS",t:"Tier 2",r:"$350M",g:"High",ttm:"N/A",e:"1.4k",s:"Zuora",w:["Global marketing spend"],c:"VP Finance"},
-    {n:"Hibob Ltd",v:"SaaS",t:"Tier 2",r:"$100M+",g:"Hyper",ttm:"N/A",e:"800",s:"Stripe",w:["Multi-entity payroll"],c:"VP Finance"},
-    {n:"Wiz Ltd",v:"Cyber",t:"Tier 1",r:"$500M",g:"Hyper",ttm:"$600M",e:"1.2k",s:"Stripe",w:["Global accounts infrastructure"],c:"CFO"},
-    {n:"Deel Ltd",v:"Fintech",t:"Tier 1",r:"$500M",g:"High",ttm:"$1.1B",e:"3k",s:"Banks",w:["Card program hedging"],c:"CFO"},
-    {n:"Monday Ltd",v:"SaaS",t:"Tier 1",r:"$900M",g:"High",ttm:"$1B",e:"1.9k",s:"Stripe",w:["Partner payouts FX"],c:"Public"},
-    {n:"Wix Ltd",v:"SaaS",t:"Tier 1",r:"$1.6B",g:"Mod",ttm:"$1.7B",e:"5.8k",s:"Stripe",w:["Treasury optimization"],c:"Public"},
-    {n:"Armis Ltd",v:"Cyber",t:"Tier 2",r:"$200M",g:"High",ttm:"$250M",e:"700",s:"Banks",w:["Global OpEx wiring"],c:"CFO"},
-    {n:"SentinelOne Ltd",v:"Cyber",t:"Tier 2",r:"$620M",g:"High",ttm:"$700M",e:"2.2k",s:"NetSuite",w:["Cloud spend consolidation"],c:"Public"},
-    {n:"Tipalti Ltd",v:"Fintech",t:"Tier 3",r:"$250M",g:"High",ttm:"N/A",e:"1k",s:"Citi",w:["Global payout rails"],c:"Unicorn"},
-    {n:"Melio Ltd",v:"Fintech",t:"Tier 2",r:"$200M",g:"High",ttm:"N/A",e:"600",s:"Banks",w:["Payment routing FX"],c:"Unicorn"},
-    {n:"BioCatch Ltd",v:"Fintech",t:"Tier 2",r:"$100M",g:"High",ttm:"N/A",e:"300",s:"Banks",w:["Enterprise billing"],c:"Unicorn"},
-    {n:"HoneyBook Ltd",v:"Fintech",t:"Tier 2",r:"$100M",g:"High",ttm:"N/A",e:"400",s:"Stripe",w:["Merchant treasury"],c:"Unicorn"},
-    {n:"Verbit Ltd",v:"SaaS",t:"Tier 3",r:"$100M",g:"Stable",ttm:"N/A",e:"500",s:"Tipalti",w:["Massive contractor FX"],c:"Unicorn"},
-    {n:"Navan Ltd",v:"Fintech",t:"Tier 1",r:"$600M",g:"High",ttm:"N/A",e:"2.5k",s:"Stripe",w:["Global travel payments"],c:"Unicorn"}
+        {n:"Monday.com",v:"SaaS",t:"Tier 1",r:"$970M",g:"+33%",ttm:"$1.1B",e:"1.9k",curr:"🇺🇸 USD | 🇪🇺 EUR | 🇬🇧 GBP",s:"Stripe, Adyen",w:["Global payroll 5+ currencies","Massive partner payouts","US cloud billing"],c:"Eliran Glazer (CFO)"},
+    {n:"Wix",v:"SaaS",t:"Tier 1",r:"$1.6B",g:"+13%",ttm:"$1.7B",e:"5.8k",curr:"🇺🇸 USD | 🇧🇷 BRL | 🇪🇺 EUR",s:"Stripe, BlueSnap",w:["Marketing FX spend","High-volume collections","Treasury flows"],c:"Lior Shemesh (CFO)"},
+    {n:"Wiz",v:"Cyber",t:"Tier 1",r:"$500M",g:"Hyper",ttm:"$600M",e:"1.2k",curr:"🇺🇸 USD | 🇮🇱 ILS",s:"Stripe, Ramp",w:["Cloud bills consolidation","Global sales hubs","Instant accounts"],c:"Fazal Merchant (CFO)"},
+    {n:"Deel",v:"Fintech",t:"Tier 1",r:"$500M+",g:"+70%",ttm:"$1.1B",e:"3k",curr:"🌍 100+ Currencies",s:"Wise, JPM",w:["Mass payouts globally","Payroll FX hedging","100+ entities"],c:"Philippe Bouaziz (CFO)"},
+    {n:"Armis",v:"Cyber",t:"Tier 2",r:"$200M",g:"+80%",ttm:"$250M",e:"700",curr:"🇺🇸 USD | 🇪🇺 EUR",s:"Local Banks",w:["Enterprise collections","Partner payouts","Global OpEx"],c:"Jonathan Carr (CFO)"},
+    {n:"Hibob",v:"SaaS",t:"Tier 2",r:"$100M+",g:"Hyper",ttm:"N/A",e:"800",curr:"🇺🇸 USD | 🇬🇧 GBP | 🇦🇺 AUD",s:"Stripe, NetSuite",w:["Multi-currency billing","Marketing FX","Payroll funding"],c:"Finance VP"},
+    {n:"SentinelOne",v:"Cyber",t:"Tier 2",r:"$620M",g:"+45%",ttm:"$700M",e:"2.2k",curr:"🇺🇸 USD | 🇯🇵 JPY",s:"NetSuite, Banks",w:["R&D payroll FX","SaaS billing FX","Cloud spend"],c:"Dave Bernhardt (CFO)"},
+    {n:"Global-e",v:"Fintech",t:"Tier 1",r:"$570M",g:"+32%",ttm:"$750M",e:"1.1k",curr:"🌍 Multi-Currency",s:"Adyen, JPM",w:["Merchant settlement","Duty/Tax payments","Real-time FX hedging"],c:"Ofer Koren (CFO)"},
+    {n:"Cato Networks",v:"Cyber",t:"Tier 2",r:"$200M+",g:"+46%",ttm:"N/A",e:"950",curr:"🇺🇸 USD | 🇪🇺 EUR",s:"Stripe, Banks",w:["Paying local ISPs","ARR collection FX","Office funding"],c:"Tomer Erez (CFO)"},
+    {n:"Papaya Global",v:"Fintech",t:"Tier 2",r:"$150M+",g:"+50%",ttm:"N/A",e:"800",curr:"🌍 160+ Countries",s:"JPM, Citi",w:["Payroll funding","Emerging markets","Compliance FX"],c:"CFO"},
+    {n:"Riskified",v:"Fintech",t:"Tier 3",r:"$300M",g:"+10%",ttm:"$320M",e:"750",curr:"🇺🇸 USD | 🇪🇺 EUR",s:"Stripe, Adyen",w:["Chargeback payouts","Refund treasury","Global collections"],c:"Aglika Dotcheva (CFO)"},
+    {n:"Tipalti",v:"Fintech",t:"Tier 3",r:"$250M",g:"High",ttm:"N/A",e:"1k",curr:"🇺🇸 USD | 🇨🇦 CAD",s:"Citi, JPM",w:["Partner rails reliability","Mass payout FX","Float management"],c:"Sarah Spoja (CFO)"},
+    {n:"Nice",v:"SaaS",t:"Tier 3",r:"$2.4B",g:"+10%",ttm:"$2.5B",e:"8k",curr:"🌏 Global",s:"Oracle, Banks",w:["Global OpEx","Subsidiary funding","Treasury"],c:"CFO"},
+    {n:"JFrog",v:"SaaS",t:"Tier 3",r:"$350M",g:"+25%",ttm:"$400M",e:"1.2k",curr:"🇺🇸 USD | 🇮🇳 INR",s:"Zuora, Stripe",w:["SaaS subscription FX","Global payroll","Cloud spend"],c:"CFO"},
+    {n:"Amdocs",v:"SaaS",t:"Tier 3",r:"$4.8B",g:"Stable",ttm:"$5B",e:"30k",curr:"🌏 Global",s:"SAP, Global Banks",w:["Complex FX hedging","Massive global OpEx","BPO payments"],c:"CFO"},
+    {n:"SolarEdge",v:"SaaS",t:"Tier 3",r:"$3B",g:"Low",ttm:"N/A",e:"4.5k",curr:"🇺🇸 USD | 🇪🇺 EUR",s:"SAP, Local Banks",w:["Global supply chain FX","Entity funding","Marketing spend"],c:"CFO"},
+    {n:"Fiverr",v:"Fintech",t:"Tier 2",r:"$360M",g:"Mod",ttm:"$380M",e:"800",curr:"🇺🇸 USD | 🇪🇺 EUR",s:"Payoneer, Stripe",w:["Freelancer payouts","FX conversion optimization","Global collections"],c:"CFO"},
+    {n:"Payoneer",v:"Fintech",t:"Tier 2",r:"$830M",g:"High",ttm:"$900M",e:"2k",curr:"🌍 Multi-Currency",s:"Internal System",w:["Banking rails partnership","Liquidity management","FX hedging"],c:"CFO"},
+    {n:"AppsFlyer",v:"SaaS",t:"Tier 2",r:"$350M",g:"High",ttm:"N/A",e:"1.4k",curr:"🇺🇸 USD | 🇨🇳 CNY",s:"Zuora, Banks",w:["Cloud billing","Marketing FX","Global payroll"],c:"VP Finance"},
+    {n:"Playtika",v:"Gaming",t:"Tier 1",r:"$2.6B",g:"Stable",ttm:"$2.7B",e:"4k",curr:"🇺🇸 USD | 🇪🇺 EUR",s:"Global Banks",w:["User payouts","Marketing spend FX","Treasury optimization"],c:"CFO"},
+    {n:"Moon Active",v:"Gaming",t:"Tier 1",r:"$1.5B",g:"High",ttm:"N/A",e:"2k",curr:"🇺🇸 USD | 🇬🇧 GBP",s:"Local Banks",w:["Global marketing spend","Provider payments","FX hedging"],c:"VP Finance"},
+    {n:"Check Point",v:"Cyber",t:"Tier 3",r:"$2.4B",g:"Stable",ttm:"$2.5B",e:"6k",curr:"🇺🇸 USD | 🇪🇺 EUR",s:"SAP, Oracle",w:["Enterprise treasury","Global office funding","OpEx"],c:"CFO"},
+    {n:"CyberArk",v:"Cyber",t:"Tier 3",r:"$750M",g:"+30%",ttm:"$800M",e:"2.8k",curr:"🇺🇸 USD | 🇬🇧 GBP",s:"SAP, Banks",w:["Global payroll","Marketing spend","FX hedging"],c:"CFO"},
+    {n:"Vast Data",v:"SaaS",t:"Tier 2",r:"$200M",g:"Hyper",ttm:"N/A",e:"700",curr:"🇺🇸 USD",s:"Local Banks",w:["Hyper-growth OpEx","Global sales entity funding"],c:"Director Finance"},
+    {n:"Claroty",v:"Cyber",t:"Tier 2",r:"$100M",g:"High",ttm:"N/A",e:"500",curr:"🇺🇸 USD | 🇸🇬 SGD",s:"Local Banks",w:["Global expansion funding","Marketing FX"],c:"VP Finance"},
+    {n:"Lemonade",v:"Fintech",t:"Tier 3",r:"$250M",g:"High",ttm:"$300M",e:"1k",curr:"🇺🇸 USD | 🇪🇺 EUR",s:"Stripe, Banks",w:["Claims payouts","Reinsurance FX","Global OpEx"],c:"CFO"},
+    {n:"Pagaya",v:"Fintech",t:"Tier 2",r:"$800M",g:"High",ttm:"$900M",e:"700",curr:"🇺🇸 USD | 🇮🇱 ILS",s:"NetSuite, Banks",w:["Capital flows FX","Global entity management"],c:"VP Finance"},
+    {n:"BioCatch",v:"Fintech",t:"Tier 2",r:"$100M",g:"High",ttm:"N/A",e:"300",curr:"🇺🇸 USD | 🇬🇧 GBP",s:"Global Banks",w:["Enterprise billing FX","Global payroll"],c:"VP Finance"},
+    {n:"Verbit",v:"SaaS",t:"Tier 3",r:"$100M",g:"Stable",ttm:"N/A",e:"500",curr:"🇺🇸 USD",s:"Tipalti, Stripe",w:["Contractor payouts","Global billing"],c:"Finance Manager"},
+    {n:"Rapyd",v:"Fintech",t:"Tier 1",r:"$500M",g:"High",ttm:"N/A",e:"800",curr:"🌍 Multi-Currency",s:"Internal System",w:["Global settlement rails","FX liquidity"],c:"CFO"},
+    {n:"eToro",v:"Fintech",t:"Tier 2",r:"$600M",g:"Stable",ttm:"N/A",e:"1.5k",curr:"🇺🇸 USD | 🇪🇺 EUR",s:"Checkout.com",w:["User withdrawals","Marketing FX","Treasury"],c:"CFO"},
+    {n:"Pinecone",v:"SaaS",t:"Tier 2",r:"Scaling",g:"Hyper",ttm:"N/A",e:"150",curr:"🇺🇸 USD",s:"Stripe, Banks",w:["Cloud spend","US entity funding"],c:"VP Finance"},
+    {n:"Orca Security",v:"Cyber",t:"Tier 3",r:"$100M",g:"High",ttm:"N/A",e:"400",curr:"🇺🇸 USD | 🇬🇧 GBP",s:"Stripe, Banks",w:["Global payroll","Marketing FX"],c:"CFO"},
+    {n:"Torq",v:"Cyber",t:"Tier 3",r:"Scaling",g:"High",ttm:"N/A",e:"150",curr:"🇺🇸 USD",s:"Stripe, NetSuite",w:["Global sales hubs funding"],c:"VP Finance"},
+    {n:"Transmit Security",v:"Cyber",t:"Tier 2",r:"$100M",g:"Stable",ttm:"N/A",e:"300",curr:"🇺🇸 USD",s:"Global Banks",w:["Enterprise billing","Global OpEx"],c:"Director"},
+    {n:"Navan",v:"Fintech",t:"Tier 1",r:"$600M",g:"High",ttm:"N/A",e:"2.5k",curr:"🌍 Multi-Currency",s:"Stripe, Reed",w:["Travel spend FX","Card program funding"],c:"CFO"},
+    {n:"Lusha",v:"SaaS",t:"Tier 3",r:"$100M",g:"Stable",ttm:"N/A",e:"300",curr:"🇺🇸 USD",s:"Stripe, Banks",w:["Marketing FX","Global payroll"],c:"VP Finance"},
+    {n:"BigID",v:"Cyber",t:"Tier 3",r:"$100M",g:"Stable",ttm:"N/A",e:"400",curr:"🇺🇸 USD | 🇪🇺 EUR",s:"Local Banks",w:["Global entity funding"],c:"CFO"},
+    {n:"Aqua Security",v:"Cyber",t:"Tier 3",r:"$100M",g:"High",ttm:"N/A",e:"500",curr:"🇺🇸 USD",s:"Banks",w:["Global sales payroll","OpEx"],c:"CFO"},
+    {n:"Silverfort",v:"Cyber",t:"Tier 3",r:"$50M",g:"High",ttm:"N/A",e:"200",curr:"🇺🇸 USD | 🇸🇬 SGD",s:"Local Banks",w:["Global expansion"],c:"CFO"},
+    {n:"JoyTunes",v:"SaaS",t:"Tier 3",r:"$150M",g:"High",ttm:"N/A",e:"250",curr:"🇺🇸 USD",s:"Apple, Stripe",w:["App store FX treasury"],c:"CFO"},
+    {n:"Cellebrite",v:"SaaS",t:"Tier 3",r:"$300M",g:"Stable",ttm:"$350M",e:"1k",curr:"🇺🇸 USD | 🇪🇺 EUR",s:"NetSuite",w:["Global collections","OpEx"],c:"CFO"},
+    {n:"Sapiens",v:"SaaS",t:"Tier 3",r:"$500M",g:"Mod",ttm:"$520M",e:"5.2k",curr:"🇺🇸 USD | 🇮🇳 INR",s:"Global Banks",w:["Complex global payroll","FX hedging"],c:"CFO"},
+    {n:"WalkMe",v:"SaaS",t:"Tier 3",r:"$260M",g:"Low",ttm:"$280M",e:"900",curr:"🇺🇸 USD | 🇯🇵 JPY",s:"NetSuite, Zuora",w:["Global entity funding"],c:"CFO"},
+    {n:"HoneyBook",v:"Fintech",t:"Tier 2",r:"$100M",g:"High",ttm:"N/A",e:"400",curr:"🇺🇸 USD",s:"Stripe",w:["Merchant settlement"],c:"VP Finance"},
+    {n:"SciPlay",v:"Gaming",t:"Tier 3",r:"$600M",g:"Stable",ttm:"N/A",e:"800",curr:"🇺🇸 USD",s:"Banks",w:["Global payouts"],c:"CFO"},
+    {n:"Overwolf",v:"Gaming",t:"Tier 3",r:"$50M+",g:"High",ttm:"N/A",e:"150",curr:"🇺🇸 USD",s:"PayPal, Stripe",w:["Creator payouts FX"],c:"CFO"},
+    {n:"ThetaRay",v:"Fintech",t:"Tier 3",r:"$40M",g:"High",ttm:"N/A",e:"150",curr:"🇺🇸 USD | 🇦🇪 AED",s:"Banks",w:["Global expansion"],c:"CFO"},
+    {n:"D-ID",v:"SaaS",t:"Tier 3",r:"Scaling",g:"Hyper",ttm:"N/A",e:"100",curr:"🇺🇸 USD",s:"Stripe",w:["Cloud spend FX"],c:"CFO"},
+    {n:"Melio",v:"Fintech",t:"Tier 2",r:"$200M",g:"High",ttm:"N/A",e:"600",curr:"🇺🇸 USD",s:"Banks",w:["B2B payment flows"],c:"CFO"},
+        {n:"Own Data",v:"SaaS",t:"Tier 3",r:"$200M",g:"High",ttm:"N/A",e:"600",curr:"🇺🇸 USD",s:"Salesforce",w:["Backup storage FX","Global payroll"],c:"VP Finance"},
+    {n:"BlueVine",v:"Fintech",t:"Tier 3",r:"$200M",g:"High",ttm:"N/A",e:"500",curr:"🇺🇸 USD",s:"Banks",w:["Banking partner FX"],c:"CFO"},
+    {n:"Zenity",v:"Cyber",t:"Tier 3",r:"Scaling",g:"High",ttm:"N/A",e:"60",curr:"🇺🇸 USD",s:"NetSuite",w:["SaaS security billing"],c:"CFO"},
+    {n:"Salt Security",v:"Cyber",t:"Tier 3",r:"$50M",g:"High",ttm:"N/A",e:"200",curr:"🇺🇸 USD",s:"Stripe",w:["Global sales hubs"],c:"CFO"},
+    {n:"Nova Ltd",v:"Cyber",t:"Tier 3",r:"$500M",g:"High",ttm:"N/A",e:"1.1k",curr:"🇺🇸 USD | 🇨🇳 CNY",s:"SAP",w:["Precision FX hedging"],c:"CFO"},
+    {n:"Tower Semi",v:"Cyber",t:"Tier 3",r:"$1.4B",g:"Stable",ttm:"N/A",e:"5k",curr:"🇺🇸 USD | 🇯🇵 JPY",s:"Banks",w:["Global manufacturing FX"],c:"CFO"},
+    {n:"Delta Galil",v:"Fintech",t:"Tier 3",r:"$2B",g:"Stable",ttm:"N/A",e:"20k",curr:"🇺🇸 USD | 🇪🇺 EUR",s:"SAP",w:["Supply chain FX"],c:"CFO"},
+    {n:"Netafim",v:"Fintech",t:"Tier 3",r:"$1B",g:"Stable",ttm:"N/A",e:"5k",curr:"🇺🇸 USD | 🇧🇷 BRL",s:"SAP",w:["Global irrigation projects"],c:"CFO"},
+    {n:"Sysdig",v:"Cyber",t:"Tier 3",r:"$100M",g:"High",ttm:"N/A",e:"700",curr:"🇺🇸 USD",s:"Stripe",w:["Cloud spend FX"],c:"CFO"},
+    {n:"Coro",v:"Cyber",t:"Tier 3",r:"$50M",g:"Hyper",ttm:"N/A",e:"300",curr:"🇺🇸 USD",s:"Stripe",w:["SMB global billing"],c:"CFO"},
+    {n:"Pentera",v:"Cyber",t:"Tier 3",r:"$50M",g:"High",ttm:"N/A",e:"300",curr:"🇺🇸 USD | 🇬🇧 GBP",s:"Banks",w:["Global sales payroll"],c:"CFO"},
+    {n:"Exodigo",v:"SaaS",t:"Tier 3",r:"Scaling",g:"High",ttm:"N/A",e:"120",curr:"🇺🇸 USD",s:"Banks",w:["Global expansion OpEx"],c:"VP Finance"},
+    {n:"Taranis",v:"SaaS",t:"Tier 3",r:"Scaling",g:"High",ttm:"N/A",e:"220",curr:"🇺🇸 USD | 🇧🇷 BRL",s:"Banks",w:["AgTech global FX"],c:"CFO"},
+    {n:"Starkware",v:"Fintech",t:"Tier 3",r:"Scaling",g:"High",ttm:"N/A",e:"150",curr:"🇺🇸 USD",s:"Banks",w:["Blockchain liquidity FX"],c:"VP Finance"},
+    {n:"Sunbit",v:"Fintech",t:"Tier 3",r:"$100M",g:"High",ttm:"N/A",e:"300",curr:"🇺🇸 USD",s:"Banks",w:["US retail flows"],c:"CFO"},
+    {n:"Personetics",v:"Fintech",t:"Tier 3",r:"$50M",g:"Mod",ttm:"N/A",e:"250",curr:"🇺🇸 USD | 🇬🇧 GBP",s:"Banks",w:["Global banking clients FX"],c:"CFO"},
+    {n:"August",v:"SaaS",t:"Tier 3",r:"$10M",g:"High",ttm:"N/A",e:"100",curr:"🇺🇸 USD",s:"Banks",w:["Marketing FX"],c:"Growth"},
+    {n:"DeepInstinct",v:"Cyber",t:"Tier 3",r:"$50M",g:"Mod",ttm:"N/A",e:"250",curr:"🇺🇸 USD",s:"Banks",w:["US entity funding"],c:"CFO"},
+    {n:"Gett",v:"SaaS",t:"Tier 3",r:"$100M",g:"Stable",ttm:"N/A",e:"800",curr:"🇺🇸 USD | 🇬🇧 GBP",s:"Banks",w:["Global driver payouts"],c:"VP Finance"},
+    {n:"Kaltura",v:"SaaS",t:"Tier 3",r:"$170M",g:"Mod",ttm:"N/A",e:"700",curr:"🇺🇸 USD",s:"Banks",w:["Global media FX"],c:"Public"},
+    {n:"BigID",v:"Cyber",t:"Tier 3",r:"$100M",g:"Stable",ttm:"N/A",e:"400",curr:"🇺🇸 USD",s:"Banks",w:["Global expansion"],c:"CFO"},
+    {n:"Incredibuild",v:"SaaS",t:"Tier 3",r:"$60M",g:"High",ttm:"N/A",e:"200",curr:"🇺🇸 USD",s:"Stripe",w:["Global developer tools billing"],c:"VP Finance"},
+    {n:"Fabric",v:"SaaS",t:"Tier 3",r:"Scaling",g:"High",ttm:"N/A",e:"300",curr:"🇺🇸 USD",s:"Banks",w:["Global logistics FX"],c:"CFO"},
+    {n:"Hailo",v:"SaaS",t:"Tier 3",r:"$50M",g:"High",ttm:"N/A",e:"250",curr:"🇺🇸 USD | 🇯🇵 JPY",s:"Banks",w:["Chip manufacturing FX"],c:"CFO"},
+    {n:"Next Ins.",v:"Fintech",t:"Tier 3",r:"$800M",g:"High",ttm:"N/A",e:"900",curr:"🇺🇸 USD",s:"Stripe",w:["Claims payouts FX"],c:"CFO"},
+    {n:"Beach Bum",v:"Gaming",t:"Tier 3",r:"$100M",g:"Stable",ttm:"N/A",e:"150",curr:"🇺🇸 USD",s:"Banks",w:["User payouts"],c:"CFO"},
+    {n:"Huuge Games",v:"Gaming",t:"Tier 3",r:"$300M",g:"Stable",ttm:"N/A",e:"600",curr:"🇺🇸 USD | 🇪🇺 EUR",s:"Banks",w:["Global user acquisition FX"],c:"Public"},
+    {n:"Noname",v:"Cyber",t:"Tier 3",r:"$50M",g:"Mod",ttm:"N/A",e:"200",curr:"🇺🇸 USD",s:"Banks",w:["US sales hub"],c:"Director"},
+    {n:"Talon",v:"Cyber",t:"Tier 3",r:"N/A",g:"High",ttm:"N/A",e:"150",curr:"🇺🇸 USD",s:"Banks",w:["Global payroll"],c:"VP Finance"},
+    {n:"Cybereason",v:"Cyber",t:"Tier 3",r:"$150M",g:"Low",ttm:"N/A",e:"600",curr:"🇺🇸 USD | 🇯🇵 JPY",s:"Banks",w:["Global office funding"],c:"VP Finance"},
+    {n:"SimilarWeb",v:"SaaS",t:"Tier 3",r:"$220M",g:"Mod",ttm:"$240M",e:"1k",curr:"🇺🇸 USD | 🇯🇵 JPY",s:"Zuora",w:["Global SaaS billing FX"],c:"CFO"},
+    {n:"IronSource",v:"SaaS",t:"Tier 1",r:"$1B+",g:"High",ttm:"N/A",e:"1.5k",curr:"🇺🇸 USD",s:"Tipalti",w:["Complex publisher payouts"],c:"Merged"},
+    {n:"ZIM",v:"Fintech",t:"Tier 3",r:"$10B",g:"Var",ttm:"N/A",e:"6k",curr:"🇺🇸 USD | 🇨🇳 CNY",s:"Banks",w:["Global port fees FX"],c:"Public"},
+    {n:"D-ID",v:"SaaS",t:"Tier 3",r:"Scaling",g:"Hyper",ttm:"N/A",e:"100",curr:"🇺🇸 USD",s:"Stripe",w:["Cloud spend FX"],c:"CFO"},
+    {n:"ThetaRay",v:"Fintech",t:"Tier 3",r:"$40M",g:"High",ttm:"N/A",e:"150",curr:"🇺🇸 USD",s:"Banks",w:["Global sales expansion"],c:"CFO"},
+    {n:"Own",v:"SaaS",t:"Tier 3",r:"$200M",g:"High",ttm:"N/A",e:"600",curr:"🇺🇸 USD",s:"Salesforce",w:["Treasury optimization"],c:"VP Finance"},
+    {n:"AppsFlyer Ltd",v:"SaaS",t:"Tier 2",r:"$350M",g:"High",ttm:"N/A",e:"1.4k",curr:"🇺🇸 USD",s:"Zuora",w:["Global marketing spend"],c:"VP Finance"},
+    {n:"Hibob Ltd",v:"SaaS",t:"Tier 2",r:"$100M+",g:"Hyper",ttm:"N/A",e:"800",curr:"🇺🇸 USD",s:"Stripe",w:["Multi-entity payroll"],c:"VP Finance"},
+    {n:"Wix Ltd",v:"SaaS",t:"Tier 1",r:"$1.6B",g:"Mod",ttm:"$1.7B",e:"5.8k",curr:"🇺🇸 USD",s:"Stripe",w:["Treasury optimization"],c:"Public"},
+    {n:"Deel Ltd",v:"Fintech",t:"Tier 1",r:"$500M",g:"High",ttm:"$1.1B",e:"3k",curr:"🌍 Multi-Currency",s:"Banks",w:["Card program hedging"],c:"CFO"},
+    {n:"Monday Ltd",v:"SaaS",t:"Tier 1",r:"$900M",g:"High",ttm:"$1B",e:"1.9k",curr:"🇺🇸 USD",s:"Stripe",w:["Partner payouts FX"],c:"Public"},
+    {n:"Armis Ltd",v:"Cyber",t:"Tier 2",r:"$200M",g:"High",ttm:"$250M",e:"700",curr:"🇺🇸 USD",s:"Banks",w:["Global OpEx wiring"],c:"CFO"},
+    {n:"SentinelOne Ltd",v:"Cyber",t:"Tier 2",r:"$620M",g:"High",ttm:"$700M",e:"2.2k",curr:"🇺🇸 USD",s:"NetSuite",w:["Cloud spend consolidation"],c:"Public"},
+    {n:"Tipalti Ltd",v:"Fintech",t:"Tier 3",r:"$250M",g:"High",ttm:"N/A",e:"1k",curr:"🇺🇸 USD",s:"Citi",w:["Global payout rails"],c:"Unicorn"},
+    {n:"Melio Ltd",v:"Fintech",t:"Tier 2",r:"$200M",g:"High",ttm:"N/A",e:"600",curr:"🇺🇸 USD",s:"Banks",w:["Payment routing FX"],c:"Unicorn"},
+    {n:"BioCatch Ltd",v:"Fintech",t:"Tier 2",r:"$100M",g:"High",ttm:"N/A",e:"300",curr:"🇺🇸 USD",s:"Banks",w:["Enterprise billing"],c:"Unicorn"},
+    {n:"HoneyBook Ltd",v:"Fintech",t:"Tier 2",r:"$100M",g:"High",ttm:"N/A",e:"400",curr:"🇺🇸 USD",s:"Stripe",w:["Merchant treasury"],c:"Unicorn"},
+    {n:"Verbit Ltd",v:"SaaS",t:"Tier 3",r:"$100M",g:"Stable",ttm:"N/A",e:"500",curr:"🇺🇸 USD",s:"Tipalti",w:["Massive contractor FX"],c:"Unicorn"},
+    {n:"Navan Ltd",v:"Fintech",t:"Tier 1",r:"$600M",g:"High",ttm:"N/A",e:"2.5k",curr:"🇺🇸 USD",s:"Stripe",w:["Global travel payments"],c:"Unicorn"},
+    {n:"Wiz Ltd",v:"Cyber",t:"Tier 1",r:"$500M",g:"Hyper",ttm:"$600M",e:"1.2k",curr:"🇺🇸 USD",s:"Stripe",w:["Global accounts infrastructure"],c:"CFO"}
     ];
 
     function render() {
@@ -205,6 +206,7 @@
                     <div class="stat"><b>${i.g}</b><span>Growth</span></div>
                 </div>
                 <div class="body">
+                    <div class="currencies">${i.curr}</div>
                     <div class="why-box">
                         <b>?Why Airwallex</b><br>
                         ${i.w.map(item => `✓ ${item}`).join('<br>')}
@@ -220,3 +222,5 @@
     </script>
 </body>
 </html>
+
+        
