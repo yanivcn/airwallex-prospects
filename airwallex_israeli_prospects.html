@@ -9,96 +9,76 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root { --airwallex-orange: #FF6B00; --airwallex-dark: #E55D00; --airwallex-light: #FF8533; }
         body { font-family: 'Inter', -apple-system, sans-serif; background: #FFFFFF; line-height: 1.6; color: #212121; }
-        
         .header { background: white; border-bottom: 4px solid var(--airwallex-orange); padding: 25px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 12px rgba(255, 107, 0, 0.1); }
         .header-content { max-width: 1800px; margin: 0 auto; display: flex; align-items: center; gap: 30px; }
         .logo { height: 45px; font-size: 32px; font-weight: 800; color: var(--airwallex-orange); }
         .header-text { flex: 1; }
         .header h1 { font-size: 1.9em; margin-bottom: 8px; color: #212121; font-weight: 800; }
         .header h1 .highlight { color: var(--airwallex-orange); }
-        
         .stats-bar { display: flex; gap: 25px; flex-wrap: wrap; }
         .stat-item { display: flex; align-items: baseline; gap: 6px; }
         .stat-number { font-size: 1.5em; font-weight: 800; color: var(--airwallex-orange); }
         .stat-label { font-size: 0.85em; color: #616161; }
-        
         .filters { background: #FAFAFA; padding: 25px; margin: 20px auto; border-radius: 12px; max-width: 1800px; border: 2px solid #EEEEEE; }
         .filters-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
         .filters-title { font-size: 1.2em; font-weight: 700; color: #212121; }
         .clear-btn { padding: 8px 16px; background: white; border: 2px solid var(--airwallex-orange); border-radius: 8px; cursor: pointer; font-weight: 600; color: var(--airwallex-orange); transition: all 0.2s; }
         .clear-btn:hover { background: var(--airwallex-orange); color: white; }
-        
         .filters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
         .filter-group { display: flex; flex-direction: column; gap: 8px; }
         .filter-label { font-weight: 600; color: #616161; font-size: 0.85em; text-transform: uppercase; }
         .filter-select, .filter-input { padding: 10px; border: 2px solid #E0E0E0; border-radius: 8px; font-size: 0.95em; background: white; transition: all 0.2s; font-family: 'Inter', sans-serif; }
         .filter-select:focus, .filter-input:focus { outline: none; border-color: var(--airwallex-orange); box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1); }
         .search-box { grid-column: 1 / -1; }
-        
         .quick-filters { display: flex; gap: 10px; flex-wrap: wrap; }
         .quick-filter { padding: 8px 16px; border: 2px solid #E0E0E0; border-radius: 20px; background: white; font-size: 0.85em; cursor: pointer; transition: all 0.2s; font-weight: 600; }
         .quick-filter:hover { border-color: var(--airwallex-orange); color: var(--airwallex-orange); }
         .quick-filter.active { background: var(--airwallex-orange); color: white; border-color: var(--airwallex-orange); }
-        
         .results-bar { max-width: 1800px; margin: 0 auto 20px; padding: 15px 25px; background: #FAFAFA; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; }
         .results-count { font-size: 1.1em; font-weight: 600; }
         .results-count span { color: var(--airwallex-orange); font-size: 1.3em; font-weight: 800; }
-        
         .companies-grid { max-width: 1800px; margin: 0 auto; padding: 0 20px 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); gap: 20px; }
         .company-card { background: white; border-radius: 12px; padding: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.3s ease; overflow: hidden; border: 2px solid #F5F5F5; }
         .company-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(255, 107, 0, 0.15); border-color: var(--airwallex-orange); }
-        
         .fit-header { padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #F5F5F5; }
         .fit-exceptional .fit-header { background: linear-gradient(135deg, #00C853 0%, #69F0AE 100%); }
         .fit-high .fit-header { background: linear-gradient(135deg, #2196F3 0%, #64B5F6 100%); }
         .fit-good .fit-header { background: linear-gradient(135deg, var(--airwallex-orange) 0%, var(--airwallex-light) 100%); }
         .fit-medium .fit-header { background: linear-gradient(135deg, #9E9E9E 0%, #BDBDBD 100%); }
-        
         .company-name { font-size: 1.6em; font-weight: 800; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
         .fit-score-badge { background: rgba(255,255,255,0.3); backdrop-filter: blur(10px); color: white; padding: 8px 16px; border-radius: 12px; font-size: 1.1em; font-weight: 800; border: 2px solid rgba(255,255,255,0.5); }
-        
         .card-content { padding: 24px; }
         .company-tagline { color: #616161; font-size: 0.95em; margin-bottom: 15px; font-weight: 500; min-height: 40px; }
-        
         .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
         .badge { padding: 5px 12px; border-radius: 6px; font-size: 0.75em; font-weight: 600; }
         .badge-tier { background: #FFF3E0; color: #E65100; }
         .badge-category { background: #F3E5F5; color: #6A1B9A; }
         .badge-status { background: #E1F5FE; color: #01579B; }
-        
         .company-info { margin: 20px 0; }
         .info-row { display: flex; margin: 10px 0; font-size: 0.9em; }
         .info-label { font-weight: 600; color: #616161; min-width: 100px; }
         .info-value { color: #212121; flex: 1; }
-        
         .markets { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
         .market-tag { background: #E3F2FD; color: #1976D2; padding: 4px 10px; border-radius: 5px; font-size: 0.75em; font-weight: 500; }
-        
         .financials { background: #E8F5E9; padding: 16px; border-radius: 8px; margin-top: 15px; }
         .financials h4 { color: #2E7D32; margin-bottom: 12px; font-size: 0.95em; font-weight: 700; }
         .fin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.85em; }
         .fin-item { display: flex; justify-content: space-between; }
         .fin-label { color: #555; }
         .fin-value { font-weight: 700; color: #2E7D32; }
-        
         .product-fit { margin-top: 15px; padding: 16px; background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%); border-radius: 10px; border-right: 4px solid var(--airwallex-orange); }
         .product-fit-title { font-size: 0.85em; color: var(--airwallex-dark); margin-bottom: 12px; font-weight: 800; text-transform: uppercase; }
         .products-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
         .product-item { display: flex; justify-content: space-between; align-items: center; padding: 8px; background: rgba(255,255,255,0.8); border-radius: 6px; }
         .product-name { font-size: 0.8em; font-weight: 600; }
         .stars { color: var(--airwallex-orange); font-size: 1em; letter-spacing: 2px; }
-        
         .highlight { margin-top: 12px; padding-top: 12px; border-top: 2px dashed rgba(255, 107, 0, 0.3); }
         .highlight strong { font-size: 0.8em; color: var(--airwallex-dark); text-transform: uppercase; font-weight: 700; }
         .highlight-list { list-style: none; padding: 0; margin-top: 8px; }
         .highlight-list li { font-size: 0.8em; color: #5D4037; margin: 4px 0; padding-right: 12px; position: relative; }
         .highlight-list li::before { content: "▸"; position: absolute; right: 0; color: var(--airwallex-orange); font-weight: bold; }
-        
-        @media (max-width: 768px) {
-            .companies-grid, .filters-grid, .products-grid { grid-template-columns: 1fr; }
-            .header-content { flex-direction: column; align-items: flex-start; }
-            .stats-bar { display: none; } 
-        }
+        .hidden { display: none !important; }
+        @media (max-width: 768px) { .companies-grid, .filters-grid, .products-grid { grid-template-columns: 1fr; } .header-content { flex-direction: column; align-items: flex-start; } .stats-bar { display: none; } }
     </style>
 </head>
 <body>
@@ -108,10 +88,8 @@
             <div class="header-text">
                 <h1>Israel <span class="highlight">Top 100 Prospects</span></h1>
                 <div class="stats-bar">
-                    <div class="stat-item"><span class="stat-number" id="total-companies">100</span><span class="stat-label">חברות</span></div>
+                    <div class="stat-item"><span class="stat-number" id="total-companies">0</span><span class="stat-label">חברות</span></div>
                     <div class="stat-item"><span class="stat-number">45</span><span class="stat-label">Exceptional Fit</span></div>
-                    <div class="stat-item"><span class="stat-number">30+</span><span class="stat-label">Unicorns</span></div>
-                    <div class="stat-item"><span class="stat-number">20+</span><span class="stat-label">Public Cos</span></div>
                 </div>
             </div>
         </div>
@@ -122,34 +100,21 @@
             <div class="filters-title">🔍 סינון מתקדם</div>
             <button class="clear-btn" onclick="resetFilters()">נקה הכל</button>
         </div>
-        
         <div class="filters-grid">
             <div class="filter-group search-box">
                 <label class="filter-label">חיפוש</label>
                 <input type="text" id="search" class="filter-input" placeholder="שם חברה, תחום, מוצר...">
             </div>
-            
             <div class="filter-group">
                 <label class="filter-label">⭐ דירוג התאמה</label>
                 <select id="fit-filter" class="filter-select">
                     <option value="">הכל</option>
-                    <option value="exceptional">🏆 Exceptional (95-100)</option>
-                    <option value="high">⭐ High (85-94)</option>
-                    <option value="good">✓ Good (70-84)</option>
-                    <option value="medium">○ Medium (50-69)</option>
+                    <option value="exceptional">🏆 Exceptional</option>
+                    <option value="high">⭐ High</option>
+                    <option value="good">✓ Good</option>
+                    <option value="medium">○ Medium</option>
                 </select>
             </div>
-            
-            <div class="filter-group">
-                <label class="filter-label">💼 Tier</label>
-                <select id="tier-filter" class="filter-select">
-                    <option value="">הכל</option>
-                    <option value="Enterprise">Enterprise ($500M+)</option>
-                    <option value="Scale-Up">Scale-Up ($100-500M)</option>
-                    <option value="Growth">Growth ($10-100M)</option>
-                </select>
-            </div>
-            
             <div class="filter-group">
                 <label class="filter-label">📊 קטגוריה</label>
                 <select id="category-filter" class="filter-select">
@@ -158,299 +123,137 @@
                     <option value="Fintech">💳 Fintech</option>
                     <option value="SaaS">☁️ SaaS</option>
                     <option value="AdTech">📢 AdTech</option>
-                    <option value="eCommerce">🛒 eCommerce</option>
+                    <option value="Gaming">🎮 Gaming</option>
+                </select>
+            </div>
+             <div class="filter-group">
+                <label class="filter-label">💼 Tier</label>
+                <select id="tier-filter" class="filter-select">
+                    <option value="">הכל</option>
+                    <option value="Enterprise">Enterprise</option>
+                    <option value="Scale-Up">Scale-Up</option>
+                    <option value="Growth">Growth</option>
                 </select>
             </div>
         </div>
-        
-        <div class="quick-filters">
-            <button class="quick-filter" onclick="quickFilter('fit', 'exceptional')">🏆 Exceptional Only</button>
-            <button class="quick-filter" onclick="quickFilter('category', 'AdTech')">📢 AdTech</button>
-            <button class="quick-filter" onclick="quickFilter('category', 'Fintech')">💳 Fintech</button>
-            <button class="quick-filter" onclick="quickFilter('tier', 'Enterprise')">💼 Enterprise</button>
-            <button class="quick-filter" onclick="quickFilter('status', 'Public')">📈 Public</button>
+        <div class="results-bar">
+            <div class="results-count">מציג <span id="showing-count">0</span> חברות</div>
         </div>
     </div>
     
-    <div class="results-bar">
-        <div class="results-count">מציג <span id="showing-count">100</span> חברות</div>
-    </div>
-    
     <div class="companies-grid" id="companies-container"></div>
-
-    <script>
-    // Full Data Set for Airwallex Israel Top 100 Prospects
+<script>
     const companies = [
-        // --- TIER 1: EXCEPTIONAL FIT (High Volume / AdTech / Fintech / Marketplaces) ---
-        {
-            name: "Wiz", tagline: "Cloud Security Platform", category: "Cybersecurity", tier: "Enterprise", status: "Acquired (Google)", fitScore: 99, fitClass: "exceptional",
-            field: "CNAPP", model: "B2B Enterprise", customers: "Fortune 100", locations: "Tel Aviv, NYC", markets: ["Global"], marketScope: "Global",
-            financials: { "ARR": "$500M+", "Valuation": "$23B" }, products: { "Global Accounts": "★★★★★", "FX": "★★★★★" }, useCases: ["Global Payroll", "Cloud Spend"]
-        },
-        {
-            name: "Monday.com", tagline: "Work OS Platform", category: "SaaS", tier: "Enterprise", status: "Public", fitScore: 98, fitClass: "exceptional",
-            field: "Project Management", model: "B2B SaaS", customers: "225k+ Customers", locations: "Tel Aviv, Global", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$900M+", "Growth": "30%" }, products: { "Cards": "★★★★★", "Transfers": "★★★★☆" }, useCases: ["Multi-entity spend", "Ad Spend"]
-        },
-        {
-            name: "Rapyd", tagline: "Fintech-as-a-Service", category: "Fintech", tier: "Enterprise", status: "Unicorn", fitScore: 98, fitClass: "exceptional",
-            field: "Payments Infrastructure", model: "B2B2C / API", customers: "Global Merchants", locations: "Tel Aviv, Global", markets: ["Global"], marketScope: "Global",
-            financials: { "Valuation": "$8.75B", "Revenue": "Unknown" }, products: { "Treasury": "★★★★★", "Payouts": "★★★★★" }, useCases: ["Cross-border payouts", "FX Mgmt"]
-        },
-        {
-            name: "AppsFlyer", tagline: "Marketing Attribution", category: "AdTech", tier: "Scale-Up", status: "Unicorn", fitScore: 97, fitClass: "exceptional",
-            field: "Mobile Analytics", model: "B2B SaaS", customers: "80,000 Apps", locations: "Herzliya, Global", markets: ["Global"], marketScope: "Global",
-            financials: { "ARR": "$300M+", "Valuation": "$2B" }, products: { "Global Accounts": "★★★★★", "FX": "★★★★☆" }, useCases: ["Global office spend", "Cloud Payments"]
-        },
-        {
-            name: "Payoneer", tagline: "Global Payments", category: "Fintech", tier: "Enterprise", status: "Public", fitScore: 97, fitClass: "exceptional",
-            field: "Cross-Border Payments", model: "B2B / B2C", customers: "5M+ Users", locations: "Petah Tikva, NYC", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$830M", "Mkt Cap": "$2B+" }, products: { "Treasury": "★★★★★", "FX": "★★★★★" }, useCases: ["Competitor/Partner", "Treasury optimization"]
-        },
-        {
-            name: "IronSource (Unity)", tagline: "App Monetization", category: "AdTech", tier: "Enterprise", status: "Public (Merged)", fitScore: 97, fitClass: "exceptional",
-            field: "Mobile Ads", model: "Rev Share", customers: "Game Devs", locations: "Tel Aviv", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$1B+", "Type": "M&A" }, products: { "Payouts": "★★★★★", "FX": "★★★★★" }, useCases: ["Mass payouts to devs", "Ad Inventory"]
-        },
-        {
-            name: "Taboola", tagline: "Content Discovery", category: "AdTech", tier: "Enterprise", status: "Public", fitScore: 96, fitClass: "exceptional",
-            field: "Native Advertising", model: "CPC / RPM", customers: "Publishers/Advertisers", locations: "Ramat Gan, NYC", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$1.4B", "Gross Profit": "$400M" }, products: { "Mass Payouts": "★★★★★", "FX": "★★★★★" }, useCases: ["Publisher payouts (multi-currency)", "Ad spend"]
-        },
-        {
-            name: "Outbrain", tagline: "Recommendation Platform", category: "AdTech", tier: "Enterprise", status: "Public", fitScore: 96, fitClass: "exceptional",
-            field: "Native Advertising", model: "CPC", customers: "Publishers", locations: "Netanya, NYC", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$1B+", "Mkt Cap": "$250M" }, products: { "Mass Payouts": "★★★★★", "FX": "★★★★★" }, useCases: ["Global Publisher Payments", "OpEx"]
-        },
-        {
-            name: "Fiverr", tagline: "Freelance Marketplace", category: "Marketplace", tier: "Enterprise", status: "Public", fitScore: 96, fitClass: "exceptional",
-            field: "Gig Economy", model: "Commission", customers: "SMBs / Freelancers", locations: "Tel Aviv, NYC", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$360M", "GMV": "$1B+" }, products: { "Payouts": "★★★★★", "Global Accounts": "★★★★★" }, useCases: ["Freelancer payouts", "Multi-currency collections"]
-        },
-        {
-            name: "Deel", tagline: "Global Hiring & Payroll", category: "Fintech", tier: "Scale-Up", status: "Unicorn", fitScore: 96, fitClass: "exceptional",
-            field: "HR Tech / Payroll", model: "SaaS + Processing", customers: "15,000+ Companies", locations: "Remote / TA", markets: ["Global"], marketScope: "Global",
-            financials: { "ARR": "$500M+", "Valuation": "$12B" }, products: { "Payouts": "★★★★★", "FX": "★★★★★" }, useCases: ["Massive payroll payouts", "FX for salaries"]
-        },
-        {
-            name: "Papaya Global", tagline: "Global Payroll Mgmt", category: "Fintech", tier: "Scale-Up", status: "Unicorn", fitScore: 96, fitClass: "exceptional",
-            field: "Payroll OS", model: "SaaS + Payments", customers: "Enterprise", locations: "Herzliya", markets: ["Global"], marketScope: "Global",
-            financials: { "ARR": "$100M+", "Valuation": "$3.7B" }, products: { "Payouts": "★★★★★", "FX": "★★★★★" }, useCases: ["EOR Payments", "Tax payments globally"]
-        },
-        {
-            name: "Tipalti", tagline: "Accounts Payable Auto", category: "Fintech", tier: "Enterprise", status: "Unicorn", fitScore: 96, fitClass: "exceptional",
-            field: "AP Automation", model: "SaaS + Transaction", customers: "3,000+ Mid-mkt", locations: "Kibbutz Glil Yam", markets: ["US/Global"], marketScope: "Global",
-            financials: { "Processing": "$43B+", "Valuation": "$8.3B" }, products: { "Treasury": "★★★★★", "FX": "★★★★★" }, useCases: ["Partner payment rails", "Embedded Finance"]
-        },
-        {
-            name: "Global-e", tagline: "Cross-Border E-com", category: "eCommerce", tier: "Enterprise", status: "Public", fitScore: 96, fitClass: "exceptional",
-            field: "E-com Enabler", model: "Transaction Fee", customers: "Merchants (DTC)", locations: "Petah Tikva", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$570M", "Growth": "50%+" }, products: { "Acquiring": "★★★★★", "FX": "★★★★★" }, useCases: ["Merchant settlement", "Duty/Tax payments"]
-        },
-        {
-            name: "Riskified", tagline: "Fraud Management", category: "Fintech", tier: "Enterprise", status: "Public", fitScore: 95, fitClass: "exceptional",
-            field: "Fraud Prevention", model: "Chargeback Guarantee", customers: "Enterprise Merchants", locations: "Tel Aviv, NYC", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$300M", "GMV Reviewed": "$100B+" }, products: { "FX": "★★★★☆", "Cards": "★★★☆☆" }, useCases: ["Global OpEx", "Multi-entity mgmt"]
-        },
-        {
-            name: "Playtika", tagline: "Mobile Gaming", category: "Gaming", tier: "Enterprise", status: "Public", fitScore: 95, fitClass: "exceptional",
-            field: "Social Casino", model: "IAP", customers: "B2C", locations: "Herzliya", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$2.6B", "EBITDA": "$800M" }, products: { "FX": "★★★★★", "Cards": "★★★★☆" }, useCases: ["UA Spend (Ads)", "Server costs", "M&A"]
-        },
-        {
-            name: "Moon Active", tagline: "Mobile Gaming", category: "Gaming", tier: "Scale-Up", status: "Unicorn", fitScore: 95, fitClass: "exceptional",
-            field: "Casual Games", model: "IAP", customers: "B2C (Coin Master)", locations: "Tel Aviv", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$1.5B+", "Valuation": "$5B" }, products: { "FX": "★★★★★", "Cards": "★★★★☆" }, useCases: ["Huge Ad Spend (FB/Google)", "Global Teams"]
-        },
-        {
-            name: "Navan", tagline: "Travel & Expense", category: "Fintech", tier: "Enterprise", status: "Public Ready", fitScore: 98, fitClass: "exceptional",
-            field: "Travel Tech", model: "SaaS + Interchange", customers: "Global Corps", locations: "Tel Aviv (R&D)", markets: ["Global"], marketScope: "Global",
-            financials: { "Valuation": "$9B", "Spend Vol": "$10B+" }, products: { "Cards": "★★★★★", "Reimbursements": "★★★★★" }, useCases: ["Issuing partnership", "Local clearing"]
-        },
-        {
-            name: "Melio", tagline: "B2B Payments", category: "Fintech", tier: "Scale-Up", status: "Unicorn", fitScore: 95, fitClass: "exceptional",
-            field: "SMB Payments", model: "Transaction Fee", customers: "US SMBs", locations: "Tel Aviv", markets: ["US"], marketScope: "US-EU",
-            financials: { "Valuation": "$4B", "Vol": "High" }, products: { "Rails": "★★★★★", "ACH": "★★★★★" }, useCases: ["Payment Rails Provider", "Intl Transfers"]
-        },
-        {
-            name: "Gong", tagline: "Revenue Intelligence", category: "SaaS", tier: "Enterprise", status: "Unicorn", fitScore: 95, fitClass: "exceptional",
-            field: "Sales AI", model: "B2B SaaS", customers: "Enterprise", locations: "Ramat Gan, US", markets: ["Global"], marketScope: "Global",
-            financials: { "ARR": "$200M+", "Valuation": "$7.2B" }, products: { "Global Accounts": "★★★★☆", "Cards": "★★★★☆" }, useCases: ["Global Sales Offices", "Cloud Spend"]
-        },
-        {
-            name: "Wix", tagline: "Web Development", category: "SaaS", tier: "Enterprise", status: "Public", fitScore: 95, fitClass: "exceptional",
-            field: "CMS / Web Builder", model: "Freemium SaaS", customers: "200M+ Users", locations: "Tel Aviv, Global", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$1.5B", "Mkt Cap": "$9B" }, products: { "Acquiring": "★★★★☆", "FX": "★★★★★" }, useCases: ["Wix Payments infrastructure", "Global Marketing"]
-        },
-
-        // --- TIER 2: HIGH FIT (Cyber / High Growth SaaS / Enterprise) ---
-        {
-            name: "SentinelOne", tagline: "Endpoint Security", category: "Cybersecurity", tier: "Enterprise", status: "Public", fitScore: 94, fitClass: "high",
-            field: "XDR / Endpoint", model: "B2B SaaS", customers: "Enterprise", locations: "Tel Aviv, US", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$600M+", "Growth": "40%" }, products: { "Global Accounts": "★★★★☆", "FX": "★★★★☆" }, useCases: ["Global Subsidiary Funding", "Payroll"]
-        },
-        {
-            name: "CyberArk", tagline: "Identity Security", category: "Cybersecurity", tier: "Enterprise", status: "Public", fitScore: 94, fitClass: "high",
-            field: "PAM / Identity", model: "License/SaaS", customers: "Fortune 500", locations: "Petah Tikva", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$900M", "Mkt Cap": "$10B+" }, products: { "FX": "★★★★☆", "Transfer": "★★★★☆" }, useCases: ["Global Sales Ops", "M&A Integration"]
-        },
-        {
-            name: "Check Point", tagline: "Cyber Security", category: "Cybersecurity", tier: "Enterprise", status: "Public", fitScore: 93, fitClass: "high",
-            field: "Network Sec", model: "Hardware/SaaS", customers: "Global Gov/Ent", locations: "Tel Aviv", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$2.4B", "Profit": "High" }, products: { "FX": "★★★★☆", "Transfer": "★★★★☆" }, useCases: ["Vendor Payments", "Global Logistics"]
-        },
-        {
-            name: "Nice", tagline: "CX & Cloud", category: "SaaS", tier: "Enterprise", status: "Public", fitScore: 93, fitClass: "high",
-            field: "Contact Center", model: "B2B SaaS", customers: "Enterprise", locations: "Ra'anana", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$2.3B", "Mkt Cap": "$12B" }, products: { "FX": "★★★★☆", "Global Accounts": "★★★★☆" }, useCases: ["Global R&D Centers", "Acquisitions"]
-        },
-        {
-            name: "JFrog", tagline: "Liquid Software", category: "SaaS", tier: "Scale-Up", status: "Public", fitScore: 93, fitClass: "high",
-            field: "DevOps", model: "Usage/SaaS", customers: "Developers", locations: "Netanya, US", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$350M", "Growth": "25%" }, products: { "Cards": "★★★★☆", "FX": "★★★★☆" }, useCases: ["Cloud Infrastructure Payments", "Global Offices"]
-        },
-        {
-            name: "Cato Networks", tagline: "SASE Platform", category: "Cybersecurity", tier: "Scale-Up", status: "Unicorn", fitScore: 93, fitClass: "high",
-            field: "SASE / Networking", model: "B2B SaaS", customers: "2,000+ Ent", locations: "Tel Aviv", markets: ["Global"], marketScope: "Global",
-            financials: { "ARR": "$200M+", "Valuation": "$3B+" }, products: { "Global Accounts": "★★★★☆", "FX": "★★★★☆" }, useCases: ["ISP Payments Globally", "Hardware Logistics"]
-        },
-        {
-            name: "Transmit Security", tagline: "Identity Management", category: "Cybersecurity", tier: "Scale-Up", status: "Unicorn", fitScore: 92, fitClass: "high",
-            field: "CIAM / Passwordless", model: "B2B SaaS", customers: "Banks/Retail", locations: "Tel Aviv", markets: ["US/EU"], marketScope: "Global",
-            financials: { "Valuation": "$2.7B", "Raised": "$543M" }, products: { "FX": "★★★★☆", "Cards": "★★★☆☆" }, useCases: ["Global Sales expansion", "Vendor Mgmt"]
-        },
-        {
-            name: "Snyk", tagline: "Developer Security", category: "Cybersecurity", tier: "Scale-Up", status: "Unicorn", fitScore: 92, fitClass: "high",
-            field: "AppSec", model: "Freemium/Ent", customers: "Developers", locations: "Tel Aviv/Boston", markets: ["Global"], marketScope: "Global",
-            financials: { "Valuation": "$7.4B", "ARR": "$200M+" }, products: { "Cards": "★★★★☆", "FX": "★★★★☆" }, useCases: ["Cloud spend", "Distributed teams"]
-        },
-        {
-            name: "Yotpo", tagline: "E-com Marketing", category: "SaaS", tier: "Scale-Up", status: "Unicorn", fitScore: 92, fitClass: "high",
-            field: "Reviews/Loyalty", model: "B2B SaaS", customers: "Shopify Brands", locations: "Tel Aviv, NYC", markets: ["US/Global"], marketScope: "Global",
-            financials: { "ARR": "$100M+", "Valuation": "$1.4B" }, products: { "Global Accounts": "★★★★☆", "Cards": "★★★★☆" }, useCases: ["Marketing Spend", "Partner commissions"]
-        },
-        {
-            name: "SimilarWeb", tagline: "Digital Intelligence", category: "SaaS", tier: "Scale-Up", status: "Public", fitScore: 92, fitClass: "high",
-            field: "Market Intelligence", model: "B2B SaaS", customers: "Marketers", locations: "Tel Aviv, Global", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$220M", "Growth": "High" }, products: { "FX": "★★★★☆", "Cards": "★★★★☆" }, useCases: ["Data acquisition payments", "Global Sales"]
-        },
-        {
-            name: "WalkMe", tagline: "Digital Adoption", category: "SaaS", tier: "Enterprise", status: "Acquired (SAP)", fitScore: 91, fitClass: "high",
-            field: "DAP", model: "B2B SaaS", customers: "Enterprise", locations: "Tel Aviv", markets: ["Global"], marketScope: "Global",
-            financials: { "Revenue": "$260M", "Sale": "$1.5B" }, products: { "FX": "★★★★☆", "Cards": "★★★☆☆" }, useCases: ["Post-merger integration", "Global payroll"]
-        },
-        {
-            name: "HiBob", tagline: "HR Platform", category: "SaaS", tier: "Scale-Up", status: "Unicorn", fitScore: 91, fitClass: "high",
-            field: "HRIS", model: "B2B SaaS", customers: "Mid-Market", locations: "Tel Aviv, London", markets: ["Global"], marketScope: "Global",
-            financials: { "ARR": "$100M+", "Valuation": "$2.7B" }, products: { "Payouts": "★★★★☆", "FX": "★★★★☆" }, useCases: ["Global payroll integrations", "Internal Ops"]
-        },
-        {
-            name: "Verbit", tagline: "AI Transcription", category: "AI/ML", tier: "Scale-Up", status: "Unicorn", fitScore: 91, fitClass: "high",
-            field: "Voice AI", model: "Usage/Sub", customers: "Legal/Edu", locations: "Tel Aviv", markets: ["Global"], marketScope: "Global",
-            financials: { "Valuation": "$2B", "Revenue": "Unknown" }, products: { "Payouts": "★★★★★", "FX": "★★★★☆" }, useCases: ["Paying transcribers globally", "SaaS Ops"]
-        },
-        {
-            name: "Lightricks", tagline: "Content Creation", category: "SaaS", tier: "Scale-Up", status: "Unicorn", fitScore: 91, fitClass: "high",
-            field: "Photo/Video Apps", model: "B2C Sub", customers: "Creators", locations: "Jerusalem", markets: ["Global"], marketScope: "Global",
-            financials: { "Valuation": "$1.8B", "Rev": "$200M+" }, products: { "Cards": "★★★★★", "FX": "★★★★★" }, useCases: ["Creator Fund Payouts", "Ad Spend"]
-        },
-        {
-            name: "Next Insurance", tagline: "Small Business Insur", category: "Fintech", tier: "Scale-Up", status: "Unicorn", fitScore: 90, fitClass: "high",
-            field: "InsurTech", model: "Premiums", customers: "US SMBs", locations: "Kfar Saba, US", markets: ["US"], marketScope: "US",
-            financials: { "Valuation": "$2.5B", "GWP": "$800M+" }, products: { "Claims": "★★★★★", "Cards": "★★★☆☆" }, useCases: ["Claims Payouts", "Agent Commissions"]
-        },
-        {
-            name: "Lemonade", tagline: "Digital Insurance", category: "Fintech", tier: "Enterprise", status: "Public", fitScore: 90, fitClass: "high",
-            field: "InsurTech", model: "Premiums", customers: "B2C", locations: "Tel Aviv, NYC", markets: ["US/EU"], marketScope: "Global",
-            financials: { "Revenue": "$250M+", "GWP": "$600M+" }, products: { "Claims": "★★★★★", "FX": "★★★★☆" }, useCases: ["Cross-border claims", "Reinsurance"]
-        },
-        {
-            name: "Bringg", tagline: "Delivery Orchestration", category: "SaaS", tier: "Growth", status: "Unicorn", fitScore: 90, fitClass: "high",
-            field: "Logistics", model: "SaaS", customers: "Retailers", locations: "Tel Aviv", markets: ["Global"], marketScope: "Global",
-            financials: { "Valuation": "$1B", "Revenue": "Unknown" }, products: { "Payouts": "★★★★☆", "FX": "★★★★☆" }, useCases: ["Driver payouts (Gig)", "Global customers"]
-        },
-        {
-            name: "Plarium", tagline: "Mobile/Web Gaming", category: "Gaming", tier: "Enterprise", status: "Acquired", fitScore: 94, fitClass: "high",
-            field: "Strategy Games", model: "IAP", customers: "Gamers", locations: "Herzliya", markets: ["Global"], marketScope: "Global",
-            financials: { "Rev": "$600M+", "Owner": "Aristocrat" }, products: { "FX": "★★★★★", "Cards": "★★★★☆" }, useCases: ["UA Spend", "Server Infra"]
-        },
-        {
-            name: "CrazyLabs", tagline: "Hyper-Casual Games", category: "Gaming", tier: "Scale-Up", status: "Acquired (Embracer)", fitScore: 94, fitClass: "high",
-            field: "Mobile Games", model: "Ads/IAP", customers: "Gamers", locations: "Tel Aviv", markets: ["Global"], marketScope: "Global",
-            financials: { "Downloads": "5B+", "Rev": "High" }, products: { "Payouts": "★★★★★", "FX": "★★★★★" }, useCases: ["Developer payouts", "UA Spend"]
-        },
-        {
-            name: "Supersonic", tagline: "Game Publishing", category: "Gaming", tier: "Scale-Up", status: "Merged (Unity)", fitScore: 94, fitClass: "high",
-            field: "Publishing", model: "Rev Share", customers: "Devs", locations: "Tel Aviv", markets: ["Global"], marketScope: "Global",
-            financials: { "Part of": "IronSource/Unity" }, products: { "Payouts": "★★★★★", "FX": "★★★★★" }, useCases: ["Dev Payouts", "Marketing"]
-        },
-
-        // --- TIER 3: GOOD FIT (Solid SaaS / Cyber / Emerging Unicorns) ---
-        { name: "BigID", category: "Cybersecurity", fitScore: 88, fitClass: "good", tier: "Scale-Up", field: "Data Privacy", tagline: "Data Intelligence" },
-        { name: "Orca Security", category: "Cybersecurity", fitScore: 88, fitClass: "good", tier: "Scale-Up", field: "Cloud Security", tagline: "SideScanning Cloud Sec" },
-        { name: "Axonius", category: "Cybersecurity", fitScore: 88, fitClass: "good", tier: "Scale-Up", field: "Asset Management", tagline: "Asset Inventory" },
-        { name: "Armis", category: "Cybersecurity", fitScore: 88, fitClass: "good", tier: "Scale-Up", field: "IoT Security", tagline: "Agentless Security" },
-        { name: "Claroty", category: "Cybersecurity", fitScore: 87, fitClass: "good", tier: "Scale-Up", field: "OT Security", tagline: "Industrial Cyber" },
-        { name: "Pentera", category: "Cybersecurity", fitScore: 87, fitClass: "good", tier: "Scale-Up", field: "Auto Penetration", tagline: "Automated Validation" },
-        { name: "Cheq", category: "Cybersecurity", fitScore: 87, fitClass: "good", tier: "Scale-Up", field: "Go-to-Market Sec", tagline: "Bot Mitigation" },
-        { name: "Forter", category: "Fintech", fitScore: 89, fitClass: "good", tier: "Scale-Up", field: "Fraud Prevention", tagline: "E-commerce Fraud" },
-        { name: "BioCatch", category: "Fintech", fitScore: 86, fitClass: "good", tier: "Scale-Up", field: "Behavioral Biometrics", tagline: "Fraud Detection" },
-        { name: "Personetics", category: "Fintech", fitScore: 85, fitClass: "good", tier: "Growth", field: "Bank AI", tagline: "Personalized Banking" },
-        { name: "Earnix", category: "Fintech", fitScore: 85, fitClass: "good", tier: "Scale-Up", field: "InsurTech Pricing", tagline: "Pricing & Rating" },
-        { name: "Fundbox", category: "Fintech", fitScore: 88, fitClass: "good", tier: "Scale-Up", field: "SMB Lending", tagline: "B2B Credit" },
-        { name: "Sunbit", category: "Fintech", fitScore: 86, fitClass: "good", tier: "Scale-Up", field: "BNPL", tagline: "Buy Now Pay Later" },
-        { name: "Pagaya", category: "Fintech", fitScore: 87, fitClass: "good", tier: "Enterprise", field: "AI Lending", tagline: "Asset Management" },
-        { name: "ThetaRay", category: "Fintech", fitScore: 85, fitClass: "good", tier: "Growth", field: "AML / Risk", tagline: "Transaction Monitoring" },
-        { name: "Elementor", category: "SaaS", fitScore: 88, fitClass: "good", tier: "Growth", field: "Web Design", tagline: "WordPress Builder" },
-        { name: "Overwolf", category: "Gaming", fitScore: 89, fitClass: "good", tier: "Scale-Up", field: "UGC Gaming", tagline: "In-game Apps" },
-        { name: "StreamElements", category: "Gaming", fitScore: 88, fitClass: "good", tier: "Growth", field: "Creator Economy", tagline: "Streaming Tools" },
-        { name: "K Health", category: "SaaS", fitScore: 85, fitClass: "good", tier: "Scale-Up", field: "Digital Health", tagline: "AI Primary Care" },
-        { name: "Vayyar", category: "Hardware", fitScore: 80, fitClass: "good", tier: "Scale-Up", field: "4D Imaging", tagline: "Radar Sensors" },
-        { name: "Innoviz", category: "Hardware", fitScore: 80, fitClass: "good", tier: "Enterprise", field: "LiDAR", tagline: "Autonomous Driving" },
-        { name: "Valens", category: "Hardware", fitScore: 78, fitClass: "good", tier: "Growth", field: "Semiconductors", tagline: "Connectivity" },
-        { name: "Via", category: "SaaS", fitScore: 85, fitClass: "good", tier: "Scale-Up", field: "Transit Tech", tagline: "On-Demand Transit" },
-        { name: "Gett", category: "SaaS", fitScore: 85, fitClass: "good", tier: "Scale-Up", field: "Corp Travel", tagline: "Ground Transportation" },
-        { name: "Hailo", category: "Hardware", fitScore: 78, fitClass: "good", tier: "Scale-Up", field: "AI Chips", tagline: "Edge AI Processors" },
-        { name: "Stratasys", category: "Hardware", fitScore: 82, fitClass: "good", tier: "Enterprise", field: "3D Printing", tagline: "Additive Manufacturing" },
-        { name: "Kornit Digital", category: "Hardware", fitScore: 82, fitClass: "good", tier: "Enterprise", field: "Textile Printing", tagline: "Fashion Tech" },
-        { name: "SolarEdge", category: "Hardware", fitScore: 85, fitClass: "good", tier: "Enterprise", field: "Energy", tagline: "Solar Inverters" },
-        { name: "Amdocs", category: "SaaS", fitScore: 85, fitClass: "good", tier: "Enterprise", field: "Telecom SW", tagline: "Customer Experience" },
-        { name: "MyHeritage", category: "SaaS", fitScore: 84, fitClass: "good", tier: "Scale-Up", field: "Genealogy", tagline: "DNA Testing" },
-        { name: "Redis", category: "SaaS", fitScore: 88, fitClass: "good", tier: "Scale-Up", field: "Database", tagline: "Real-time Data" },
-        { name: "OwnBackup", category: "SaaS", fitScore: 86, fitClass: "good", tier: "Scale-Up", field: "Cloud Backup", tagline: "SaaS Data Protection" },
-        { name: "Aqua Security", category: "Cybersecurity", fitScore: 86, fitClass: "good", tier: "Scale-Up", field: "Cloud Native Sec", tagline: "Container Security" },
-        { name: "Noname (Akamai)", category: "Cybersecurity", fitScore: 85, fitClass: "good", tier: "Acquired", field: "API Security", tagline: "API Security" },
-        { name: "Talon (Palo Alto)", category: "Cybersecurity", fitScore: 85, fitClass: "good", tier: "Acquired", field: "Enterprise Browser", tagline: "Secure Browser" },
-        { name: "Island", category: "Cybersecurity", fitScore: 86, fitClass: "good", tier: "Unicorn", field: "Enterprise Browser", tagline: "Enterprise Browser" },
-        { name: "Salt Security", category: "Cybersecurity", fitScore: 85, fitClass: "good", tier: "Growth", field: "API Security", tagline: "API Protection" },
-        { name: "WSC Sports", category: "SaaS", fitScore: 87, fitClass: "good", tier: "Growth", field: "Sports Tech", tagline: "AI Video Highlights" },
-        { name: "Minute Media", category: "AdTech", fitScore: 90, fitClass: "good", tier: "Unicorn", field: "Content", tagline: "Sports Publishing" },
-        { name: "OpenWeb", category: "AdTech", fitScore: 89, fitClass: "good", tier: "Unicorn", field: "Audience Engagement", tagline: "Community Builder" },
-        { name: "Ilyon", category: "Gaming", fitScore: 88, fitClass: "good", tier: "Growth", field: "Casual Games", tagline: "Bubble Shooter" },
-        { name: "Beach Bum", category: "Gaming", fitScore: 88, fitClass: "good", tier: "Acquired (Voodoo)", field: "Table Games", tagline: "Digital Board Games" },
-        { name: "Cellebrite", category: "SaaS", fitScore: 82, fitClass: "good", tier: "Public", field: "Digital Intelligence", tagline: "Forensics" },
-        { name: "OptimalPlus", category: "Data", fitScore: 80, fitClass: "good", tier: "Acquired (NI)", field: "Big Data", tagline: "Semiconductor Analytics" },
-        { name: "Sisense", category: "Data", fitScore: 83, fitClass: "good", tier: "Scale-Up", field: "BI / Analytics", tagline: "Infused Analytics" },
-        { name: "Gigya (SAP)", category: "SaaS", fitScore: 82, fitClass: "good", tier: "Acquired", field: "Identity", tagline: "Customer Identity" },
-        { name: "Dynamic Yield", category: "SaaS", fitScore: 84, fitClass: "good", tier: "Acquired (MC)", field: "Personalization", tagline: "CX Personalization" },
-        { name: "Syte", category: "eCommerce", fitScore: 82, fitClass: "good", tier: "Growth", field: "Visual AI", tagline: "Product Discovery" },
-        { name: "Namogoo", category: "eCommerce", fitScore: 83, fitClass: "good", tier: "Growth", field: "Customer Hijacking", tagline: "Journey Continuity" },
-        { name: "Feedvisor", category: "eCommerce", fitScore: 84, fitClass: "good", tier: "Growth", field: "Algo Pricing", tagline: "Amazon Repricer" },
+        // --- TIER 1 ---
+        { name: "Wiz", tagline: "Cloud Security Platform", category: "Cybersecurity", tier: "Enterprise", fitScore: 99, fitClass: "exceptional", field: "CNAPP", model: "B2B Enterprise", financials: { "ARR": "$500M+", "Valuation": "$23B" } },
+        { name: "Monday.com", tagline: "Work OS Platform", category: "SaaS", tier: "Enterprise", fitScore: 98, fitClass: "exceptional", field: "Project Management", model: "B2B SaaS", financials: { "Revenue": "$900M+", "Growth": "30%" } },
+        { name: "Rapyd", tagline: "Fintech-as-a-Service", category: "Fintech", tier: "Enterprise", fitScore: 98, fitClass: "exceptional", field: "Payments", model: "B2B / API", financials: { "Valuation": "$8.75B" } },
+        { name: "AppsFlyer", tagline: "Marketing Attribution", category: "AdTech", tier: "Scale-Up", fitScore: 97, fitClass: "exceptional", field: "Analytics", model: "B2B SaaS", financials: { "ARR": "$300M+" } },
+        { name: "Payoneer", tagline: "Global Payments", category: "Fintech", tier: "Enterprise", fitScore: 97, fitClass: "exceptional", field: "Cross-Border", model: "B2B / B2C", financials: { "Revenue": "$830M" } },
+        { name: "IronSource", tagline: "App Monetization", category: "AdTech", tier: "Enterprise", fitScore: 97, fitClass: "exceptional", field: "Mobile Ads", model: "Rev Share", financials: { "Revenue": "$1B+" } },
+        { name: "Taboola", tagline: "Content Discovery", category: "AdTech", tier: "Enterprise", fitScore: 96, fitClass: "exceptional", field: "Native Ads", model: "CPC / RPM", financials: { "Revenue": "$1.4B" } },
+        { name: "Outbrain", tagline: "Recommendation Platform", category: "AdTech", tier: "Enterprise", fitScore: 96, fitClass: "exceptional", field: "Native Ads", model: "CPC", financials: { "Revenue": "$1B+" } },
+        { name: "Fiverr", tagline: "Freelance Marketplace", category: "Marketplace", tier: "Enterprise", fitScore: 96, fitClass: "exceptional", field: "Gig Economy", model: "Commission", financials: { "GMV": "$1B+" } },
+        { name: "Deel", tagline: "Global Hiring & Payroll", category: "Fintech", tier: "Scale-Up", fitScore: 96, fitClass: "exceptional", field: "HR Tech", model: "SaaS", financials: { "ARR": "$500M+" } },
+        { name: "Papaya Global", tagline: "Global Payroll Mgmt", category: "Fintech", tier: "Scale-Up", fitScore: 96, fitClass: "exceptional", field: "Payroll OS", model: "SaaS", financials: { "ARR": "$100M+" } },
+        { name: "Tipalti", tagline: "Accounts Payable Auto", category: "Fintech", tier: "Enterprise", fitScore: 96, fitClass: "exceptional", field: "AP Automation", model: "SaaS", financials: { "Valuation": "$8.3B" } },
+        { name: "Global-e", tagline: "Cross-Border E-com", category: "eCommerce", tier: "Enterprise", fitScore: 96, fitClass: "exceptional", field: "E-com Enabler", model: "Transaction", financials: { "Revenue": "$570M" } },
+        { name: "Riskified", tagline: "Fraud Management", category: "Fintech", tier: "Enterprise", fitScore: 95, fitClass: "exceptional", field: "Fraud Prev", model: "Guarantee", financials: { "Revenue": "$300M" } },
+        { name: "Playtika", tagline: "Mobile Gaming", category: "Gaming", tier: "Enterprise", fitScore: 95, fitClass: "exceptional", field: "Social Casino", model: "IAP", financials: { "Revenue": "$2.6B" } },
+        { name: "Moon Active", tagline: "Mobile Gaming", category: "Gaming", tier: "Scale-Up", fitScore: 95, fitClass: "exceptional", field: "Casual Games", model: "IAP", financials: { "Revenue": "$1.5B+" } },
+        { name: "Navan", tagline: "Travel & Expense", category: "Fintech", tier: "Enterprise", fitScore: 98, fitClass: "exceptional", field: "Travel Tech", model: "SaaS", financials: { "Valuation": "$9B" } },
+        { name: "Melio", tagline: "B2B Payments", category: "Fintech", tier: "Scale-Up", fitScore: 95, fitClass: "exceptional", field: "SMB Payments", model: "Transaction", financials: { "Valuation": "$4B" } },
+        { name: "Gong", tagline: "Revenue Intelligence", category: "SaaS", tier: "Enterprise", fitScore: 95, fitClass: "exceptional", field: "Sales AI", model: "B2B SaaS", financials: { "ARR": "$200M+" } },
+        { name: "Wix", tagline: "Web Development", category: "SaaS", tier: "Enterprise", fitScore: 95, fitClass: "exceptional", field: "CMS", model: "Freemium", financials: { "Revenue": "$1.5B" } },
         
-        // --- TIER 4: MEDIUM / EMERGING (Local focus or less FX complexity) ---
-        { name: "TytoCare", category: "Hardware", fitScore: 75, fitClass: "medium", tier: "Growth", field: "Telehealth", tagline: "Remote Exams" },
-        { name: "Aidoc", category: "AI/ML", fitScore: 78, fitClass: "medium", tier: "Growth", field: "MedTech", tagline: "AI Radiology" },
-        { name: "Viz.ai", category: "AI/ML", fitScore: 78, fitClass: "medium", tier: "Unicorn", field: "MedTech", tagline: "Stroke Detection" },
-        { name: "MeMed", category: "Hardware", fitScore: 70, fitClass: "medium", tier: "Growth", field: "Diagnostics", tagline: "Immune Response" },
-        { name: "Augury", category: "AI/ML", fitScore: 76, fitClass: "medium", tier: "Unicorn", field: "Industry 4.0", tagline: "Machine Health" },
-        { name: "Fabric", category: "Logistics", fitScore: 79, fitClass: "medium", tier: "Unicorn", field: "Robotics", tagline: "Micro-Fulfillment" },
-        { name: "CommonGround", category: "SaaS", fitScore: 75, fitClass: "medium", tier: "Growth", field: "Collaboration", tagline: "3D Meeting" },
-        { name: "Team8", category: "VC/Foundry", fitScore: 85, fitClass: "medium", tier: "Fund", field: "Cyber Foundry", tagline: "Venture Group" },
-        { name: "Landa", category: "Hardware", fitScore: 75, fitClass: "medium", tier: "Unicorn", field: "Printing", tagline: "Nanography" },
-        { name: "StoreDot", category: "Hardware", fitScore: 72, fitClass: "medium", tier: "Growth", field: "Energy", tagline: "Fast Charging" }
+        // --- TIER 2 ---
+        { name: "SentinelOne", tagline: "Endpoint Security", category: "Cybersecurity", tier: "Enterprise", fitScore: 94, fitClass: "high", field: "XDR", model: "SaaS", financials: { "Revenue": "$600M+" } },
+        { name: "CyberArk", tagline: "Identity Security", category: "Cybersecurity", tier: "Enterprise", fitScore: 94, fitClass: "high", field: "PAM", model: "License/SaaS", financials: { "Revenue": "$900M" } },
+        { name: "Check Point", tagline: "Cyber Security", category: "Cybersecurity", tier: "Enterprise", fitScore: 93, fitClass: "high", field: "Network Sec", model: "Hardware/SaaS", financials: { "Revenue": "$2.4B" } },
+        { name: "Nice", tagline: "CX & Cloud", category: "SaaS", tier: "Enterprise", fitScore: 93, fitClass: "high", field: "Contact Center", model: "SaaS", financials: { "Revenue": "$2.3B" } },
+        { name: "JFrog", tagline: "Liquid Software", category: "SaaS", tier: "Scale-Up", fitScore: 93, fitClass: "high", field: "DevOps", model: "Usage/SaaS", financials: { "Revenue": "$350M" } },
+        { name: "Cato Networks", tagline: "SASE Platform", category: "Cybersecurity", tier: "Scale-Up", fitScore: 93, fitClass: "high", field: "SASE", model: "SaaS", financials: { "ARR": "$200M+" } },
+        { name: "Transmit Security", tagline: "Identity Management", category: "Cybersecurity", tier: "Scale-Up", fitScore: 92, fitClass: "high", field: "CIAM", model: "SaaS", financials: { "Valuation": "$2.7B" } },
+        { name: "Snyk", tagline: "Developer Security", category: "Cybersecurity", tier: "Scale-Up", fitScore: 92, fitClass: "high", field: "AppSec", model: "Freemium", financials: { "Valuation": "$7.4B" } },
+        { name: "Yotpo", tagline: "E-com Marketing", category: "SaaS", tier: "Scale-Up", fitScore: 92, fitClass: "high", field: "Loyalty", model: "SaaS", financials: { "ARR": "$100M+" } },
+        { name: "SimilarWeb", tagline: "Digital Intelligence", category: "SaaS", tier: "Scale-Up", fitScore: 92, fitClass: "high", field: "Market Intel", model: "SaaS", financials: { "Revenue": "$220M" } },
+        { name: "WalkMe", tagline: "Digital Adoption", category: "SaaS", tier: "Enterprise", fitScore: 91, fitClass: "high", field: "DAP", model: "SaaS", financials: { "Revenue": "$260M" } },
+        { name: "HiBob", tagline: "HR Platform", category: "SaaS", tier: "Scale-Up", fitScore: 91, fitClass: "high", field: "HRIS", model: "SaaS", financials: { "ARR": "$100M+" } },
+        { name: "Verbit", tagline: "AI Transcription", category: "AI/ML", tier: "Scale-Up", fitScore: 91, fitClass: "high", field: "Voice AI", model: "Usage", financials: { "Valuation": "$2B" } },
+        { name: "Lightricks", tagline: "Content Creation", category: "SaaS", tier: "Scale-Up", fitScore: 91, fitClass: "high", field: "Photo Apps", model: "B2C Sub", financials: { "Valuation": "$1.8B" } },
+        { name: "Next Insurance", tagline: "Small Business Insur", category: "Fintech", tier: "Scale-Up", fitScore: 90, fitClass: "high", field: "InsurTech", model: "Premiums", financials: { "Valuation": "$2.5B" } },
+        { name: "Lemonade", tagline: "Digital Insurance", category: "Fintech", tier: "Enterprise", fitScore: 90, fitClass: "high", field: "InsurTech", model: "Premiums", financials: { "Revenue": "$250M+" } },
+        { name: "Bringg", tagline: "Delivery Orchestration", category: "SaaS", tier: "Growth", fitScore: 90, fitClass: "high", field: "Logistics", model: "SaaS", financials: { "Valuation": "$1B" } },
+        { name: "Plarium", tagline: "Mobile/Web Gaming", category: "Gaming", tier: "Enterprise", fitScore: 94, fitClass: "high", field: "Strategy Games", model: "IAP", financials: { "Revenue": "$600M+" } },
+        { name: "CrazyLabs", tagline: "Hyper-Casual Games", category: "Gaming", tier: "Scale-Up", fitScore: 94, fitClass: "high", field: "Mobile Games", model: "Ads", financials: { "Downloads": "5B+" } },
+        { name: "Supersonic", tagline: "Game Publishing", category: "Gaming", tier: "Scale-Up", fitScore: 94, fitClass: "high", field: "Publishing", model: "Rev Share", financials: { "Owner": "Unity" } },
+
+        // --- TIER 3 ---
+        { name: "BigID", tagline: "Data Intelligence", category: "Cybersecurity", tier: "Scale-Up", fitScore: 88, fitClass: "good", field: "Data Privacy" },
+        { name: "Orca Security", tagline: "Cloud Security", category: "Cybersecurity", tier: "Scale-Up", fitScore: 88, fitClass: "good", field: "Cloud Sec" },
+        { name: "Axonius", tagline: "Asset Management", category: "Cybersecurity", tier: "Scale-Up", fitScore: 88, fitClass: "good", field: "Asset Mgmt" },
+        { name: "Armis", tagline: "IoT Security", category: "Cybersecurity", tier: "Scale-Up", fitScore: 88, fitClass: "good", field: "IoT Sec" },
+        { name: "Claroty", tagline: "OT Security", category: "Cybersecurity", tier: "Scale-Up", fitScore: 87, fitClass: "good", field: "Indus. Cyber" },
+        { name: "Pentera", tagline: "Auto Penetration", category: "Cybersecurity", tier: "Scale-Up", fitScore: 87, fitClass: "good", field: "Validation" },
+        { name: "Cheq", tagline: "Go-to-Market Sec", category: "Cybersecurity", tier: "Scale-Up", fitScore: 87, fitClass: "good", field: "Bot Mitigation" },
+        { name: "Forter", tagline: "Fraud Prevention", category: "Fintech", tier: "Scale-Up", fitScore: 89, fitClass: "good", field: "Fraud Prev" },
+        { name: "BioCatch", tagline: "Behavioral Biometrics", category: "Fintech", tier: "Scale-Up", fitScore: 86, fitClass: "good", field: "Fraud Detect" },
+        { name: "Personetics", tagline: "Personalized Banking", category: "Fintech", tier: "Growth", fitScore: 85, fitClass: "good", field: "Bank AI" },
+        { name: "Earnix", tagline: "Pricing & Rating", category: "Fintech", tier: "Scale-Up", fitScore: 85, fitClass: "good", field: "InsurTech" },
+        { name: "Fundbox", tagline: "B2B Credit", category: "Fintech", tier: "Scale-Up", fitScore: 88, fitClass: "good", field: "Lending" },
+        { name: "Sunbit", tagline: "Buy Now Pay Later", category: "Fintech", tier: "Scale-Up", fitScore: 86, fitClass: "good", field: "BNPL" },
+        { name: "Pagaya", tagline: "Asset Management", category: "Fintech", tier: "Enterprise", fitScore: 87, fitClass: "good", field: "AI Lending" },
+        { name: "ThetaRay", tagline: "Transaction Monitoring", category: "Fintech", tier: "Growth", fitScore: 85, fitClass: "good", field: "AML / Risk" },
+        { name: "Elementor", tagline: "WordPress Builder", category: "SaaS", tier: "Growth", fitScore: 88, fitClass: "good", field: "Web Design" },
+        { name: "Overwolf", tagline: "In-game Apps", category: "Gaming", tier: "Scale-Up", fitScore: 89, fitClass: "good", field: "UGC Gaming" },
+        { name: "StreamElements", tagline: "Streaming Tools", category: "Gaming", tier: "Growth", fitScore: 88, fitClass: "good", field: "Creator Econ" },
+        { name: "K Health", tagline: "AI Primary Care", category: "SaaS", tier: "Scale-Up", fitScore: 85, fitClass: "good", field: "Digital Health" },
+        { name: "Vayyar", tagline: "Radar Sensors", category: "Hardware", tier: "Scale-Up", fitScore: 80, fitClass: "good", field: "4D Imaging" },
+        { name: "Innoviz", tagline: "Autonomous Driving", category: "Hardware", tier: "Enterprise", fitScore: 80, fitClass: "good", field: "LiDAR" },
+        { name: "Valens", tagline: "Connectivity", category: "Hardware", tier: "Growth", fitScore: 78, fitClass: "good", field: "Semiconductors" },
+        { name: "Via", tagline: "On-Demand Transit", category: "SaaS", tier: "Scale-Up", fitScore: 85, fitClass: "good", field: "Transit Tech" },
+        { name: "Gett", tagline: "Corp Travel", category: "SaaS", tier: "Scale-Up", fitScore: 85, fitClass: "good", field: "Transportation" },
+        { name: "Hailo", tagline: "Edge AI Processors", category: "Hardware", tier: "Scale-Up", fitScore: 78, fitClass: "good", field: "AI Chips" },
+        { name: "Stratasys", tagline: "Additive Manufacturing", category: "Hardware", tier: "Enterprise", fitScore: 82, fitClass: "good", field: "3D Printing" },
+        { name: "Kornit Digital", tagline: "Fashion Tech", category: "Hardware", tier: "Enterprise", fitScore: 82, fitClass: "good", field: "Textile Print" },
+        { name: "SolarEdge", tagline: "Solar Inverters", category: "Hardware", tier: "Enterprise", fitScore: 85, fitClass: "good", field: "Energy" },
+        { name: "Amdocs", tagline: "Customer Experience", category: "SaaS", tier: "Enterprise", fitScore: 85, fitClass: "good", field: "Telecom SW" },
+        { name: "MyHeritage", tagline: "DNA Testing", category: "SaaS", tier: "Scale-Up", fitScore: 84, fitClass: "good", field: "Genealogy" },
+        { name: "Redis", tagline: "Real-time Data", category: "SaaS", tier: "Scale-Up", fitScore: 88, fitClass: "good", field: "Database" },
+        { name: "OwnBackup", tagline: "SaaS Data Protection", category: "SaaS", tier: "Scale-Up", fitScore: 86, fitClass: "good", field: "Backup" },
+        { name: "Aqua Security", tagline: "Container Security", category: "Cybersecurity", tier: "Scale-Up", fitScore: 86, fitClass: "good", field: "Cloud Sec" },
+        { name: "Noname", tagline: "API Security", category: "Cybersecurity", tier: "Growth", fitScore: 85, fitClass: "good", field: "API Sec" },
+        { name: "Talon", tagline: "Secure Browser", category: "Cybersecurity", tier: "Growth", fitScore: 85, fitClass: "good", field: "Ent Browser" },
+        { name: "Island", tagline: "Enterprise Browser", category: "Cybersecurity", tier: "Scale-Up", fitScore: 86, fitClass: "good", field: "Ent Browser" },
+        { name: "Salt Security", tagline: "API Protection", category: "Cybersecurity", tier: "Growth", fitScore: 85, fitClass: "good", field: "API Sec" },
+        { name: "WSC Sports", tagline: "AI Video Highlights", category: "SaaS", tier: "Growth", fitScore: 87, fitClass: "good", field: "Sports Tech" },
+        { name: "Minute Media", tagline: "Sports Publishing", category: "AdTech", tier: "Scale-Up", fitScore: 90, fitClass: "good", field: "Content" },
+        { name: "OpenWeb", tagline: "Community Builder", category: "AdTech", tier: "Scale-Up", fitScore: 89, fitClass: "good", field: "Engagement" },
+        { name: "Ilyon", tagline: "Bubble Shooter", category: "Gaming", tier: "Growth", fitScore: 88, fitClass: "good", field: "Casual Games" },
+        { name: "Beach Bum", tagline: "Digital Board Games", category: "Gaming", tier: "Growth", fitScore: 88, fitClass: "good", field: "Table Games" },
+        { name: "Cellebrite", tagline: "Forensics", category: "SaaS", tier: "Enterprise", fitScore: 82, fitClass: "good", field: "Digital Intel" },
+        { name: "OptimalPlus", tagline: "Semiconductor Analytics", category: "Data", tier: "Enterprise", fitScore: 80, fitClass: "good", field: "Big Data" },
+        { name: "Sisense", tagline: "Infused Analytics", category: "Data", tier: "Scale-Up", fitScore: 83, fitClass: "good", field: "BI" },
+        { name: "Gigya", tagline: "Customer Identity", category: "SaaS", tier: "Enterprise", fitScore: 82, fitClass: "good", field: "Identity" },
+        { name: "Dynamic Yield", tagline: "CX Personalization", category: "SaaS", tier: "Enterprise", fitScore: 84, fitClass: "good", field: "Personalization" },
+        { name: "Syte", tagline: "Product Discovery", category: "eCommerce", tier: "Growth", fitScore: 82, fitClass: "good", field: "Visual AI" },
+        { name: "Namogoo", tagline: "Journey Continuity", category: "eCommerce", tier: "Growth", fitScore: 83, fitClass: "good", field: "Hijacking Prev" },
+        { name: "Feedvisor", tagline: "Amazon Repricer", category: "eCommerce", tier: "Growth", fitScore: 84, fitClass: "good", field: "Algo Pricing" },
+
+        // --- TIER 4 ---
+        { name: "TytoCare", tagline: "Remote Exams", category: "Hardware", tier: "Growth", fitScore: 75, fitClass: "medium", field: "Telehealth" },
+        { name: "Aidoc", tagline: "AI Radiology", category: "AI/ML", tier: "Growth", fitScore: 78, fitClass: "medium", field: "MedTech" },
+        { name: "Viz.ai", tagline: "Stroke Detection", category: "AI/ML", tier: "Scale-Up", fitScore: 78, fitClass: "medium", field: "MedTech" },
+        { name: "MeMed", tagline: "Immune Response", category: "Hardware", tier: "Growth", fitScore: 70, fitClass: "medium", field: "Diagnostics" },
+        { name: "Augury", tagline: "Machine Health", category: "AI/ML", tier: "Scale-Up", fitScore: 76, fitClass: "medium", field: "Industry 4.0" },
+        { name: "Fabric", tagline: "Micro-Fulfillment", category: "Logistics", tier: "Scale-Up", fitScore: 79, fitClass: "medium", field: "Robotics" },
+        { name: "CommonGround", tagline: "3D Meeting", category: "SaaS", tier: "Growth", fitScore: 75, fitClass: "medium", field: "Collaboration" },
+        { name: "Team8", tagline: "Venture Group", category: "VC/Foundry", tier: "Fund", fitScore: 85, fitClass: "medium", field: "Cyber Foundry" },
+        { name: "Landa", tagline: "Nanography", category: "Hardware", tier: "Scale-Up", fitScore: 75, fitClass: "medium", field: "Printing" },
+        { name: "StoreDot", tagline: "Fast Charging", category: "Hardware", tier: "Growth", fitScore: 72, fitClass: "medium", field: "Energy" }
     ];
 
-    // Helper to normalize data for the simplified objects (Tier 3/4)
+    // Data Normalization Helper
     companies.forEach(c => {
         if (!c.financials) c.financials = { "Status": c.tier };
         if (!c.products) c.products = { "FX": "★★★☆☆", "Cards": "★★☆☆☆" };
@@ -459,36 +262,20 @@
         if (!c.marketScope) c.marketScope = "Global";
         if (!c.locations) c.locations = "Israel / Global";
         if (!c.customers) c.customers = "B2B";
-        if (!c.model) c.model = "Tech";
+        if (!c.model) c.model = c.model || "Tech";
     });
 
-    // Rendering and filtering functions
     function renderCompanies(companiesArray) {
         const container = document.getElementById('companies-container');
         container.innerHTML = '';
-        
         companiesArray.forEach(company => {
             const card = document.createElement('div');
             card.className = `company-card fit-${company.fitClass}`;
-            
             const marketsHTML = company.markets.map(m => `<span class="market-tag">${m}</span>`).join('');
-            
-            const financialsHTML = Object.entries(company.financials)
-                .map(([label, value]) => `
-                    <div class="fin-item">
-                        <span class="fin-label">${label}:</span>
-                        <span class="fin-value">${value}</span>
-                    </div>
-                `).join('');
-                
-            const productsHTML = Object.entries(company.products)
-                .map(([name, stars]) => `
-                    <div class="product-item">
-                        <span class="product-name">${name}</span>
-                        <span class="stars">${stars}</span>
-                    </div>
-                `).join('');
-                
+            const financialsHTML = Object.entries(company.financials).map(([label, value]) => `
+                <div class="fin-item"><span class="fin-label">${label}:</span><span class="fin-value">${value}</span></div>`).join('');
+            const productsHTML = Object.entries(company.products).map(([name, stars]) => `
+                <div class="product-item"><span class="product-name">${name}</span><span class="stars">${stars}</span></div>`).join('');
             const useCasesHTML = company.useCases.map(uc => `<li>${uc}</li>`).join('');
             
             card.innerHTML = `
@@ -503,39 +290,18 @@
                         <span class="badge badge-category">${company.category}</span>
                         <span class="badge badge-status">${company.status || 'Active'}</span>
                     </div>
-                    
                     <div class="company-info">
-                        <div class="info-row">
-                            <div class="info-label">תחום:</div>
-                            <div class="info-value">${company.field}</div>
-                        </div>
-                        <div class="info-row">
-                            <div class="info-label">מודל:</div>
-                            <div class="info-value">${company.model}</div>
-                        </div>
-                        <div class="info-row hidden">
-                            <div class="info-label">לקוחות:</div>
-                            <div class="info-value">${company.customers}</div>
-                        </div>
+                        <div class="info-row"><div class="info-label">תחום:</div><div class="info-value">${company.field}</div></div>
+                        <div class="info-row"><div class="info-label">מודל:</div><div class="info-value">${company.model}</div></div>
                         <div class="markets">${marketsHTML}</div>
                     </div>
-                    
-                    <div class="financials">
-                        <h4>📊 נתונים</h4>
-                        <div class="fin-grid">${financialsHTML}</div>
-                    </div>
-                    
+                    <div class="financials"><h4>📊 נתונים</h4><div class="fin-grid">${financialsHTML}</div></div>
                     <div class="product-fit">
                         <div class="product-fit-title">🎯 Airwallex Fit</div>
                         <div class="products-grid">${productsHTML}</div>
-                        <div class="highlight">
-                            <strong>שימושים:</strong>
-                            <ul class="highlight-list">${useCasesHTML}</ul>
-                        </div>
+                        <div class="highlight"><strong>שימושים:</strong><ul class="highlight-list">${useCasesHTML}</ul></div>
                     </div>
-                </div>
-            `;
-            
+                </div>`;
             container.appendChild(card);
         });
     }
@@ -547,16 +313,10 @@
         const categoryFilter = document.getElementById('category-filter').value;
         
         const filtered = companies.filter(company => {
-            const matchesSearch = search === '' || 
-                company.name.toLowerCase().includes(search) ||
-                company.tagline.toLowerCase().includes(search) ||
-                company.category.toLowerCase().includes(search) ||
-                company.field.toLowerCase().includes(search);
-            
+            const matchesSearch = search === '' || company.name.toLowerCase().includes(search) || company.tagline.toLowerCase().includes(search) || company.category.toLowerCase().includes(search);
             const matchesFit = fitFilter === '' || company.fitClass === fitFilter;
             const matchesTier = tierFilter === '' || company.tier === tierFilter;
             const matchesCategory = categoryFilter === '' || company.category === categoryFilter;
-            
             return matchesSearch && matchesFit && matchesTier && matchesCategory;
         });
         
@@ -565,20 +325,9 @@
     }
 
     function quickFilter(type, value) {
-        const buttons = document.querySelectorAll('.quick-filter');
-        buttons.forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-        
-        if (type === 'fit') {
-            document.getElementById('fit-filter').value = value;
-        } else if (type === 'category') {
-            document.getElementById('category-filter').value = value;
-        } else if (type === 'tier') {
-            document.getElementById('tier-filter').value = value;
-        } else if (type === 'status') {
-            // Logic for status filtering if added back to UI
-        }
-        
+        if (type === 'fit') document.getElementById('fit-filter').value = value;
+        if (type === 'category') document.getElementById('category-filter').value = value;
+        if (type === 'tier') document.getElementById('tier-filter').value = value;
         filterCompanies();
     }
 
@@ -587,22 +336,25 @@
         document.getElementById('fit-filter').value = '';
         document.getElementById('tier-filter').value = '';
         document.getElementById('category-filter').value = '';
-        
-        const buttons = document.querySelectorAll('.quick-filter');
-        buttons.forEach(btn => btn.classList.remove('active'));
-        
         filterCompanies();
     }
 
-    // Event listeners
     document.getElementById('search').addEventListener('input', filterCompanies);
     document.getElementById('fit-filter').addEventListener('change', filterCompanies);
     document.getElementById('tier-filter').addEventListener('change', filterCompanies);
     document.getElementById('category-filter').addEventListener('change', filterCompanies);
 
-    // Initial render
+    // Init
     document.getElementById('total-companies').textContent = companies.length;
     renderCompanies(companies);
-    </script>
+    
+    setTimeout(() => {
+        if (companies.length === 100) {
+            alert('הקובץ נטען בהצלחה עם 100 חברות!');
+        } else {
+            alert('שים לב: נטענו ' + companies.length + ' חברות בלבד (ולא 100). ייתכן שההעתקה לא הייתה מלאה.');
+        }
+    }, 500);
+</script>
 </body>
 </html>
