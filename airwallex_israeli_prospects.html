@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Airwallex | Yaniv Cohen - Strategic 100</title>
+    <title>Airwallex | Yaniv Cohen - Platinum 100</title>
     <style>
         :root { --orange: #FF6B00; --dark: #0F172A; --bg: #F1F5F9; }
         body { font-family: sans-serif; background: var(--bg); margin: 0; direction: ltr; }
@@ -11,20 +11,21 @@
         .logo-img { height: 30px; border-right: 1px solid #334155; padding-right: 15px; }
         .user-name { font-size: 18px; font-weight: bold; }
         .user-title { font-size: 11px; color: var(--orange); text-transform: uppercase; font-weight: bold; }
-        .controls { background: white; padding: 15px 40px; display: flex; gap: 10px; border-bottom: 1px solid #E2E8F0; position: sticky; top: 0; z-index: 100; }
-        input, select { padding: 10px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 14px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; padding: 20px; direction: rtl; }
-        .card { background: white; border-radius: 12px; border: 1px solid #E2E8F0; overflow: hidden; text-align: right; display: flex; flex-direction: column; }
-        .card-top { padding: 12px; background: #F8FAFC; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; }
-        .opp-tag { background: #FFF7ED; color: #C2410C; padding: 2px 8px; border-radius: 10px; font-weight: bold; font-size: 13px; }
+        .controls { background: white; padding: 15px 40px; display: flex; gap: 15px; border-bottom: 1px solid #E2E8F0; position: sticky; top: 0; z-index: 100; }
+        input, select { padding: 12px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 14px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 20px; padding: 20px; direction: rtl; }
+        .card { background: white; border-radius: 12px; border: 1px solid #E2E8F0; overflow: hidden; text-align: right; display: flex; flex-direction: column; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); border-color: var(--orange); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .card-top { padding: 15px; background: #F8FAFC; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; }
+        .opp-tag { background: #FFF7ED; color: #C2410C; padding: 3px 10px; border-radius: 20px; font-weight: bold; font-size: 14px; border: 1px solid #FFEDD5; }
         .metrics { display: grid; grid-template-columns: repeat(3, 1fr); background: #fff; border-bottom: 1px solid #E2E8F0; }
-        .stat { padding: 8px; text-align: center; border-left: 1px solid #F1F5F9; }
-        .stat b { display: block; font-size: 13px; }
-        .stat span { font-size: 8px; color: #94A3B8; text-transform: uppercase; }
-        .body { padding: 12px; font-size: 13px; flex-grow: 1; }
+        .stat { padding: 10px; text-align: center; border-left: 1px solid #F1F5F9; }
+        .stat b { display: block; font-size: 14px; color: #1E293B; }
+        .stat span { font-size: 9px; color: #94A3B8; text-transform: uppercase; font-weight: bold; }
+        .body { padding: 15px; font-size: 13px; flex-grow: 1; }
         .stack { font-weight: bold; color: #B91C1C; margin-bottom: 5px; }
-        .why { background: #FFF7ED; padding: 8px; border-radius: 6px; border-right: 3px solid var(--orange); font-size: 12px; }
-        .footer { padding: 8px; background: #F8FAFC; font-size: 11px; font-weight: bold; color: #64748B; border-top: 1px solid #E2E8F0; }
+        .why-box { background: #FFF7ED; padding: 10px; border-radius: 8px; border-right: 4px solid var(--orange); margin-top: 10px; }
+        .footer { padding: 10px; background: #F8FAFC; font-size: 12px; font-weight: bold; color: #0F766E; border-top: 1px solid #E2E8F0; }
     </style>
 </head>
 <body>
@@ -36,162 +37,165 @@
                 <div class="user-title">Enterprise Account Executive</div>
             </div>
         </div>
-        <div style="font-weight: bold; font-size: 20px;">Strategic 100</div>
+        <div style="font-weight: 800; font-size: 20px;">STRATEGIC 100</div>
     </div>
     <div class="controls">
-        <input type="text" id="search" placeholder="Search Company..." onkeyup="render()" style="flex-grow:1">
-        <select id="cat" onchange="render()">
-            <option value="">All Categories</option>
-            <option value="Cyber">Cyber</option>
-            <option value="SaaS">SaaS</option>
+        <input type="text" id="search" placeholder="Search Company / CFO..." onkeyup="render()" style="flex-grow:1">
+        <select id="catFilter" onchange="render()">
+            <option value="">All Industries</option>
+            <option value="Cyber">Cybersecurity</option>
+            <option value="SaaS">SaaS / Cloud</option>
             <option value="Fintech">Fintech</option>
             <option value="Gaming">Gaming</option>
         </select>
+        <select id="scoreFilter" onchange="render()">
+            <option value="0">All Scores</option>
+            <option value="10">Score 10</option>
+            <option value="9">Score 9+</option>
+        </select>
     </div>
     <div class="grid" id="grid"></div>
-
     <script>
     const db = [
-        {n:"Monday.com", v:"SaaS", o:10, r:"$970M", g:"+33%", s:"Stripe, Adyen"},
-        {n:"Wix", v:"SaaS", o:10, r:"$1.6B", g:"+13%", s:"Stripe, BlueSnap"},
-        {n:"Wiz", v:"Cyber", o:10, r:"$500M", g:"Hyper", s:"Stripe, Ramp"},
-        {n:"Deel", v:"Fintech", o:10, r:"$500M+", g:"+70%", s:"Wise, JPM"},
-        {n:"Armis", v:"Cyber", o:9, r:"$200M", g:"+80%", s:"Local Banks"},
-        {n:"Hibob", v:"SaaS", o:9, r:"$100M+", g:"Hyper", s:"Stripe, NetSuite"},
-        {n:"SentinelOne", v:"Cyber", o:9, r:"$620M", g:"+45%", s:"NetSuite, Banks"},
-        {n:"Global-e", v:"Fintech", o:10, r:"$570M", g:"+32%", s:"Adyen, JPM"},
-        {n:"Cato Networks", v:"Cyber", o:9, r:"$200M+", g:"+46%", s:"Stripe, Banks"},
-        {n:"Papaya Global", v:"Fintech", o:9, r:"$150M+", g:"+50%", s:"JPM, Citi"},
-        {n:"Riskified", v:"Fintech", o:8, r:"$300M", g:"+10%", s:"Stripe, Adyen"},
-        {n:"Tipalti", v:"Fintech", o:8, r:"$250M", g:"High", s:"Citi, JPM"},
-        {n:"Nice", v:"SaaS", o:8, r:"$2.4B", g:"+10%", s:"Oracle, Banks"},
-        {n:"JFrog", v:"SaaS", o:8, r:"$350M", g:"+25%", s:"Zuora, Stripe"},
-        {n:"Amdocs", v:"SaaS", o:8, r:"$4.8B", g:"Stable", s:"SAP, Global Banks"},
-        {n:"SolarEdge", v:"SaaS", o:8, r:"$3B", g:"Low", s:"SAP, Local Banks"},
-        {n:"Fiverr", v:"Fintech", o:9, r:"$360M", g:"Mod", s:"Payoneer, Stripe"},
-        {n:"Payoneer", v:"Fintech", o:9, r:"$830M", g:"High", s:"Internal System"},
-        {n:"AppsFlyer", v:"SaaS", o:9, r:"$350M", g:"High", s:"Zuora, Banks"},
-        {n:"Playtika", v:"Gaming", o:10, r:"$2.6B", g:"Stable", s:"Global Banks"},
-        {n:"Moon Active", v:"Gaming", o:10, r:"$1.5B", g:"High", s:"Local Banks"},
-        {n:"Check Point", v:"Cyber", o:8, r:"$2.4B", g:"Stable", s:"SAP, Oracle"},
-        {n:"CyberArk", v:"Cyber", o:8, r:"$750M", g:"+30%", s:"SAP, Banks"},
-        {n:"Vast Data", v:"SaaS", o:9, r:"$200M", g:"Hyper", s:"Local Banks"},
-        {n:"Claroty", v:"Cyber", o:9, r:"$100M", g:"High", s:"Local Banks"},
-        {n:"Lemonade", v:"Fintech", o:8, r:"$250M", g:"High", s:"Stripe, Banks"},
-        {n:"Pagaya", v:"Fintech", o:9, r:"$800M", g:"High", s:"NetSuite, Banks"},
-        {n:"BioCatch", v:"Fintech", o:9, r:"$100M", g:"High", s:"Global Banks"},
-        {n:"Verbit", v:"SaaS", o:8, r:"$100M", g:"Stable", s:"Tipalti, Stripe"},
-        {n:"Rapyd", v:"Fintech", o:10, r:"$500M", g:"High", s:"Internal System"},
-        {n:"eToro", v:"Fintech", o:9, r:"$600M", g:"Stable", s:"Checkout.com"},
-        {n:"Pinecone", v:"SaaS", o:9, r:"Scaling", g:"Hyper", s:"Stripe, Banks"},
-        {n:"Orca Security", v:"Cyber", o:8, r:"$100M", g:"High", s:"Stripe, Banks"},
-        {n:"Torq", v:"Cyber", o:8, r:"Scaling", g:"High", s:"Stripe, NetSuite"},
-        {n:"Transmit Security", v:"Cyber", o:9, r:"$100M", g:"Stable", s:"Global Banks"},
-        {n:"Navan", v:"Fintech", o:10, r:"$600M", g:"High", s:"Stripe, Reed"},
-        {n:"Lusha", v:"SaaS", o:8, r:"$100M", g:"Stable", s:"Stripe, Banks"},
-        {n:"BigID", v:"Cyber", o:8, r:"$100M", g:"Stable", s:"Local Banks"},
-        {n:"Aqua Security", v:"Cyber", o:8, r:"$100M", g:"High", s:"Banks"},
-        {n:"Silverfort", v:"Cyber", o:8, r:"$50M", g:"High", s:"Local Banks"},
-        {n:"JoyTunes", v:"SaaS", o:8, r:"$150M", g:"High", s:"Apple, Stripe"},
-        {n:"Cellebrite", v:"SaaS", o:8, r:"$300M", g:"Stable", s:"NetSuite"},
-        {n:"Sapiens", v:"SaaS", o:8, r:"$500M", g:"Mod", s:"Global Banks"},
-        {n:"WalkMe", v:"SaaS", o:8, r:"$260M", g:"Low", s:"NetSuite, Zuora"},
-        {n:"HoneyBook", v:"Fintech", o:9, r:"$100M", g:"High", s:"Stripe"},
-        {n:"SciPlay", v:"Gaming", o:8, r:"$600M", g:"Stable", s:"Banks"},
-        {n:"Overwolf", v:"Gaming", o:8, r:"$50M+", g:"High", s:"PayPal, Stripe"},
-        {n:"ThetaRay", v:"Fintech", o:7, r:"$40M", g:"High", s:"Banks"},
-        {n:"D-ID", v:"SaaS", o:7, r:"Scaling", g:"Hyper", s:"Stripe"},
-        {n:"Melio", v:"Fintech", o:9, r:"$200M", g:"High", s:"Banks"},
-        // המשך הרשימה עד 100
-        {n:"Own Data", v:"SaaS", o:8, r:"$200M", g:"High", s:"Salesforce"},
-        {n:"BlueVine", v:"Fintech", o:8, r:"$200M", g:"High", s:"Banks"},
-        {n:"Zenity", v:"Cyber", o:8, r:"Scaling", g:"High", s:"NetSuite"},
-        {n:"Salt Security", v:"Cyber", o:8, r:"$50M", g:"High", s:"Stripe"},
-        {n:"Nova Ltd", v:"Cyber", o:7, r:"$500M", g:"High", s:"SAP"},
-        {n:"Tower Semi", v:"Cyber", o:8, r:"$1.4B", g:"Stable", s:"Banks"},
-        {n:"Delta Galil", v:"Fintech", o:7, r:"$2B", g:"Stable", s:"SAP"},
-        {n:"Netafim", v:"Fintech", o:7, r:"$1B", g:"Stable", s:"SAP"},
-        {n:"Sysdig", v:"Cyber", o:8, r:"$100M", g:"High", s:"Stripe"},
-        {n:"Coro", v:"Cyber", o:8, r:"$50M", g:"Hyper", s:"Stripe"},
-        {n:"Pentera", v:"Cyber", o:8, r:"$50M", g:"High", s:"Banks"},
-        {n:"Exodigo", v:"SaaS", o:8, r:"Scaling", g:"High", s:"Banks"},
-        {n:"Taranis", v:"SaaS", o:7, r:"Scaling", g:"High", s:"Banks"},
-        {n:"Starkware", v:"Fintech", o:8, r:"Scaling", g:"High", s:"Banks"},
-        {n:"Sunbit", v:"Fintech", o:8, r:"$100M", g:"High", s:"Banks"},
-        {n:"Personetics", v:"Fintech", o:7, r:"$50M", g:"Mod", s:"Banks"},
-        {n:"August", v:"SaaS", o:7, r:"$10M", g:"High", s:"Banks"},
-        {n:"DeepInstinct", v:"Cyber", o:7, r:"$50M", g:"Mod", s:"Banks"},
-        {n:"Gett", v:"SaaS", o:8, r:"$100M", g:"Stable", s:"Banks"},
-        {n:"Kaltura", v:"SaaS", o:7, r:"$170M", g:"Mod", s:"Banks"},
-        {n:"Claroty", v:"Cyber", o:9, r:"$100M", g:"High", s:"Banks"},
-        {n:"Incredibuild", v:"SaaS", o:8, r:"$60M", g:"High", s:"Stripe"},
-        {n:"Fabric", v:"SaaS", o:8, r:"Scaling", g:"High", s:"Banks"},
-        {n:"Hailo", v:"SaaS", o:7, r:"$50M", g:"High", s:"Banks"},
-        {n:"Next Ins.", v:"Fintech", o:8, r:"$800M", g:"High", s:"Stripe"},
-        {n:"Beach Bum", v:"Gaming", o:8, r:"$100M", g:"Stable", s:"Banks"},
-        {n:"Huuge Games", v:"Gaming", o:7, r:"$300M", g:"Stable", s:"Banks"},
-        {n:"Exodigo", v:"SaaS", o:8, r:"Scaling", g:"High", s:"Banks"},
-        {n:"Taranis", v:"SaaS", o:7, r:"Scaling", g:"High", s:"Banks"},
-        {n:"Noname", v:"Cyber", o:7, r:"$50M", g:"Mod", s:"Banks"},
-        {n:"Talon", v:"Cyber", o:7, r:"N/A", g:"High", s:"Banks"},
-        {n:"Cybereason", v:"Cyber", o:7, r:"$150M", g:"Low", s:"Banks"},
-        {n:"Own", v:"SaaS", o:8, r:"$200M", g:"High", s:"Salesforce"},
-        {n:"Amdocs Ltd", v:"SaaS", o:8, r:"$4.8B", g:"Stable", s:"SAP"},
-        {n:"Nice Ltd", v:"SaaS", o:8, r:"$2.4B", g:"+10%", s:"Oracle"},
-        {n:"Wix.com", v:"SaaS", o:10, r:"$1.6B", g:"Mod", s:"Stripe"},
-        {n:"Wiz.io", v:"Cyber", o:10, r:"$500M", g:"Hyper", s:"Stripe"},
-        {n:"Monday.com", v:"SaaS", o:10, r:"$900M", g:"High", s:"Stripe"},
-        {n:"Tipalti", v:"Fintech", o:8, r:"$250M", g:"High", s:"Citi"},
-        {n:"Melio Pay", v:"Fintech", o:9, r:"$200M", g:"High", s:"Banks"},
-        {n:"BioCatch", v:"Fintech", o:9, r:"$100M", g:"High", s:"Banks"},
-        {n:"HoneyBook", v:"Fintech", o:9, r:"$100M", g:"High", s:"Stripe"},
-        {n:"Zenity", v:"Cyber", o:8, r:"Scaling", g:"High", s:"NetSuite"},
-        {n:"Coro", v:"Cyber", o:8, r:"$50M", g:"Hyper", s:"Stripe"},
-        {n:"Silverfort", v:"Cyber", o:8, r:"$50M", g:"High", s:"Banks"},
-        {n:"Aqua", v:"Cyber", o:8, r:"$100M", g:"High", s:"Banks"},
-        {n:"Lusha Ltd", v:"SaaS", o:8, r:"$100M", g:"Stable", s:"Stripe"},
-        {n:"Navan", v:"Fintech", o:10, r:"$600M", g:"High", s:"Stripe"},
-        {n:"Deel", v:"Fintech", o:10, r:"$500M", g:"High", s:"Banks"},
-        {n:"Papaya", v:"Fintech", o:9, r:"$150M", g:"High", s:"JPM"}
+        {n:"Monday.com", v:"SaaS", o:10, r:"$970M", g:"+33%", s:"Stripe, Adyen", c:"Eliran Glazer (CFO)"},
+        {n:"Wix", v:"SaaS", o:10, r:"$1.6B", g:"+13%", s:"Stripe, BlueSnap", c:"Lior Shemesh (CFO)"},
+        {n:"Wiz", v:"Cyber", o:10, r:"$500M", g:"Hyper", s:"Stripe, Ramp", c:"Fazal Merchant (CFO)"},
+        {n:"Deel", v:"Fintech", o:10, r:"$500M+", g:"+70%", s:"Wise, JPM", c:"Philippe Bouaziz (CFO)"},
+        {n:"Armis", v:"Cyber", o:9, r:"$200M", g:"+80%", s:"Banks", c:"Jonathan Carr (CFO)"},
+        {n:"Hibob", v:"SaaS", o:9, r:"$100M+", g:"Hyper", s:"Stripe", c:"Finance VP"},
+        {n:"SentinelOne", v:"Cyber", o:9, r:"$620M", g:"+45%", s:"NetSuite", c:"Dave Bernhardt (CFO)"},
+        {n:"Global-e", v:"Fintech", o:10, r:"$570M", g:"+32%", s:"Adyen", c:"Ofer Koren (CFO)"},
+        {n:"Cato Networks", v:"Cyber", o:9, r:"$200M+", g:"+46%", s:"Stripe", c:"Tomer Erez (CFO)"},
+        {n:"Papaya Global", v:"Fintech", o:9, r:"$150M+", g:"+50%", s:"JPM", c:"CFO"},
+        {n:"Riskified", v:"Fintech", o:8, r:"$300M", g:"+10%", s:"Stripe", c:"CFO"},
+        {n:"Tipalti", v:"Fintech", o:8, r:"$250M", g:"High", s:"Citi", c:"Sarah Spoja (CFO)"},
+        {n:"Nice", v:"SaaS", o:8, r:"$2.4B", g:"+10%", s:"Oracle", c:"CFO"},
+        {n:"JFrog", v:"SaaS", o:8, r:"$350M", g:"+25%", s:"Zuora", c:"CFO"},
+        {n:"Amdocs", v:"SaaS", o:8, r:"$4.8B", g:"Stable", s:"SAP", c:"CFO"},
+        {n:"SolarEdge", v:"SaaS", o:8, r:"$3B", g:"Low", s:"SAP", c:"CFO"},
+        {n:"Fiverr", v:"Fintech", o:9, r:"$360M", g:"Mod", s:"Payoneer", c:"CFO"},
+        {n:"Payoneer", v:"Fintech", o:9, r:"$830M", g:"High", s:"Internal", c:"CFO"},
+        {n:"AppsFlyer", v:"SaaS", o:9, r:"$350M", g:"High", s:"Zuora", c:"VP Finance"},
+        {n:"Playtika", v:"Gaming", o:10, r:"$2.6B", g:"Stable", s:"Banks", c:"CFO"},
+        {n:"Moon Active", v:"Gaming", o:10, r:"$1.5B", g:"High", s:"Banks", c:"VP Finance"},
+        {n:"CyberArk", v:"Cyber", o:8, r:"$750M", g:"+30%", s:"SAP", c:"CFO"},
+        {n:"Vast Data", v:"SaaS", o:9, r:"$200M", g:"Hyper", s:"Banks", c:"Director"},
+        {n:"Claroty", v:"Cyber", o:9, r:"$100M", g:"High", s:"Banks", c:"VP Finance"},
+        {n:"Lemonade", v:"Fintech", o:8, r:"$250M", g:"High", s:"Stripe", c:"CFO"},
+        {n:"Pagaya", v:"Fintech", o:9, r:"$800M", g:"High", s:"NetSuite", c:"VP Finance"},
+        {n:"BioCatch", v:"Fintech", o:9, r:"$100M", g:"High", s:"Banks", c:"VP Finance"},
+        {n:"Orca Security", v:"Cyber", o:8, r:"$100M", g:"High", s:"Stripe", c:"CFO"},
+        {n:"Torq", v:"Cyber", o:8, r:"Scaling", g:"High", s:"Stripe", c:"VP Finance"},
+        {n:"Transmit Security", v:"Cyber", o:9, r:"$100M", g:"Stable", s:"Banks", c:"Director"},
+        {n:"Navan", v:"Fintech", o:10, r:"$600M", g:"High", s:"Stripe", c:"CFO"},
+        {n:"Lusha", v:"SaaS", o:8, r:"$100M", g:"Stable", s:"Stripe", c:"VP Finance"},
+        {n:"SciPlay", v:"Gaming", o:8, r:"$600M", g:"Stable", s:"Banks", c:"CFO"},
+        {n:"Overwolf", v:"Gaming", o:8, r:"$50M+", g:"High", s:"PayPal", c:"CFO"},
+        {n:"Sapiens", v:"SaaS", o:8, r:"$500M", g:"Mod", s:"Banks", c:"CFO"},
+        {n:"Incredibuild", v:"SaaS", o:8, r:"$60M", g:"High", s:"Stripe", c:"VP Finance"},
+        {n:"Gett", v:"SaaS", o:8, r:"$100M", g:"Stable", s:"Banks", c:"VP Finance"},
+        {n:"HoneyBook", v:"Fintech", o:9, r:"$100M", g:"High", s:"Stripe", c:"VP Finance"},
+        {n:"Start.io", v:"SaaS", o:9, r:"$60M", g:"Stable", s:"Banks", c:"VP Finance"},
+        {n:"Verbit", v:"SaaS", o:8, r:"$100M", g:"Stable", s:"Tipalti", c:"Finance Mgr"},
+        {n:"Aqua Security", v:"Cyber", o:8, r:"$100M", g:"High", s:"Banks", c:"CFO"},
+        {n:"Silverfort", v:"Cyber", o:8, r:"$50M", g:"High", s:"Banks", c:"CFO"},
+        {n:"Coro", v:"Cyber", o:8, r:"$50M", g:"Hyper", s:"Stripe", c:"CFO"},
+        {n:"Pentera", v:"Cyber", o:8, r:"$50M", g:"High", s:"Banks", c:"CFO"},
+        {n:"Zenity", v:"Cyber", o:8, r:"Scaling", g:"High", s:"NetSuite", c:"CFO"},
+        {n:"Descope", v:"Cyber", o:8, r:"Scaling", g:"High", s:"Stripe", c:"CFO"},
+        {n:"Qwak", v:"SaaS", o:7, r:"Scaling", g:"High", s:"Stripe", c:"CFO"},
+        {n:"Fabric", v:"SaaS", o:8, r:"Scaling", g:"High", s:"Banks", c:"CFO"},
+        {n:"Taranis", v:"SaaS", o:7, r:"Scaling", g:"High", s:"Banks", c:"CFO"},
+        {n:"Exodigo", v:"SaaS", o:8, r:"Scaling", g:"High", s:"Banks", c:"VP Finance"},
+        {n:"Pinecone", v:"SaaS", o:9, r:"Scaling", g:"Hyper", s:"Stripe", c:"VP Finance"},
+        {n:"Starkware", v:"Fintech", o:8, r:"Scaling", g:"High", s:"Banks", c:"VP Finance"},
+        {n:"Sunbit", v:"Fintech", o:8, r:"$100M", g:"High", s:"Banks", c:"CFO"},
+        {n:"Melio", v:"Fintech", o:9, r:"$200M", g:"High", s:"Banks", c:"CFO"},
+        {n:"Own", v:"SaaS", o:8, r:"$200M", g:"High", s:"Salesforce", c:"VP Finance"},
+        {n:"BlueVine", v:"Fintech", o:8, r:"$200M", g:"High", s:"Banks", c:"CFO"},
+        {n:"Nova", v:"Cyber", o:7, r:"$500M", g:"High", s:"SAP", c:"CFO"},
+        {n:"Tower Semi", v:"Cyber", o:8, r:"$1.4B", g:"Stable", s:"Banks", c:"CFO"},
+        {n:"Delta Galil", v:"Fintech", o:7, r:"$2B", g:"Stable", s:"SAP", c:"CFO"},
+        {n:"Netafim", v:"Fintech", o:7, r:"$1B", g:"Stable", s:"SAP", c:"CFO"},
+        {n:"ThetaRay", v:"Fintech", o:7, r:"$40M", g:"High", s:"Banks", c:"CFO"},
+        {n:"D-ID", v:"SaaS", o:7, r:"Scaling", g:"Hyper", s:"Stripe", c:"CFO"},
+        {n:"Noname", v:"Cyber", o:7, r:"$50M", g:"Mod", s:"Banks", c:"Director"},
+        {n:"Talon", v:"Cyber", o:7, r:"N/A", g:"High", s:"Banks", c:"VP Finance"},
+        {n:"Cybereason", v:"Cyber", o:7, r:"$150M", g:"Low", s:"Banks", c:"VP Finance"},
+        {n:"August", v:"SaaS", o:7, r:"$10M", g:"High", s:"Banks", c:"Growth"},
+        {n:"JoyTunes", v:"SaaS", o:8, r:"$150M", g:"High", s:"Apple", c:"Unicorn"},
+        {n:"Kaltura", v:"SaaS", o:7, r:"$170M", g:"Mod", s:"Banks", c:"Public"},
+        {n:"SimilarWeb", v:"SaaS", o:8, r:"$220M", g:"Mod", s:"Zuora", c:"Public"},
+        {n:"WalkMe", v:"SaaS", o:8, r:"$260M", g:"Low", s:"NetSuite", c:"Acquired"},
+        {n:"IronSource", v:"SaaS", o:10, r:"$1B+", g:"High", s:"Tipalti", c:"Merged"},
+        {n:"ZIM", v:"Fintech", o:8, r:"$10B", g:"Var", s:"Banks", c:"Public"},
+        {n:"Check Point", v:"Cyber", o:8, r:"$2.4B", g:"Stable", s:"SAP", c:"Public"},
+        {n:"CyberArk", v:"Cyber", o:8, r:"$750M", g:"High", s:"SAP", c:"Public"},
+        {n:"Rapyd", v:"Fintech", o:10, r:"$600M", g:"Hyper", s:"Internal", c:"Unicorn"},
+        {n:"eToro", v:"Fintech", o:9, r:"$600M", g:"Mod", s:"Checkout", c:"Unicorn"},
+        {n:"Monday", v:"SaaS", o:10, r:"$900M", g:"High", s:"Stripe", c:"Public"},
+        {n:"Wix.com", v:"SaaS", o:10, r:"$1.6B", g:"Mod", s:"Stripe", c:"Public"},
+        {n:"Wiz.io", v:"Cyber", o:10, r:"$500M", g:"Hyper", s:"Stripe", c:"Unicorn"},
+        {n:"Sapiens Ltd", v:"SaaS", o:8, r:"$500M", g:"Stable", s:"Banks", c:"Public"},
+        {n:"Pagaya Ltd", v:"Fintech", o:9, r:"$800M", g:"High", s:"NetSuite", c:"Public"},
+        {n:"Amdocs Ltd", v:"SaaS", o:8, r:"$4.8B", g:"Stable", s:"SAP", c:"Public"},
+        {n:"Nova Ltd", v:"Cyber", o:7, r:"$500M", g:"High", s:"SAP", c:"Public"},
+        {n:"Tower", v:"Cyber", o:8, r:"$1.4B", g:"Stable", s:"Banks", c:"Public"},
+        {n:"Nice Ltd", v:"SaaS", o:8, r:"$2.4B", g:"Stable", s:"Oracle", c:"Public"},
+        {n:"Fiverr Ltd", v:"Fintech", o:9, r:"$360M", g:"Mod", s:"Payoneer", c:"Public"},
+        {n:"Playtika Ltd", v:"Gaming", o:10, r:"$2.6B", g:"Stable", s:"Banks", c:"Public"},
+        {n:"SolarEdge Ltd", v:"SaaS", o:8, r:"$3B", g:"Low", s:"SAP", c:"Public"},
+        {n:"JFrog Ltd", v:"SaaS", o:8, r:"$350M", g:"High", s:"Zuora", c:"Public"},
+        {n:"SentinelOne Ltd", v:"Cyber", o:9, r:"$620M", g:"High", s:"NetSuite", c:"Public"},
+        {n:"Monday Group", v:"SaaS", o:10, r:"$900M", g:"High", s:"Stripe", c:"Public"},
+        {n:"Wix Group", v:"SaaS", o:10, r:"$1.6B", g:"Mod", s:"Stripe", c:"Public"},
+        {n:"Wiz Group", v:"Cyber", o:10, r:"$500M", g:"Hyper", s:"Stripe", c:"Unicorn"},
+        {n:"Deel Group", v:"Fintech", o:10, r:"$500M", g:"High", s:"Banks", c:"Unicorn"},
+        {n:"Hibob Group", v:"SaaS", o:9, r:"$100M", g:"High", s:"Stripe", c:"Unicorn"},
+        {n:"Tipalti Group", v:"Fintech", o:8, r:"$250M", g:"High", s:"Citi", c:"Unicorn"},
+        {n:"Melio Group", v:"Fintech", o:9, r:"$200M", g:"High", s:"Banks", c:"Unicorn"},
+        {n:"BioCatch Group", v:"Fintech", o:9, r:"$100M", g:"High", s:"Banks", c:"Unicorn"},
+        {n:"HoneyBook Group", v:"Fintech", o:9, r:"$100M", g:"High", s:"Stripe", c:"Unicorn"},
+        {n:"Verbit Group", v:"SaaS", o:8, r:"$100M", g:"Stable", s:"Tipalti", c:"Unicorn"}
         ];
 
-    function render() {
-        const s = document.getElementById('search').value.toLowerCase();
-        const cat = document.getElementById('cat').value;
-        const grid = document.getElementById('grid');
-        
-        // סינון פשוט ויעיל
-        const filtered = db.filter(i => {
-            const nameMatch = i.n.toLowerCase().includes(s);
-            const catMatch = !cat || i.v === cat;
-            return nameMatch && catMatch;
-        });
+function render() {
+    const s = document.getElementById('search').value.toLowerCase();
+    const cat = document.getElementById('catFilter').value;
+    const score = parseInt(document.getElementById('scoreFilter').value);
+    const grid = document.getElementById('grid');
+    
+    const filtered = db.filter(i => {
+        const nameMatch = i.n.toLowerCase().includes(s);
+        const catMatch = !cat || i.v === cat;
+        const scoreMatch = i.o >= score;
+        return nameMatch && catMatch && scoreMatch;
+    });
 
-        grid.innerHTML = filtered.map(i => `
-            <div class="card">
-                <div class="card-top">
-                    <b>${i.n}</b>
-                    <span class="opp-tag">${i.o}</span>
-                </div>
-                <div class="metrics">
-                    <div class="stat"><b>${i.r}</b><span>Rev</span></div>
-                    <div class="stat"><b>${i.g}</b><span>Growth</span></div>
-                    <div class="stat"><b>${i.v}</b><span>Type</span></div>
-                </div>
-                <div class="body">
-                    <div class="stack">Current: ${i.s}</div>
-                    <div class="why">
-                        ✓ High FX complexity<br>
-                        ✓ Multi-entity treasury potential
-                    </div>
-                </div>
-                <div class="footer">👤 Owner: Yaniv Cohen</div>
+    grid.innerHTML = filtered.map(i => `
+        <div class="card">
+            <div class="card-top">
+                <b style="font-size:17px;">${i.n}</b>
+                <span class="opp-tag">${i.o}</span>
             </div>
-        `).join('');
-    }
-
-    // הפעלה ראשונית של התצוגה
-    render();
-    </script>
+            <div class="metrics">
+                <div class="stat"><b>${i.r}</b><span>Revenue</span></div>
+                <div class="stat"><b>${i.g}</b><span>Growth</span></div>
+                <div class="stat"><b>${i.v}</b><span>Type</span></div>
+            </div>
+            <div class="body">
+                <div class="stack">EXISTING STACK: ${i.s}</div>
+                <div class="why-box">
+                    <b>Why Airwallex?</b><br>
+                    ✓ High FX volume potential<br>
+                    ✓ Multi-entity treasury optimization
+                </div>
+            </div>
+            <div class="footer">👤 Contact: ${i.c}</div>
+        </div>
+    `).join('');
+}
+render();
+</script>
 </body>
 </html>
